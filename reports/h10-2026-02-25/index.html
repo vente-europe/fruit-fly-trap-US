@@ -1,0 +1,1719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Fruit Fly Traps — Market Analysis Dashboard 2026-02-25</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f1f5f9;color:#1e293b;font-size:13px}
+header{background:#0f2942;color:#fff;padding:18px 32px;display:flex;justify-content:space-between;align-items:center}
+header h1{font-size:1.2rem}
+header p{font-size:.75rem;opacity:.65;margin-top:3px}
+.tabs{display:flex;background:#fff;border-bottom:2px solid #e2e8f0;padding:0 32px;gap:2px}
+.tab{padding:12px 16px;cursor:pointer;font-size:.83rem;font-weight:600;color:#64748b;border-bottom:3px solid transparent;margin-bottom:-2px;white-space:nowrap;letter-spacing:.01em}
+.tab:hover{color:#1e3a5f}.tab.active{color:#1e3a5f;border-bottom-color:#2563eb}
+.content{padding:22px 32px}
+.panel{display:none}.panel.active{display:block}
+.kpis{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:12px;margin-bottom:20px}
+.kpi{background:#fff;border-radius:8px;padding:14px 16px;box-shadow:0 1px 3px rgba(0,0,0,.07)}
+.kpi-v{font-size:1.15rem;font-weight:700;color:#0f2942;word-break:break-word;line-height:1.2}
+.kpi-l{font-size:.68rem;color:#64748b;margin-top:4px;line-height:1.3}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-bottom:18px}
+.card{background:#fff;border-radius:8px;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,.07);margin-bottom:18px}
+.card h3{font-size:.83rem;font-weight:600;color:#475569;margin-bottom:12px}
+.cw{position:relative;height:240px}
+table{width:100%;border-collapse:collapse;font-size:.75rem}
+th{background:#f8fafc;text-align:left;padding:6px 7px;font-weight:600;color:#475569;white-space:nowrap;position:sticky;top:0;border-bottom:1px solid #e2e8f0}
+td{padding:5px 7px;border-bottom:1px solid #f1f5f9;vertical-align:middle}
+tr:hover td{background:#f8fafc}
+td a{color:#2563eb;text-decoration:none;font-family:monospace;font-size:.72rem}
+td a:hover{text-decoration:underline}
+.tbl-wrap{overflow-x:auto;max-height:460px;overflow-y:auto}
+h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
+.insight{background:#eff6ff;border-left:3px solid #2563eb;padding:10px 14px;border-radius:0 6px 6px 0;margin-bottom:14px;font-size:.8rem;color:#1e40af;line-height:1.5}
+.warn{background:#fff7ed;border-left:3px solid #f97316;color:#9a3412}
+.note{font-size:.72rem;color:#64748b;margin-top:10px;padding:9px 11px;background:#f8fafc;border-radius:5px;border-left:2px solid #cbd5e1;line-height:1.5}
+
+/* Unit economics */
+.econ-inputs{display:flex;gap:18px;margin-bottom:16px;flex-wrap:wrap}
+.econ-field{display:flex;flex-direction:column;gap:4px}
+.econ-field label{font-size:.72rem;font-weight:600;color:#475569}
+.econ-field input{border:1.5px solid #cbd5e1;border-radius:5px;padding:6px 10px;font-size:.85rem;width:120px}
+.econ-field input:focus{outline:none;border-color:#2563eb}
+.econ-field .unit{font-size:.7rem;color:#94a3b8}
+.sl-filters{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px;align-items:flex-end}
+.sl-fld{display:flex;flex-direction:column;gap:3px}
+.sl-fld label{font-size:.7rem;font-weight:600;color:#475569}
+.sl-fld select{border:1.5px solid #cbd5e1;border-radius:5px;padding:5px 8px;font-size:.75rem;min-width:160px;max-width:260px;background:#fff}
+.sl-toggle{display:flex;gap:6px}
+.sl-btn{padding:5px 12px;border:1.5px solid #cbd5e1;border-radius:5px;cursor:pointer;font-size:.75rem;font-weight:600;color:#475569;background:#fff}
+.sl-btn.active{background:#0f2942;color:#fff;border-color:#0f2942}
+.sl-checklist{max-height:160px;overflow-y:auto;border:1.5px solid #cbd5e1;border-radius:5px;background:#fff;padding:3px 0;min-width:200px}
+.sl-checklist label{display:flex;align-items:center;gap:7px;padding:3px 10px;font-size:.74rem;cursor:pointer;color:#1e293b;white-space:nowrap}
+.sl-checklist label:hover{background:#f1f5f9}
+.sl-checklist input[type=checkbox]{cursor:pointer;width:13px;height:13px;accent-color:#2563eb;flex-shrink:0}
+.sl-cl-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:3px}
+.sl-cl-hdr span a{font-size:.68rem;color:#2563eb;cursor:pointer;text-decoration:none;margin-left:4px}
+.sl-cl-hdr span a:hover{text-decoration:underline}
+.delta-pos{color:#16a34a;font-weight:600}
+.delta-neg{color:#dc2626;font-weight:600}
+.delta-neu{color:#64748b}
+.leaders-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-bottom:18px}
+.leader-card{background:#fff;border-radius:8px;padding:14px 16px;box-shadow:0 1px 3px rgba(0,0,0,.07);border-left:4px solid #2563eb}
+.leader-card h4{font-size:.7rem;color:#64748b;margin-bottom:6px;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.leader-card .lc-name{font-size:.9rem;font-weight:700;color:#0f2942}
+.leader-card .lc-val{font-size:.75rem;color:#2563eb;margin-top:2px}
+.seg-tab-btns{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap}
+.seg-tab-btn{padding:5px 12px;border:1.5px solid #cbd5e1;border-radius:20px;cursor:pointer;font-size:.73rem;font-weight:600;color:#475569;background:#fff}
+.seg-tab-btn.active{background:#2563eb;color:#fff;border-color:#2563eb}
+.margin-pos{color:#16a34a;font-weight:600}
+.margin-neg{color:#dc2626;font-weight:600}
+.margin-mid{color:#d97706;font-weight:600}
+
+/* Heatmap */
+.heatmap{border-collapse:collapse;font-size:.73rem}
+.heatmap th,.heatmap td{padding:5px 10px;text-align:center;border:1px solid #e2e8f0}
+.num-right th:not(:first-child),.num-right td:not(:first-child){text-align:right}
+#lureTop20Table th:nth-child(n+4),#lureTop20Table td:nth-child(n+4){text-align:right}
+.hm-g{background:#dcfce7;color:#15803d}.hm-y{background:#fef9c3;color:#854d0e}
+.hm-o{background:#ffedd5;color:#9a3412}.hm-r{background:#fee2e2;color:#991b1b}
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>Fruit Fly Traps — Market Analysis Dashboard</h1>
+    <p>Source: Fruit-flies-traps-24-02.csv &nbsp;·&nbsp; Generated: 2026-02-25 &nbsp;·&nbsp; 57 ASINs</p>
+  </div>
+</header>
+
+<div class="tabs">
+  <div class="tab active" onclick="show('ti',this)">1 — Main Segments (Total Market)</div>
+  <div class="tab" onclick="show('tb',this)">2 — Market Structure</div>
+  <div class="tab" onclick="show('tl',this)">3 — Reviews</div>
+</div>
+
+<div class="content">
+
+<!-- ═<!-- ═<!-- ═<!-- ═<!-- ═<!-- ═<!-- ═<!-- ═<!-- ═<!-- ═ TAB B ══════════ -->
+<div id="tb" class="panel">
+<h2>Market Structure — Lure Segment</h2>
+
+<div class="kpis" style="grid-template-columns:repeat(auto-fill,minmax(160px,1fr))">
+  <div class="kpi"><div class="kpi-v">44.1%</div><div class="kpi-l">Top 1 ASIN Revenue Share</div></div>
+  <div class="kpi"><div class="kpi-v">69.5%</div><div class="kpi-l">Top 3 ASINs Share</div></div>
+  <div class="kpi"><div class="kpi-v">78.7%</div><div class="kpi-l">Top 5 ASINs Share</div></div>
+  <div class="kpi"><div class="kpi-v">89.5%</div><div class="kpi-l">Top 10 ASINs Share</div></div>
+  <div class="kpi"><div class="kpi-v">61.9%</div><div class="kpi-l">Top Brand Share (Terro)</div></div>
+  <div class="kpi"><div class="kpi-v">$21.2M</div><div class="kpi-l">Total Lure Rev (12M)</div></div>
+</div>
+
+<div class="g2" style="align-items:start">
+  <div class="card">
+    <h3>Pack Size — Unit Share (Lure Trap, 12M)</h3>
+    <div class="cw" style="height:300px"><canvas id="packUnitPieChart"></canvas></div>
+    <div class="note">Units sold by pack size. 4-pack dominates with 52% of volume.</div>
+  </div>
+  <div class="card">
+    <h3>Pack Size — Revenue Share (Lure Trap, 12M)</h3>
+    <div class="cw" style="height:300px"><canvas id="packRevPieChart"></canvas></div>
+    <div class="note">Revenue by pack size. 4-pack leads at 51%, 6-pack #2 at 22%.</div>
+  </div>
+</div>
+
+<div class="g2" style="align-items:start">
+  <div class="card">
+    <h3>Brand Units Share — Lure (12M)</h3>
+    <div class="cw" style="height:440px"><canvas id="brandUnitsPieChart"></canvas></div>
+    <div class="note">Unit distribution among Lure brands (12M). Terro leads at 63%, Aunt Fannie's #2 at 10%.</div>
+  </div>
+  <div class="card">
+    <h3>Brand Revenue Share — Lure (12M)</h3>
+    <div class="cw" style="height:440px"><canvas id="brandRevPieChart"></canvas></div>
+    <div class="note">Revenue distribution among Lure brands (12M). Terro dominates at 62% — high entry barrier. Aunt Fannie's #2 at 18% with a very different price point.</div>
+  </div>
+</div>
+
+<!-- PACK SIZE BRAND SHARE PIES — UNITS -->
+<div class="card">
+  <h3>Brand Share by Pack Size — Lure (Units, 12M)</h3>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-top:12px">
+    <div>
+      <p style="text-align:center;font-size:.8rem;font-weight:700;color:#475569;margin:0 0 8px">2-pack &nbsp;·&nbsp; 224.8K units</p>
+      <div class="cw" style="height:260px"><canvas id="packBrand2Chart"></canvas></div>
+    </div>
+    <div>
+      <p style="text-align:center;font-size:.8rem;font-weight:700;color:#475569;margin:0 0 8px">4-pack &nbsp;·&nbsp; 798.9K units</p>
+      <div class="cw" style="height:260px"><canvas id="packBrand4Chart"></canvas></div>
+    </div>
+    <div>
+      <p style="text-align:center;font-size:.8rem;font-weight:700;color:#475569;margin:0 0 8px">6-pack &nbsp;·&nbsp; 266.9K units</p>
+      <div class="cw" style="height:260px"><canvas id="packBrand6Chart"></canvas></div>
+    </div>
+  </div>
+  <div class="note" style="margin-top:14px">Brand unit share within each pack size. Lure segment only, 12M (Mar 2025 – Feb 2026). Source: SHARE_DATA p2_units filtered by Size column.</div>
+</div>
+
+<!-- PACK SIZE BRAND SHARE PIES — REVENUE -->
+<div class="card">
+  <h3>Brand Share by Pack Size — Lure (Revenue, 12M)</h3>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-top:12px">
+    <div>
+      <p style="text-align:center;font-size:.8rem;font-weight:700;color:#475569;margin:0 0 8px">2-pack &nbsp;·&nbsp; $2.99M</p>
+      <div class="cw" style="height:260px"><canvas id="packBrand2RevChart"></canvas></div>
+    </div>
+    <div>
+      <p style="text-align:center;font-size:.8rem;font-weight:700;color:#475569;margin:0 0 8px">4-pack &nbsp;·&nbsp; $10.61M</p>
+      <div class="cw" style="height:260px"><canvas id="packBrand4RevChart"></canvas></div>
+    </div>
+    <div>
+      <p style="text-align:center;font-size:.8rem;font-weight:700;color:#475569;margin:0 0 8px">6-pack &nbsp;·&nbsp; $4.64M</p>
+      <div class="cw" style="height:260px"><canvas id="packBrand6RevChart"></canvas></div>
+    </div>
+  </div>
+  <div class="note" style="margin-top:14px">Brand revenue share within each pack size. Lure segment only, 12M (Mar 2025 – Feb 2026). Revenue = units × ASIN list price. Source: SHARE_DATA p2_rev.</div>
+</div>
+
+<!-- SEGMENT DYNAMICS LINE CHARTS (moved from Tab I) -->
+<div class="card">
+  <h3>% Unit Share — Brand vs. Total Lure</h3>
+  <div class="cw" style="height:460px"><canvas id="lureShareChartTb"></canvas></div>
+  <div class="note">
+    Total Lure sales (units): Mar 34.8K · Apr 50.2K · May 96.9K · Jun 157.0K · Jul 200.5K · Aug 180.5K · Sep 170.6K · Oct 260.4K · Nov 193.1K · Dec 102.0K · Jan 48.0K · Feb 31.1K.
+    Click legend to show/hide brand.
+  </div>
+</div>
+
+<div id="psc_insights" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px"></div>
+
+<div class="card">
+  <h3>Brand Unit Share per Pack Size</h3>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-top:12px">
+    <div>
+      <p style="text-align:center;font-size:.8rem;font-weight:700;color:#475569;margin:0 0 8px">2-pack &nbsp;·&nbsp; 224.8K units</p>
+      <div class="cw" style="height:280px"><canvas id="pscPie2Chart"></canvas></div>
+    </div>
+    <div>
+      <p style="text-align:center;font-size:.8rem;font-weight:700;color:#475569;margin:0 0 8px">4-pack &nbsp;·&nbsp; 798.9K units</p>
+      <div class="cw" style="height:280px"><canvas id="pscPie4Chart"></canvas></div>
+    </div>
+    <div>
+      <p style="text-align:center;font-size:.8rem;font-weight:700;color:#475569;margin:0 0 8px">6-pack &nbsp;·&nbsp; 266.9K units</p>
+      <div class="cw" style="height:280px"><canvas id="pscPie6Chart"></canvas></div>
+    </div>
+  </div>
+  <div class="note" style="margin-top:14px">Unit share % by pack size. Lure segment, 12M (Mar 2025 – Feb 2026).</div>
+</div>
+
+<div class="g2" style="align-items:start">
+  <div class="card">
+    <h3>Price Positioning — TOP 3 Brands per Pack Size</h3>
+    <div class="cw" style="height:320px"><canvas id="pscPriceChart"></canvas></div>
+    <div class="note">Weighted avg price = SUM(revenue) / SUM(units). TOP 3 brands by unit share per pack size only.</div>
+  </div>
+  <div class="card">
+    <h3>Price vs Unit Share</h3>
+    <div style="margin-bottom:10px">
+      <label style="font-size:.73rem;font-weight:600;color:#475569;margin-right:8px">Filter pack size:</label>
+      <select id="pscFilter" onchange="pscFilterScatter()" style="font-size:.73rem;border:1.5px solid #cbd5e1;border-radius:5px;padding:3px 8px;background:#fff">
+        <option value="all">All</option>
+        <option value="2-pack">2-pack</option>
+        <option value="4-pack">4-pack</option>
+        <option value="6-pack">6-pack</option>
+      </select>
+    </div>
+    <div class="cw" style="height:280px"><canvas id="pscScatterChart"></canvas></div>
+    <div class="note">Bubble size proportional to 12M revenue. Each point = one brand in one pack size. Hover for details.</div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>Full Competitive Breakdown — Pack Size
+    <span style="font-size:.72rem;font-weight:400;color:#64748b;margin-left:8px">Click column to sort</span>
+  </h3>
+  <div class="tbl-wrap">
+    <table id="pscTable" class="num-right">
+      <thead><tr>
+        <th>Pack Size</th>
+        <th>Brand</th>
+        <th class="th-sort" onclick="sortTbl('pscTable',2,this)" style="cursor:pointer;user-select:none" data-asc="">Unit Share ▽</th>
+        <th class="th-sort" onclick="sortTbl('pscTable',3,this)" style="cursor:pointer;user-select:none" data-asc="">Value Share ▽</th>
+        <th class="th-sort" onclick="sortTbl('pscTable',4,this)" style="cursor:pointer;user-select:none" data-asc="">Avg Price ▽</th>
+        <th class="th-sort" onclick="sortTbl('pscTable',5,this)" style="cursor:pointer;user-select:none" data-asc="">Units 12M ▽</th>
+        <th class="th-sort" onclick="sortTbl('pscTable',6,this)" style="cursor:pointer;user-select:none" data-asc="">Revenue 12M ▽</th>
+      </tr></thead>
+      <tbody id="pscTableBody"></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card">
+  <h3>Brand Summary — Lure (12M)</h3>
+  <div class="tbl-wrap"><table class="num-right">
+    <thead><tr><th>Brand</th><th>Rev (12M)</th><th>Share</th><th>ASINs</th><th>Avg Price</th><th>Avg Rating</th><th>Total Reviews</th></tr></thead>
+    <tbody>
+    <tr><td>Terro</td><td>$13,099,935</td><td>61.9%</td><td>5</td><td>$17.27</td><td>4.1</td><td>143,267</td></tr>
+    <tr><td>Aunt Fannie's</td><td>$3,791,909</td><td>17.9%</td><td>7</td><td>$30.27</td><td>3.9</td><td>175,672</td></tr>
+    <tr><td>Super Ninja</td><td>$1,398,257</td><td>6.6%</td><td>6</td><td>$16.99</td><td>3.7</td><td>81,504</td></tr>
+    <tr><td>HOT SHOT</td><td>$1,056,369</td><td>5.0%</td><td>1</td><td>$14.16</td><td>2.4</td><td>1,942</td></tr>
+    <tr><td>Qualirey</td><td>$847,920</td><td>4.0%</td><td>13</td><td>$16.45</td><td>4.4</td><td>8,295</td></tr>
+    <tr><td>Raid</td><td>$696,475</td><td>3.3%</td><td>2</td><td>$9.49</td><td>3.3</td><td>14,722</td></tr>
+    <tr><td>STEM</td><td>$129,352</td><td>0.6%</td><td>1</td><td>$6.82</td><td>3.7</td><td>1,966</td></tr>
+    <tr><td>Fly Away Product</td><td>$95,730</td><td>0.5%</td><td>1</td><td>$12.14</td><td>4.3</td><td>276</td></tr>
+    </tbody>
+  </table></div>
+</div>
+
+<div class="card">
+  <h3>Lure ASINs — Top 20 by Revenue
+    <span style="font-size:.72rem;font-weight:400;color:#64748b;margin-left:8px">Click Price or Rev (12M) to sort</span>
+  </h3>
+  <div class="tbl-wrap"><table id="lureTop20Table">
+    <thead><tr>
+      <th>ASIN</th><th>Brand</th><th>Title</th>
+      <th class="th-sort" onclick="sortTbl('lureTop20Table',3,this)" style="cursor:pointer;user-select:none">Price &#9661;</th>
+      <th class="th-sort" onclick="sortTbl('lureTop20Table',4,this)" style="cursor:pointer;user-select:none">Rev (12M) &#9661;</th>
+      <th>BSR</th><th>Reviews</th><th>Age</th>
+    </tr></thead>
+    <tbody>
+    <tr>
+      <td><a href="https://amazon.com/dp/B01MRHXM0I" target="_blank">B01MRHXM0I</a></td>
+      <td>Terro</td>
+      <td><span title="TERRO Fruit Fly Traps for Indoors (4 Pack) + 180 Days of Lure Supply">TERRO Fruit Fly Traps for Indoors (4 Pack) + 180 D…</span></td>
+      <td data-val="13.37">$13.37</td>
+      <td data-val="9345505">$9,345,505</td>
+      <td>36</td>
+      <td>24,094</td>
+      <td>111mo</td>
+    </tr>
+    <tr>
+      <td><a href="https://amazon.com/dp/B0BX4GQF68" target="_blank">B0BX4GQF68</a></td>
+      <td>Terro</td>
+      <td><span title="Terro Fruit Fly Traps for Indoors (6 Pack) + 270 Days of Lure Supply">Terro Fruit Fly Traps for Indoors (6 Pack) + 270 D…</span></td>
+      <td data-val="18.39">$18.39</td>
+      <td data-val="2900837">$2,900,837</td>
+      <td>36</td>
+      <td>24,094</td>
+      <td>35mo</td>
+    </tr>
+    <tr>
+      <td><a href="https://amazon.com/dp/B07VYPGHFW" target="_blank">B07VYPGHFW</a></td>
+      <td>Aunt Fannie's</td>
+      <td><span title="Aunt Fannie's FlyPunch Fruit Fly Trap for Indoor and Kitchen Use, Ready to Use, Pack of 2">Aunt Fannie's FlyPunch Fruit Fly Trap for Indoor a…</span></td>
+      <td data-val="14.99">$14.99</td>
+      <td data-val="2467814">$2,467,814</td>
+      <td>828</td>
+      <td>25,096</td>
+      <td>78mo</td>
+    </tr>
+    <tr>
+      <td><a href="https://amazon.com/dp/B0DGWQV8GK" target="_blank">B0DGWQV8GK</a></td>
+      <td>HOT SHOT</td>
+      <td><span title="Hot Shot Flying Insect Trap, Discreet, Hassle-Free, Captures House and Fruit Flies, 6 Count">Hot Shot Flying Insect Trap, Discreet, Hassle-Free…</span></td>
+      <td data-val="14.16">$14.16</td>
+      <td data-val="1056369">$1,056,369</td>
+      <td>4,047</td>
+      <td>1,942</td>
+      <td>17mo</td>
+    </tr>
+    <tr>
+      <td><a href="https://amazon.com/dp/B0D5DJ7V4P" target="_blank">B0D5DJ7V4P</a></td>
+      <td>Super Ninja</td>
+      <td><span title="Super Ninja Fruit Fly Traps for Indoors - 4 Pack, Highly Effective Fruit Fly Catcher">Super Ninja Fruit Fly Traps for Indoors - 4 Pack, …</span></td>
+      <td data-val="13.99">$13.99</td>
+      <td data-val="898033">$898,033</td>
+      <td>464</td>
+      <td>13,584</td>
+      <td>20mo</td>
+    </tr>
+    <tr>
+      <td><a href="https://amazon.com/dp/B09GDHSW99" target="_blank">B09GDHSW99</a></td>
+      <td>Raid</td>
+      <td><span title="Raid Essentials Fruit Fly Trap for Indoors, Made with Essential Oils, Child and Pet Safe, 5.4 oz">Raid Essentials Fruit Fly Trap for Indoors, Made w…</span></td>
+      <td data-val="6.99">$6.99</td>
+      <td data-val="696475">$696,475</td>
+      <td>1,297</td>
+      <td>3,951</td>
+      <td>53mo</td>
+    </tr>
+    <tr>
+      <td><a href="https://amazon.com/dp/B00WMZMHPW" target="_blank">B00WMZMHPW</a></td>
+      <td>Aunt Fannie's</td>
+      <td><span title="Aunt Fannie's FlyPunch Fruit Fly Trap for Indoor and Kitchen Use, Ready to Use">Aunt Fannie's FlyPunch Fruit Fly Trap for Indoor a…</span></td>
+      <td data-val="7.96">$7.96</td>
+      <td data-val="499788">$499,788</td>
+      <td>828</td>
+      <td>25,096</td>
+      <td>128mo</td>
+    </tr>
+    <tr>
+      <td><a href="https://amazon.com/dp/B07V7GC46D" target="_blank">B07V7GC46D</a></td>
+      <td>Terro</td>
+      <td><span title="Terro Fruit Fly Traps for Indoors (12 Pack) + 540 Days of Lure Supply">Terro Fruit Fly Traps for Indoors (12 Pack) + 540 …</span></td>
+      <td data-val="37.89">$37.89</td>
+      <td data-val="487823">$487,823</td>
+      <td>36</td>
+      <td>24,094</td>
+      <td>79mo</td>
+    </tr>
+    <tr>
+      <td><a href="https://amazon.com/dp/B0DCNZVXTP" target="_blank">B0DCNZVXTP</a></td>
+      <td>Qualirey</td>
+      <td><span title="Qualirey 4 Pack Fruit Fly Trap Refill Liquid, 0.68oz/Bottle, Non Toxic, Red">Qualirey 4 Pack Fruit Fly Trap Refill Liquid, 0.68…</span></td>
+      <td data-val="9.99">$9.99</td>
+      <td data-val="303840">$303,840</td>
+      <td>3,391</td>
+      <td>591</td>
+      <td>17mo</td>
+    </tr>
+    <tr>
+      <td><a href="https://amazon.com/dp/B07W1WLZM7" target="_blank">B07W1WLZM7</a></td>
+      <td>Aunt Fannie's</td>
+      <td><span title="Aunt Fannie's FlyPunch Fruit Fly Trap for Indoor and Kitchen Use, Ready to Use">Aunt Fannie's FlyPunch Fruit Fly Trap for Indoor a…</span></td>
+      <td data-val="21.99">$21.99</td>
+      <td data-val="293856">$293,856</td>
+      <td>828</td>
+      <td>25,096</td>
+      <td>78mo</td>
+    </tr>
+    <tr>
+      <td><a href="https://amazon.com/dp/B00E4GADNA" target="_blank">B00E4GADNA</a></td>
+      <td>Terro</td>
+      <td><span title="TERRO 2-Pack Fly Trap">TERRO 2-Pack Fly Trap</span></td>
+      <td data-val="9.93">$9.93</td>
+      <td data-val="248044">$248,044</td>
+      <td>8,424</td>
+      <td>2,981</td>
+      <td>150mo</td>
+    </tr>
+    <tr>
+      <td><a href="https://amazon.com/dp/B07MF44XRY" target="_blank">B07MF44XRY</a></td>
+      <td>Aunt Fannie's</td>
+      <td><span title="Aunt Fannie's FlyPunch Fruit Fly Trap for Indoor and Kitchen Use, Pack of 8">Aunt Fannie's FlyPunch Fruit Fly Trap for Indoor a…</span></td>
+      <td data-val="41.99">$41.99</td>
+      <td data-val="246969">$246,969</td>
+      <td>828</td>
+      <td>25,096</td>
+      <td>81mo</td>
+    </tr>
+    <tr>
+      <td><a href="https://amazon.com/dp/B0C4Z77R1F" target="_blank">B0C4Z77R1F</a></td>
+      <td>Aunt Fannie's</td>
+      <td><span title="Aunt Fannie's FlyPunch Fruit Fly Trap for Indoor and Kitchen Use, Pack of 3">Aunt Fannie's FlyPunch Fruit Fly Trap for Indoor a…</span></td>
+      <td data-val="19.99">$19.99</td>
+      <td data-val="241030">$241,030</td>
+      <td>828</td>
+      <td>25,096</td>
+      <td>33mo</td>
+    </tr>
+    <tr>
+      <td><a href="https://amazon.com/dp/B0DX45STK3" target="_blank">B0DX45STK3</a></td>
+      <td>Super Ninja</td>
+      <td><span title="Super Ninja Fruit Fly Traps for Indoors - 6 Pack, Highly Effective Fruit Fly Catcher">Super Ninja Fruit Fly Traps for Indoors - 6 Pack, …</span></td>
+      <td data-val="18.99">$18.99</td>
+      <td data-val="236653">$236,653</td>
+      <td>464</td>
+      <td>13,584</td>
+      <td>10mo</td>
+    </tr>
+    <tr>
+      <td><a href="https://amazon.com/dp/B0D4DY85H3" target="_blank">B0D4DY85H3</a></td>
+      <td>Qualirey</td>
+      <td><span title="Qualirey 6 Pack Fruit Fly Trap Refill Liquid, 0.68oz Per Bottle, Non Toxic">Qualirey 6 Pack Fruit Fly Trap Refill Liquid, 0.68…</span></td>
+      <td data-val="11.99">$11.99</td>
+      <td data-val="176009">$176,009</td>
+      <td>6,066</td>
+      <td>659</td>
+      <td>21mo</td>
+    </tr>
+    <tr>
+      <td><a href="https://amazon.com/dp/B09GD8T863" target="_blank">B09GD8T863</a></td>
+      <td>STEM</td>
+      <td><span title="STEM Kills Fruit Fly Trap: Fruit Fly Catcher With Botanical Extracts, 2 Pack">STEM Kills Fruit Fly Trap: Fruit Fly Catcher With …</span></td>
+      <td data-val="6.82">$6.82</td>
+      <td data-val="129352">$129,352</td>
+      <td>8,256</td>
+      <td>1,966</td>
+      <td>53mo</td>
+    </tr>
+    <tr>
+      <td><a href="https://amazon.com/dp/B01JIRNEQW" target="_blank">B01JIRNEQW</a></td>
+      <td>Terro</td>
+      <td><span title="TERRO T2502 Ready-to-Use Indoor Fruit Fly Trap with Built in Window, 2 Traps">TERRO T2502 Ready-to-Use Indoor Fruit Fly Trap wit…</span></td>
+      <td data-val="6.77">$6.77</td>
+      <td data-val="117727">$117,727</td>
+      <td>17,037</td>
+      <td>68,004</td>
+      <td>113mo</td>
+    </tr>
+    <tr>
+      <td><a href="https://amazon.com/dp/B0D5DDC4ZS" target="_blank">B0D5DDC4ZS</a></td>
+      <td>Super Ninja</td>
+      <td><span title="Super Ninja Fruit Fly Traps for Indoors - 12 Pack, Highly Effective Fruit Fly Catcher">Super Ninja Fruit Fly Traps for Indoors - 12 Pack,…</span></td>
+      <td data-val="37.99">$37.99</td>
+      <td data-val="111398">$111,398</td>
+      <td>464</td>
+      <td>13,584</td>
+      <td>20mo</td>
+    </tr>
+    <tr>
+      <td><a href="https://amazon.com/dp/B0D5DJBVCR" target="_blank">B0D5DJBVCR</a></td>
+      <td>Super Ninja</td>
+      <td><span title="Super Ninja Fruit Fly Traps for Indoors - 2 Pack, Highly Effective Fruit Fly Catcher">Super Ninja Fruit Fly Traps for Indoors - 2 Pack, …</span></td>
+      <td data-val="9.99">$9.99</td>
+      <td data-val="109500">$109,500</td>
+      <td>464</td>
+      <td>13,584</td>
+      <td>19mo</td>
+    </tr>
+    <tr>
+      <td><a href="https://amazon.com/dp/B0CJ3Z5TKN" target="_blank">B0CJ3Z5TKN</a></td>
+      <td>Fly Away Product</td>
+      <td><span title="Fly Away Fruit Fly Liquid Lure - Trap Fruit Flies Fast. Safe Around Food, Kids and Pets.">Fly Away Fruit Fly Liquid Lure - Trap Fruit Flies …</span></td>
+      <td data-val="12.14">$12.14</td>
+      <td data-val="95730">$95,730</td>
+      <td>12,806</td>
+      <td>276</td>
+      <td>28mo</td>
+    </tr>
+    </tbody>
+  </table></div>
+</div>
+
+
+<!-- SEASONALITY KPIs + CHART — copied from Tab D -->
+<div class="kpis" style="grid-template-columns:repeat(auto-fill,minmax(160px,1fr))">
+  <div class="kpi"><div class="kpi-v">Jul</div><div class="kpi-l">Peak (index 1.64)</div></div>
+  <div class="kpi"><div class="kpi-v">Jan</div><div class="kpi-l">Trough (index 0.33)</div></div>
+  <div class="kpi"><div class="kpi-v">5.0×</div><div class="kpi-l">Peak / Trough Ratio</div></div>
+  <div class="kpi"><div class="kpi-v">3.0%</div><div class="kpi-l">Revenue from listings &lt;12mo</div></div>
+</div>
+
+<div class="card">
+  <h3>Monthly Seasonality Index (1.0 = average month) &nbsp;
+    <span style="font-size:.7rem;color:#16a34a">&#9632; Peak</span>&nbsp;
+    <span style="font-size:.7rem;color:#dc2626">&#9632; Trough</span>
+  </h3>
+  <div class="cw" style="height:180px"><canvas id="seasIdxChartTb"></canvas></div>
+  <div class="note">Lure segment only. Index 1.0 = typical month. &gt;1.0 = sales above average, &lt;1.0 = below. Helps plan product launch timing and PPC budget allocation throughout the year.</div>
+</div>
+
+</div>
+
+
+
+
+<!-- ═══════════════════════════════════════ TAB I ══════════════════════════ -->
+<div id="ti" class="panel active">
+<h2>Segments Analysis</h2>
+
+<div class="insight">
+  <strong>Segment-level view only.</strong> All metrics are aggregated to segment before calculation. Individual ASINs are not shown. 12-month window: Mar 2025 – Feb 2026. Growth = avg(last 3M) vs avg(previous 3M).
+</div>
+
+<!-- TOTAL CATEGORY KPI -->
+<div id="seg_total_kpi" style="margin-bottom:14px"></div>
+
+<!-- KPI CARDS — one block per segment -->
+<div id="seg_kpi_section" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;margin-bottom:22px"></div>
+
+
+<!-- PIE CHARTS -->
+<div class="g2">
+  <div class="card">
+    <h3>Market Share — Units (12M)</h3>
+    <div id="seg_pie_unit_total" style="font-size:.82rem;color:#64748b;margin:-6px 0 10px"></div>
+    <div class="cw" style="height:320px"><canvas id="segUnitPieChart"></canvas></div>
+    <div class="note">Unit share reflects how many of all segment units each segment accounts for. A dominant segment may indicate strong consumer preference or a mature category. A small share might reflect a niche or emerging position. Share alone may not indicate profitability or growth potential.</div>
+  </div>
+  <div class="card">
+    <h3>Market Share — Revenue (12M)</h3>
+    <div id="seg_pie_rev_total" style="font-size:.82rem;color:#64748b;margin:-6px 0 10px"></div>
+    <div class="cw" style="height:320px"><canvas id="segRevPieChart"></canvas></div>
+    <div class="note">Revenue share may differ from unit share when segments operate at different price levels. A segment with a higher revenue share relative to its unit share might suggest premium positioning. Divergence between the two could reflect different pricing structures across segments.</div>
+  </div>
+</div>
+
+
+<!-- SUMMARY TABLE -->
+<div class="card">
+  <h3>Segment Summary (12M)</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr>
+        <th>Segment</th>
+        <th style="text-align:right">Units (12M)</th>
+        <th style="text-align:right">Revenue (12M)</th>
+        <th style="text-align:right">Unit Share</th>
+        <th style="text-align:right">Rev Share</th>
+      </tr></thead>
+      <tbody id="seg_summary_tbody"></tbody>
+    </table>
+  </div>
+</div>
+
+</div>
+<!-- END TAB I -->
+
+
+<!-- ════════════════════════════════════════ TAB L ══════════════════════════ -->
+<div id="tl" class="panel">
+<h2>Reviews — Terro vs. Hot Shot (Lure)</h2>
+
+<div class="insight">
+  818 Amazon reviews: <strong>498 Terro</strong> · <strong>320 Hot Shot</strong>. Lower-rated (1★+2★+3★): 528 reviews classified by failure type.
+  Source: Manual scraping, February 2026.
+</div>
+
+<!-- SECTION 1: Star Distribution -->
+<div class="card">
+  <h3>Star Rating Distribution — Terro vs. Hot Shot</h3>
+  <div class="cw" style="height:140px"><canvas id="starDistChart"></canvas></div>
+</div>
+
+<!-- SECTION 2 + 4 side by side -->
+<div class="g2" style="align-items:start">
+  <div class="card">
+    <h3>Market Unmet Needs — failure categories (combined)</h3>
+    <div class="cw" style="height:300px"><canvas id="unmetNeedsChart"></canvas></div>
+    <div class="note">528 lower-rated reviews (1★+2★+3★) across both brands. One review = one category (first match).</div>
+  </div>
+  <div class="card">
+    <h3>Failure Type by Brand</h3>
+    <div class="cw" style="height:300px"><canvas id="failByBrandChart"></canvas></div>
+    <div class="note">% of each brand's 1★+2★+3★ reviews classified in each category. Terro: 300 reviews · Hot Shot: 228 reviews.</div>
+  </div>
+</div>
+
+<!-- SECTION 3: Narrative Patterns -->
+<h3 style="margin:20px 0 12px;font-size:.95rem;font-weight:700;color:#1e293b">Narrative Patterns — 5 most common customer stories (1★+2★+3★)</h3>
+<div class="g2">
+  <div class="card" style="border-left:3px solid #dc2626">
+    <div style="font-size:.78rem;font-weight:700;color:#dc2626;margin-bottom:8px">PATTERN 1 &nbsp;·&nbsp; "Zero attractiveness — lure formula fails"</div>
+    <div style="font-size:.82rem;font-weight:600;color:#1e293b;margin-bottom:6px">Product doesn't attract flies — trap empty after weeks</div>
+    <ul style="font-size:.78rem;color:#475569;line-height:1.7;margin:0 0 10px;padding-left:16px">
+      <li>Customer buys based on positive reviews or brand trust</li>
+      <li>Places trap as instructed in the fly hotspot area</li>
+      <li>Returns to empty or near-empty trap after 3–14 days</li>
+      <li>Conclusion: lure simply doesn't work for their infestation</li>
+    </ul>
+    <div style="font-size:.73rem;color:#64748b;background:#fef2f2;border-radius:4px;padding:8px 10px;font-style:italic;line-height:1.5">
+      "Two weeks of use, ZERO dead gnats." &nbsp;·&nbsp; "NOT A SINGLE TRAP HAS ANY BUGS IN IT! It does not attract them as described."
+    </div>
+    <div style="font-size:.73rem;font-weight:700;color:#dc2626;margin-top:8px">→ Core category problem: lure formula doesn't work for every infestation type</div>
+  </div>
+  <div class="card" style="border-left:3px solid #f97316">
+    <div style="font-size:.78rem;font-weight:700;color:#f97316;margin-bottom:8px">PATTERN 2 &nbsp;·&nbsp; "Holes too big — trap becomes a breeding site"</div>
+    <div style="font-size:.82rem;font-weight:600;color:#1e293b;margin-bottom:6px">Flies enter and exit freely — infestation gets worse</div>
+    <ul style="font-size:.78rem;color:#475569;line-height:1.7;margin:0 0 10px;padding-left:16px">
+      <li>Customer sees flies entering the trap — product "looks like it's working"</li>
+      <li>Discovers holes are too large — flies also exit freely</li>
+      <li>Flies lay eggs in the liquid inside the trap</li>
+      <li>Infestation is worse than before purchase</li>
+    </ul>
+    <div style="font-size:.73rem;color:#64748b;background:#fff7ed;border-radius:4px;padding:8px 10px;font-style:italic;line-height:1.5">
+      "the holes are way too big. My problem got worse as they continued to breed." &nbsp;·&nbsp; "Catches them and then they breed inside."
+    </div>
+    <div style="font-size:.73rem;font-weight:700;color:#f97316;margin-top:8px">→ Design flaw creates the opposite effect — a trap with a closure mechanism eliminates this problem</div>
+  </div>
+</div>
+<div class="g2" style="margin-top:0">
+  <div class="card" style="border-left:3px solid #d97706">
+    <div style="font-size:.78rem;font-weight:700;color:#d97706;margin-bottom:8px">PATTERN 3 &nbsp;·&nbsp; "DIY beats the product"</div>
+    <div style="font-size:.82rem;font-weight:600;color:#1e293b;margin-bottom:6px">Apple cider vinegar in a cup outperforms a $15–20 product</div>
+    <ul style="font-size:.78rem;color:#475569;line-height:1.7;margin:0 0 10px;padding-left:16px">
+      <li>Customer tests product alongside homemade method (vinegar + dish soap)</li>
+      <li>Compares results — homemade method wins or ties</li>
+      <li>Returns to DIY and loses faith in commercial product category</li>
+      <li>Leaves a review warning others against purchasing</li>
+    </ul>
+    <div style="font-size:.73rem;color:#64748b;background:#fffbeb;border-radius:4px;padding:8px 10px;font-style:italic;line-height:1.5">
+      "I might as well have poured apple cider vinegar in a cup." &nbsp;·&nbsp; "Totally garbage — I'll stick to using a bowl of dishwater."
+    </div>
+    <div style="font-size:.73rem;font-weight:700;color:#d97706;margin-top:8px">→ 28% of Terro reviews mention DIY — strong commoditization pressure across the whole category</div>
+  </div>
+  <div class="card" style="border-left:3px solid #7c3aed">
+    <div style="font-size:.78rem;font-weight:700;color:#7c3aed;margin-bottom:8px">PATTERN 4 &nbsp;·&nbsp; "Wrong pest — gnats ≠ fruit flies"</div>
+    <div style="font-size:.82rem;font-weight:600;color:#1e293b;margin-bottom:6px">Customer has fungus gnats — buys fruit fly trap and gets zero effect</div>
+    <ul style="font-size:.78rem;color:#475569;line-height:1.7;margin:0 0 10px;padding-left:16px">
+      <li>Customer identifies their problem as "flies" — buys fruit fly trap</li>
+      <li>Actually has fungus gnats or other insects not attracted by the lure</li>
+      <li>Product has zero effect — complete disappointment</li>
+      <li>Gives 1★ to a product that works — just not on their pest</li>
+    </ul>
+    <div style="font-size:.73rem;color:#64748b;background:#faf5ff;border-radius:4px;padding:8px 10px;font-style:italic;line-height:1.5">
+      "If you have fungus flies/gnats, this product won't help." &nbsp;·&nbsp; "Tried Terro apple-shaped traps... killed zero gnats in my office plants."
+    </div>
+    <div style="font-size:.73rem;font-weight:700;color:#7c3aed;margin-top:8px">→ Wrong pest identification drives some 1★ reviews — opportunity to educate customers in the listing</div>
+  </div>
+</div>
+<div class="card" style="border-left:3px solid #0891b2;margin-top:0">
+  <div style="font-size:.78rem;font-weight:700;color:#0891b2;margin-bottom:8px">PATTERN 5 &nbsp;·&nbsp; "Packaging disaster — first touch destroys trust"</div>
+  <div style="font-size:.82rem;font-weight:600;color:#1e293b;margin-bottom:6px">Packaging spills on opening — brand loses trust in 60 seconds</div>
+  <ul style="font-size:.78rem;color:#475569;line-height:1.7;margin:0 0 10px;padding-left:16px">
+    <li>Customer opens packaging and immediately encounters a mechanical problem</li>
+    <li>Foil seal is difficult to remove or spills liquid (Terro)</li>
+    <li>Plastic containers are warped and liquid spills when unpacking (Hot Shot)</li>
+    <li>First product interaction destroys brand trust — review written in anger</li>
+  </ul>
+  <div style="font-size:.73rem;color:#64748b;background:#f0f9ff;border-radius:4px;padding:8px 10px;font-style:italic;line-height:1.5">
+    "Every single tub was warped, causing it to sit lopsided… I spilled liquid on my hands." (Hot Shot) &nbsp;·&nbsp; "The foil is stuck and makes the fluid spill when you try to open it." (Terro)
+  </div>
+  <div style="font-size:.73rem;font-weight:700;color:#0891b2;margin-top:8px">→ Hot Shot 1.8× more ease-of-use complaints than Terro (14.0% vs 7.7%) — packaging UX as the key to winning</div>
+</div>
+
+<!-- SECTION 5: Strategic Metrics -->
+<h3 style="margin:28px 0 12px;font-size:.95rem;font-weight:700;color:#1e293b">Strategic Metrics</h3>
+<div class="g2" style="align-items:start">
+  <div class="card">
+    <h4 style="font-size:.85rem;font-weight:700;margin:0 0 8px">5a. DIY Comparison Rate</h4>
+    <div style="font-size:.78rem;color:#475569;margin-bottom:12px">% of reviews mentioning apple cider vinegar, DIY, dish soap as an alternative</div>
+    <div class="kpis" style="grid-template-columns:1fr 1fr 1fr;gap:8px;margin:0">
+      <div class="kpi" style="padding:10px"><div class="kpi-v" style="font-size:1.3rem">28.3%</div><div class="kpi-l">Terro</div></div>
+      <div class="kpi" style="padding:10px"><div class="kpi-v" style="font-size:1.3rem">6.1%</div><div class="kpi-l">Hot Shot</div></div>
+      <div class="kpi" style="padding:10px"><div class="kpi-v" style="font-size:1.3rem">18.8%</div><div class="kpi-l">Combined</div></div>
+    </div>
+    <div class="note" style="margin-top:10px">Terro 4.6× higher — customers with a larger review base more often compare with DIY. Signal of category commoditization.</div>
+  </div>
+  <div class="card">
+    <h4 style="font-size:.85rem;font-weight:700;margin:0 0 8px">5b. Trust Damage Phrases</h4>
+    <div style="font-size:.78rem;color:#475569;margin-bottom:12px">% of reviews containing phrases: "waste of money", "never again", "do not buy", "return", "refund", "scam"</div>
+    <div class="kpis" style="grid-template-columns:1fr 1fr;gap:8px;margin:0">
+      <div class="kpi" style="padding:10px"><div class="kpi-v" style="font-size:1.3rem">8.7%</div><div class="kpi-l">Terro</div></div>
+      <div class="kpi" style="padding:10px"><div class="kpi-v" style="font-size:1.3rem">5.7%</div><div class="kpi-l">Hot Shot</div></div>
+    </div>
+    <div class="note" style="margin-top:10px">Terro higher despite better rating — driven by higher expectations from customers who paid more for the brand.</div>
+  </div>
+</div>
+<div class="g2" style="align-items:start;margin-top:0">
+  <div class="card">
+    <h4 style="font-size:.85rem;font-weight:700;margin:0 0 8px">5c. Emotional Intensity Score</h4>
+    <div style="font-size:.78rem;color:#475569;margin-bottom:12px">Average: CAPS words (3+ letters) + exclamation marks + strong negative words per review</div>
+    <div class="kpis" style="grid-template-columns:1fr 1fr;gap:8px;margin:0">
+      <div class="kpi" style="padding:10px"><div class="kpi-v" style="font-size:1.4rem;color:#dc2626">1.09</div><div class="kpi-l">Hot Shot</div></div>
+      <div class="kpi" style="padding:10px"><div class="kpi-v" style="font-size:1.4rem">0.50</div><div class="kpi-l">Terro</div></div>
+    </div>
+    <div class="note" style="margin-top:10px">Hot Shot 2.2× more emotional — HS customers more surprised by poor quality. Higher brand reputation risk.</div>
+  </div>
+  <div class="card">
+    <h4 style="font-size:.85rem;font-weight:700;margin:0 0 8px">5d. Time-to-Failure</h4>
+    <div style="font-size:.78rem;color:#475569;margin-bottom:8px">When customer reports failure (out of 132 reviews specifying time; 75% don't specify)</div>
+    <div class="cw" style="height:160px"><canvas id="ttfChart"></canvas></div>
+  </div>
+</div>
+
+<!-- SECTION 6: Strategic Insights -->
+<div class="card" style="margin-top:18px">
+  <h3>Strategic Insights — what these reviews tell us about the market opportunity</h3>
+  <table>
+    <thead><tr><th style="width:42%">Review Observation</th><th>Product Implication</th></tr></thead>
+    <tbody>
+      <tr><td>76.5% of 1★+2★+3★ reviews cite ineffectiveness as the primary failure</td><td>New product must prove effectiveness <em>before</em> purchase — catch video, catch counter, visible trap design</td></tr>
+      <tr><td>28% of Terro reviews mention DIY (apple cider vinegar) as an alternative</td><td>Lure formula must be clearly better than homemade method — otherwise customer returns to the vinegar cup</td></tr>
+      <tr><td>1.5% negative = design flaw (holes too large, flies go in and out freely)</td><td>Physical closure mechanism (no exit path once inside trap) eliminates this failure mode completely</td></tr>
+      <tr><td>Hot Shot 1.8× more ease-of-use complaints than Terro (14.0% vs 7.7%)</td><td>Packaging UX and first-use experience are critical — customer judges the brand in the first 60 seconds of opening</td></tr>
+      <tr><td>3.2% report failure on Day 1 — peak failure window is ~1 week (13.3%)</td><td>Customers give the product a chance but expect visible results within 7 days — this is the critical communication window</td></tr>
+      <tr><td>75% of 1★+2★+3★ reviews don't specify time to failure</td><td>Product fails consistently from the start, not after depletion — problem lies in the lure formula, not durability</td></tr>
+      <tr><td>Hot Shot 2.2× higher emotional intensity score (1.09 vs 0.50 Terro)</td><td>HS customers are more surprised by poor quality — the gap between promise and reality is sharp and reputationally damaging</td></tr>
+      <tr><td>A significant portion of 1★ reviews are likely fungus gnats, not fruit flies</td><td>Educating customers about pest type in the listing (FAQ, bullet points) can prevent negative reviews without changing the product</td></tr>
+      <tr><td>1.3% of Terro reviews: "problem returned" after a few days — short-term effectiveness</td><td>A product offering long-term infestation control (refill + source treatment) addresses an unmet market need</td></tr>
+      <tr><td>Safety concern in only 0.8% of all 1★+2★+3★ reviews</td><td>"Safe for children &amp; pets" is not the primary purchase barrier — no need to over-emphasize in communications</td></tr>
+    </tbody>
+  </table>
+</div>
+
+</div><!-- END TAB L -->
+
+
+</div><!-- .content -->
+
+<script>
+// ── Tab switching ────────────────────────────────────────────────────────────
+function show(id, el) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  const panel = document.getElementById(id);
+  panel.classList.add('active');
+  el.classList.add('active');
+  // Force synchronous reflow so panel has real dimensions before resize
+  void panel.offsetHeight;
+  Object.values(Chart.instances).forEach(c => c.resize());
+}
+
+const C10 = ['#2563eb','#16a34a','#dc2626','#d97706','#7c3aed','#0891b2','#be185d','#65a30d','#ea580c','#1d4ed8'];
+
+// ── Scatter helper ─────────────────────────────────────────────────────────
+function makeScatter(id, data, xlabel, ylabel, color) {
+  const ctx = document.getElementById(id);
+  if (!ctx) return;
+  return new Chart(ctx, {
+    type: 'scatter',
+    data: { datasets: [{ data: data.map(d => ({x:d.x, y:d.y})), backgroundColor: color+'99', pointRadius: 5 }] },
+    options: {
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false },
+        tooltip: { callbacks: { label: ctx2 => {
+          const d = data[ctx2.dataIndex];
+          return d ? `${d.label}: (${d.x?.toLocaleString()}, ${d.y?.toLocaleString()})` : '';
+        } } } },
+      scales: {
+        x: { title: { display: true, text: xlabel, font: { size: 10 } } },
+        y: { title: { display: true, text: ylabel, font: { size: 10 } },
+              ticks: { callback: v => '$' + (v/1000).toFixed(0) + 'k' } }
+      }
+    }
+  });
+}
+
+
+// ── Tab A — Brand Share Pies (Units + Revenue, 12M) ──────────────────────────
+const BRAND_LABELS_12M = ["Terro", "Aunt Fannie's", "Super Ninja", "HOT SHOT", "Qualirey", "Raid", "STEM", "Fly Away Product"];
+const BRAND_UNITS_12M  = [758823, 125261, 82299, 74601, 51540, 73390, 18967, 7885];
+const BRAND_REV_12M    = [13099935, 3791909, 1398257, 1056369, 847920, 696475, 129352, 95730];
+
+(function() {
+  const totalU = BRAND_UNITS_12M.reduce((a,b) => a+b, 0);
+  const totalR = BRAND_REV_12M.reduce((a,b) => a+b, 0);
+  function makeBrandPie(canvasId, rawData, total, fmtDl, fmtTt) {
+    const el = document.getElementById(canvasId);
+    if (!el) return;
+    new Chart(el, {
+      type: 'pie',
+      plugins: [ChartDataLabels],
+      data: { labels: BRAND_LABELS_12M, datasets: [{ data: rawData, backgroundColor: C10 }] },
+      options: {
+        maintainAspectRatio: false,
+        layout: { padding: { top: 10, left: 10, right: 10, bottom: 10 } },
+        plugins: {
+          legend: {
+            display: true, position: 'left',
+            labels: {
+              font: { size: 11 }, boxWidth: 12, padding: 10,
+              generateLabels: chart => {
+                const ds = chart.data.datasets[0].data;
+                return BRAND_LABELS_12M.map((lbl, i) => ({
+                  text: lbl + ' — ' + fmtDl(ds[i]) + ' (' + Math.round(ds[i] / total * 100) + '%)',
+                  fillStyle: C10[i], strokeStyle: C10[i], lineWidth: 0, hidden: false, index: i
+                }));
+              }
+            }
+          },
+          datalabels: {
+            formatter: (v, ctx) => {
+              const pct = Math.round(v / total * 100);
+              const lbl = ctx.chart.data.labels[ctx.dataIndex];
+              return ctx.dataIndex < 3 ? lbl + '\n' + fmtDl(v) + '\n(' + pct + '%)' : null;
+            },
+            color: '#fff', font: { weight: 'bold', size: 11 }, textAlign: 'center'
+          },
+          tooltip: { callbacks: { label: ctx => ctx.label + ': ' + fmtTt(ctx.raw) + ' (' + (ctx.raw/total*100).toFixed(1) + '%)' } }
+        }
+      }
+    });
+  }
+  makeBrandPie('brandUnitsPieChart', BRAND_UNITS_12M, totalU,
+    v => (v/1000).toFixed(0)+'K', v => v.toLocaleString()+' units');
+  makeBrandPie('brandRevPieChart', BRAND_REV_12M, totalR,
+    v => '$'+(v/1e6).toFixed(1)+'M', v => '$'+v.toLocaleString());
+})();
+
+// ── Pack Size Pies (Lure, 12M) ──────────────────────────────────────────────
+(function() {
+  const PACK_LABELS = ['4-pack','6-pack','2-pack','1-pack','12-pack','Other'];
+  const PACK_UNITS  = [798901, 266862, 224755, 196966, 23174, 36678];
+  const PACK_REV    = [10606983, 4639526, 2992085, 1511059, 741731, 766779];
+  const PACK_COLORS = ['#2563eb','#16a34a','#d97706','#7c3aed','#0891b2','#94a3b8'];
+
+  function makePackPie(canvasId, data, total, fmtVal, fmtTt) {
+    new Chart(document.getElementById(canvasId), {
+      type: 'pie',
+      plugins: [ChartDataLabels],
+      data: { labels: PACK_LABELS, datasets: [{ data: data, backgroundColor: PACK_COLORS }] },
+      options: {
+        maintainAspectRatio: false,
+        layout: { padding: { top: 10, left: 10, right: 10, bottom: 10 } },
+        plugins: {
+          legend: {
+            display: true, position: 'left',
+            labels: {
+              font: { size: 11 }, boxWidth: 12, padding: 10,
+              generateLabels: chart => {
+                const ds = chart.data.datasets[0].data;
+                return PACK_LABELS.map((lbl, i) => ({
+                  text: lbl + ' — ' + fmtVal(ds[i]) + ' (' + Math.round(ds[i] / total * 100) + '%)',
+                  fillStyle: PACK_COLORS[i], strokeStyle: PACK_COLORS[i], lineWidth: 0, hidden: false, index: i
+                }));
+              }
+            }
+          },
+          datalabels: {
+            formatter: (v, ctx) => {
+              const pct = Math.round(v / total * 100);
+              return pct >= 5 ? PACK_LABELS[ctx.dataIndex] + '\n' + pct + '%' : null;
+            },
+            color: '#fff', font: { weight: 'bold', size: 11 }, textAlign: 'center'
+          },
+          tooltip: { callbacks: { label: ctx => ctx.label + ': ' + fmtTt(ctx.raw) + ' (' + (ctx.raw/total*100).toFixed(1) + '%)' } }
+        }
+      }
+    });
+  }
+
+  const totalU = PACK_UNITS.reduce((a,b) => a+b, 0);
+  const totalR = PACK_REV.reduce((a,b) => a+b, 0);
+  makePackPie('packUnitPieChart', PACK_UNITS, totalU,
+    v => (v/1000).toFixed(0)+'K', v => v.toLocaleString()+' units');
+  makePackPie('packRevPieChart', PACK_REV, totalR,
+    v => '$'+(v/1e6).toFixed(1)+'M', v => '$'+v.toLocaleString());
+})();
+
+// ── Tab D — Seasonality ────────────────────────────────────────────────────
+  const SHARE_DATA = {"asin_data": [{"asin": "B004FDUHS8", "brand": "Natural Catch", "segment": "Unclassified", "price": 18.51, "title": "Natural Catch Fruit Fly Traps - 2 Traps", "p1_units": 1756.0, "p2_units": 1767.2, "p1_rev": 32504.49, "p2_rev": 32710.87}, {"asin": "B005V6ASZU", "brand": "PIC", "segment": "Sticky traps", "price": 8.99, "title": "PIC FR10B 69060216325 Fly Ribbons Fruit Fly Traps for Indoor", "p1_units": 12814.9, "p2_units": 21885.5, "p1_rev": 115206.22, "p2_rev": 196750.56}, {"asin": "B009D17Z5U", "brand": "Fruit Fly BarPro", "segment": "Passive attractor", "price": 11.49, "title": "Fruit Fly BarPro \u2013 Vapor-Activated Insect Control Strip \u2013 Be", "p1_units": 20526.7, "p2_units": 21749.8, "p1_rev": 235851.44, "p2_rev": 249904.63}, {"asin": "B00E4GADNA", "brand": "Terro", "segment": "Lure", "price": 9.93, "title": "TERRO 2-Pack Fly Trap", "p1_units": 45489.3, "p2_units": 25230.7, "p1_rev": 451708.55, "p2_rev": 250541.15}, {"asin": "B00MP3DZ4I", "brand": "RESCUE!", "segment": "Unclassified", "price": 21.18, "title": "RESCUE! Fruit Fly Trap Bait Refill \u2013 30 Day Supply \u2013 10 Pack", "p1_units": 1136.3, "p2_units": 1460.6, "p1_rev": 24067.68, "p2_rev": 30934.66}, {"asin": "B00WMZMHPW", "brand": "Aunt Fannie's", "segment": "Lure", "price": 7.96, "title": "Aunt Fannie's FlyPunch Fruit Fly Trap for Indoor and Kitchen", "p1_units": 62186.5, "p2_units": 63070.2, "p1_rev": 495004.3, "p2_rev": 502038.55}, {"asin": "B01JIRNEQW", "brand": "Terro", "segment": "Lure", "price": 6.77, "title": "TERRO T2502 Ready-to-Use Indoor Fruit Fly Trap with Built in", "p1_units": 42924.0, "p2_units": 17703.8, "p1_rev": 290595.55, "p2_rev": 119854.66}, {"asin": "B01MRHXM0I", "brand": "Terro", "segment": "Lure", "price": 13.37, "title": "TERRO Fruit Fly Traps for Indoors (4 Pack) + 180 Days of Lur", "p1_units": 478199.2, "p2_units": 701671.2, "p1_rev": 6393523.71, "p2_rev": 9381343.94}, {"asin": "B06X1GN4B7", "brand": "Fruit Fly BarPro", "segment": "Passive attractor", "price": 59.99, "title": "Fruit Fly BarPro \u2013 Vapor-Activated Insect Control Strip \u2013 Be", "p1_units": 6216.1, "p2_units": 7509.6, "p1_rev": 372906.84, "p2_rev": 450500.9}, {"asin": "B071FVCYFW", "brand": "Unknown", "segment": "Unclassified", "price": null, "title": "B071FVCYFW", "p1_units": 0.0, "p2_units": 2078.3, "p1_rev": null, "p2_rev": null}, {"asin": "B07CR9B27M", "brand": "Fruit Fly BarPro", "segment": "Passive attractor", "price": 109.99, "title": "Fruit Fly BarPro \u2013 Vapor-Activated Insect Control Strip \u2013 Be", "p1_units": 4215.8, "p2_units": 4519.6, "p1_rev": 463698.04, "p2_rev": 497115.2}, {"asin": "B07KRRJT5J", "brand": "Kensizer", "segment": "Sticky traps", "price": 8.09, "title": "Kensizer 20-Pack Fruit Fly Trap, Yellow Sticky Gnat Traps Ki", "p1_units": 41626.2, "p2_units": 31825.4, "p1_rev": 336755.72, "p2_rev": 257467.49}, {"asin": "B07MF44XRY", "brand": "Aunt Fannie's", "segment": "Lure", "price": 41.99, "title": "Aunt Fannie's FlyPunch Fruit Fly Trap for Indoor and Kitchen", "p1_units": 7060.5, "p2_units": 5922.7, "p1_rev": 296468.3, "p2_rev": 248692.91}, {"asin": "B07V6HBYHK", "brand": "Catchmaster", "segment": "Sticky traps", "price": 12.99, "title": "Catchmaster Fly Ribbon 20-Pack, Bug & Fruit Fly Traps Outdoo", "p1_units": 59391.1, "p2_units": 83917.2, "p1_rev": 771490.52, "p2_rev": 1090083.78}, {"asin": "B07V7GC46D", "brand": "Terro", "segment": "Lure", "price": 37.89, "title": "Terro Fruit Fly Traps for Indoors (12 Pack) + 540 Days of Lu", "p1_units": 13589.2, "p2_units": 12955.7, "p1_rev": 514895.55, "p2_rev": 490889.96}, {"asin": "B07VYPGHFW", "brand": "Aunt Fannie's", "segment": "Lure", "price": 14.99, "title": "Aunt Fannie's FlyPunch Fruit Fly Trap for Indoor and Kitchen", "p1_units": 162243.7, "p2_units": 165411.9, "p1_rev": 2432032.91, "p2_rev": 2479523.78}, {"asin": "B07W1WLZM7", "brand": "Aunt Fannie's", "segment": "Lure", "price": 21.99, "title": "Aunt Fannie's FlyPunch Fruit Fly Trap for Indoor and Kitchen", "p1_units": 15894.3, "p2_units": 13471.3, "p1_rev": 349515.0, "p2_rev": 296233.45}, {"asin": "B07XLM4FWL", "brand": "Stingmon", "segment": "Sticky traps", "price": 7.99, "title": "36 Pack Fruit Fly Traps for Indoors, Gnat Traps for House In", "p1_units": 32744.0, "p2_units": 51767.0, "p1_rev": 261624.24, "p2_rev": 413618.01}, {"asin": "B083ZGVJ28", "brand": "Catchmaster", "segment": "Sticky traps", "price": 21.85, "title": "Catchmaster Gold Stick Fly Trap 4-Pk, Bug & Fruit Fly Traps ", "p1_units": 4381.1, "p2_units": 5578.6, "p1_rev": 95728.13, "p2_rev": 121891.97}, {"asin": "B08DMY3WWX", "brand": "Trappify", "segment": "Sticky traps", "price": 11.99, "title": "Trappify Hanging Fly Traps Outdoor: Fruit Fly Traps for Indo", "p1_units": 22485.5, "p2_units": 21458.4, "p1_rev": 269601.62, "p2_rev": 257286.58}, {"asin": "B08MZN1K2Y", "brand": "Mosqueda", "segment": "Sticky traps", "price": 5.98, "title": "Fruit Fly Traps Fungus Gnat Traps Yellow Sticky Bug Traps 36", "p1_units": 0.0, "p2_units": 5391.3, "p1_rev": 0.0, "p2_rev": 32239.68}, {"asin": "B099P3VMBM", "brand": "Wondercide", "segment": "Passive attractor", "price": 14.11, "title": "Wondercide - Fruit Fly Trap for Kitchen, Home, and Indoor Ar", "p1_units": 0.0, "p2_units": 6876.4, "p1_rev": 0.0, "p2_rev": 97026.57}, {"asin": "B09GD8T863", "brand": "STEM", "segment": "Lure", "price": 6.82, "title": "STEM Kills Fruit Fly Trap: Fruit Fly Catcher With Botanical ", "p1_units": 1200.0, "p2_units": 19089.7, "p1_rev": 8184.07, "p2_rev": 130191.96}, {"asin": "B09GDHSW99", "brand": "Raid", "segment": "Lure", "price": 6.99, "title": "Raid Essentials Fruit Fly Trap for Indoors, Made with Essent", "p1_units": 89897.7, "p2_units": 100268.2, "p1_rev": 628384.57, "p2_rev": 700875.0}, {"asin": "B09GVVTZ2M", "brand": "LFSYS", "segment": "Sticky traps", "price": 13.99, "title": "50 Pack Window Fly Trap, Fruit Fly Traps for Indoors, Fly Pa", "p1_units": 0.0, "p2_units": 6678.0, "p1_rev": 0.0, "p2_rev": 93424.52}, {"asin": "B09WJLKZP1", "brand": "Wondercide", "segment": "Passive attractor", "price": 21.99, "title": "Wondercide - Fruit Fly Traps for Indoors - Fruit Fly Killer ", "p1_units": 83435.0, "p2_units": 54894.4, "p1_rev": 1834734.99, "p2_rev": 1207128.3}, {"asin": "B0B3RJ9JFM", "brand": "Landisun", "segment": "Sticky traps", "price": 5.79, "title": "Fruit Fly Traps Indoor Fungus Gnat Trap 48PCS for Plants Yel", "p1_units": 389941.8, "p2_units": 164737.3, "p1_rev": 2257762.85, "p2_rev": 953828.85}, {"asin": "B0BWM9BBH5", "brand": "BugBane", "segment": "Sticky traps", "price": 24.99, "title": "Fly Stick Sticky Fly Traps for Indoors Outdoor 4pk. Non-Toxi", "p1_units": 31411.9, "p2_units": 52619.9, "p1_rev": 784984.38, "p2_rev": 1314970.3}, {"asin": "B0BX4GQF68", "brand": "Terro", "segment": "Lure", "price": 18.39, "title": "Terro Fruit Fly Traps for Indoors (6 Pack) + 270 Days of Lur", "p1_units": 79824.0, "p2_units": 158276.8, "p1_rev": 1467963.18, "p2_rev": 2910710.35}, {"asin": "B0C4Z77R1F", "brand": "Aunt Fannie's", "segment": "Lure", "price": 19.99, "title": "Aunt Fannie's FlyPunch Fruit Fly Trap for Indoor and Kitchen", "p1_units": 8327.2, "p2_units": 12137.5, "p1_rev": 166460.93, "p2_rev": 242628.43}, {"asin": "B0CJ3Z5TKN", "brand": "Fly Away Product", "segment": "Lure", "price": 12.14, "title": "Fly Away Fruit Fly Liquid Lure - Trap Fruit Flies Fast. Safe", "p1_units": 5806.0, "p2_units": 7932.3, "p1_rev": 70484.35, "p2_rev": 96298.24}, {"asin": "B0CNGBLV5N", "brand": "Cleanuper", "segment": "Sticky traps", "price": 6.99, "title": "58 Pack Flying Insect Traps for Plants \u2013 Yellow Sticky Traps", "p1_units": 59566.5, "p2_units": 154733.4, "p1_rev": 416369.7, "p2_rev": 1081586.68}, {"asin": "B0CP43WSGB", "brand": "BugBane", "segment": "Sticky traps", "price": 32.99, "title": "Fly Stick Sticky Fly Traps for Indoors Outdoor 6pk. Non-Toxi", "p1_units": 0.0, "p2_units": 62293.2, "p1_rev": 0.0, "p2_rev": 2055053.0}, {"asin": "B0CXXC99TZ", "brand": "Qualirey", "segment": "Lure", "price": 19.99, "title": "Qualirey 12 Pack Fruit Fly Trap Refill Liquid, 0.68oz Per Bo", "p1_units": 0.0, "p2_units": 4576.8, "p1_rev": 0.0, "p2_rev": 91490.43}, {"asin": "B0D4DC2KGV", "brand": "Qualirey", "segment": "Lure", "price": 25.99, "title": "Qualirey 24 Pack Fruit Fly Trap Refill Liquid, 0.68oz Per Bo", "p1_units": 0.0, "p2_units": 2785.1, "p1_rev": 0.0, "p2_rev": 72384.75}, {"asin": "B0D4DY85H3", "brand": "Qualirey", "segment": "Unclassified", "price": 11.99, "title": "Qualirey 6 Pack Fruit Fly Trap Refill Liquid, 0.68oz Per Bot", "p1_units": 0.0, "p2_units": 14679.7, "p1_rev": 0.0, "p2_rev": 176009.12}, {"asin": "B0D5DDC4ZS", "brand": "Super Ninja", "segment": "Lure", "price": 37.99, "title": "Super Ninja Fruit Fly Traps for Indoors - 12 Pack, Highly Ef", "p1_units": 0.0, "p2_units": 2932.3, "p1_rev": 0.0, "p2_rev": 111398.46}, {"asin": "B0D5DJ7V4P", "brand": "Super Ninja", "segment": "Lure", "price": 13.99, "title": "Super Ninja Fruit Fly Traps for Indoors - 4 Pack, Highly Eff", "p1_units": 0.0, "p2_units": 64191.1, "p1_rev": 0.0, "p2_rev": 898033.35}, {"asin": "B0D5DJBVCR", "brand": "Super Ninja", "segment": "Lure", "price": 9.99, "title": "Super Ninja Fruit Fly Traps for Indoors - 2 Pack, Highly Eff", "p1_units": 0.0, "p2_units": 10961.0, "p1_rev": 0.0, "p2_rev": 109500.09}, {"asin": "B0D5DJW9BY", "brand": "Super Ninja", "segment": "Lure", "price": 7.99, "title": "Super Ninja Fruit Fly Traps for Indoors - 1 Pack, Highly Eff", "p1_units": 0.0, "p2_units": 4906.6, "p1_rev": 0.0, "p2_rev": 39203.49}, {"asin": "B0DCNZVXTP", "brand": "Qualirey", "segment": "Lure", "price": 9.99, "title": "Qualirey 4 Pack Fruit Fly Trap Refill Liquid, 0.68oz/ Bottle", "p1_units": 3578.3, "p2_units": 30589.6, "p1_rev": 35747.12, "p2_rev": 305589.8}, {"asin": "B0DCP1K7B6", "brand": "Qualirey", "segment": "Lure", "price": 24.99, "title": "Qualirey 20 Pack Fruit Fly Trap Refill Liquid, 0.68oz/ Bottl", "p1_units": 641.4, "p2_units": 1750.9, "p1_rev": 16029.09, "p2_rev": 43754.99}, {"asin": "B0DCP22M9Y", "brand": "Qualirey", "segment": "Lure", "price": 15.99, "title": "Qualirey 8 Pack Fruit Fly Trap Refill Liquid, 0.68oz/ Bottle", "p1_units": 1223.2, "p2_units": 4001.9, "p1_rev": 19559.61, "p2_rev": 63991.02}, {"asin": "B0DCP2TKL5", "brand": "Qualirey", "segment": "Lure", "price": 17.99, "title": "Qualirey 12 Pack Fruit Fly Trap Refill Liquid, 0.68oz/ Bottl", "p1_units": 1033.5, "p2_units": 2313.3, "p1_rev": 18593.2, "p2_rev": 41616.27}, {"asin": "B0DGWQV8GK", "brand": "HOT SHOT", "segment": "Lure", "price": 14.16, "title": "Hot Shot Flying Insect Trap, Discreet, Hassle-Free Trap Attr", "p1_units": 15.0, "p2_units": 74639.2, "p1_rev": 212.68, "p2_rev": 1056890.65}, {"asin": "B0DHCJ3DL9", "brand": "Acme Approved", "segment": "Lure", "price": 4.99, "title": "UV Fruit Fly Traps for Indoors + Sticky Traps 2pk- Fruit Fly", "p1_units": 0.0, "p2_units": 5012.8, "p1_rev": 0.0, "p2_rev": 25013.92}, {"asin": "B0DX45STK3", "brand": "Super Ninja", "segment": "Lure", "price": 18.99, "title": "Super Ninja Fruit Fly Traps for Indoors - 6 Pack, Highly Eff", "p1_units": 0.0, "p2_units": 12462.0, "p1_rev": 0.0, "p2_rev": 236653.0}, {"asin": "B0DX884Y1W", "brand": "Super Ninja", "segment": "Lure", "price": 12.99, "title": "Super Ninja Fungus Gnat & Fruit Fly Traps - 10 Gnat Sticky T", "p1_units": 0.0, "p2_units": 267.0, "p1_rev": 0.0, "p2_rev": 3468.2}, {"asin": "B0F43FB193", "brand": "Qualirey", "segment": "Lure", "price": 15.99, "title": "Qualirey Fruit Fly Trap for Indoor and Kitchen Use, 0.68 oz ", "p1_units": 0.0, "p2_units": 396.3, "p1_rev": 0.0, "p2_rev": 6336.2}, {"asin": "B0F43FPGBK", "brand": "Qualirey", "segment": "Lure", "price": 11.99, "title": "Qualirey Fruit Fly Trap for Indoor and Kitchen Use, 0.68 oz ", "p1_units": 0.0, "p2_units": 881.6, "p1_rev": 0.0, "p2_rev": 10570.26}, {"asin": "B0F43FXY11", "brand": "Qualirey", "segment": "Lure", "price": 19.99, "title": "Qualirey Fruit Fly Trap for Indoor and Kitchen Use, 0.68 oz ", "p1_units": 0.0, "p2_units": 209.0, "p1_rev": 0.0, "p2_rev": 4177.51}, {"asin": "B0F43GM9C5", "brand": "Qualirey", "segment": "Lure", "price": 15.99, "title": "Qualirey Fruit Fly Trap for Indoor and Kitchen Use, 0.68 oz ", "p1_units": 0.0, "p2_units": 308.1, "p1_rev": 0.0, "p2_rev": 4926.68}, {"asin": "B0F43HFFYM", "brand": "Qualirey", "segment": "Lure", "price": 13.99, "title": "Qualirey Fruit Fly Trap for Indoor and Kitchen Use, 0.68 oz ", "p1_units": 0.0, "p2_units": 553.8, "p1_rev": 0.0, "p2_rev": 7747.8}, {"asin": "B0F43HQK4C", "brand": "Qualirey", "segment": "Lure", "price": 8.99, "title": "Qualirey Fruit Fly Trap for Indoor and Kitchen Use, 0.68 oz ", "p1_units": 0.0, "p2_units": 2449.0, "p1_rev": 0.0, "p2_rev": 22016.24}, {"asin": "B0F4KZFPYQ", "brand": "Aunt Fannie's", "segment": "Lure", "price": 24.99, "title": "Aunt Fannie's FlyPunch Fruit Fly Trap Bundle for Indoor and ", "p1_units": 0.0, "p2_units": 1698.7, "p1_rev": 0.0, "p2_rev": 42451.51}, {"asin": "B0GCCJFZ18", "brand": "ELEGENZO", "segment": "Lure", "price": 24.9, "title": "EPA Establishment No.100240-CHN-1 Fruit Fly Traps for Indoor", "p1_units": 0.0, "p2_units": 168.0, "p1_rev": 0.0, "p2_rev": 4183.45}], "period_labels": {"p1": "Feb 2024 \u2013 Feb 2025", "p2": "Feb 2025 \u2013 Feb 2026"}};
+const MONTHS =["2024-02", "2024-03", "2024-04", "2024-05", "2024-06", "2024-07", "2024-08", "2024-09", "2024-10", "2024-11", "2024-12", "2025-01", "2025-02", "2025-03", "2025-04", "2025-05", "2025-06", "2025-07", "2025-08", "2025-09", "2025-10", "2025-11", "2025-12", "2026-01", "2026-02"];
+const TOTAL  = [80.9, 89.8, 188.3, 197.1, 270.4, 266.0, 245.8, 187.6, 201.7, 161.5, 92.4, 51.1, 53.6, 61.1, 85.0, 111.9, 175.6, 225.1, 189.5, 166.1, 205.0, 161.5, 90.1, 46.8, 47.7];
+const ASIN_DS = [{"label": "Natural Catch", "data": [2.2, 2.6, 3.7, 4.8, 8.3, 6.8, 9.6, 7.7, 7.3, 3.5, 1.1, 1.0, 1.0, 2.0, 3.4, 4.6, 7.9, 8.2, 8.3, 8.1, 7.5, 3.3, 1.8, 1.6, 1.2], "borderColor": "#2563eb", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "PIC", "data": [null, null, null, null, null, null, 147.5, 94.9, 97.9, 69.8, 45.9, 27.2, 30.5, 35.6, 51.0, 80.5, 72.8, 138.2, 83.4, 91.8, 105.8, 18.3, 10.4, 11.5, 10.3], "borderColor": "#16a34a", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Fruit Fly BarPro", "data": [30.7, 46.4, 47.2, 49.4, 77.8, 79.7, 84.4, 76.2, 76.3, 50.0, 35.7, 24.0, 24.9, 31.2, 42.0, 49.6, 86.9, 87.8, 102.1, 73.7, 89.3, 70.6, 33.1, 21.1, 23.7], "borderColor": "#dc2626", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Terro", "data": [32.8, 43.7, 45.5, 31.3, 74.9, 159.7, 165.2, 293.7, 196.8, 227.4, 130.0, 74.1, 52.6, 48.4, 112.0, 227.7, 182.7, 55.6, 37.9, 21.0, 33.9, 34.4, 26.1, 23.7, 18.5], "borderColor": "#d97706", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "RESCUE!", "data": [1.5, 2.0, 4.0, 3.7, 3.7, 4.7, 4.7, 4.6, 4.1, 1.8, 1.4, 1.3, 1.1, 1.5, 2.4, 4.3, 8.6, 4.8, 4.4, 4.7, 7.5, 5.8, 1.4, 1.3, 1.2], "borderColor": "#7c3aed", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Aunt Fannie's", "data": [85.9, 88.6, 74.1, 158.7, 274.3, 327.8, 244.7, 239.0, 265.5, 176.9, 90.2, 42.3, 45.4, 48.4, 62.1, 108.6, 225.7, 287.7, 281.1, 272.5, 341.3, 264.8, 89.1, 39.4, 42.3], "borderColor": "#0891b2", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Terro", "data": [null, null, 102.2, 68.0, 72.6, 63.0, 99.1, 52.8, 189.8, 367.1, 300.7, 122.4, 72.3, 75.6, 76.5, 83.8, 101.2, 59.7, 28.3, 24.3, 22.4, 30.1, 40.8, 13.8, 16.2], "borderColor": "#be185d", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Terro", "data": [614.0, 522.8, 651.5, 1176.8, 1642.8, 1801.9, 2154.2, 1876.7, 2443.9, 1725.0, 812.0, 396.1, 420.6, 453.3, 463.0, 1064.6, 2456.8, 3462.1, 2767.3, 2980.8, 3572.6, 3180.8, 1463.2, 612.2, 491.3], "borderColor": "#65a30d", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Fruit Fly BarPro", "data": [7.5, 10.1, 15.5, 26.7, 27.8, 28.2, 26.3, 20.8, 25.4, 6.0, 6.6, 4.5, 5.0, 7.4, 13.2, 22.0, 33.9, 32.5, 35.8, 27.9, 30.7, 21.4, 9.9, 5.3, 5.8], "borderColor": "#ea580c", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "B071FVCYFW", "data": [null, null, null, null, null, null, null, null, null, null, null, null, null, 1.6, 1.8, 1.8, 7.2, 11.3, 8.2, 11.6, 10.8, 6.7, 3.1, 2.5, 1.9], "borderColor": "#1d4ed8", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Fruit Fly BarPro", "data": [6.0, 6.8, 18.0, 14.0, 18.8, 17.6, 16.9, 11.4, 11.5, 8.9, 4.8, 4.5, 5.0, 6.3, 11.0, 15.2, 20.1, 22.3, 20.3, 12.8, 13.5, 9.7, 5.5, 5.3, 5.9], "borderColor": "#059669", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Kensizer", "data": [65.1, 95.5, 119.7, 164.0, 192.5, 150.8, 129.6, 130.6, 123.5, 102.7, 59.2, 47.0, 46.0, 49.9, 71.0, 102.9, 164.3, 158.0, 109.8, 87.2, 85.5, 79.1, 53.7, 40.2, 39.5], "borderColor": "#9333ea", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Aunt Fannie's", "data": [5.5, 9.6, 13.0, 19.8, 27.4, 26.5, 66.5, 20.0, 12.1, 13.3, 9.8, 6.4, 6.8, 7.0, 11.6, 19.5, 26.1, 22.6, 22.8, 21.3, 23.0, 18.0, 11.4, 5.4, 5.0], "borderColor": "#f59e0b", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Catchmaster", "data": [49.2, 83.4, 103.4, 274.8, 596.8, 267.1, 201.5, 119.6, 108.8, 78.3, 47.5, 31.5, 33.4, 69.0, 122.0, 86.0, 209.7, 869.7, 557.1, 228.3, 344.4, 129.4, 45.7, 33.3, 36.7], "borderColor": "#ef4444", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Terro", "data": [41.6, 44.7, 36.6, 36.1, 61.9, 39.4, 71.8, 63.8, 11.5, 16.8, 27.7, 16.0, 13.7, 20.4, 33.9, 46.0, 59.5, 91.6, 67.3, 37.0, 31.0, 9.2, 9.4, 7.3, 9.8], "borderColor": "#10b981", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Aunt Fannie's", "data": [172.8, 208.3, 246.2, 444.0, 705.4, 775.6, 728.6, 603.5, 622.1, 460.0, 254.0, 128.3, 126.6, 135.5, 218.7, 364.5, 638.2, 704.2, 711.5, 671.0, 850.9, 624.7, 255.2, 115.0, 122.1], "borderColor": "#6366f1", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Aunt Fannie's", "data": [24.9, 36.8, 45.0, 49.1, 83.0, 95.2, 105.1, 37.8, 3.9, 7.4, 24.4, 15.2, 15.5, 15.8, 28.9, 43.1, 48.3, 42.8, 45.3, 43.4, 64.6, 50.9, 29.6, 13.8, 13.8], "borderColor": "#2563eb", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Stingmon", "data": [null, null, null, null, null, null, 274.5, 225.5, 188.0, 174.4, 118.4, 137.8, 156.1, 127.4, 112.6, 126.8, 203.5, 195.7, 171.2, 137.8, 132.1, 144.5, 135.6, 94.4, 103.2], "borderColor": "#16a34a", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Catchmaster", "data": [9.1, 13.8, 20.0, 24.9, 27.1, 18.3, 5.8, 8.1, 8.3, 7.0, 3.1, 2.4, 3.6, 5.0, 13.3, 25.2, 44.8, 38.6, 17.2, 11.0, 10.2, 6.1, 3.6, 3.6, 4.0], "borderColor": "#dc2626", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Trappify", "data": [35.7, 47.7, 67.8, 97.1, 87.8, 73.4, 65.3, 75.4, 74.3, 57.4, 36.3, 26.8, 25.7, 32.1, 46.5, 65.1, 47.0, 36.9, 88.7, 72.5, 117.1, 89.1, 53.6, 26.9, 27.1], "borderColor": "#d97706", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Mosqueda", "data": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 599.0], "borderColor": "#7c3aed", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Wondercide", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 4.7, 33.0, 63.8, 27.9, 53.4, 26.8, 9.3, 9.1], "borderColor": "#0891b2", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "STEM", "data": [null, null, null, null, null, null, null, null, null, null, 21.3, 19.7, 23.2, 21.8, 35.0, 45.0, 64.9, 97.6, 105.8, 59.9, 56.2, 53.6, 34.4, 24.1, 27.7], "borderColor": "#be185d", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Raid", "data": [41.7, 49.7, 61.8, 149.1, 300.0, 297.5, 351.6, 547.4, 495.1, 247.6, 231.5, 125.4, 102.7, 116.4, 229.4, 293.5, 362.9, 334.2, 350.4, 361.8, 423.7, 402.8, 204.1, 113.7, 87.6], "borderColor": "#65a30d", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "LFSYS", "data": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 111.1, 92.3, 103.1], "borderColor": "#ea580c", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Wondercide", "data": [64.4, 76.6, 157.7, 299.9, 439.6, 487.5, 340.4, 264.8, 180.9, 211.2, 149.0, 68.5, 53.3, 54.8, 81.1, 169.3, 268.3, 238.6, 210.0, 197.3, 262.3, 172.0, 81.9, 27.8, 27.0], "borderColor": "#1d4ed8", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Landisun", "data": [576.8, 757.0, 2894.5, 1777.9, 2109.4, 1631.7, 1056.0, 537.4, 708.1, 651.1, 254.2, 172.2, 173.3, 263.5, 399.8, 460.4, 601.6, 941.4, 526.5, 500.4, 467.9, 508.7, 407.7, 150.7, 149.9], "borderColor": "#059669", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "BugBane", "data": [14.0, 20.9, 60.7, 77.4, 39.6, 288.8, 201.2, 143.6, 103.8, 31.0, 25.1, 16.9, 18.3, 29.9, 60.4, 198.4, 348.8, 408.4, 263.2, 82.3, 64.9, 120.1, 72.1, 39.8, 33.8], "borderColor": "#9333ea", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Terro", "data": [61.5, 100.5, 116.2, 217.9, 239.1, 274.8, 279.2, 381.9, 357.4, 306.9, 193.0, 85.1, 68.6, 92.5, 222.6, 362.3, 382.8, 448.7, 452.6, 590.6, 1221.5, 641.4, 420.7, 186.4, 169.1], "borderColor": "#f59e0b", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Aunt Fannie's", "data": [0.1, 3.3, 5.5, 16.8, 31.0, 36.0, 36.9, 30.1, 34.3, 30.9, 21.8, 15.6, 13.7, 17.4, 21.3, 37.7, 45.2, 38.7, 43.1, 40.9, 46.0, 48.2, 30.0, 14.7, 14.4], "borderColor": "#ef4444", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Fly Away Product", "data": [null, 2.2, 6.9, 5.9, 4.0, 9.4, 28.9, 42.0, 42.3, 26.3, 9.5, 8.0, 7.0, 6.3, 9.4, 0.1, 22.8, 29.8, 41.0, 26.1, 30.8, 29.7, 29.1, 22.6, 12.7], "borderColor": "#10b981", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Cleanuper", "data": [24.6, 44.1, 89.6, 134.1, 155.9, 219.4, 192.1, 155.6, 224.8, 232.2, 162.1, 132.0, 292.7, 337.3, 322.9, 418.9, 482.7, 460.1, 437.6, 347.0, 462.2, 514.0, 470.3, 412.8, 418.5], "borderColor": "#6366f1", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "BugBane", "data": [null, null, null, null, null, null, null, null, null, null, null, null, 43.5, 73.0, 117.0, 167.3, 363.5, 402.9, 331.1, 212.5, 144.6, 105.9, 49.4, 31.9, 37.3], "borderColor": "#2563eb", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Qualirey", "data": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 14.7, 19.0, 18.3, 18.1, 20.7, 26.0, 17.7, 9.8, 4.1, 3.2], "borderColor": "#16a34a", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Qualirey", "data": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 5.6, 9.5, 9.1, 12.5, 11.1, 15.6, 13.5, 6.1, 4.5, 5.3], "borderColor": "#dc2626", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Qualirey", "data": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 45.4, 47.5, 51.3, 75.3, 48.1, 84.2, 66.6, 35.8, 17.0, 16.0], "borderColor": "#d97706", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Super Ninja", "data": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 26.4, 48.2, 22.8, 10.7, 5.9, 7.0], "borderColor": "#7c3aed", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Super Ninja", "data": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 856.8, 739.5, 595.8, 373.4, 181.4, 157.5], "borderColor": "#0891b2", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Super Ninja", "data": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 281.0, 145.1, 87.0, 53.0, 26.6, 23.4], "borderColor": "#be185d", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Super Ninja", "data": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 61.3, 137.5, 13.2, 0.7, 0.7, 1.0], "borderColor": "#65a30d", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Qualirey", "data": [null, null, null, null, null, null, null, 12.8, 14.5, 22.4, 21.2, 26.1, 29.7, 34.4, 49.2, 51.6, 112.6, 111.2, 138.5, 116.5, 138.5, 119.7, 52.2, 40.3, 39.3], "borderColor": "#ea580c", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Qualirey", "data": [null, null, null, null, null, null, null, 3.3, 5.2, 4.1, 3.8, 2.8, 2.9, 3.6, 4.6, 5.6, 4.9, 5.9, 8.9, 3.9, 7.4, 5.9, 2.3, 2.1, 2.2], "borderColor": "#1d4ed8", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Qualirey", "data": [null, null, null, null, null, null, null, 8.9, 10.3, 6.0, 8.6, 4.2, 4.3, 4.7, 6.7, 11.4, 15.0, 15.5, 17.7, 11.5, 17.9, 14.3, 7.8, 4.1, 4.3], "borderColor": "#059669", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Qualirey", "data": [null, null, null, null, null, null, null, 4.9, 9.2, 6.0, 8.4, 4.2, 2.3, 2.4, 4.4, 10.3, 9.7, 8.1, 10.5, 6.8, 9.4, 5.0, 4.4, 2.4, 2.3], "borderColor": "#9333ea", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "HOT SHOT", "data": [null, null, null, null, null, null, null, null, null, null, 0.1, 0.2, 1.5, 18.0, 85.7, 284.0, 385.6, 572.6, 606.8, 194.7, 137.5, 56.6, 31.8, 39.1, 23.5], "borderColor": "#f59e0b", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Acme Approved", "data": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 31.5, 36.2, 29.0, 23.0, 8.2, 0.3, 20.6, 7.3, 4.7, 4.2], "borderColor": "#ef4444", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Super Ninja", "data": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 119.2, 231.9, 57.8, 60.0, 24.6, 24.3], "borderColor": "#10b981", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Super Ninja", "data": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0.0, 0.0, 0.0, 3.5, 2.5, 3.6], "borderColor": "#6366f1", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Qualirey", "data": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0.0, 0.7, 1.4, 3.2, 2.6, 1.8, 0.4, 1.1, 1.0, 0.9], "borderColor": "#2563eb", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Qualirey", "data": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0.8, 4.1, 4.7, 5.8, 4.0, 3.2, 0.7, 2.1, 2.0, 1.7], "borderColor": "#16a34a", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Qualirey", "data": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0.0, 0.4, 0.4, 1.6, 1.6, 1.0, 0.2, 0.6, 0.6, 0.6], "borderColor": "#dc2626", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Qualirey", "data": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0.0, 0.2, 0.5, 1.5, 2.5, 2.3, 0.4, 1.1, 1.0, 0.9], "borderColor": "#d97706", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Qualirey", "data": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1.1, 1.2, 2.9, 5.3, 2.2, 1.1, 0.5, 1.4, 1.2, 1.3], "borderColor": "#7c3aed", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Qualirey", "data": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 4.8, 13.3, 8.2, 10.5, 10.6, 11.7, 7.5, 9.4, 2.5, 2.5], "borderColor": "#0891b2", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Aunt Fannie's", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 9.8, 5.5, 4.2, 4.1, 4.3, 4.6, 8.3, 8.5, 3.4, 3.6], "borderColor": "#be185d", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "ELEGENZO", "data": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0.0, 0.0, 7.3], "borderColor": "#65a30d", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}];
+
+// Seasonality index — Lure segment only
+(function() {
+  const lureIdx = SHARE_DATA.asin_data
+    .map((a, i) => a.segment === 'Lure' ? i : -1)
+    .filter(i => i >= 0);
+  const totals = new Array(MONTHS.length).fill(0);
+  lureIdx.forEach(i => {
+    const ds = ASIN_DS[i];
+    if (!ds) return;
+    ds.data.forEach((v, j) => { if (v != null) totals[j] += v; });
+  });
+  const calSum = new Array(12).fill(0), calN = new Array(12).fill(0);
+  MONTHS.forEach((m, j) => {
+    const cm = +m.split('-')[1] - 1;
+    calSum[cm] += totals[j]; calN[cm]++;
+  });
+  const calAvg = calSum.map((s, i) => calN[i] ? s / calN[i] : 0);
+  const overallAvg = calAvg.reduce((a, b) => a + b, 0) / 12;
+  const idx = calAvg.map(v => overallAvg ? Math.round(v / overallAvg * 100) / 100 : 0);
+  const MON = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  const maxI = idx.indexOf(Math.max(...idx));
+  const minI = idx.indexOf(Math.min(...idx));
+  const ratio = (Math.max(...idx) / Math.min(...idx)).toFixed(1);
+  const _elSeasTb = document.getElementById('seasIdxChartTb');
+  if (_elSeasTb) {
+    new Chart(_elSeasTb, {
+      type: 'bar',
+      data: { labels: MON, datasets: [{ data: [...idx], backgroundColor: idx.map(v => v >= 1.3 ? '#16a34a' : v <= 0.6 ? '#dc2626' : '#2563eb'), label: 'Index' }] },
+      options: { maintainAspectRatio: false, plugins: { legend: { display: false } },
+        scales: { y: { min: 0, ticks: { callback: v => v.toFixed(1)+'x' } } } }
+    });
+  }
+})();
+
+
+
+
+// ── Tab G — Lure Brand Share Pies ─────────────────────────────────────────────
+(function() {
+  const LURE_C = {
+    'Terro':          '#16a34a',
+    "Aunt Fannie's":  '#2563eb',
+    'Raid':           '#f97316',
+    'Super Ninja':    '#7c3aed',
+    'HOT SHOT':       '#dc2626',
+    'Qualirey':       '#0891b2',
+    'Others':         '#94a3b8'
+  };
+  function makeLurePie(id, labels, vals) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const tot = vals.reduce((a, b) => a + b, 0);
+    new Chart(el, {
+      type: 'pie',
+      plugins: [ChartDataLabels],
+      data: { labels, datasets: [{ data: vals, backgroundColor: labels.map(l => LURE_C[l] || '#94a3b8') }] },
+      options: {
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { position: 'bottom', labels: { font: { size: 10 }, padding: 8, boxWidth: 12 } },
+          datalabels: {
+            display: ctx => ctx.dataset.data[ctx.dataIndex] / tot >= 0.05,
+            formatter: v => Math.round(v / tot * 100) + '%',
+            color: '#fff',
+            font: { weight: 'bold', size: 12 }
+          },
+          tooltip: { callbacks: { label: ctx => ctx.label + ': ' + Math.round(ctx.raw / tot * 100) + '%' } }
+        }
+      }
+    });
+  }
+  // Data: Lure segment only, aggregated by brand (pre-computed from SHARE_DATA)
+  // P1 = Feb 2024–Feb 2025 | P2 = Feb 2025–Feb 2026
+  // Others P1: STEM + HOT SHOT + Qualirey + Fly Away  (13 497 units | $168 810 rev)
+  // Others P2: STEM + Fly Away + Acme Approved + ELEGENZO (32 203 units | $255 688 rev)
+  makeLurePie('lureUnitP1Chart',
+    ['Terro', "Aunt Fannie's", 'Raid', 'Others'],
+    [660026, 255712, 89898, 13497]);
+  makeLurePie('lureUnitP2Chart',
+    ['Terro', "Aunt Fannie's", 'Raid', 'Super Ninja', 'HOT SHOT', 'Qualirey', 'Others'],
+    [915838, 261712, 100268, 95720, 74639, 50815, 32203]);
+  makeLurePie('lureRevP1Chart',
+    ['Terro', "Aunt Fannie's", 'Raid', 'Others'],
+    [9118687, 3739481, 628385, 168810]);
+  makeLurePie('lureRevP2Chart',
+    ['Terro', "Aunt Fannie's", 'Super Ninja', 'HOT SHOT', 'Raid', 'Qualirey', 'Others'],
+    [13153340, 3811569, 1398257, 1056891, 700875, 674602, 255688]);
+})();
+
+// ── Pack Size Brand Share Pies ───────────────────────────────────────────────
+(function() {
+  function makePackBrandPie(canvasId, labels, data) {
+    const colors = ['#2563eb','#16a34a','#d97706','#7c3aed','#0891b2','#94a3b8'];
+    const total = data.reduce((a,b) => a+b, 0);
+    new Chart(document.getElementById(canvasId), {
+      type: 'pie',
+      plugins: [ChartDataLabels],
+      data: { labels, datasets: [{ data, backgroundColor: colors.slice(0, labels.length) }] },
+      options: {
+        maintainAspectRatio: false,
+        layout: { padding: { top: 6, left: 6, right: 6, bottom: 6 } },
+        plugins: {
+          legend: {
+            display: true, position: 'bottom',
+            labels: {
+              font: { size: 10 }, boxWidth: 10, padding: 8,
+              generateLabels: chart => {
+                const ds = chart.data.datasets[0].data;
+                return labels.map((lbl, i) => ({
+                  text: lbl + ' ' + Math.round(ds[i]/total*100) + '% (' + Math.round(ds[i]).toLocaleString() + ')',
+                  fillStyle: colors[i], strokeStyle: colors[i], lineWidth: 0, hidden: false, index: i
+                }));
+              }
+            }
+          },
+          datalabels: {
+            formatter: (v, ctx) => {
+              const pct = Math.round(v/total*100);
+              return pct >= 8 ? labels[ctx.dataIndex] + '\n' + pct + '%' : null;
+            },
+            color: '#fff', font: { weight: 'bold', size: 10 }, textAlign: 'center'
+          },
+          tooltip: { callbacks: { label: ctx => ctx.label + ': ' + ctx.raw.toLocaleString() + ' (' + (ctx.raw/total*100).toFixed(1) + '%)' } }
+        }
+      }
+    });
+  }
+
+  makePackBrandPie('packBrand2Chart',
+    ["Aunt Fannie's", 'Terro', 'Super Ninja', 'Others'],
+    [165412, 42934, 11228, 5181]);
+
+  makePackBrandPie('packBrand4Chart',
+    ['Terro', 'Super Ninja', 'Qualirey'],
+    [701671, 64191, 33039]);
+
+  makePackBrandPie('packBrand6Chart',
+    ['Terro', 'HOT SHOT', 'Qualirey', 'Super Ninja', "Aunt Fannie's"],
+    [158277, 74639, 15561, 12462, 5923]);
+
+  // ── Revenue pies (same structure, $ values) ──────────────────────────────
+  function makePackBrandRevPie(canvasId, labels, data) {
+    const colors = ['#2563eb','#16a34a','#d97706','#7c3aed','#0891b2','#94a3b8'];
+    const total = data.reduce((a,b) => a+b, 0);
+    new Chart(document.getElementById(canvasId), {
+      type: 'pie',
+      plugins: [ChartDataLabels],
+      data: { labels, datasets: [{ data, backgroundColor: colors.slice(0, labels.length) }] },
+      options: {
+        maintainAspectRatio: false,
+        layout: { padding: { top: 6, left: 6, right: 6, bottom: 6 } },
+        plugins: {
+          legend: {
+            display: true, position: 'bottom',
+            labels: {
+              font: { size: 10 }, boxWidth: 10, padding: 8,
+              generateLabels: chart => {
+                const ds = chart.data.datasets[0].data;
+                return labels.map((lbl, i) => ({
+                  text: lbl + ' ' + Math.round(ds[i]/total*100) + '% ($' + (ds[i]/1000).toFixed(0) + 'K)',
+                  fillStyle: colors[i], strokeStyle: colors[i], lineWidth: 0, hidden: false, index: i
+                }));
+              }
+            }
+          },
+          datalabels: {
+            formatter: (v, ctx) => {
+              const pct = Math.round(v/total*100);
+              return pct >= 8 ? labels[ctx.dataIndex] + '\n' + pct + '%' : null;
+            },
+            color: '#fff', font: { weight: 'bold', size: 10 }, textAlign: 'center'
+          },
+          tooltip: { callbacks: { label: ctx => ctx.label + ': $' + ctx.raw.toLocaleString() + ' (' + (ctx.raw/total*100).toFixed(1) + '%)' } }
+        }
+      }
+    });
+  }
+
+  makePackBrandRevPie('packBrand2RevChart',
+    ["Aunt Fannie's", 'Terro', 'Super Ninja', 'Others'],
+    [2479524, 370396, 112968, 29197]);
+
+  makePackBrandRevPie('packBrand4RevChart',
+    ['Terro', 'Super Ninja', 'Qualirey'],
+    [9381344, 898033, 327606]);
+
+  makePackBrandRevPie('packBrand6RevChart',
+    ['Terro', 'HOT SHOT', "Aunt Fannie's", 'Super Ninja', 'Qualirey'],
+    [2910710, 1056891, 248693, 236653, 186579]);
+})();
+
+
+// ═══════════════ TAB I — SEGMENTS ════════════════════════════════════════════
+const SEGMENT_DATA = {
+  segments: ['Lure','Sticky Traps','Passive Attractor','Electric'],
+  month_labels: ['Mar 2025','Apr 2025','May 2025','Jun 2025','Jul 2025','Aug 2025','Sep 2025','Oct 2025','Nov 2025','Dec 2025','Jan 2026','Feb 2026'],
+  monthly_units: {
+    'Lure':              [34829,50320,98278,158728,202228,182965,172170,263195,195272,103156,48522,31450],
+    'Sticky Traps':      [31707,39494,53675,76161,113144,80161,53128,59973,51454,41812,29061,27550],
+    'Passive Attractor': [3150,4524,8079,12515,12220,12694,11510,13366,9911,4928,2185,1672],
+    'Electric':          [80873,120165,181467,226819,386224,770034,703008,914324,642704,312794,191808,158935]
+  },
+  monthly_rev: {
+    'Lure':              [459188,675925,1338035,2140305,2770762,2503018,2358867,3718204,2665362,1435138,669893,441290],
+    'Sticky Traps':      [315329,429222,653721,1063241,1513752,1094016,632944,655040,536231,392412,282530,249295],
+    'Passive Attractor': [84716,130127,228318,338720,337304,334537,279594,330325,232606,117501,59543,46332],
+    'Electric':          [1406278,2080842,3246786,4008687,7653643,18013193,15633155,19880314,14015434,6679329,4115165,3422671]
+  },
+  kpis: {
+    'Lure':              {skus:37, units_12m:1541113, units_prev12m:1019999,  revenue_12m:21175987,  revenue_prev12m:13667893,  growth_pct:-71.0, avg_price:13.74, unit_share:22.1, rev_share:16.1},
+    'Sticky Traps':      {skus:12, units_12m:657321,  units_prev12m:655351,   revenue_12m:7817732,   revenue_prev12m:5327825,   growth_pct:-40.2, avg_price:11.89, unit_share:9.4,  rev_share:5.9},
+    'Passive Attractor': {skus:6,  units_12m:96754,   units_prev12m:116047,   revenue_12m:2519624,   revenue_prev12m:2936926,   growth_pct:-74.7, avg_price:26.04, unit_share:1.4,  rev_share:1.9},
+    'Electric':          {skus:22, units_12m:4689156, units_prev12m:1113014,  revenue_12m:100155498, revenue_prev12m:18429805,  growth_pct:-70.6, avg_price:21.36, unit_share:67.1, rev_share:76.1}
+  },
+  cat_monthly_units_prev: [89848,170655,211270,346247,377088,362060,331712,374854,267231,169823,106876,96745],
+  cat_monthly_units_curr: [150559,214503,341499,474223,713815,1045855,939816,1250858,899341,462691,271577,219608],
+  cat_monthly_rev_prev:   [1229021,1946869,2834944,4810226,5407542,5243262,4792197,5256086,3666082,2364038,1476686,1335496],
+  cat_monthly_rev_curr:   [2265511,3316115,5466860,7550954,12275460,21944764,18904560,24583884,17449634,8624379,5127131,4159588]
+};
+
+const SEG_COLORS = {
+  'Lure':'#2563eb', 'Sticky Traps':'#16a34a',
+  'Passive Attractor':'#d97706', 'Electric':'#7c3aed'
+};
+const SEG_COLORS_LIGHT = {
+  'Lure':'#93c5fd', 'Sticky Traps':'#86efac',
+  'Passive Attractor':'#fcd34d', 'Electric':'#c4b5fd'
+};
+
+let _segUnitPie, _segRevPie, _segUnitLine, _segRevLine;
+
+function segInit() {
+  const SD   = SEGMENT_DATA;
+  const segs = SD.segments;
+
+  // ── Total Category KPI ──────────────────────────────────────────────────
+  const totalRev12m = segs.reduce((sum, s) => sum + SD.kpis[s].revenue_12m, 0);
+  const totalRevP2  = SHARE_DATA.asin_data.reduce((sum, a) => sum + (a.p2_rev || 0), 0);
+  const totalRevP1  = SHARE_DATA.asin_data.reduce((sum, a) => sum + (a.p1_rev || 0), 0);
+  const yoy = totalRevP1 ? ((totalRevP2 - totalRevP1) / totalRevP1 * 100) : null;
+  const yoyStr   = yoy !== null ? (yoy >= 0 ? '+' : '') + yoy.toFixed(1) + '% YoY' : '—';
+  const yoyClass = yoy !== null ? (yoy >= 0 ? 'delta-pos' : 'delta-neg') : 'delta-neu';
+  const pl = SHARE_DATA.period_labels;
+  document.getElementById('seg_total_kpi').innerHTML = `
+    <div class="card" style="border-left:4px solid #1e293b;padding:14px 20px;display:flex;align-items:center;gap:28px;flex-wrap:wrap">
+      <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#64748b;min-width:120px">Total Category</div>
+      <div>
+        <div style="font-size:1.6rem;font-weight:700;color:#1e293b;line-height:1">$${(totalRev12m/1e6).toFixed(1)}M</div>
+        <div style="font-size:.75rem;color:#64748b;margin-top:3px">Revenue · Last 12M (Mar 2025 – Feb 2026)</div>
+      </div>
+    </div>`;
+
+  // ── KPI blocks ──────────────────────────────────────────────────────────
+  document.getElementById('seg_kpi_section').innerHTML = segs.map(s => {
+    const k = SD.kpis[s], c = SEG_COLORS[s];
+    const grow = k.growth_pct !== null
+      ? (k.growth_pct >= 0 ? '+'+k.growth_pct+'%' : k.growth_pct+'%') : '—';
+    const gc = k.growth_pct !== null ? (k.growth_pct >= 0 ? 'delta-pos' : 'delta-neg') : 'delta-neu';
+    return `<div class="card" style="border-left:4px solid ${c};padding:14px 16px">
+      <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:${c};margin-bottom:10px">${s}</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px">
+        <div class="kpi" style="box-shadow:none;background:#f8fafc;padding:8px 10px">
+          <div class="kpi-v" style="font-size:.95rem">${k.units_12m>=1e6?(k.units_12m/1e6).toFixed(1)+'M':(k.units_12m/1000).toFixed(0)+'K'}</div>
+          <div class="kpi-l">Units sold (12M)</div>
+        </div>
+        <div class="kpi" style="box-shadow:none;background:#f8fafc;padding:8px 10px">
+          <div class="kpi-v" style="font-size:.95rem">$${(k.revenue_12m/1e6).toFixed(1)}M</div>
+          <div class="kpi-l">Segment Value (12M)</div>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+
+
+  // ── Pie chart totals ─────────────────────────────────────────────────────
+  const totalUnits12m = segs.reduce((sum, s) => sum + SD.kpis[s].units_12m, 0);
+  document.getElementById('seg_pie_unit_total').textContent = 'Total: ' + totalUnits12m.toLocaleString() + ' units';
+  document.getElementById('seg_pie_rev_total').textContent  = 'Total: $' + (totalRev12m / 1e6).toFixed(1) + 'M ($' + Math.round(totalRev12m).toLocaleString() + ')';
+
+  // ── Pie charts ───────────────────────────────────────────────────────────
+  const colors = segs.map(s => SEG_COLORS[s]);
+
+  // Connector lines plugin for small slices (<10%)
+  const pieLinePlugin = {
+    id: 'pieLinePlugin',
+    afterDatasetsDraw(chart) {
+      const total = chart.data.datasets[0].data.reduce((a,b) => a+b, 0);
+      const ctx2 = chart.ctx;
+      chart.getDatasetMeta(0).data.forEach((arc, i) => {
+        const v = chart.data.datasets[0].data[i];
+        if (v / total >= 0.10) return;
+        const mid = (arc.startAngle + arc.endAngle) / 2;
+        const r = arc.outerRadius;
+        ctx2.save();
+        ctx2.strokeStyle = chart.data.datasets[0].backgroundColor[i];
+        ctx2.lineWidth = 1.5;
+        ctx2.beginPath();
+        ctx2.moveTo(arc.x + Math.cos(mid) * (r + 2), arc.y + Math.sin(mid) * (r + 2));
+        ctx2.lineTo(arc.x + Math.cos(mid) * (r + 20), arc.y + Math.sin(mid) * (r + 20));
+        ctx2.stroke();
+        ctx2.restore();
+      });
+    }
+  };
+
+  const _piePct = (v, ctx) => { const t = ctx.chart.data.datasets[0].data.reduce((a,b) => a+b, 0); return t > 0 ? Math.round(v / t * 100) : 0; };
+  const pieFmtUnits = (v, ctx) => {
+    const k = SD.kpis[segs[ctx.dataIndex]];
+    const units = k.units_12m >= 1e6 ? (k.units_12m / 1e6).toFixed(1) + 'M' : (k.units_12m / 1000).toFixed(0) + 'K';
+    return _piePct(v, ctx) + '%\n' + units + ' units';
+  };
+  const pieFmtRev = (v, ctx) => {
+    const k = SD.kpis[segs[ctx.dataIndex]];
+    return _piePct(v, ctx) + '%\n$' + (k.revenue_12m / 1e6).toFixed(1) + 'M';
+  };
+  const pieIsSmall = (ctx) => ctx.dataset.data[ctx.dataIndex] / ctx.dataset.data.reduce((a,b) => a+b, 0) < 0.10;
+  const pieOpts = (pos, fmt) => ({
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { position: pos, labels: { font: { size: 11 }, boxWidth: 14 } },
+      datalabels: {
+        formatter: fmt,
+        anchor: (ctx) => pieIsSmall(ctx) ? 'end' : 'center',
+        align:  (ctx) => pieIsSmall(ctx) ? 'end' : 'center',
+        color:  (ctx) => pieIsSmall(ctx) ? '#1e293b' : '#fff',
+        offset: (ctx) => pieIsSmall(ctx) ? 22 : 0,
+        font: { weight: 'bold', size: 13 },
+        textAlign: 'center'
+      }
+    }
+  });
+
+  if (_segUnitPie) _segUnitPie.destroy();
+  _segUnitPie = new Chart(document.getElementById('segUnitPieChart'), {
+    type: 'pie', plugins: [ChartDataLabels, pieLinePlugin],
+    data: { labels: segs, datasets: [{ data: segs.map(s => SD.kpis[s].units_12m), backgroundColor: colors, borderWidth: 2, borderColor: '#fff' }] },
+    options: pieOpts('right', pieFmtUnits)
+  });
+
+  if (_segRevPie) _segRevPie.destroy();
+  _segRevPie = new Chart(document.getElementById('segRevPieChart'), {
+    type: 'pie', plugins: [ChartDataLabels, pieLinePlugin],
+    data: { labels: segs, datasets: [{ data: segs.map(s => SD.kpis[s].revenue_12m), backgroundColor: colors, borderWidth: 2, borderColor: '#fff' }] },
+    options: pieOpts('right', pieFmtRev)
+  });
+
+  // ── Growth charts ────────────────────────────────────────────────────────
+  // Indices: Sep=6,Oct=7,Nov=8 (prev 3M)  Dec=9,Jan=10,Feb=11 (last 3M)
+  const prev3avg = s => (SD.monthly_units[s][6]+SD.monthly_units[s][7]+SD.monthly_units[s][8])/3;
+  const last3avg = s => (SD.monthly_units[s][9]+SD.monthly_units[s][10]+SD.monthly_units[s][11])/3;
+  const jan      = s =>  SD.monthly_units[s][10];
+  const feb      = s =>  SD.monthly_units[s][11];
+
+  const barDl = {
+    display: true,
+    anchor: 'end',
+    align: 'end',
+    offset: 2,
+    formatter: v => v >= 1000 ? (v / 1000).toFixed(0) + 'K' : Math.round(v).toString(),
+    font: { weight: 'bold', size: 13 },
+    color: '#1e293b'
+  };
+
+  const barBase = {
+    responsive: true, maintainAspectRatio: false,
+    layout: { padding: { top: 36 } },
+    plugins: { legend: { labels: { font: { size: 11 } } }, datalabels: barDl },
+    scales: {
+      x: { ticks: { font: { size: 10 } } },
+      y: { ticks: { font: { size: 10 }, callback: v => (v/1000).toFixed(0)+'K' },
+           title: { display: true, text: 'Units', font: { size: 10 } } }
+    }
+  };
+
+
+  // ── Line charts ──────────────────────────────────────────────────────────
+  const mkLine = (seg) => ({
+    label: seg, borderColor: SEG_COLORS[seg],
+    backgroundColor: SEG_COLORS[seg] + '18',
+    borderWidth: 2, pointRadius: 3, fill: false, tension: 0.35
+  });
+
+  const lineBase = (ylabel, fmt) => ({
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { labels: { font: { size: 11 }, boxWidth: 12 } }, datalabels: { display: false } },
+    scales: {
+      x: { ticks: { font: { size: 10 } } },
+      y: { ticks: { font: { size: 10 }, callback: fmt }, title: { display: true, text: ylabel, font: { size: 10 } } }
+    }
+  });
+
+  const _elSegUnit = document.getElementById('segUnitLineChart');
+  if (_elSegUnit) {
+    if (_segUnitLine) _segUnitLine.destroy();
+    _segUnitLine = new Chart(_elSegUnit, {
+      type: 'line',
+      data: { labels: SD.month_labels, datasets: segs.map(s => ({ ...mkLine(s), data: SD.monthly_units[s] })) },
+      options: lineBase('Units', v => (v/1000).toFixed(0)+'K')
+    });
+  }
+
+  const _elSegRev = document.getElementById('segRevLineChart');
+  if (_elSegRev) {
+    if (_segRevLine) _segRevLine.destroy();
+    _segRevLine = new Chart(_elSegRev, {
+      type: 'line',
+      data: { labels: SD.month_labels, datasets: segs.map(s => ({ ...mkLine(s), data: SD.monthly_rev[s] })) },
+      options: lineBase('Revenue', v => '$'+(v/1e6).toFixed(1)+'M')
+    });
+  }
+
+  // ── Summary table ────────────────────────────────────────────────────────
+  document.getElementById('seg_summary_tbody').innerHTML = segs.map(s => {
+    const k = SD.kpis[s], c = SEG_COLORS[s];
+    const grow = k.growth_pct !== null
+      ? (k.growth_pct >= 0 ? '+'+k.growth_pct+'%' : k.growth_pct+'%') : '—';
+    const gc = k.growth_pct !== null ? (k.growth_pct >= 0 ? 'delta-pos' : 'delta-neg') : 'delta-neu';
+    return `<tr>
+      <td><strong style="color:${c}">${s}</strong></td>
+      <td style="text-align:right">${k.units_12m.toLocaleString('en-US',{maximumFractionDigits:0})}</td>
+      <td style="text-align:right">$${k.revenue_12m.toLocaleString('en-US',{maximumFractionDigits:0})}</td>
+      <td style="text-align:right">${k.unit_share}%</td>
+      <td style="text-align:right">${k.rev_share}%</td>
+    </tr>`;
+  }).join('');
+}
+
+segInit();
+
+
+// ═══════════════ TAB K — DYNAMIKA UDZIAŁÓW MAREK (LURE) ══════════════════════
+(function() {
+  const months = ['Mar\'25','Apr\'25','May\'25','Jun\'25','Jul\'25','Aug\'25',
+                  'Sep\'25','Oct\'25','Nov\'25','Dec\'25','Jan\'26','Feb\'26'];
+  const ds = [
+    { label: 'Terro',             data: [61.5,54.2,57.1,60.8,63.7,57.6,64.3,58.1,60.5,59.6,54.5,52.2], borderColor:'#16a34a', borderWidth:2.5 },
+    { label: "Aunt Fannie's",     data: [20.0,20.5,18.7,18.9,17.0,19.0,18.5,15.8,15.8,12.9,12.4,14.9], borderColor:'#2563eb', borderWidth:2.5 },
+    { label: 'Super Ninja',       data: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.4,15.5,12.1,15.2,15.6,16.0], borderColor:'#7c3aed', borderWidth:2.5 },
+    { label: 'HOT SHOT',          data: [1.6, 5.1, 9.1, 7.4, 8.9,10.4, 3.4, 1.6, 0.9, 1.0, 2.5, 1.7], borderColor:'#dc2626', borderWidth:2.0 },
+    { label: 'Raid',              data: [10.4,13.7, 9.4, 6.9, 5.2, 6.0, 6.4, 5.0, 6.3, 6.2, 7.4, 6.5], borderColor:'#f97316', borderWidth:2.0 },
+    { label: 'Qualirey',          data: [4.0, 3.9, 3.3, 3.6, 2.9, 4.0, 3.4, 2.8, 2.9, 3.0, 4.3, 4.8], borderColor:'#0891b2', borderWidth:1.8 },
+    { label: 'STEM',              data: [1.9, 2.1, 1.4, 1.2, 1.5, 1.8, 1.1, 0.7, 0.8, 1.0, 1.6, 2.1], borderColor:'#d97706', borderWidth:1.5, borderDash:[5,3] },
+    { label: 'Fly Away Product',  data: [0.6, 0.6, 0.0, 0.4, 0.5, 0.7, 0.5, 0.4, 0.5, 0.9, 1.5, 0.9], borderColor:'#be185d', borderWidth:1.5, borderDash:[5,3], hidden:true },
+    { label: 'Acme Approved',     data: [0.0, 0.0, 1.0, 0.7, 0.4, 0.4, 0.1, 0.0, 0.3, 0.2, 0.3, 0.3], borderColor:'#64748b', borderWidth:1.5, borderDash:[5,3], hidden:true },
+    { label: 'ELEGENZO',          data: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.5], borderColor:'#94a3b8', borderWidth:1.5, borderDash:[5,3], hidden:true }
+  ];
+  ds.forEach(d => { d.backgroundColor = 'transparent'; d.tension = 0.3; d.pointRadius = 3; d.pointHoverRadius = 5; });
+
+  const lureShareOpts = {
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { position: 'bottom', labels: { font: { size: 11 }, padding: 12, boxWidth: 20 } },
+      datalabels: { display: false },
+      tooltip: {
+        mode: 'index', intersect: false,
+        callbacks: { label: ctx => ' ' + ctx.dataset.label + ': ' + ctx.parsed.y.toFixed(1) + '%' }
+      }
+    },
+    scales: {
+      y: {
+        min: 0, max: 70,
+        ticks: { callback: v => v + '%', stepSize: 10 },
+        grid: { color: '#e2e8f0' }
+      },
+      x: { grid: { display: false } }
+    }
+  };
+
+  const _elTb = document.getElementById('lureShareChartTb');
+  if (_elTb) {
+    new Chart(_elTb, {
+      type: 'line',
+      data: { labels: months, datasets: ds.map(d => ({ ...d })) },
+      options: lureShareOpts
+    });
+  }
+})();
+
+// ═══════════════ TAB L — REVIEWS (TERRO vs HOT SHOT) ════════════════════════
+(function() {
+  // S1: Star distribution — 100% stacked horizontal bar
+  new Chart(document.getElementById('starDistChart'), {
+    type: 'bar',
+    plugins: [ChartDataLabels],
+    data: {
+      labels: ['Terro  (4.1★ · 24,106 ratings)', 'Hot Shot  (2.4★ · 1,946 ratings)'],
+      datasets: [
+        { label: '5★', data: [60, 23], backgroundColor: '#16a34a' },
+        { label: '4★', data: [15,  8], backgroundColor: '#84cc16' },
+        { label: '3★', data: [10, 10], backgroundColor: '#f59e0b' },
+        { label: '2★', data: [4,  10], backgroundColor: '#f97316' },
+        { label: '1★', data: [11, 49], backgroundColor: '#dc2626' }
+      ]
+    },
+    options: {
+      maintainAspectRatio: false, indexAxis: 'y',
+      plugins: {
+        legend: { position: 'bottom', labels: { font: { size: 11 }, boxWidth: 14, padding: 10 } },
+        datalabels: {
+          display: ctx => ctx.dataset.data[ctx.dataIndex] >= 5,
+          formatter: v => v + '%',
+          color: '#fff', font: { weight: 'bold', size: 11 }
+        },
+        tooltip: { callbacks: { label: ctx => ctx.dataset.label + ': ' + ctx.raw + '%' } }
+      },
+      scales: {
+        x: { stacked: true, max: 100, ticks: { callback: v => v + '%' } },
+        y: { stacked: true }
+      }
+    }
+  });
+
+  // S2: Unmet Needs pie
+  const unmetLabels = ['Not working','Design flaw','Value disappointment','Ease of use','Hygiene concern','Prob. returns','Misleading expect.','Safety concern'];
+  const unmetData   = [404, 8, 28, 55, 23, 6, 0, 4];
+  const unmetTotal  = 528;
+  const unmetColors = ['#dc2626','#f97316','#d97706','#7c3aed','#0891b2','#16a34a','#2563eb','#94a3b8'];
+  new Chart(document.getElementById('unmetNeedsChart'), {
+    type: 'pie',
+    plugins: [ChartDataLabels],
+    data: { labels: unmetLabels, datasets: [{ data: unmetData, backgroundColor: unmetColors }] },
+    options: {
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'bottom', labels: { font: { size: 10 }, padding: 8, boxWidth: 12 } },
+        datalabels: {
+          display: ctx => unmetData[ctx.dataIndex] / unmetTotal >= 0.04,
+          formatter: v => Math.round(v / unmetTotal * 100) + '%',
+          color: '#fff', font: { weight: 'bold', size: 11 }
+        },
+        tooltip: { callbacks: { label: ctx => ctx.label + ': ' + ctx.raw + ' reviews (' + Math.round(ctx.raw / unmetTotal * 100) + '%)' } }
+      }
+    }
+  });
+
+  // S4: Failure by brand — horizontal grouped bar
+  new Chart(document.getElementById('failByBrandChart'), {
+    type: 'bar',
+    data: {
+      labels: ['Not working','Design flaw','Value disapp.','Ease of use','Hygiene','Prob. returns','Safety'],
+      datasets: [
+        { label: 'Terro',    data: [77.3, 2.3, 6.0, 7.7, 5.0, 1.3, 0.3], backgroundColor: '#2563eb' },
+        { label: 'Hot Shot', data: [75.4, 0.4, 4.4, 14.0, 3.5, 0.9, 1.3], backgroundColor: '#dc2626' }
+      ]
+    },
+    options: {
+      maintainAspectRatio: false, indexAxis: 'y',
+      plugins: {
+        legend: { position: 'bottom', labels: { font: { size: 11 }, boxWidth: 14 } },
+        datalabels: { display: false },
+        tooltip: { callbacks: { label: ctx => ctx.dataset.label + ': ' + ctx.raw + '%' } }
+      },
+      scales: { x: { ticks: { callback: v => v + '%' } } }
+    }
+  });
+
+  // S5d: Time-to-failure (excluding "Not stated" 75.0%)
+  new Chart(document.getElementById('ttfChart'), {
+    type: 'bar',
+    plugins: [ChartDataLabels],
+    data: {
+      labels: ['Day 1', '2–3 days', '~1 week', '1+ month'],
+      datasets: [{ data: [3.2, 4.9, 13.3, 3.6],
+        backgroundColor: ['#dc2626','#f97316','#d97706','#16a34a'], label: '% of negatives' }]
+    },
+    options: {
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        datalabels: {
+          formatter: v => v + '%', color: '#fff',
+          font: { weight: 'bold', size: 11 }, anchor: 'center', align: 'center'
+        },
+        tooltip: { callbacks: { label: ctx => ctx.raw + '% of all 1★+2★+3★ reviews (75.0% did not state time)' } }
+      },
+      scales: { y: { ticks: { callback: v => v + '%' }, max: 25 } }
+    }
+  });
+})();
+
+// ── Sortable table ────────────────────────────────────────────────────────────
+function sortTbl(tableId, col, th) {
+  const tbl   = document.getElementById(tableId);
+  const tbody = tbl.tBodies[0];
+  const rows  = Array.from(tbody.rows);
+  const asc   = th.dataset.asc === '1';
+  rows.sort((a, b) => {
+    const av = parseFloat(a.cells[col].dataset.val) || 0;
+    const bv = parseFloat(b.cells[col].dataset.val) || 0;
+    return asc ? av - bv : bv - av;
+  });
+  rows.forEach(r => tbody.appendChild(r));
+  tbl.querySelectorAll('.th-sort').forEach(h => {
+    h.dataset.asc = '';
+    h.innerHTML = h.innerHTML.replace(/\s*[△▽]$/, '') + ' ▽';
+  });
+  th.innerHTML = th.innerHTML.replace(/\s*[△▽]$/, '') + (asc ? ' △' : ' ▽');
+  th.dataset.asc = asc ? '0' : '1';
+}
+
+// ═══════════════ TAB PS — PACK SIZE COMPETITIVE STRUCTURE ════════════════════
+(function() {
+  const PSC_COLORS = {
+    "Aunt Fannie's": '#2563eb',
+    'Terro':         '#16a34a',
+    'Super Ninja':   '#7c3aed',
+    'HOT SHOT':      '#dc2626',
+    'Qualirey':      '#0891b2',
+    'Others':        '#94a3b8'
+  };
+
+  const PSC_RAW = {
+    '2-pack': [
+      { brand: "Aunt Fannie's", units: 165412, revenue: 2479524 },
+      { brand: 'Terro',         units: 42934,  revenue: 370396  },
+      { brand: 'Super Ninja',   units: 11228,  revenue: 112968  },
+      { brand: 'Others',        units: 5181,   revenue: 29197   }
+    ],
+    '4-pack': [
+      { brand: 'Terro',       units: 701671, revenue: 9381344 },
+      { brand: 'Super Ninja', units: 64191,  revenue: 898033  },
+      { brand: 'Qualirey',    units: 33039,  revenue: 327606  }
+    ],
+    '6-pack': [
+      { brand: 'Terro',          units: 158277, revenue: 2910710 },
+      { brand: 'HOT SHOT',       units: 74639,  revenue: 1056891 },
+      { brand: 'Qualirey',       units: 15561,  revenue: 186579  },
+      { brand: 'Super Ninja',    units: 12462,  revenue: 236653  },
+      { brand: "Aunt Fannie's",  units: 5923,   revenue: 248693  }
+    ]
+  };
+
+  const PACK_SIZES = ['2-pack', '4-pack', '6-pack'];
+
+  function enrich(packSize) {
+    const rows = PSC_RAW[packSize];
+    const totalUnits = rows.reduce((s, r) => s + r.units, 0);
+    const totalRev   = rows.reduce((s, r) => s + r.revenue, 0);
+    return rows.map(r => ({
+      pack_size:   packSize,
+      brand:       r.brand,
+      units:       r.units,
+      revenue:     r.revenue,
+      unit_share:  r.units   / totalUnits,
+      value_share: r.revenue / totalRev,
+      avg_price:   r.revenue / r.units
+    }));
+  }
+
+  const ALL_ROWS = PACK_SIZES.flatMap(p => enrich(p));
+
+  // ── Auto-insights ──────────────────────────────────────────────────────────
+  document.getElementById('psc_insights').innerHTML = [
+    { title: 'Brand Dominance',
+      text: 'Terro controls the 4-pack (88% unit share) and 6-pack (59%). The only format without Terro dominance is 2-pack — led by Aunt Fannie\'s with 74% share.' },
+    { title: 'Brand Equity vs Price',
+      text: 'Aunt Fannie\'s wins 2-pack with the highest price ($14.99 vs $8.63 for Terro at 19%). Brand equity beats the price advantage of the market leader.' },
+    { title: 'Price Gap — 6-pack',
+      text: 'In 6-pack, a gap between Qualirey ($11.99) and Terro ($18.39). The $13–16 range is a potential entry zone with minimal direct competition.' },
+    { title: 'Format Brand-Driven',
+      text: '4-pack is the most brand-driven format: Terro 88% despite pricing similar to Super Ninja ($13.37 vs $13.99). Loyalty, not price.' }
+  ].map(ins => `<div class="insight"><strong>${ins.title}:</strong> ${ins.text}</div>`).join('');
+
+  // ── Charts 1a/b/c: Pie charts per pack size ──────────────────────────────
+  [
+    { id: 'pscPie2Chart', pack: '2-pack' },
+    { id: 'pscPie4Chart', pack: '4-pack' },
+    { id: 'pscPie6Chart', pack: '6-pack' }
+  ].forEach(function(cfg) {
+    const rows   = ALL_ROWS.filter(function(r) { return r.pack_size === cfg.pack; });
+    const total  = rows.reduce(function(s, r) { return s + r.units; }, 0);
+    const labels = rows.map(function(r) { return r.brand; });
+    const data   = rows.map(function(r) { return r.units; });
+    const colors = rows.map(function(r) { return PSC_COLORS[r.brand] || '#94a3b8'; });
+    new Chart(document.getElementById(cfg.id), {
+      type: 'pie',
+      plugins: [ChartDataLabels],
+      data: { labels: labels, datasets: [{ data: data, backgroundColor: colors }] },
+      options: {
+        maintainAspectRatio: false,
+        layout: { padding: { top: 8, left: 8, right: 8, bottom: 8 } },
+        plugins: {
+          legend: { position: 'bottom', labels: { font: { size: 10 }, boxWidth: 10, padding: 7 } },
+          datalabels: {
+            display: function(ctx) { return ctx.dataset.data[ctx.dataIndex] / total >= 0.05; },
+            formatter: function(v, ctx) {
+              return ctx.chart.data.labels[ctx.dataIndex] + '\n' + Math.round(v / total * 100) + '%';
+            },
+            color: '#fff', font: { weight: 'bold', size: 10 }, textAlign: 'center'
+          },
+          tooltip: { callbacks: { label: function(ctx) {
+            return ctx.label + ': ' + (ctx.raw / total * 100).toFixed(1) + '% (' + ctx.raw.toLocaleString() + ' units)';
+          }}}
+        }
+      }
+    });
+  });
+
+  // ── Chart 2: Clustered Bar — Price Positioning ────────────────────────────
+  const top3ByPack = {
+    '2-pack': ["Aunt Fannie's", 'Terro', 'Super Ninja'],
+    '4-pack': ['Terro', 'Super Ninja', 'Qualirey'],
+    '6-pack': ['Terro', 'HOT SHOT', 'Qualirey']
+  };
+  const priceBrands = [...new Set(Object.values(top3ByPack).flat())];
+  new Chart(document.getElementById('pscPriceChart'), {
+    type: 'bar',
+    plugins: [ChartDataLabels],
+    data: {
+      labels: PACK_SIZES,
+      datasets: priceBrands.map(brand => ({
+        label: brand,
+        backgroundColor: PSC_COLORS[brand] || '#94a3b8',
+        data: PACK_SIZES.map(ps => {
+          if (!top3ByPack[ps].includes(brand)) return null;
+          const row = ALL_ROWS.find(r => r.pack_size === ps && r.brand === brand);
+          return row ? Math.round(row.avg_price * 100) / 100 : null;
+        })
+      }))
+    },
+    options: {
+      maintainAspectRatio: false,
+      layout: { padding: { top: 28 } },
+      plugins: {
+        legend: { position: 'bottom', labels: { font: { size: 11 }, boxWidth: 12, padding: 10 } },
+        datalabels: {
+          display: ctx => ctx.raw != null,
+          formatter: v => v != null ? '$' + v.toFixed(2) : '',
+          anchor: 'end', align: 'end', offset: 2,
+          color: '#1e293b', font: { size: 10, weight: 'bold' }
+        },
+        tooltip: { callbacks: { label: ctx => ctx.raw != null ? ctx.dataset.label + ': $' + ctx.raw.toFixed(2) : '' } }
+      },
+      scales: {
+        x: { ticks: { font: { size: 11 } } },
+        y: {
+          ticks: { callback: v => '$' + v.toFixed(0) },
+          title: { display: true, text: 'Weighted Avg Price ($)', font: { size: 10 } }
+        }
+      }
+    }
+  });
+
+  // ── Chart 3: Bubble — Price vs Unit Share ─────────────────────────────────
+  const scatterRows = ALL_ROWS.filter(r => r.brand !== 'Others');
+  const maxRev = Math.max(...scatterRows.map(r => r.revenue));
+  const scaleR = rev => Math.max(5, Math.sqrt(rev / maxRev) * 28);
+  const scatterBrands = [...new Set(scatterRows.map(r => r.brand))];
+
+  function buildDatasets(filter) {
+    return scatterBrands.map(brand => {
+      const pts = scatterRows
+        .filter(r => r.brand === brand && (filter === 'all' || r.pack_size === filter))
+        .map(r => ({
+          x: Math.round(r.avg_price * 100) / 100,
+          y: Math.round(r.unit_share * 1000) / 10,
+          r: Math.round(scaleR(r.revenue)),
+          pack_size: r.pack_size,
+          revenue: r.revenue
+        }));
+      return {
+        label: brand,
+        data: pts,
+        backgroundColor: (PSC_COLORS[brand] || '#94a3b8') + 'aa',
+        borderColor: PSC_COLORS[brand] || '#94a3b8',
+        borderWidth: 1.5
+      };
+    }).filter(ds => ds.data.length > 0);
+  }
+
+  let _scatter = new Chart(document.getElementById('pscScatterChart'), {
+    type: 'bubble',
+    data: { datasets: buildDatasets('all') },
+    options: {
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'bottom', labels: { font: { size: 10 }, boxWidth: 10, padding: 8 } },
+        datalabels: { display: false },
+        tooltip: {
+          callbacks: {
+            label: ctx => {
+              const p = ctx.raw;
+              return [
+                ctx.dataset.label + ' · ' + p.pack_size,
+                'Avg Price: $' + p.x.toFixed(2),
+                'Unit Share: ' + p.y.toFixed(1) + '%',
+                'Revenue: $' + (p.revenue / 1000).toFixed(0) + 'K'
+              ];
+            }
+          }
+        }
+      },
+      scales: {
+        x: {
+          title: { display: true, text: 'Weighted Avg Price ($)', font: { size: 10 } },
+          ticks: { callback: v => '$' + v }
+        },
+        y: {
+          title: { display: true, text: 'Unit Share (%)', font: { size: 10 } },
+          ticks: { callback: v => v + '%' }
+        }
+      }
+    }
+  });
+
+  window.pscFilterScatter = function() {
+    _scatter.data.datasets = buildDatasets(document.getElementById('pscFilter').value);
+    _scatter.update();
+  };
+
+  // ── Table ─────────────────────────────────────────────────────────────────
+  document.getElementById('pscTableBody').innerHTML = ALL_ROWS.map(r => {
+    const packRows = ALL_ROWS.filter(x => x.pack_size === r.pack_size);
+    const isTop1   = r.unit_share === Math.max(...packRows.map(x => x.unit_share));
+    const dot      = `<span style="display:inline-block;width:9px;height:9px;border-radius:2px;background:${PSC_COLORS[r.brand]||'#94a3b8'};margin-right:6px;vertical-align:middle"></span>`;
+    const badge    = isTop1 ? ' <span style="font-size:.68rem;color:#16a34a;font-weight:700">#1</span>' : '';
+    return `<tr${isTop1 ? ' style="background:#f0fdf4"' : ''}>
+      <td>${r.pack_size}</td>
+      <td>${dot}${r.brand}${badge}</td>
+      <td data-val="${r.unit_share}">${(r.unit_share*100).toFixed(1)}%</td>
+      <td data-val="${r.value_share}">${(r.value_share*100).toFixed(1)}%</td>
+      <td data-val="${r.avg_price}">$${r.avg_price.toFixed(2)}</td>
+      <td data-val="${r.units}">${r.units.toLocaleString()}</td>
+      <td data-val="${r.revenue}">$${(r.revenue/1000).toFixed(0)}K</td>
+    </tr>`;
+  }).join('');
+})();
+
+// ── Fix: resize all charts after init (hidden panels render at 0×0) ──────────
+window.addEventListener('load', function() {
+  setTimeout(function() {
+    var panels = document.querySelectorAll('.panel');
+    panels.forEach(function(p) { p.style.display = 'block'; });
+    void document.body.offsetHeight;
+    Object.values(Chart.instances).forEach(function(c) { c.resize(); });
+    panels.forEach(function(p) { p.style.display = ''; });
+  }, 100);
+});
+</script>
+</body>
+</html>

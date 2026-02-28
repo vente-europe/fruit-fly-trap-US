@@ -1,0 +1,6 @@
+band_label,price_lo,price_hi,asin_count,est_monthly_revenue,revenue_share_pct,est_monthly_units,avg_bsr,avg_rating
+$0–$15,0,15,51,4211.96,9.77,383,79858,3.99
+$15–$25,15,25,38,31272.17,72.53,1487,68375,4.1
+$25–$40,25,40,9,7633.13,17.7,209,39418,4.14
+$40–$60,40,60,0,0,0.0,0,,
+$60+,60,999,0,0,0.0,0,,

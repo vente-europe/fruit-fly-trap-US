@@ -1,0 +1,15 @@
+theme,theme_label,review_count,avg_confidence,share_pct
+performance,Product not effective,3433,0.9021264200407807,70.6
+defective,Failed to function,277,0.912129963898917,5.7
+durability,Stops working quickly,252,0.9021825396825397,5.2
+value,Overpriced for effectiveness,182,0.8672527472527473,3.7
+quality,Quality not comparable,178,0.860505617977528,3.7
+misleading_description,Wrong quantity received,144,0.8885416666666667,3.0
+packaging,Poor packaging caused damage,121,0.8947107438016529,2.5
+safety_concern,Fire hazard risk,87,0.9178160919540229,1.8
+scent,Strong unpleasant smell,55,0.8874545454545455,1.1
+shipping,Missing items in shipment,44,0.9095454545454547,0.9
+sizing,Smaller than customer expected,35,0.8842857142857142,0.7
+other,Missing instructions or documentation,30,0.7633333333333333,0.6
+customer_service,Return not received/charge issue,14,0.8735714285714286,0.3
+design,Unstable design,8,0.8775000000000001,0.2

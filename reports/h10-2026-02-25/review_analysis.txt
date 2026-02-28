@@ -1,0 +1,156 @@
+Negative reviews: Terro=200, HS=180, Total=380
+
+=== SECTION 2: Combined Unmet Needs (all negatives) ===
+  Not working                     226   59.5%
+  Works but problem returns        14    3.7%
+  Design flaw                      48   12.6%
+  Hygiene concern                  16    4.2%
+  Misleading expectation            7    1.8%
+  Ease of use issue                24    6.3%
+  Safety concern                    5    1.3%
+  Value disappointment             40   10.5%
+
+=== SECTION 4: By Brand ===
+  Category                          Terro  Hot Shot
+  Not working                       57.5%     61.7%
+  Works but problem returns          6.0%      1.1%
+  Design flaw                       14.0%     11.1%
+  Hygiene concern                    5.0%      3.3%
+  Misleading expectation             2.0%      1.7%
+  Ease of use issue                  3.5%      9.4%
+  Safety concern                     0.0%      2.8%
+  Value disappointment              12.0%      8.9%
+<string>:37: SyntaxWarning: invalid escape sequence '\!'
+=== 5a DIY Comparison Rate ===
+  Terro:    170/498 = 34.1%
+  Hot Shot: 28/320 = 8.8%
+  Combined: 198/818 = 24.2%
+
+=== 5b Trust Damage Phrases ===
+  Terro:    32/498 = 6.4%
+  Hot Shot: 14/320 = 4.4%
+
+=== 5c Emotional Intensity ===
+  Terro avg:    0.40
+  Hot Shot avg: 0.72
+
+=== 5d Time to Failure ===
+  Day 1              4    1.1%
+  2-3 days          21    5.5%
+  1 week            68   17.9%
+  2+ weeks           0    0.0%
+  1+ month          12    3.2%
+  Not specified    275   72.4%
+
+=== SAMPLE NEGATIVE REVIEWS (for pattern clustering) ===
+[1*] I bought these along with the other brand to see if they worked better
+than the homemade traps, they do very good catching them but the problem
+is the holes are way too big. My problem got worse as they continued to
+breed and I could not find out how
+
+[1*] The cute little red plastic apples are a great design. It's too bad they
+are paired with lure which does not work.
+
+I've placed four of the six apples in areas of breeding and
+concentration. One on the table with plants, one right in front of me on
+m
+
+[1*] Absolutely. Turning the sarcasm dial to *unreasonable*:
+
+---
+
+I am currently living in an active infestation. I have no idea where
+these creatures came from or how they managed to establish a thriving
+civilization so quickly, having deep-cleaned my r
+
+[1*] So I purchased the Terro fruit fly traps based on all the positive
+reviews. They arrived promptly and was very excited to try them at our
+ice cream and smoothies store. We sometimes have 1-2 fruit flies but not
+very often. Either way doesn't look goo
+
+[1*] DOES NOT WORK. I have a gnat infestation in my indoor office plants.
+Because they are in my office, where I spend 8 hours per day, I needed
+them gone, stat. I tried 3 different methods of gnat elimination: (1)
+Terro apple-shaped fly traps; (2) Shallo
+
+[1*] Two weeks of use, ZERO dead gnats. If you have fungus flies / gnats,
+this product won't help. Fruit flies seem to be attracted to the Apple
+cider vinegar and soap concoction, but overall not impressed for use
+against "fungus flies" (*aka tiny black f
+
+[1*] We live around multiple mature trees and get gnats and fruit flies every
+season change. We put 8 of these around our house and have had them out
+for over a month. NOT A SINGLE TRAP HAS ANY BUGS IN IT! It does not
+attract them or trap them as describe
+
+[1*] Totally garbage item and waste of money. I might as well of just reached
+In the cupboard and poured apple cider vinegar in a cup. House is
+totally full of fruit flies and after days this thing has trapped one.
+Will never buy again, I'll stick to usin
+
+[1*] I've been using this product successfully for a couple of years. This
+year was an exception. The product had its sinus-clearing vinegar smell,
+but the fruit flies weren't buying it. I am not exaggerating -- I
+caught a single fruit fly in a month. I'm
+
+[1*] worthless. save your money.
+
+1\. The liguid solution that's supposed to last 180 days is not
+resealable, but is a twist off cap top. Once the cap top is removed
+there is no way to reseal it.
+
+2\. the product doesn't work. Caught no flies in 48 hours 
+
+[1*] Absolutely useless. The little tubs that hold the liquid are made of the
+thinnest of plastic, and every single tub was warped, causing it to sit
+lopsided in the hard case. I spilled some liquid on my hands, and
+honestly, it just smells like pure vine
+
+[1*] I bought these traps to put in my kitchen and bathrooms. In our kitchen,
+we tend to get fruit flies around our coffee machine. In the bathroom,
+we get them around the sinks, as they come out of the overflow drains
+and like to hang around my potted pl
+
+[1*] Not at all effective. We have had an issue with tiny fruit flies. Needed
+an alternative to the plug-in for a length of time I was going away.
+After 2 weeks, undisturbed, not one insect collected. I had more in a
+small water cup-catch located in yet a
+
+[1*] my house was randomly full of flies one day so I ordered this. Not even
+one fly showed any interest at all. Also, the product has to be
+assembled by peeling off the lid and then putting another lid on top,
+but it's all the way full of the insect pois
+
+[1*] Due to missing garbage day, my cans outside (which are very close to my
+backdoor) started growing a colony of flies. Some winged adventurers
+managed to get into my home because I cannot hermetically seal it.
+Anyway, I tried everything to get rid of t
+
+[1*] I would give these 0 stars if I could. I've been battling fruit flies in
+my kitchen for weeks and was desperate. I hoped the reviews were wrong,
+and these seemed so easy to use.
+
+1\) They're not easy to use. When you open the foil in the package, it'
+
+[1*] 100% Worthless. Doesn't do anything except dry up and waste money.
+
+Not a single inspect was harmed during the two month period this was
+placed next to the sink.
+
+[1*] Click to play video
+
+SAVE\....YOUR\....MONEYYYY. These are no more effective than putting out
+a bowl of dishwater or a sweet liquid. I have many plants in my house
+thus have gnats. At the same time I purchased these I also purchased
+clear see-through
+
+[1*] Not one fly or fruit fly had any interest in the solution. I purchased
+these to replace the containers I generally use to kill fruit flies
+because the description claimed it would kill house flies as well. I
+left a few around the house for several we
+
+[1*] These are useless. The flying insects don't even go inside. Ease of
+use, Opening it is messy. The super stuck covering is a thin foil thing
+that has alittle area you have to struggle with to grab, then sliding it
+off is difficult and makes the fluid 
+

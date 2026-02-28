@@ -1,0 +1,36 @@
+claim,claim_type,frequency,avg_confidence
+all target attraction,performance,1,0.9
+attracts all major types of fruit flies,performance,1,0.92
+attracts and traps fruit fly,performance,1,0.92
+attracts many varieties of flies,performance,1,0.9
+botanical extracts formula,quality,1,0.9
+breaks life cycle flies,performance,1,0.94
+budget friendly bundle,value,1,0.88
+commercial grade results,performance,1,0.88
+continuous protection,performance,1,0.9
+drown quickly,performance,1,0.85
+eliminates infestations prevents new ones,risky_performance,1,0.92
+highly concentrated citronella,quality,1,0.9
+insects cannot escape,performance,1,0.88
+kills flies upon contact,performance,1,0.92
+kills flies without chemicals,safety,1,0.93
+lasts up to 21 days,performance,1,0.95
+lasts up to 6 weeks,performance,1,0.95
+lasts up to 8 weeks,performance,1,0.95
+made in the USA,origin,1,0.98
+made with citronella cinnamon,quality,1,0.92
+mass trapping monitoring system,performance,1,0.88
+natural formula,quality,1,0.9
+no added dye fragrance chemicals,safety,1,0.93
+non toxic,safety,1,0.95
+non toxic bait,safety,1,0.95
+non toxic biodegradable food safe,safety,1,0.95
+non toxic physical attractant,safety,1,0.94
+physical method elimination,performance,1,0.92
+repel flies from drain,performance,1,0.9
+safe around people pets,safety,1,0.94
+safe for septic systems,safety,1,0.93
+safe near food pets children,safety,1,0.95
+safest most effective pest control,quality,1,0.88
+tested by entomologists,certification,1,0.95
+works immediately,performance,1,0.92

@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Pułapki na Muszki — Dashboard Analizy Rynku 2026-02-19</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f1f5f9;color:#1e293b;font-size:13px}
+header{background:#0f2942;color:#fff;padding:18px 32px;display:flex;justify-content:space-between;align-items:center}
+header h1{font-size:1.2rem}
+header p{font-size:.75rem;opacity:.65;margin-top:3px}
+.tabs{display:flex;background:#fff;border-bottom:2px solid #e2e8f0;padding:0 32px;gap:2px}
+.tab{padding:12px 16px;cursor:pointer;font-size:.83rem;font-weight:600;color:#64748b;border-bottom:3px solid transparent;margin-bottom:-2px;white-space:nowrap;letter-spacing:.01em}
+.tab:hover{color:#1e3a5f}.tab.active{color:#1e3a5f;border-bottom-color:#2563eb}
+.content{padding:22px 32px}
+.panel{display:none}.panel.active{display:block}
+.kpis{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:12px;margin-bottom:20px}
+.kpi{background:#fff;border-radius:8px;padding:14px 16px;box-shadow:0 1px 3px rgba(0,0,0,.07)}
+.kpi-v{font-size:1.15rem;font-weight:700;color:#0f2942;word-break:break-word;line-height:1.2}
+.kpi-l{font-size:.68rem;color:#64748b;margin-top:4px;line-height:1.3}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-bottom:18px}
+.card{background:#fff;border-radius:8px;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,.07);margin-bottom:18px}
+.card h3{font-size:.83rem;font-weight:600;color:#475569;margin-bottom:12px}
+.cw{position:relative;height:240px}
+table{width:100%;border-collapse:collapse;font-size:.75rem}
+th{background:#f8fafc;text-align:left;padding:6px 7px;font-weight:600;color:#475569;white-space:nowrap;position:sticky;top:0;border-bottom:1px solid #e2e8f0}
+td{padding:5px 7px;border-bottom:1px solid #f1f5f9;vertical-align:middle}
+tr:hover td{background:#f8fafc}
+td a{color:#2563eb;text-decoration:none;font-family:monospace;font-size:.72rem}
+td a:hover{text-decoration:underline}
+.tbl-wrap{overflow-x:auto;max-height:460px;overflow-y:auto}
+h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
+.insight{background:#eff6ff;border-left:3px solid #2563eb;padding:10px 14px;border-radius:0 6px 6px 0;margin-bottom:14px;font-size:.8rem;color:#1e40af;line-height:1.5}
+.warn{background:#fff7ed;border-left:3px solid #f97316;color:#9a3412}
+.note{font-size:.72rem;color:#64748b;margin-top:10px;padding:9px 11px;background:#f8fafc;border-radius:5px;border-left:2px solid #cbd5e1;line-height:1.5}
+
+/* Score card */
+.score-card{background:#fff;border-radius:8px;padding:18px;box-shadow:0 1px 3px rgba(0,0,0,.07);margin-bottom:18px}
+.score-total{font-size:2.5rem;font-weight:800;color:#0f2942;line-height:1}
+.score-label{font-size:.75rem;color:#64748b;margin-top:2px}
+.verdict-enter{color:#16a34a}.verdict-watch{color:#d97706}.verdict-avoid{color:#dc2626}
+.score-dim{margin-bottom:10px}
+.score-dim-header{display:flex;justify-content:space-between;font-size:.78rem;font-weight:600;margin-bottom:3px}
+.score-track{height:6px;background:#e2e8f0;border-radius:3px;overflow:hidden;margin-bottom:2px}
+.score-fill{height:100%;border-radius:3px;transition:width .3s}
+.score-desc{font-size:.7rem;color:#64748b}
+.verdict-box{border-radius:8px;padding:14px 18px;margin-bottom:14px;display:flex;align-items:center;gap:12px}
+.verdict-enter-bg{background:#f0fdf4;border:1.5px solid #16a34a}
+.verdict-watch-bg{background:#fffbeb;border:1.5px solid #d97706}
+.verdict-avoid-bg{background:#fef2f2;border:1.5px solid #dc2626}
+.verdict-text{font-size:1.4rem;font-weight:800}
+.strategy-chip{display:inline-block;background:#eff6ff;color:#1d4ed8;border-radius:4px;padding:3px 9px;font-size:.72rem;font-weight:600}
+
+/* Unit economics */
+.econ-inputs{display:flex;gap:18px;margin-bottom:16px;flex-wrap:wrap}
+.econ-field{display:flex;flex-direction:column;gap:4px}
+.econ-field label{font-size:.72rem;font-weight:600;color:#475569}
+.econ-field input{border:1.5px solid #cbd5e1;border-radius:5px;padding:6px 10px;font-size:.85rem;width:120px}
+.econ-field input:focus{outline:none;border-color:#2563eb}
+.econ-field .unit{font-size:.7rem;color:#94a3b8}
+.margin-pos{color:#16a34a;font-weight:600}
+.margin-neg{color:#dc2626;font-weight:600}
+.margin-mid{color:#d97706;font-weight:600}
+
+/* Heatmap */
+.heatmap{border-collapse:collapse;font-size:.73rem}
+.heatmap th,.heatmap td{padding:5px 10px;text-align:center;border:1px solid #e2e8f0}
+.hm-g{background:#dcfce7;color:#15803d}.hm-y{background:#fef9c3;color:#854d0e}
+.hm-o{background:#ffedd5;color:#9a3412}.hm-r{background:#fee2e2;color:#991b1b}
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>Pułapki na Muszki Owocowe — Dashboard Analizy Rynku</h1>
+    <p>Źródło: Fruit-Fly-Traps-with-glue-Helium_10_Xray_2026-02-19.csv &nbsp;·&nbsp; Wygenerowano: 2026-02-19 &nbsp;·&nbsp; 33 ASIN-ów</p>
+  </div>
+  <div style="text-align:right">
+    <div style="font-size:1.6rem;font-weight:800;color:#fff" class="verdict-avoid">UNIKAC</div>
+    <div style="font-size:.75rem;opacity:.7">Wynik szansy: 2/8</div>
+  </div>
+</header>
+
+<div class="tabs">
+  <div class="tab active" onclick="show('ta',this)">A — Przegląd dla Zarządu</div>
+  <div class="tab" onclick="show('tb',this)">B — Struktura Rynku</div>
+  <div class="tab" onclick="show('tc',this)">C — Ekonomika Jednostkowa</div>
+  <div class="tab" onclick="show('td',this)">D — Popyt i Stabilność</div>
+  <div class="tab" onclick="show('te',this)">E — Jakość Listingów</div>
+</div>
+
+<div class="content">
+
+<!-- ═══════════════════════════════════════ TAB A ══════════════════════════ -->
+<div id="ta" class="panel active">
+<h2>Przegląd dla Zarządu — Wejść / Nie Wchodzić</h2>
+
+<div class="g2" style="align-items:start">
+  <div>
+    <!-- Werdykt -->
+    <div class="verdict-box verdict-avoid-bg">
+      <div class="verdict-text verdict-avoid">UNIKAC</div>
+      <div>
+        <div style="font-size:.8rem;font-weight:600;color:#334155">Wynik Szansy: 2/8</div>
+        <div style="font-size:.72rem;color:#64748b;margin-top:3px">Strategia: <span class="strategy-chip">Pozycjonowanie cenowe / jakosciowe</span></div>
+      </div>
+    </div>
+    <!-- Rozkład wyniku -->
+    <div class="score-card">
+      <div class="g2" style="gap:8px">
+        <div>
+          <div class="score-total" style="color:#dc2626">2</div>
+          <div class="score-label">na 8 punktów</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:4px;align-items:flex-end;justify-content:center">
+          <div style="font-size:.7rem;color:#64748b">6–8 = Wejść &nbsp; 4–5 = Obserwować &nbsp; 0–3 = Unikać</div>
+        </div>
+      </div>
+      <div style="margin-top:14px">
+        <div class="score-dim">
+          <div class="score-dim-header">
+            <span>Glebokos popytu</span>
+            <span style="font-weight:700;color:#16a34a">2/2</span>
+          </div>
+          <div class="score-track"><div class="score-fill" style="width:100.0%;background:#16a34a"></div></div>
+          <div class="score-desc">Silny ($500k+/mies.)</div>
+        </div>
+        <div class="score-dim">
+          <div class="score-dim-header">
+            <span>Koncentracja rynku</span>
+            <span style="font-weight:700;color:#dc2626">0/2</span>
+          </div>
+          <div class="score-track"><div class="score-fill" style="width:0.0%;background:#dc2626"></div></div>
+          <div class="score-desc">Zdominowany — lider posiada 40%+</div>
+        </div>
+        <div class="score-dim">
+          <div class="score-dim-header">
+            <span>Prog recenzji</span>
+            <span style="font-weight:700;color:#dc2626">0/2</span>
+          </div>
+          <div class="score-track"><div class="score-fill" style="width:0.0%;background:#dc2626"></div></div>
+          <div class="score-desc">Wysoki prog (wymagane 1000+ recenzji)</div>
+        </div>
+        <div class="score-dim">
+          <div class="score-dim-header">
+            <span>Dowod nowych graczy</span>
+            <span style="font-weight:700;color:#dc2626">0/2</span>
+          </div>
+          <div class="score-track"><div class="score-fill" style="width:0.0%;background:#dc2626"></div></div>
+          <div class="score-desc">Nowe listingi nie zdobywaja trakcji</div>
+        </div></div>
+    </div>
+  </div>
+
+  <!-- KPI -->
+  <div>
+    <div class="kpis">
+      <div class="kpi"><div class="kpi-v">$621,470/mies.</div><div class="kpi-l">Łączne przychody kategorii</div></div>
+      <div class="kpi"><div class="kpi-v">49,445</div><div class="kpi-l">Szt./mies. (szac.)</div></div>
+      <div class="kpi"><div class="kpi-v">$12.99</div><div class="kpi-l">Cena medianowa (IQR $7.19–$17.98)</div></div>
+      <div class="kpi"><div class="kpi-v">5,442</div><div class="kpi-l">Mediana recenzji · 6.1% poniżej 200</div></div>
+      <div class="kpi"><div class="kpi-v">1</div><div class="kpi-l">Mediana sprzedawców · 69.7% FBA</div></div>
+      <div class="kpi"><div class="kpi-v">0.0%</div><div class="kpi-l">Reklamy sponsorowane w Top 20</div></div>
+      <div class="kpi"><div class="kpi-v">3.0%</div><div class="kpi-l">Listingi &lt;12mies. · 0.3% przychodów</div></div>
+      <div class="kpi"><div class="kpi-v">48.4% / 64.0%</div><div class="kpi-l">Udział Top 1 / Top 3 Marki</div></div>
+      <div class="kpi"><div class="kpi-v">49.3%</div><div class="kpi-l">Śr. marża brutto (po prowizjach)</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="g3">
+  <div class="card">
+    <h3>Top 10 ASIN-ów według przychodu</h3>
+    <div class="cw"><canvas id="top10Chart"></canvas></div>
+    <div class="note">Pokazuje 10 produktów z najwyższymi przychodami. Liderzy to najgroźniejsi konkurenci — sprawdź ich ceny, liczbę recenzji i wiek listingu.</div>
+  </div>
+  <div class="card">
+    <h3>Cena vs Przychód (punkt = ASIN)</h3>
+    <div class="cw"><canvas id="priceRevChart"></canvas></div>
+    <div class="note">Każdy punkt to jeden ASIN. Sprawdź, w jakim przedziale cenowym koncentruje się przychód — to Twoja naturalna pozycja cenowa.</div>
+  </div>
+  <div class="card">
+    <h3>Recenzje vs Przychód</h3>
+    <div class="cw"><canvas id="revReviewChart"></canvas></div>
+    <div class="note">Czy produkty z większą liczbą recenzji zarabiają więcej? Silna korelacja oznacza wysoki próg wejścia dla nowych graczy.</div>
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════ TAB B ══════════════════════════ -->
+<div id="tb" class="panel">
+<h2>Struktura Rynku — Rzeczywistość Konkurencji</h2>
+
+<div class="kpis" style="grid-template-columns:repeat(auto-fill,minmax(160px,1fr))">
+  <div class="kpi"><div class="kpi-v">26.7%</div><div class="kpi-l">Udział Top 1 ASIN w przychodach</div></div>
+  <div class="kpi"><div class="kpi-v">55.1%</div><div class="kpi-l">Udział Top 3 ASIN-ów</div></div>
+  <div class="kpi"><div class="kpi-v">65.2%</div><div class="kpi-l">Udział Top 5 ASIN-ów</div></div>
+  <div class="kpi"><div class="kpi-v">79.9%</div><div class="kpi-l">Udział Top 10 ASIN-ów</div></div>
+  <div class="kpi"><div class="kpi-v">48.4%</div><div class="kpi-l">Udział lidera marki</div></div>
+  <div class="kpi"><div class="kpi-v">1</div><div class="kpi-l">Mediana aktywnych sprzedawców/ASIN</div></div>
+</div>
+
+<div class="g2">
+  <div class="card">
+    <h3>Koncentracja przychodów — Pareto</h3>
+    <div class="cw"><canvas id="paretoChart"></canvas></div>
+    <div class="note">Jaki % przychodów kontroluje Top 1/3/5/10 ASIN-ów. Im bardziej stroma krzywa, tym bardziej skoncentrowany rynek i trudniejsze wejście.</div>
+  </div>
+  <div class="card">
+    <h3>Rozkład aktywnych sprzedawców</h3>
+    <div class="cw"><canvas id="sellersChart"></canvas></div>
+    <div class="note">Ile ASIN-ów ma 1, 2, 3... aktywnych sprzedawców. Dominacja ASIN-ów z 1 sprzedawcą = rynek private label — marki własne rządzą.</div>
+  </div>
+</div>
+
+<div class="card"><h3>Zestawienie marek (Top 15)</h3>
+<div class="tbl-wrap"><table>
+  <thead><tr><th>Marka</th><th>Szac. przyc./mies.</th><th>Udział</th><th>ASIN-y</th><th>Śr. cena</th><th>Śr. ocena</th><th>Łączne recenzje</th></tr></thead>
+  <tbody><tr>
+      <td>Terro</td>
+      <td>$301,039</td>
+      <td>48.4%</td>
+      <td>5</td>
+      <td>$10.90</td>
+      <td>4.1</td>
+      <td>136,569</td>
+    </tr>
+<tr>
+      <td>Super Ninja</td>
+      <td>$63,236</td>
+      <td>10.2%</td>
+      <td>1</td>
+      <td>$13.99</td>
+      <td>3.7</td>
+      <td>13,524</td>
+    </tr>
+<tr>
+      <td>Aunt Fannie's</td>
+      <td>$33,170</td>
+      <td>5.3%</td>
+      <td>3</td>
+      <td>$21.65</td>
+      <td>3.9</td>
+      <td>75,273</td>
+    </tr>
+<tr>
+      <td>BugBane</td>
+      <td>$32,147</td>
+      <td>5.2%</td>
+      <td>1</td>
+      <td>$32.99</td>
+      <td>4.4</td>
+      <td>1,567</td>
+    </tr>
+<tr>
+      <td>DynaTrap</td>
+      <td>$30,641</td>
+      <td>4.9%</td>
+      <td>1</td>
+      <td>$35.11</td>
+      <td>4.0</td>
+      <td>2,030</td>
+    </tr>
+<tr>
+      <td>Raid</td>
+      <td>$24,112</td>
+      <td>3.9%</td>
+      <td>2</td>
+      <td>$9.49</td>
+      <td>3.3</td>
+      <td>14,712</td>
+    </tr>
+<tr>
+      <td>RESCUE!</td>
+      <td>$20,194</td>
+      <td>3.2%</td>
+      <td>1</td>
+      <td>$21.94</td>
+      <td>4.2</td>
+      <td>4,927</td>
+    </tr>
+<tr>
+      <td>Landisun</td>
+      <td>$17,524</td>
+      <td>2.8%</td>
+      <td>1</td>
+      <td>$5.59</td>
+      <td>4.3</td>
+      <td>15,040</td>
+    </tr>
+<tr>
+      <td>Wondercide</td>
+      <td>$17,389</td>
+      <td>2.8%</td>
+      <td>1</td>
+      <td>$21.99</td>
+      <td>3.5</td>
+      <td>5,442</td>
+    </tr>
+<tr>
+      <td>Stingmon</td>
+      <td>$16,040</td>
+      <td>2.6%</td>
+      <td>1</td>
+      <td>$7.19</td>
+      <td>4.4</td>
+      <td>34,586</td>
+    </tr>
+<tr>
+      <td>Mosqueda</td>
+      <td>$14,306</td>
+      <td>2.3%</td>
+      <td>1</td>
+      <td>$5.98</td>
+      <td>4.4</td>
+      <td>30,363</td>
+    </tr>
+<tr>
+      <td>Catchmaster</td>
+      <td>$11,469</td>
+      <td>1.8%</td>
+      <td>1</td>
+      <td>$12.99</td>
+      <td>4.0</td>
+      <td>12,830</td>
+    </tr>
+<tr>
+      <td>Qualirey</td>
+      <td>$7,450</td>
+      <td>1.2%</td>
+      <td>2</td>
+      <td>$17.24</td>
+      <td>4.3</td>
+      <td>1,237</td>
+    </tr>
+<tr>
+      <td>Fruit Fly BarPro</td>
+      <td>$7,263</td>
+      <td>1.2%</td>
+      <td>1</td>
+      <td>$11.49</td>
+      <td>3.9</td>
+      <td>11,487</td>
+    </tr>
+<tr>
+      <td>Kensizer</td>
+      <td>$7,081</td>
+      <td>1.1%</td>
+      <td>1</td>
+      <td>$8.09</td>
+      <td>4.3</td>
+      <td>19,089</td>
+    </tr></tbody>
+</table></div></div>
+
+<div class="card"><h3>Top 20 ASIN-ów</h3>
+<div class="tbl-wrap"><table>
+  <thead><tr><th>ASIN</th><th>Marka</th><th>Tytuł</th><th>Cena</th><th>Przyc./mies.</th><th>BSR</th><th>Recenzje</th><th>Prędkość</th><th>Sprzedawcy</th><th>FBA</th><th>Zdjęcia</th><th>Reklama</th><th>Kraj</th><th>Wiek</th><th>BS</th></tr></thead>
+  <tbody><tr>
+          <td><a href="https://amazon.com/dp/B01MRHXM0I" target="_blank">B01MRHXM0I</a></td>
+          <td>Terro</td>
+          <td><span title="TERRO Fruit Fly Traps for Indoors (4 Pack) + 180 Days of Lure Supply - T2503SR - Lure and Kill Indoor Fruit Flies Near Fruit, Trash Cans, Countertops - Ready to Use Trap - 180 Day Supply">TERRO Fruit Fly Traps for Indoors (4 Pack) +…</span></td>
+          <td>$13.33</td>
+          <td>$165,913</td>
+          <td>51</td>
+          <td>23,937</td>
+          <td>383</td>
+          <td>12</td>
+          <td>AMZ</td>
+          <td>9</td>
+          <td></td>
+          <td>AMZ</td>
+          <td>111mies.</td>
+          <td></td>
+        </tr>
+<tr>
+          <td><a href="https://amazon.com/dp/B0BX4GQF68" target="_blank">B0BX4GQF68</a></td>
+          <td>Terro</td>
+          <td><span title="Terro Fruit Fly Traps for Indoors (6 Pack) + 270 Days of Lure Supply">Terro Fruit Fly Traps for Indoors (6 Pack) +…</span></td>
+          <td>$18.59</td>
+          <td>$113,306</td>
+          <td>440</td>
+          <td>23,937</td>
+          <td>330</td>
+          <td>8</td>
+          <td>AMZ</td>
+          <td>10</td>
+          <td></td>
+          <td>AMZ</td>
+          <td>35mies.</td>
+          <td></td>
+        </tr>
+<tr>
+          <td><a href="https://amazon.com/dp/B0D5DJ7V4P" target="_blank">B0D5DJ7V4P</a></td>
+          <td>Super Ninja</td>
+          <td><span title="Super Ninja Fruit Fly Traps for Indoors - 4 Pack, Highly Effective Fruit Fly Catcher for Indoor Use for Home & Kitchen, Up to 3 Weeks of Performance per Bottle, Kid & Pet Friendly">Super Ninja Fruit Fly Traps for Indoors - 4 …</span></td>
+          <td>$13.99</td>
+          <td>$63,236</td>
+          <td>427</td>
+          <td>13,524</td>
+          <td>276</td>
+          <td>1</td>
+          <td>FBA</td>
+          <td>8</td>
+          <td></td>
+          <td>US</td>
+          <td>20mies.</td>
+          <td></td>
+        </tr>
+<tr>
+          <td><a href="https://amazon.com/dp/B0CP43WSGB" target="_blank">B0CP43WSGB</a></td>
+          <td>BugBane</td>
+          <td><span title="Fly Stick Sticky Fly Traps for Indoors Outdoor 6pk. Non-Toxic Super Sticky Hanging Flies Catcher Paper Tape Strips for Home. Catches All Bugs and gnats. Indoor Outdoor House Flying Insect Trap">Fly Stick Sticky Fly Traps for Indoors Outdo…</span></td>
+          <td>$32.99</td>
+          <td>$32,147</td>
+          <td>2,977</td>
+          <td>1,567</td>
+          <td>14</td>
+          <td>1</td>
+          <td>FBA</td>
+          <td>8</td>
+          <td></td>
+          <td>US</td>
+          <td>22mies.</td>
+          <td></td>
+        </tr>
+<tr>
+          <td><a href="https://amazon.com/dp/B0BSYD2VV6" target="_blank">B0BSYD2VV6</a></td>
+          <td>DynaTrap</td>
+          <td><span title="DynaTrap DT152 Indoor Insect Trap and Killer – Catches and Kills Gnats, Flies, Moths & Other Flying Insects">DynaTrap DT152 Indoor Insect Trap and Killer…</span></td>
+          <td>$35.11</td>
+          <td>$30,641</td>
+          <td>4,971</td>
+          <td>2,030</td>
+          <td>24</td>
+          <td>16</td>
+          <td>AMZ</td>
+          <td>19</td>
+          <td></td>
+          <td>AMZ</td>
+          <td>36mies.</td>
+          <td></td>
+        </tr>
+<tr>
+          <td><a href="https://amazon.com/dp/B07D8494WV" target="_blank">B07D8494WV</a></td>
+          <td>RESCUE!</td>
+          <td><span title="RESCUE! Non-Toxic TrapStik for Flies – Indoor Hanging Fly Trap - 4 Pack">RESCUE! Non-Toxic TrapStik for Flies – Indoo…</span></td>
+          <td>$21.94</td>
+          <td>$20,194</td>
+          <td>2,980</td>
+          <td>4,927</td>
+          <td>24</td>
+          <td>10</td>
+          <td>FBA</td>
+          <td>6</td>
+          <td></td>
+          <td>US</td>
+          <td>92mies.</td>
+          <td></td>
+        </tr>
+<tr>
+          <td><a href="https://amazon.com/dp/B09GDHSW99" target="_blank">B09GDHSW99</a></td>
+          <td>Raid</td>
+          <td><span title="Raid Essentials Fruit Fly Trap for Indoors, Made with Essential Oils, Child and Pet Safe, 5.4 oz">Raid Essentials Fruit Fly Trap for Indoors, …</span></td>
+          <td>$6.99</td>
+          <td>$19,419</td>
+          <td>1,215</td>
+          <td>3,940</td>
+          <td>40</td>
+          <td>1</td>
+          <td>AMZ</td>
+          <td>11</td>
+          <td></td>
+          <td>AMZ</td>
+          <td>53mies.</td>
+          <td></td>
+        </tr>
+<tr>
+          <td><a href="https://amazon.com/dp/B0B3RJ9JFM" target="_blank">B0B3RJ9JFM</a></td>
+          <td>Landisun</td>
+          <td><span title="Fruit Fly Traps Indoor Fungus Gnat Trap 48PCS for Plants Yellow Houseplants Outdoor Use Insect Sticky">Fruit Fly Traps Indoor Fungus Gnat Trap 48PC…</span></td>
+          <td>$5.59</td>
+          <td>$17,524</td>
+          <td>313</td>
+          <td>15,040</td>
+          <td>69</td>
+          <td>1</td>
+          <td>FBA</td>
+          <td>9</td>
+          <td></td>
+          <td>US</td>
+          <td>44mies.</td>
+          <td></td>
+        </tr>
+<tr>
+          <td><a href="https://amazon.com/dp/B09WJLKZP1" target="_blank">B09WJLKZP1</a></td>
+          <td>Wondercide</td>
+          <td><span title="Wondercide - Fruit Fly Traps for Indoors - Fruit Fly Killer - Pet and People Safe - Made in USA & Plant Based - 5.4 oz - 2 Pack">Wondercide - Fruit Fly Traps for Indoors - F…</span></td>
+          <td>$21.99</td>
+          <td>$17,389</td>
+          <td>3,756</td>
+          <td>5,442</td>
+          <td>27</td>
+          <td>1</td>
+          <td>FBA</td>
+          <td>8</td>
+          <td></td>
+          <td>US</td>
+          <td>47mies.</td>
+          <td></td>
+        </tr>
+<tr>
+          <td><a href="https://amazon.com/dp/B07VYPGHFW" target="_blank">B07VYPGHFW</a></td>
+          <td>Aunt Fannie's</td>
+          <td><span title="Aunt Fannie's FlyPunch Fruit Fly Trap for Indoor and Kitchen Use, Ready to Use, Made with Plant Based Ingredients, Safe Near Food, Each Bottle Lasts Up to 30 Days, Pack of 2">Aunt Fannie's FlyPunch Fruit Fly Trap for In…</span></td>
+          <td>$14.99</td>
+          <td>$16,686</td>
+          <td>739</td>
+          <td>25,091</td>
+          <td>40</td>
+          <td>1</td>
+          <td>FBA</td>
+          <td>7</td>
+          <td></td>
+          <td>US</td>
+          <td>78mies.</td>
+          <td></td>
+        </tr>
+<tr>
+          <td><a href="https://amazon.com/dp/B07XLM4FWL" target="_blank">B07XLM4FWL</a></td>
+          <td>Stingmon</td>
+          <td><span title="36 Pack Fruit Fly Traps for Indoors, Gnat Traps for House Indoor, Sticky Traps Fungus Gnats Killer for Mosquito and Flying Insects, Bug Pest Insect Catcher Killer for Houseplant">36 Pack Fruit Fly Traps for Indoors, Gnat Tr…</span></td>
+          <td>$7.19</td>
+          <td>$16,040</td>
+          <td>1,248</td>
+          <td>34,586</td>
+          <td>23</td>
+          <td>1</td>
+          <td>FBA</td>
+          <td>9</td>
+          <td></td>
+          <td>US</td>
+          <td>77mies.</td>
+          <td></td>
+        </tr>
+<tr>
+          <td><a href="https://amazon.com/dp/B08MZN1K2Y" target="_blank">B08MZN1K2Y</a></td>
+          <td>Mosqueda</td>
+          <td><span title="Fruit Fly Traps Fungus Gnat Traps Yellow Sticky Bug Traps 36 Pack No Harm and Odorless for Indoor Outdoor Use Protect The Plant">Fruit Fly Traps Fungus Gnat Traps Yellow Sti…</span></td>
+          <td>$5.98</td>
+          <td>$14,306</td>
+          <td>28</td>
+          <td>30,363</td>
+          <td>321</td>
+          <td>3</td>
+          <td>FBA</td>
+          <td>8</td>
+          <td></td>
+          <td>US</td>
+          <td>63mies.</td>
+          <td></td>
+        </tr>
+<tr>
+          <td><a href="https://amazon.com/dp/B076QL793Y" target="_blank">B076QL793Y</a></td>
+          <td>Terro</td>
+          <td><span title="TERRO T518 Fly Magnet Indoor Housefly, 8 Count Pack, Sticky Fly Trap Indoor Hanging">TERRO T518 Fly Magnet Indoor Housefly, 8 Cou…</span></td>
+          <td>$6.02</td>
+          <td>$14,050</td>
+          <td>894</td>
+          <td>17,719</td>
+          <td>96</td>
+          <td>19</td>
+          <td>AMZ</td>
+          <td>9</td>
+          <td></td>
+          <td>AMZ</td>
+          <td>98mies.</td>
+          <td></td>
+        </tr>
+<tr>
+          <td><a href="https://amazon.com/dp/B07V6HBYHK" target="_blank">B07V6HBYHK</a></td>
+          <td>Catchmaster</td>
+          <td><span title="Catchmaster Fly Ribbon 20-Pack, Bug & Fruit Fly Traps Outdoor and Indoor, Premium Adhesive Sticky Strips & Gnat Hanging Strips, Bulk Flying Insect Paper Rolls, Pesticide-Free Home Pest Control">Catchmaster Fly Ribbon 20-Pack, Bug & Fruit …</span></td>
+          <td>$12.99</td>
+          <td>$11,469</td>
+          <td>3,628</td>
+          <td>12,830</td>
+          <td>18</td>
+          <td>1</td>
+          <td>FBA</td>
+          <td>6</td>
+          <td></td>
+          <td>US</td>
+          <td>79mies.</td>
+          <td></td>
+        </tr>
+<tr>
+          <td><a href="https://amazon.com/dp/B00WMZMHPW" target="_blank">B00WMZMHPW</a></td>
+          <td>Aunt Fannie's</td>
+          <td><span title="Aunt Fannie's FlyPunch Fruit Fly Trap for Indoor and Kitchen Use, Ready to Use, Made with Plant Based Ingredients, Safe Near Food, Each Bottle Lasts Up to 30 Days, Pack of 1">Aunt Fannie's FlyPunch Fruit Fly Trap for In…</span></td>
+          <td>$7.96</td>
+          <td>$9,855</td>
+          <td>739</td>
+          <td>25,091</td>
+          <td>41</td>
+          <td>1</td>
+          <td>FBA</td>
+          <td>7</td>
+          <td></td>
+          <td>US</td>
+          <td>128mies.</td>
+          <td></td>
+        </tr>
+<tr>
+          <td><a href="https://amazon.com/dp/B009D17Z5U" target="_blank">B009D17Z5U</a></td>
+          <td>Fruit Fly BarPro</td>
+          <td><span title="Fruit Fly BarPro – Vapor-Activated Insect Control Strip – Better Than Fruit Fly Traps – Kills Flies, Gnats, Roaches, Mosquitoes, and More – Odorless, 4 Month Protection">Fruit Fly BarPro – Vapor-Activated Insect Co…</span></td>
+          <td>$11.49</td>
+          <td>$7,263</td>
+          <td>3,687</td>
+          <td>11,487</td>
+          <td>14</td>
+          <td>1</td>
+          <td>FBA</td>
+          <td>6</td>
+          <td></td>
+          <td>US</td>
+          <td>161mies.</td>
+          <td></td>
+        </tr>
+<tr>
+          <td><a href="https://amazon.com/dp/B07KRRJT5J" target="_blank">B07KRRJT5J</a></td>
+          <td>Kensizer</td>
+          <td><span title="Kensizer 20-Pack Fruit Fly Trap, Yellow Sticky Gnat Traps Killer for Indoor/Outdoor Flying Plant Insect Like Fungus Gnats, Whiteflies, Aphids, Leaf Miners - 6x8 in, Twist Ties Included">Kensizer 20-Pack Fruit Fly Trap, Yellow Stic…</span></td>
+          <td>$8.09</td>
+          <td>$7,081</td>
+          <td>3,328</td>
+          <td>19,089</td>
+          <td>75</td>
+          <td>1</td>
+          <td>FBA</td>
+          <td>8</td>
+          <td></td>
+          <td>—</td>
+          <td>87mies.</td>
+          <td></td>
+        </tr>
+<tr>
+          <td><a href="https://amazon.com/dp/B07MF44XRY" target="_blank">B07MF44XRY</a></td>
+          <td>Aunt Fannie's</td>
+          <td><span title="Aunt Fannie's FlyPunch Fruit Fly Trap for Indoor and Kitchen Use, Ready to Use, Made with Plant Based Ingredients, Safe Near Food, Each Bottle Lasts Up to 30 Days, Pack of 6">Aunt Fannie's FlyPunch Fruit Fly Trap for In…</span></td>
+          <td>$41.99</td>
+          <td>$6,629</td>
+          <td>739</td>
+          <td>25,091</td>
+          <td>40</td>
+          <td>1</td>
+          <td>FBA</td>
+          <td>7</td>
+          <td></td>
+          <td>US</td>
+          <td>81mies.</td>
+          <td></td>
+        </tr>
+<tr>
+          <td><a href="https://amazon.com/dp/B0D4DY85H3" target="_blank">B0D4DY85H3</a></td>
+          <td>Qualirey</td>
+          <td><span title="Qualirey 6 Pack Fruit Fly Trap Refill Liquid, 0.68oz Per Bottle Liquid Fruit Fly Traps for Indoors, Non Toxic Bait Safe Near Pets, Food and Kids, Lure Refill for Home Kitchen">Qualirey 6 Pack Fruit Fly Trap Refill Liquid…</span></td>
+          <td>$11.99</td>
+          <td>$5,903</td>
+          <td>5,505</td>
+          <td>652</td>
+          <td>22</td>
+          <td>1</td>
+          <td>FBA</td>
+          <td>8</td>
+          <td></td>
+          <td>US</td>
+          <td>21mies.</td>
+          <td></td>
+        </tr>
+<tr>
+          <td><a href="https://amazon.com/dp/B00E4GADNA" target="_blank">B00E4GADNA</a></td>
+          <td>Terro</td>
+          <td><span title="TERRO 2-Pack Fly Trap">TERRO 2-Pack Fly Trap</span></td>
+          <td>$9.80</td>
+          <td>$4,840</td>
+          <td>9,061</td>
+          <td>2,977</td>
+          <td>14</td>
+          <td>9</td>
+          <td>FBA</td>
+          <td>3</td>
+          <td></td>
+          <td>US</td>
+          <td>150mies.</td>
+          <td></td>
+        </tr></tbody>
+</table></div></div>
+</div>
+
+<!-- ═══════════════════════════════════════ TAB C ══════════════════════════ -->
+<div id="tc" class="panel">
+<h2>Ekonomika Jednostkowa — Czy Zarobimy?</h2>
+
+<div class="card">
+  <h3>Twoje założenia kosztowe</h3>
+  <div class="econ-inputs">
+    <div class="econ-field">
+      <label>Koszt dostawy (COGS + fracht)</label>
+      <input type="number" id="inp_landed" value="3.00" step="0.50" min="0">
+      <span class="unit">$ za szt.</span>
+    </div>
+    <div class="econ-field">
+      <label>PPC (% przychodu)</label>
+      <input type="number" id="inp_ppc" value="25" step="1" min="0" max="100">
+      <span class="unit">%</span>
+    </div>
+    <div class="econ-field">
+      <label>Rezerwa na zwroty</label>
+      <input type="number" id="inp_returns" value="2" step="0.5" min="0" max="100">
+      <span class="unit">%</span>
+    </div>
+  </div>
+  <div style="font-size:.75rem;color:#64748b">
+    <strong>Marża brutto</strong> = (Cena − Prowizje − Koszt dostawy) / Cena &nbsp;|&nbsp;
+    <strong>CM2</strong> = Marża brutto − PPC% − Zwroty% &nbsp;|&nbsp;
+    <strong>Prog. ACoS</strong> = Marża brutto (maks. wydatki PPC przed stratą)
+  </div>
+</div>
+
+<div class="g2">
+  <div class="card">
+    <h3>Wodospad marży — medianowy produkt</h3>
+    <div class="cw"><canvas id="waterfallChart"></canvas></div>
+    <div class="note">Rozkład ceny mediany na składowe kosztów. Słupek CM2 = to, co zostaje po prowizjach, koszcie dostawy, PPC i zwrotach. Zmień założenia powyżej — wykres aktualizuje się na żywo.</div>
+  </div>
+  <div class="card">
+    <h3>Przedziały cenowe vs CM2 — mapa cieplna</h3>
+    <div id="heatmapDiv"></div>
+    <div class="note">Symulacja CM2 dla każdego przedziału cenowego i kosztu dostawy. Zielony &gt;25% · Żółty 15–25% · Pomarańczowy 5–15% · Czerwony &lt;5%. Zmień założenia — tabela aktualizuje się natychmiast.</div>
+  </div>
+</div>
+
+<div class="card"><h3>Wszystkie ASIN-y — ekonomika na żywo</h3>
+<div class="tbl-wrap"><table id="econTable">
+  <thead><tr><th>ASIN</th><th>Marka</th><th>Tytuł</th><th>Cena</th><th>Prowizje</th><th>Koszt dostawy</th><th>Marża brutto</th><th>PPC $</th><th>CM2</th><th>Prog. ACoS</th><th>Przyc./mies.</th><th>FBA</th></tr></thead>
+  <tbody id="econTbody"></tbody>
+</table></div></div>
+</div>
+
+<!-- ═══════════════════════════════════════ TAB D ══════════════════════════ -->
+<div id="td" class="panel">
+<h2>Popyt i Stabilność</h2>
+
+<div class="kpis" style="grid-template-columns:repeat(auto-fill,minmax(160px,1fr))">
+  <div class="kpi"><div class="kpi-v">Lip</div><div class="kpi-l">Szczyt (indeks 1.66)</div></div>
+  <div class="kpi"><div class="kpi-v">Sty</div><div class="kpi-l">Dołek (indeks 0.30)</div></div>
+  <div class="kpi"><div class="kpi-v">5.5×</div><div class="kpi-l">Wskaźnik szczyt / dołek</div></div>
+  <div class="kpi"><div class="kpi-v">0.3%</div><div class="kpi-l">Przychód z listingów &lt;12mies.</div></div>
+</div>
+
+<div class="card">
+  <h3>Miesięczny indeks sezonowości (1,0 = średni miesiąc) &nbsp;
+    <span style="font-size:.7rem;color:#16a34a">&#9632; Szczyt</span>&nbsp;
+    <span style="font-size:.7rem;color:#dc2626">&#9632; Dołek</span>
+  </h3>
+  <div class="cw" style="height:180px"><canvas id="seasIdxChart"></canvas></div>
+  <div class="note">Indeks 1,0 = typowy miesiąc. &gt;1,0 = sprzedaż powyżej średniej, &lt;1,0 = poniżej. Pomaga zaplanować launch produktu i alokację budżetu PPC w ciągu roku.</div>
+</div>
+
+<div class="card">
+  <h3>Dzienny trend sprzedaży — śledzone ASIN-y &nbsp;
+    <button onclick="toggleAll(true)" style="font-size:.7rem;padding:2px 7px;border:1px solid #cbd5e1;border-radius:3px;cursor:pointer;margin-left:8px">Pokaż wszystkie</button>
+    <button onclick="toggleAll(false)" style="font-size:.7rem;padding:2px 7px;border:1px solid #cbd5e1;border-radius:3px;cursor:pointer">Ukryj wszystkie</button>
+  </h3>
+  <div class="cw" style="height:320px"><canvas id="salesTrendChart"></canvas></div>
+  <div class="note">Gruba linia = łączna sprzedaż wszystkich śledzonych ASIN-ów. Kliknij legendę, aby włączyć / wyłączyć poszczególne produkty. Skoki mogą oznaczać promocje lub sezonowość.</div>
+</div>
+
+<div class="g2">
+  <div class="card">
+    <h3>Wiek listingu vs przychód (czy nowi wygrywają?)</h3>
+    <div class="cw"><canvas id="ageRevChart"></canvas></div>
+    <div class="note">Jeśli nowe listingi (krótki wiek) generują wysokie przychody — rynek jest otwarty dla nowych graczy. Starsze listingi z niskim przychodem to martwi konkurenci.</div>
+  </div>
+  <div class="card">
+    <h3>Ostatnie zakupy vs przychód (wskaźnik gorącego popytu)</h3>
+    <div class="cw"><canvas id="purchRevChart"></canvas></div>
+    <div class="note">Wysoka liczba ostatnich zakupów przy wysokim przychodzie = produkt z rosnącym popytem i silnym social proof. Dobry sygnał dla kategorii.</div>
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════ TAB E ══════════════════════════ -->
+<div id="te" class="panel">
+<h2>Jakość Listingów i Luki w Zróżnicowaniu</h2>
+
+<div class="kpis" style="grid-template-columns:repeat(auto-fill,minmax(160px,1fr))">
+  <div class="kpi"><div class="kpi-v">7.9</div><div class="kpi-l">Śr. liczba zdjęć (wszystkie ASIN-y)</div></div>
+  <div class="kpi"><div class="kpi-v">9.5</div><div class="kpi-l">Śr. zdjęcia — Top 10 ASIN-ów</div></div>
+  <div class="kpi"><div class="kpi-v">0</div><div class="kpi-l">Znalezionych "underserved winners"</div></div>
+</div>
+
+
+
+<div class="g2">
+  <div class="card">
+    <h3>Przychód vs Liczba zdjęć (czy Top ma zoptymalizowane listingi?)</h3>
+    <div class="cw"><canvas id="imgRevChart"></canvas></div>
+    <div class="note">Czy produkty z więcej zdjęciami zarabiają więcej? Brak korelacji oznacza, że rynek jest niedooptymalizowany — szansa na wyróżnienie się lepszą kreacją.</div>
+  </div>
+  <div class="card">
+    <h3>Przychód vs Długość tytułu</h3>
+    <div class="cw"><canvas id="titleRevChart"></canvas></div>
+    <div class="note">Zależność między długością tytułu a przychodem. Zbyt krótki tytuł może tracić na SEO, zbyt długi — na czytelności. Szukaj optymalnego zakresu liderów.</div>
+  </div>
+</div>
+
+<div class="card"><h3>Analiza przedziałów cenowych — z uwzgl. śr. zdjęć</h3>
+<div class="tbl-wrap"><table>
+  <thead><tr><th>Przedział</th><th>ASIN-y</th><th>Szac. przyc./mies.</th><th>Udział przyc.</th><th>Szt./mies.</th><th>Śr. cena</th><th>Śr. prowizje</th><th>Śr. marża</th><th>Śr. zdjęcia</th></tr></thead>
+  <tbody><tr>
+      <td>$0–15</td>
+      <td>22</td>
+      <td>$395,214</td>
+      <td>63.6%</td>
+      <td>39,802</td>
+      <td>$9.79</td>
+      <td>$5.26</td>
+      <td>43.7%</td>
+      <td>7.6</td>
+    </tr>
+<tr>
+      <td>$15–25</td>
+      <td>8</td>
+      <td>$156,840</td>
+      <td>25.2%</td>
+      <td>7,624</td>
+      <td>$21.26</td>
+      <td>$8.77</td>
+      <td>58.4%</td>
+      <td>7.2</td>
+    </tr>
+<tr>
+      <td>$25–40</td>
+      <td>2</td>
+      <td>$62,787</td>
+      <td>10.1%</td>
+      <td>1,861</td>
+      <td>$34.05</td>
+      <td>$12.12</td>
+      <td>64.4%</td>
+      <td>13.5</td>
+    </tr>
+<tr>
+      <td>$40–60</td>
+      <td>1</td>
+      <td>$6,629</td>
+      <td>1.1%</td>
+      <td>158</td>
+      <td>$41.99</td>
+      <td>$13.30</td>
+      <td>68.3%</td>
+      <td>7.0</td>
+    </tr>
+<tr>
+      <td>$60+</td>
+      <td>0</td>
+      <td>$0</td>
+      <td>0.0%</td>
+      <td>0</td>
+      <td>$0.00</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr></tbody>
+</table></div></div>
+
+<div class="card"><h3>Niedostatecznie obsługiwane zwycięstwa — wysoki przychód, mało zdjęć (&lt;6), mało recenzji (&lt;300)</h3>
+<div class="tbl-wrap"><table>
+  <thead><tr><th>ASIN</th><th>Marka</th><th>Tytuł</th><th>Przychód</th><th>Zdjęcia</th><th>Recenzje</th></tr></thead>
+  <tbody><tr><td colspan='6' style='color:#94a3b8'>Brak w tym zestawie danych</td></tr></tbody>
+</table>
+<div class="note">Produkty zarabiające dobrze pomimo słabego listingu (mało zdjęć i recenzji). To Twoi najsłabsi rywale — jeśli wejdziesz z lepszą jakością, masz szansę ich wyprzedzić.</div>
+</div></div>
+</div>
+
+</div><!-- .content -->
+
+<script>
+// ── Przełączanie zakładek ────────────────────────────────────────────────────
+function show(id, el) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  el.classList.add('active');
+  setTimeout(() => { if(salesTrendChart) salesTrendChart.update(); }, 50);
+}
+
+const C10 = ['#2563eb','#16a34a','#dc2626','#d97706','#7c3aed','#0891b2','#be185d','#65a30d','#ea580c','#1d4ed8'];
+
+// ── Scatter helper ─────────────────────────────────────────────────────────
+function makeScatter(id, data, xlabel, ylabel, color) {
+  const ctx = document.getElementById(id);
+  if (!ctx) return;
+  return new Chart(ctx, {
+    type: 'scatter',
+    data: { datasets: [{ data: data.map(d => ({x:d.x, y:d.y})), backgroundColor: color+'99', pointRadius: 5 }] },
+    options: {
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false },
+        tooltip: { callbacks: { label: ctx2 => {
+          const d = data[ctx2.dataIndex];
+          return d ? `${d.label}: (${d.x?.toLocaleString()}, ${d.y?.toLocaleString()})` : '';
+        } } } },
+      scales: {
+        x: { title: { display: true, text: xlabel, font: { size: 10 } } },
+        y: { title: { display: true, text: ylabel, font: { size: 10 } },
+              ticks: { callback: v => '$' + (v/1000).toFixed(0) + 'k' } }
+      }
+    }
+  });
+}
+
+// ── Wykresy Tab A ────────────────────────────────────────────────────────────
+new Chart(document.getElementById('top10Chart'), {
+  type: 'bar',
+  data: { labels: ["Terro", "Terro", "Super Ninja", "BugBane", "DynaTrap", "RESCUE!", "Raid", "Landisun", "Wondercide", "Aunt Fannie's"], datasets: [{ data: [165913, 113306, 63236, 32147, 30641, 20194, 19419, 17524, 17389, 16686], backgroundColor: C10, label: '$/mies.' }] },
+  options: { maintainAspectRatio: false, indexAxis: 'y', plugins: { legend: { display: false } },
+    scales: { x: { ticks: { callback: v => '$' + (v/1000).toFixed(0) + 'k' } } } }
+});
+makeScatter('priceRevChart', [{"x": 13.33, "y": 165913.15, "label": "Terro"}, {"x": 18.59, "y": 113305.5, "label": "Terro"}, {"x": 13.99, "y": 63235.53, "label": "Super Ninja"}, {"x": 32.99, "y": 32146.53, "label": "BugBane"}, {"x": 35.11, "y": 30640.95, "label": "DynaTrap"}, {"x": 21.94, "y": 20193.83, "label": "RESCUE!"}, {"x": 6.99, "y": 19419.03, "label": "Raid"}, {"x": 5.59, "y": 17523.99, "label": "Landisun"}, {"x": 21.99, "y": 17389.37, "label": "Wondercide"}, {"x": 14.99, "y": 16685.5, "label": "Aunt Fannie's"}, {"x": 7.19, "y": 16039.66, "label": "Stingmon"}, {"x": 5.98, "y": 14306.21, "label": "Mosqueda"}, {"x": 6.02, "y": 14049.86, "label": "Terro"}, {"x": 12.99, "y": 11468.71, "label": "Catchmaster"}, {"x": 7.96, "y": 9854.9, "label": "Aunt Fannie's"}, {"x": 11.49, "y": 7262.98, "label": "Fruit Fly BarPro"}, {"x": 8.09, "y": 7081.47, "label": "Kensizer"}, {"x": 41.99, "y": 6629.49, "label": "Aunt Fannie's"}, {"x": 11.99, "y": 5902.61, "label": "Qualirey"}, {"x": 9.8, "y": 4840.04, "label": "Terro"}, {"x": 6.82, "y": 4808.94, "label": "STEM"}, {"x": 11.99, "y": 4693.1, "label": "Raid"}, {"x": 5.99, "y": 4638.81, "label": "YourDaDa"}, {"x": 6.77, "y": 2930.35, "label": "Terro"}, {"x": 12.99, "y": 2604.94, "label": "GATCH"}, {"x": 24.9, "y": 1742.27, "label": "ELEGENZO"}, {"x": 22.49, "y": 1546.89, "label": "Qualirey"}, {"x": 24.95, "y": 1381.42, "label": "Eco Defense"}, {"x": 13.52, "y": 1309.15, "label": "Safer"}, {"x": 17.98, "y": 666.67, "label": "Fly Away Product"}, {"x": 17.25, "y": 613.7, "label": "Natural Catch"}, {"x": 7.75, "y": 448.66, "label": "JT Eaton"}, {"x": 13.12, "y": 196.06, "label": "JT Eaton"}], 'Cena ($)', 'Przychód ($)', '#2563eb');
+makeScatter('revReviewChart', [{"x": 23937, "y": 165913.15, "label": "Terro"}, {"x": 23937, "y": 113305.5, "label": "Terro"}, {"x": 13524, "y": 63235.53, "label": "Super Ninja"}, {"x": 1567, "y": 32146.53, "label": "BugBane"}, {"x": 2030, "y": 30640.95, "label": "DynaTrap"}, {"x": 4927, "y": 20193.83, "label": "RESCUE!"}, {"x": 3940, "y": 19419.03, "label": "Raid"}, {"x": 15040, "y": 17523.99, "label": "Landisun"}, {"x": 5442, "y": 17389.37, "label": "Wondercide"}, {"x": 25091, "y": 16685.5, "label": "Aunt Fannie's"}, {"x": 34586, "y": 16039.66, "label": "Stingmon"}, {"x": 30363, "y": 14306.21, "label": "Mosqueda"}, {"x": 17719, "y": 14049.86, "label": "Terro"}, {"x": 12830, "y": 11468.71, "label": "Catchmaster"}, {"x": 25091, "y": 9854.9, "label": "Aunt Fannie's"}, {"x": 11487, "y": 7262.98, "label": "Fruit Fly BarPro"}, {"x": 19089, "y": 7081.47, "label": "Kensizer"}, {"x": 25091, "y": 6629.49, "label": "Aunt Fannie's"}, {"x": 652, "y": 5902.61, "label": "Qualirey"}, {"x": 2977, "y": 4840.04, "label": "Terro"}, {"x": 1963, "y": 4808.94, "label": "STEM"}, {"x": 10772, "y": 4693.1, "label": "Raid"}, {"x": 6999, "y": 4638.81, "label": "YourDaDa"}, {"x": 67999, "y": 2930.35, "label": "Terro"}, {"x": 1028, "y": 2604.94, "label": "GATCH"}, {"x": 43, "y": 1742.27, "label": "ELEGENZO"}, {"x": 585, "y": 1546.89, "label": "Qualirey"}, {"x": 2632, "y": 1381.42, "label": "Eco Defense"}, {"x": 15217, "y": 1309.15, "label": "Safer"}, {"x": 303, "y": 666.67, "label": "Fly Away Product"}, {"x": 917, "y": 613.7, "label": "Natural Catch"}, {"x": 73, "y": 448.66, "label": "JT Eaton"}, {"x": 208, "y": 196.06, "label": "JT Eaton"}], 'Liczba recenzji', 'Przychód ($)', '#dc2626');
+
+// ── Wykresy Tab B ────────────────────────────────────────────────────────────
+new Chart(document.getElementById('paretoChart'), {
+  type: 'bar',
+  data: { labels: ["Top 1", "Top 3", "Top 5", "Top 10", "Top 20"], datasets: [{ data: [26.7, 55.1, 65.2, 79.9, 95.6], backgroundColor: '#7c3aed', label: '% przychodów' }] },
+  options: { maintainAspectRatio: false, plugins: { legend: { display: false } },
+    scales: { y: { max: 100, ticks: { callback: v => v + '%' } } } }
+});
+new Chart(document.getElementById('sellersChart'), {
+  type: 'bar',
+  data: { labels: ["1", "2", "3", "8", "9", "10", "12", "14", "16", "17", "19"], datasets: [{ data: [17, 3, 1, 4, 1, 1, 2, 1, 1, 1, 1], backgroundColor: '#0891b2', label: 'ASIN-y' }] },
+  options: { maintainAspectRatio: false, plugins: { legend: { display: false } },
+    scales: { x: { title: { display:true, text:'Aktywni sprzedawcy', font:{size:10} } } } }
+});
+
+// ── Tab C — Ekonomika Jednostkowa ─────────────────────────────────────────
+const ECON = [{"asin": "B01MRHXM0I", "brand": "Terro", "title": "TERRO Fruit Fly Traps for Indoors (4 Pack) + 180 D", "price": 13.33, "fees": 6.54, "revenue": 165913, "rating": 4.1, "reviews": 23937, "fulfillment": "AMZ"}, {"asin": "B0BX4GQF68", "brand": "Terro", "title": "Terro Fruit Fly Traps for Indoors (6 Pack) + 270 D", "price": 18.59, "fees": 8.26, "revenue": 113306, "rating": 4.1, "reviews": 23937, "fulfillment": "AMZ"}, {"asin": "B0D5DJ7V4P", "brand": "Super Ninja", "title": "Super Ninja Fruit Fly Traps for Indoors - 4 Pack, ", "price": 13.99, "fees": 6.02, "revenue": 63236, "rating": 3.7, "reviews": 13524, "fulfillment": "FBA"}, {"asin": "B0CP43WSGB", "brand": "BugBane", "title": "Fly Stick Sticky Fly Traps for Indoors Outdoor 6pk", "price": 32.99, "fees": 12.5, "revenue": 32147, "rating": 4.4, "reviews": 1567, "fulfillment": "FBA"}, {"asin": "B0BSYD2VV6", "brand": "DynaTrap", "title": "DynaTrap DT152 Indoor Insect Trap and Killer \u2013 Cat", "price": 35.11, "fees": 11.73, "revenue": 30641, "rating": 4.0, "reviews": 2030, "fulfillment": "AMZ"}, {"asin": "B07D8494WV", "brand": "RESCUE!", "title": "RESCUE! Non-Toxic TrapStik for Flies \u2013 Indoor Hang", "price": 21.94, "fees": 13.49, "revenue": 20194, "rating": 4.2, "reviews": 4927, "fulfillment": "FBA"}, {"asin": "B09GDHSW99", "brand": "Raid", "title": "Raid Essentials Fruit Fly Trap for Indoors, Made w", "price": 6.99, "fees": 4.18, "revenue": 19419, "rating": 3.6, "reviews": 3940, "fulfillment": "AMZ"}, {"asin": "B0B3RJ9JFM", "brand": "Landisun", "title": "Fruit Fly Traps Indoor Fungus Gnat Trap 48PCS for ", "price": 5.59, "fees": 4.38, "revenue": 17524, "rating": 4.3, "reviews": 15040, "fulfillment": "FBA"}, {"asin": "B09WJLKZP1", "brand": "Wondercide", "title": "Wondercide - Fruit Fly Traps for Indoors - Fruit F", "price": 21.99, "fees": 8.14, "revenue": 17389, "rating": 3.5, "reviews": 5442, "fulfillment": "FBA"}, {"asin": "B07VYPGHFW", "brand": "Aunt Fannie's", "title": "Aunt Fannie's FlyPunch Fruit Fly Trap for Indoor a", "price": 14.99, "fees": 7.65, "revenue": 16686, "rating": 3.9, "reviews": 25091, "fulfillment": "FBA"}, {"asin": "B07XLM4FWL", "brand": "Stingmon", "title": "36 Pack Fruit Fly Traps for Indoors, Gnat Traps fo", "price": 7.19, "fees": 3.51, "revenue": 16040, "rating": 4.4, "reviews": 34586, "fulfillment": "FBA"}, {"asin": "B08MZN1K2Y", "brand": "Mosqueda", "title": "Fruit Fly Traps Fungus Gnat Traps Yellow Sticky Bu", "price": 5.98, "fees": 3.46, "revenue": 14306, "rating": 4.4, "reviews": 30363, "fulfillment": "FBA"}, {"asin": "B076QL793Y", "brand": "Terro", "title": "TERRO T518 Fly Magnet Indoor Housefly, 8 Count Pac", "price": 6.02, "fees": 4.8, "revenue": 14050, "rating": 4.1, "reviews": 17719, "fulfillment": "AMZ"}, {"asin": "B07V6HBYHK", "brand": "Catchmaster", "title": "Catchmaster Fly Ribbon 20-Pack, Bug & Fruit Fly Tr", "price": 12.99, "fees": 5.85, "revenue": 11469, "rating": 4.0, "reviews": 12830, "fulfillment": "FBA"}, {"asin": "B00WMZMHPW", "brand": "Aunt Fannie's", "title": "Aunt Fannie's FlyPunch Fruit Fly Trap for Indoor a", "price": 7.96, "fees": 4.58, "revenue": 9855, "rating": 3.9, "reviews": 25091, "fulfillment": "FBA"}, {"asin": "B009D17Z5U", "brand": "Fruit Fly BarPro", "title": "Fruit Fly BarPro \u2013 Vapor-Activated Insect Control ", "price": 11.49, "fees": 3.25, "revenue": 7263, "rating": 3.9, "reviews": 11487, "fulfillment": "FBA"}, {"asin": "B07KRRJT5J", "brand": "Kensizer", "title": "Kensizer 20-Pack Fruit Fly Trap, Yellow Sticky Gna", "price": 8.09, "fees": 5.07, "revenue": 7081, "rating": 4.3, "reviews": 19089, "fulfillment": "FBA"}, {"asin": "B07MF44XRY", "brand": "Aunt Fannie's", "title": "Aunt Fannie's FlyPunch Fruit Fly Trap for Indoor a", "price": 41.99, "fees": 13.3, "revenue": 6629, "rating": 3.9, "reviews": 25091, "fulfillment": "FBA"}, {"asin": "B0D4DY85H3", "brand": "Qualirey", "title": "Qualirey 6 Pack Fruit Fly Trap Refill Liquid, 0.68", "price": 11.99, "fees": 5.96, "revenue": 5903, "rating": 4.4, "reviews": 652, "fulfillment": "FBA"}, {"asin": "B00E4GADNA", "brand": "Terro", "title": "TERRO 2-Pack Fly Trap", "price": 9.8, "fees": 4.59, "revenue": 4840, "rating": 4.1, "reviews": 2977, "fulfillment": "FBA"}, {"asin": "B09GD8T863", "brand": "STEM", "title": "STEM Kills Fruit Fly Trap: Fruit Fly Catcher With ", "price": 6.82, "fees": 4.15, "revenue": 4809, "rating": 3.7, "reviews": 1963, "fulfillment": "AMZ"}, {"asin": "B07WHKLYPW", "brand": "Raid", "title": "Fruit Fly Traps for Indoors by Raid | 2 Lures + 2 ", "price": 11.99, "fees": 6.64, "revenue": 4693, "rating": 3.0, "reviews": 10772, "fulfillment": "FBA"}, {"asin": "B09X3NMTK9", "brand": "YourDaDa", "title": "40 Pcs 5 Shapes Yellow Extremely Sticky Traps for ", "price": 5.99, "fees": 4.45, "revenue": 4639, "rating": 4.5, "reviews": 6999, "fulfillment": "FBA"}, {"asin": "B01JIRNEQW", "brand": "Terro", "title": "TERRO T2502 Ready-to-Use Indoor Fruit Fly Trap wit", "price": 6.77, "fees": 4.8, "revenue": 2930, "rating": 4.0, "reviews": 67999, "fulfillment": "AMZ"}, {"asin": "B0CPBHB4RS", "brand": "GATCH", "title": "GATCH Fruit Fly Trap (3 Pack), Fly Stick for Mosqu", "price": 12.99, "fees": 8.05, "revenue": 2605, "rating": 4.1, "reviews": 1028, "fulfillment": "FBA"}, {"asin": "B0GCCJFZ18", "brand": "ELEGENZO", "title": "EPA Establishment No.100240-CHN-1 Fruit Fly Traps ", "price": 24.9, "fees": 7.94, "revenue": 1742, "rating": 5.0, "reviews": 43, "fulfillment": "FBA"}, {"asin": "B0DCP1K7B6", "brand": "Qualirey", "title": "Qualirey 20 Pack Fruit Fly Trap Refill Liquid, 0.6", "price": 22.49, "fees": 9.03, "revenue": 1547, "rating": 4.3, "reviews": 585, "fulfillment": "FBA"}, {"asin": "B01BIDLTZW", "brand": "Eco Defense", "title": "Eco Defense Fruit Fly Killer - Natural Fruit Fly T", "price": 24.95, "fees": 8.77, "revenue": 1381, "rating": 3.9, "reviews": 2632, "fulfillment": "FBA"}, {"asin": "B000OV8OTY", "brand": "Safer", "title": "Safer Brand 5026 Houseplant Sticky Stake Insect Tr", "price": 13.52, "fees": 5.76, "revenue": 1309, "rating": 4.4, "reviews": 15217, "fulfillment": "MFN"}, {"asin": "B0CGVSNGGZ", "brand": "Fly Away Product", "title": "Fly Away - Fruit Fly Trap Kit: 3X Reusable Fruit F", "price": 17.98, "fees": 7.99, "revenue": 667, "rating": 3.8, "reviews": 303, "fulfillment": "FBA"}, {"asin": "B004FDUHS8", "brand": "Natural Catch", "title": "Natural Catch Fruit Fly Traps - 2 Traps", "price": 17.25, "fees": 6.54, "revenue": 614, "rating": 3.9, "reviews": 917, "fulfillment": "FBA"}, {"asin": "B0BKHB35LQ", "brand": "JT Eaton", "title": "ZendoZones Fruit Fly Traps with Zendo Lure, 2-Pack", "price": 7.75, "fees": 4.54, "revenue": 449, "rating": 3.8, "reviews": 73, "fulfillment": "AMZ"}, {"asin": "B0BKH945MP", "brand": "JT Eaton", "title": "ZendoZones Succulent Fruit Fly Trap \u2013 Tranquil Tab", "price": 13.12, "fees": 7.39, "revenue": 196, "rating": 3.5, "reviews": 208, "fulfillment": "MFN"}];
+const MED  = {"asin": "B07KRRJT5J", "brand": "Kensizer", "title": "Kensizer 20-Pack Fruit Fly Trap, Yellow Sticky Gna", "price": 8.09, "fees": 5.07, "revenue": 7081, "rating": 4.3, "reviews": 19089, "fulfillment": "FBA"};
+const BANDS_DATA = [{"label": "$0\u201315", "count": 22, "revenue": 395214, "rev_share": 63.6, "units": 39802, "avg_price": 9.79, "avg_fee": 5.26, "avg_margin": 43.7, "avg_images": 7.6}, {"label": "$15\u201325", "count": 8, "revenue": 156840, "rev_share": 25.2, "units": 7624, "avg_price": 21.26, "avg_fee": 8.77, "avg_margin": 58.4, "avg_images": 7.2}, {"label": "$25\u201340", "count": 2, "revenue": 62787, "rev_share": 10.1, "units": 1861, "avg_price": 34.05, "avg_fee": 12.12, "avg_margin": 64.4, "avg_images": 13.5}, {"label": "$40\u201360", "count": 1, "revenue": 6629, "rev_share": 1.1, "units": 158, "avg_price": 41.99, "avg_fee": 13.3, "avg_margin": 68.3, "avg_images": 7.0}, {"label": "$60+", "count": 0, "revenue": 0, "rev_share": 0.0, "units": 0, "avg_price": 0, "avg_fee": null, "avg_margin": null, "avg_images": null}];
+let waterfallChart;
+
+function calcEcon() {
+  const landed  = parseFloat(document.getElementById('inp_landed').value)  || 0;
+  const ppcPct  = parseFloat(document.getElementById('inp_ppc').value)     || 0;
+  const retPct  = parseFloat(document.getElementById('inp_returns').value) || 0;
+
+  const tbody = document.getElementById('econTbody');
+  tbody.innerHTML = '';
+  ECON.forEach(r => {
+    const gm   = (r.price - r.fees - landed) / r.price * 100;
+    const ppc$ = r.price * ppcPct / 100;
+    const ret$ = r.price * retPct / 100;
+    const cm2  = gm - ppcPct - retPct;
+    const be   = gm;
+    const gmCls = gm > 30 ? 'margin-pos' : gm > 15 ? 'margin-mid' : 'margin-neg';
+    const cm2Cls = cm2 > 20 ? 'margin-pos' : cm2 > 5 ? 'margin-mid' : 'margin-neg';
+    tbody.innerHTML += `<tr>
+      <td><a href="https://amazon.com/dp/${r.asin}" target="_blank">${r.asin}</a></td>
+      <td>${r.brand}</td>
+      <td title="${r.title}">${r.title.substring(0,40)}${r.title.length>40?'…':''}</td>
+      <td>$${r.price.toFixed(2)}</td>
+      <td>$${r.fees.toFixed(2)}</td>
+      <td>$${landed.toFixed(2)}</td>
+      <td class="${gmCls}">${isNaN(gm)?'—':gm.toFixed(1)+'%'}</td>
+      <td>$${ppc$.toFixed(2)}</td>
+      <td class="${cm2Cls}">${isNaN(cm2)?'—':cm2.toFixed(1)+'%'}</td>
+      <td>${isNaN(be)?'—':be.toFixed(1)+'%'}</td>
+      <td>$${r.revenue.toLocaleString()}</td>
+      <td>${r.fulfillment}</td>
+    </tr>`;
+  });
+
+  // Wodospad marzy — mediana
+  if (MED && MED.price) {
+    const p = MED.price, f = MED.fees;
+    const gmAmt   = p - f - landed;
+    const ppcAmt  = p * ppcPct / 100;
+    const retAmt  = p * retPct  / 100;
+    const cm2Amt  = gmAmt - ppcAmt - retAmt;
+    const labels  = ['Prowizje','Koszt dostawy','PPC','Zwroty','CM2 (pozostałe)'];
+    const vals    = [f, landed, ppcAmt, retAmt, cm2Amt];
+    const bgs     = ['#dc2626','#f97316','#d97706','#94a3b8','#16a34a'];
+    if (waterfallChart) waterfallChart.destroy();
+    waterfallChart = new Chart(document.getElementById('waterfallChart'), {
+      type: 'bar',
+      data: { labels, datasets: [{ data: vals, backgroundColor: bgs }] },
+      options: { maintainAspectRatio: false, plugins: { legend: { display:false },
+        tooltip: { callbacks: { label: c => `$${c.raw.toFixed(2)} (${(c.raw/p*100).toFixed(1)}%)` } } },
+        scales: { y: { ticks: { callback: v => '$${v.toFixed(2)}' } },
+          x: { title: { display:true, text:`Cena: $${p.toFixed(2)} (medianowy produkt)`, font:{size:10} } } }
+      }
+    });
+  }
+
+  // Heatmap
+  const landedScenarios = [1, 2, 3, 4, 5, 6, 8, 10];
+  let hm = '<table class="heatmap"><thead><tr><th>Przedział \ Koszt dostawy $</th>';
+  landedScenarios.forEach(l => hm += `<th>$${l}</th>`);
+  hm += '</tr></thead><tbody>';
+  BANDS_DATA.forEach(b => {
+    if (!b.avg_price || !b.avg_fee) return;
+    hm += `<tr><td><strong>${b.label}</strong><br><small>${b.count} ASIN-ów</small></td>`;
+    landedScenarios.forEach(l => {
+      const cm = (b.avg_price - b.avg_fee - l) / b.avg_price * 100 - ppcPct - retPct;
+      const cls = cm > 25 ? 'hm-g' : cm > 15 ? 'hm-y' : cm > 5 ? 'hm-o' : 'hm-r';
+      hm += `<td class="${cls}">${isNaN(cm) ? '—' : cm.toFixed(0)+'%'}</td>`;
+    });
+    hm += '</tr>';
+  });
+  hm += '</tbody></table>';
+  document.getElementById('heatmapDiv').innerHTML = hm;
+}
+
+['inp_landed','inp_ppc','inp_returns'].forEach(id =>
+  document.getElementById(id).addEventListener('input', calcEcon));
+calcEcon();
+
+// ── Tab D — Sezonowość ─────────────────────────────────────────────────────
+const MONTHS = ["2024-02", "2024-03", "2024-04", "2024-05", "2024-06", "2024-07", "2024-08", "2024-09", "2024-10", "2024-11", "2024-12", "2025-01", "2025-02", "2025-03", "2025-04", "2025-05", "2025-06", "2025-07", "2025-08", "2025-09", "2025-10", "2025-11", "2025-12", "2026-01", "2026-02"];
+const TOTAL  = [256.6, 276.1, 530.5, 622.6, 869.4, 864.0, 855.2, 730.3, 765.3, 572.7, 307.0, 162.8, 158.6, 176.6, 252.8, 428.3, 771.9, 1065.0, 894.5, 856.4, 1087.4, 840.1, 426.7, 185.4, 170.3];
+const ASIN_DS = [{"label": "Fruit Fly BarPro", "data": [48.3, 63.3, 80.7, 90.1, 124.4, 125.5, 127.7, 108.4, 113.1, 64.9, 47.1, 33.0, 34.9, 44.8, 66.3, 86.7, 146.1, 142.6, 158.2, 114.5, 133.6, 101.7, 48.5, 31.8, 34.1], "borderColor": "#2563eb", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Aunt Fannie's", "data": [167.0, 208.3, 246.2, 444.0, 705.4, 775.6, 728.6, 603.5, 622.1, 460.0, 254.0, 128.3, 126.6, 135.5, 218.7, 364.5, 638.2, 704.2, 711.5, 671.0, 850.9, 624.7, 255.2, 115.0, 126.0], "borderColor": "#16a34a", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Terro", "data": [733.9, 685.8, 832.1, 1430.9, 1943.7, 2116.1, 2505.2, 2510.0, 2812.8, 2048.7, 1032.7, 497.2, 503.0, 566.2, 719.5, 1472.9, 2862.2, 4002.3, 3287.2, 3608.3, 4825.1, 3831.4, 1893.3, 805.9, 659.2], "borderColor": "#dc2626", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Terro", "data": [152.3, 161.1, 299.5, 340.1, 466.8, 641.3, 845.5, 575.5, 424.9, 386.9, 240.9, 110.2, 83.0, 100.1, 196.1, 326.7, 535.2, 942.4, 973.5, 539.3, 497.5, 381.5, 136.8, 92.7, 84.2], "borderColor": "#d97706", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "RESCUE!", "data": [38.5, 58.0, 81.9, 167.4, 228.2, 270.3, 260.9, 157.9, 94.8, 40.5, 21.4, 23.5, 31.8, 43.5, 85.2, 176.8, 322.4, 360.1, 320.6, 170.2, 136.1, 72.8, 39.1, 28.8, 36.0], "borderColor": "#7c3aed", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Catchmaster", "data": [45.9, 83.4, 103.4, 274.8, 596.8, 267.1, 201.5, 119.6, 108.8, 78.3, 47.5, 31.5, 33.4, 69.0, 122.0, 86.0, 209.7, 869.7, 557.1, 228.3, 344.4, 129.4, 45.7, 33.3, 31.8], "borderColor": "#0891b2", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Aunt Fannie's", "data": [167.0, 208.3, 246.2, 444.0, 705.4, 775.6, 728.6, 603.5, 622.1, 460.0, 254.0, 128.3, 126.6, 135.5, 218.7, 364.5, 638.2, 704.2, 711.5, 671.0, 850.9, 624.7, 255.2, 115.0, 126.0], "borderColor": "#be185d", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Stingmon", "data": [null, null, null, null, null, null, 274.5, 225.5, 188.0, 174.4, 118.4, 137.8, 156.1, 127.4, 112.6, 126.8, 203.5, 195.7, 171.2, 137.8, 132.1, 144.5, 135.6, 94.4, 102.7], "borderColor": "#65a30d", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Mosqueda", "data": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 640.2], "borderColor": "#ea580c", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Raid", "data": [45.7, 49.7, 61.8, 149.1, 300.0, 297.5, 351.6, 547.4, 495.1, 247.6, 231.5, 125.4, 102.7, 116.4, 229.4, 293.5, 376.6, 334.2, 350.4, 361.8, 423.7, 402.8, 204.1, 113.7, 101.4], "borderColor": "#1d4ed8", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Wondercide", "data": [66.0, 76.6, 157.7, 299.9, 439.6, 487.5, 340.4, 264.8, 180.9, 211.2, 149.0, 68.5, 53.3, 54.8, 81.1, 169.3, 275.9, 243.4, 243.0, 261.1, 290.1, 225.4, 108.6, 37.1, 38.0], "borderColor": "#059669", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Landisun", "data": [624.3, 757.0, 2894.5, 1777.9, 2109.4, 1631.7, 1056.0, 537.4, 708.1, 651.1, 254.2, 172.2, 173.3, 263.5, 399.8, 460.4, 601.6, 941.4, 526.5, 500.4, 467.9, 508.7, 407.7, 150.7, 175.8], "borderColor": "#9333ea", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "DynaTrap", "data": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 33.7, 30.7], "borderColor": "#f59e0b", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Terro", "data": [733.9, 685.8, 832.1, 1430.9, 1943.7, 2116.1, 2505.2, 2510.0, 2812.8, 2048.7, 1032.7, 497.2, 503.0, 566.2, 719.5, 1472.9, 2862.2, 4002.3, 3287.2, 3608.3, 4825.1, 3831.4, 1893.3, 805.9, 659.2], "borderColor": "#ef4444", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "BugBane", "data": [null, null, null, null, null, null, null, null, null, null, null, null, 43.5, 73.0, 117.0, 167.3, 363.5, 402.9, 331.1, 212.5, 144.6, 105.9, 49.4, 31.9, 36.3], "borderColor": "#10b981", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}, {"label": "Super Ninja", "data": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1344.7, 1302.2, 776.7, 501.4, 241.6, 209.1], "borderColor": "#6366f1", "backgroundColor": "transparent", "borderWidth": 1.5, "pointRadius": 0, "hidden": true}];
+
+const allDs = [
+  { label: '▶ SUMA (wszystkie 16 ASIN-ów)', data: TOTAL, borderColor: '#0f2942',
+     borderWidth: 3, pointRadius: 0, hidden: false, backgroundColor:'transparent' },
+  ...ASIN_DS
+];
+
+let salesTrendChart = new Chart(document.getElementById('salesTrendChart'), {
+  type: 'line',
+  data: { labels: MONTHS, datasets: allDs },
+  options: {
+    maintainAspectRatio: false,
+    plugins: { legend: { position: 'bottom', labels: { font:{size:10}, boxWidth:12 } } },
+    scales: {
+      x: { ticks: { maxTicksLimit: 24, font:{size:9} } },
+      y: { title: { display:true, text:'Dzienne szt. (szac.)', font:{size:10} } }
+    }
+  }
+});
+
+function toggleAll(show) {
+  salesTrendChart.data.datasets.forEach((ds, i) => {
+    if (i > 0) ds.hidden = !show;
+  });
+  salesTrendChart.update();
+}
+
+// Indeks sezonowosci
+new Chart(document.getElementById('seasIdxChart'), {
+  type: 'bar',
+  data: { labels: ["Sty", "Lut", "Mar", "Kwi", "Maj", "Cze", "Lip", "Sie", "Wrz", "Paz", "Lis", "Gru"],
+    datasets: [{ data: [0.3, 0.34, 0.39, 0.67, 0.91, 1.41, 1.66, 1.51, 1.37, 1.6, 1.22, 0.63], backgroundColor: ["#dc2626", "#dc2626", "#dc2626", "#dc2626", "#2563eb", "#16a34a", "#16a34a", "#16a34a", "#16a34a", "#16a34a", "#16a34a", "#dc2626"], label:'Indeks' }] },
+  options: { maintainAspectRatio: false, plugins: { legend: { display:false } },
+    scales: { y: { min:0, ticks: { callback: v => v.toFixed(1)+'x' } } } }
+});
+
+makeScatter('ageRevChart',  [{"x": 111, "y": 165913.15, "label": "Terro"}, {"x": 35, "y": 113305.5, "label": "Terro"}, {"x": 20, "y": 63235.53, "label": "Super Ninja"}, {"x": 22, "y": 32146.53, "label": "BugBane"}, {"x": 36, "y": 30640.95, "label": "DynaTrap"}, {"x": 92, "y": 20193.83, "label": "RESCUE!"}, {"x": 53, "y": 19419.03, "label": "Raid"}, {"x": 44, "y": 17523.99, "label": "Landisun"}, {"x": 47, "y": 17389.37, "label": "Wondercide"}, {"x": 78, "y": 16685.5, "label": "Aunt Fannie's"}, {"x": 77, "y": 16039.66, "label": "Stingmon"}, {"x": 63, "y": 14306.21, "label": "Mosqueda"}, {"x": 98, "y": 14049.86, "label": "Terro"}, {"x": 79, "y": 11468.71, "label": "Catchmaster"}, {"x": 128, "y": 9854.9, "label": "Aunt Fannie's"}, {"x": 161, "y": 7262.98, "label": "Fruit Fly BarPro"}, {"x": 87, "y": 7081.47, "label": "Kensizer"}, {"x": 81, "y": 6629.49, "label": "Aunt Fannie's"}, {"x": 21, "y": 5902.61, "label": "Qualirey"}, {"x": 150, "y": 4840.04, "label": "Terro"}, {"x": 53, "y": 4808.94, "label": "STEM"}, {"x": 78, "y": 4693.1, "label": "Raid"}, {"x": 46, "y": 4638.81, "label": "YourDaDa"}, {"x": 113, "y": 2930.35, "label": "Terro"}, {"x": 25, "y": 2604.94, "label": "GATCH"}, {"x": 0, "y": 1742.27, "label": "ELEGENZO"}, {"x": 17, "y": 1546.89, "label": "Qualirey"}, {"x": 120, "y": 1381.42, "label": "Eco Defense"}, {"x": 112, "y": 1309.15, "label": "Safer"}, {"x": 29, "y": 666.67, "label": "Fly Away Product"}, {"x": 162, "y": 613.7, "label": "Natural Catch"}, {"x": 37, "y": 448.66, "label": "JT Eaton"}, {"x": 37, "y": 196.06, "label": "JT Eaton"}],  'Wiek listingu (miesiące)', 'Przychód ($)', '#7c3aed');
+makeScatter('purchRevChart',[{"x": 10000, "y": 165913.15, "label": "Terro"}, {"x": 2000, "y": 113305.5, "label": "Terro"}, {"x": 2000, "y": 63235.53, "label": "Super Ninja"}, {"x": 500, "y": 32146.53, "label": "BugBane"}, {"x": 500, "y": 30640.95, "label": "DynaTrap"}, {"x": 400, "y": 20193.83, "label": "RESCUE!"}, {"x": 1000, "y": 19419.03, "label": "Raid"}, {"x": 1000, "y": 17523.99, "label": "Landisun"}, {"x": 400, "y": 17389.37, "label": "Wondercide"}, {"x": 800, "y": 16685.5, "label": "Aunt Fannie's"}, {"x": 1000, "y": 16039.66, "label": "Stingmon"}, {"x": 10000, "y": 14306.21, "label": "Mosqueda"}, {"x": 1000, "y": 14049.86, "label": "Terro"}, {"x": 400, "y": 11468.71, "label": "Catchmaster"}, {"x": 700, "y": 9854.9, "label": "Aunt Fannie's"}, {"x": 300, "y": 7262.98, "label": "Fruit Fly BarPro"}, {"x": 500, "y": 7081.47, "label": "Kensizer"}, {"x": 50, "y": 6629.49, "label": "Aunt Fannie's"}, {"x": 300, "y": 5902.61, "label": "Qualirey"}, {"x": 100, "y": 4840.04, "label": "Terro"}, {"x": 300, "y": 4808.94, "label": "STEM"}, {"x": 200, "y": 4693.1, "label": "Raid"}, {"x": 800, "y": 4638.81, "label": "YourDaDa"}, {"x": 100, "y": 2930.35, "label": "Terro"}, {"x": 100, "y": 2604.94, "label": "GATCH"}, {"x": 50, "y": 1546.89, "label": "Qualirey"}], 'Ostatnie zakupy',          'Przychód ($)', '#16a34a');
+
+// ── Wykresy Tab E ─────────────────────────────────────────────────────────────
+makeScatter('imgRevChart',  [{"x": 9, "y": 165913.15, "label": "Terro"}, {"x": 10, "y": 113305.5, "label": "Terro"}, {"x": 8, "y": 63235.53, "label": "Super Ninja"}, {"x": 8, "y": 32146.53, "label": "BugBane"}, {"x": 19, "y": 30640.95, "label": "DynaTrap"}, {"x": 6, "y": 20193.83, "label": "RESCUE!"}, {"x": 11, "y": 19419.03, "label": "Raid"}, {"x": 9, "y": 17523.99, "label": "Landisun"}, {"x": 8, "y": 17389.37, "label": "Wondercide"}, {"x": 7, "y": 16685.5, "label": "Aunt Fannie's"}, {"x": 9, "y": 16039.66, "label": "Stingmon"}, {"x": 8, "y": 14306.21, "label": "Mosqueda"}, {"x": 9, "y": 14049.86, "label": "Terro"}, {"x": 6, "y": 11468.71, "label": "Catchmaster"}, {"x": 7, "y": 9854.9, "label": "Aunt Fannie's"}, {"x": 6, "y": 7262.98, "label": "Fruit Fly BarPro"}, {"x": 8, "y": 7081.47, "label": "Kensizer"}, {"x": 7, "y": 6629.49, "label": "Aunt Fannie's"}, {"x": 8, "y": 5902.61, "label": "Qualirey"}, {"x": 3, "y": 4840.04, "label": "Terro"}, {"x": 16, "y": 4808.94, "label": "STEM"}, {"x": 9, "y": 4693.1, "label": "Raid"}, {"x": 7, "y": 4638.81, "label": "YourDaDa"}, {"x": 10, "y": 2930.35, "label": "Terro"}, {"x": 7, "y": 2604.94, "label": "GATCH"}, {"x": 9, "y": 1742.27, "label": "ELEGENZO"}, {"x": 8, "y": 1546.89, "label": "Qualirey"}, {"x": 7, "y": 1381.42, "label": "Eco Defense"}, {"x": 5, "y": 1309.15, "label": "Safer"}, {"x": 9, "y": 666.67, "label": "Fly Away Product"}, {"x": 1, "y": 613.7, "label": "Natural Catch"}, {"x": 1, "y": 448.66, "label": "JT Eaton"}, {"x": 5, "y": 196.06, "label": "JT Eaton"}], 'Liczba zdjęć',    'Przychód ($)', '#0891b2');
+makeScatter('titleRevChart',[{"x": 186, "y": 165913.15, "label": "Terro"}, {"x": 68, "y": 113305.5, "label": "Terro"}, {"x": 179, "y": 63235.53, "label": "Super Ninja"}, {"x": 192, "y": 32146.53, "label": "BugBane"}, {"x": 107, "y": 30640.95, "label": "DynaTrap"}, {"x": 71, "y": 20193.83, "label": "RESCUE!"}, {"x": 96, "y": 19419.03, "label": "Raid"}, {"x": 101, "y": 17523.99, "label": "Landisun"}, {"x": 127, "y": 17389.37, "label": "Wondercide"}, {"x": 173, "y": 16685.5, "label": "Aunt Fannie's"}, {"x": 177, "y": 16039.66, "label": "Stingmon"}, {"x": 127, "y": 14306.21, "label": "Mosqueda"}, {"x": 83, "y": 14049.86, "label": "Terro"}, {"x": 192, "y": 11468.71, "label": "Catchmaster"}, {"x": 173, "y": 9854.9, "label": "Aunt Fannie's"}, {"x": 168, "y": 7262.98, "label": "Fruit Fly BarPro"}, {"x": 184, "y": 7081.47, "label": "Kensizer"}, {"x": 173, "y": 6629.49, "label": "Aunt Fannie's"}, {"x": 174, "y": 5902.61, "label": "Qualirey"}, {"x": 21, "y": 4840.04, "label": "Terro"}, {"x": 91, "y": 4808.94, "label": "STEM"}, {"x": 169, "y": 4693.1, "label": "Raid"}, {"x": 196, "y": 4638.81, "label": "YourDaDa"}, {"x": 98, "y": 2930.35, "label": "Terro"}, {"x": 159, "y": 2604.94, "label": "GATCH"}, {"x": 132, "y": 1742.27, "label": "ELEGENZO"}, {"x": 176, "y": 1546.89, "label": "Qualirey"}, {"x": 146, "y": 1381.42, "label": "Eco Defense"}, {"x": 171, "y": 1309.15, "label": "Safer"}, {"x": 194, "y": 666.67, "label": "Fly Away Product"}, {"x": 39, "y": 613.7, "label": "Natural Catch"}, {"x": 141, "y": 448.66, "label": "JT Eaton"}, {"x": 147, "y": 196.06, "label": "JT Eaton"}], 'Długość tytułu',  'Przychód ($)', '#d97706');
+</script>
+</body>
+</html>

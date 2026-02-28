@@ -1,0 +1,4 @@
+theme,theme_label,review_count,share_pct,avg_confidence
+packaging,Poor packaging,2,40.0,0.9
+misleading_description,Not as described,2,40.0,0.85
+quality,Quality issues,1,20.0,0.8

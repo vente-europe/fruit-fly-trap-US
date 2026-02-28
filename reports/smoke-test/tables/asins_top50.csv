@@ -1,0 +1,6 @@
+asin,brand,title,price,rating,review_count,bsr,fulfillment,seller_count,badge_flags,est_monthly_units,est_monthly_revenue,market_share_pct,title_short
+B001TEST03,Cleanco,Heavy Duty Degreaser Spray,18.99,4.7,5400,350,FBA,,"{""bestseller"": false, ""amazon_choice"": false, ""climate_pledge"": false}",41,778.59,54.34,Heavy Duty Degreaser Spray
+B001TEST01,Cleanco,Natural Dish Soap Non-Toxic,12.99,4.5,2300,800,FBA,,"{""bestseller"": true, ""amazon_choice"": false, ""climate_pledge"": false}",23,298.77,20.85,Natural Dish Soap Non-Toxic
+B001TEST05,Safeclean,Antibacterial Kitchen Cleaner,14.5,4.0,1100,1600,Unknown,,"{""bestseller"": false, ""amazon_choice"": false, ""climate_pledge"": false}",14,203.0,14.17,Antibacterial Kitchen Cleaner
+B001TEST02,Greenleaf,Eco Dish Liquid Citrus 32oz,9.49,4.2,980,2100,FBA,,"{""bestseller"": false, ""amazon_choice"": false, ""climate_pledge"": false}",11,104.39,7.29,Eco Dish Liquid Citrus 32oz
+B001TEST04,Sparklehome,Kitchen Surface Spray 500ml,7.99,3.9,430,5200,Unknown,,"{""bestseller"": false, ""amazon_choice"": false, ""climate_pledge"": false}",6,47.94,3.35,Kitchen Surface Spray 500ml

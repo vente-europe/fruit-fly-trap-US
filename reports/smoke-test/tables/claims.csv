@@ -1,0 +1,4 @@
+claim,claim_type,frequency,avg_confidence
+non-toxic formula,safety,3,0.95
+plant-based ingredients,eco,2,0.88
+kills 99.9% bacteria,risky_performance,1,0.92
