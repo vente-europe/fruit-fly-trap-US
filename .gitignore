@@ -1,0 +1,5 @@
+# Raw source data — large files, not versioned
+data-feed/
+raw/
+processed/
+db/

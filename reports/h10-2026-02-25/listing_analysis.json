@@ -1,0 +1,251 @@
+{
+  "generated": "2026-03-15",
+  "claim_categories": [
+    {"id": "effectiveness", "label": "Effectiveness", "color": "#1D9E75"},
+    {"id": "safety",        "label": "Safety / Non-toxic", "color": "#378ADD"},
+    {"id": "design",        "label": "Design / Aesthetics", "color": "#7F77DD"},
+    {"id": "ease",          "label": "Ease of use", "color": "#D85A30"},
+    {"id": "value",         "label": "Value / Longevity", "color": "#BA7517"},
+    {"id": "technology",    "label": "Mechanism / Tech", "color": "#D4537E"},
+    {"id": "placement",     "label": "Placement / Targeting", "color": "#639922"}
+  ],
+  "products": {
+    "B01MRHXM0I": {
+      "brand": "Terro",
+      "short_title": "TERRO Fruit Fly Trap (4 Pack)",
+      "price": 13.37,
+      "bsr": 36,
+      "rating": 4.1,
+      "reviews": 24094,
+      "aplus": true,
+      "video": true,
+      "main_keyword": "fruit fly trap indoor",
+      "title_structure": {
+        "brand": "TERRO",
+        "product_type": "Fruit Fly Traps for Indoors",
+        "pack_size": "4 Pack",
+        "key_benefit": "180 Days of Lure Supply",
+        "use_case": "Near Fruit, Trash Cans, Countertops",
+        "differentiator": "Lure and Kill, Ready to Use"
+      },
+      "hero_message": "The original apple-shaped fruit fly trap — fast-acting, 180-day lure supply, discreet countertop design",
+      "claim_themes": ["effectiveness", "value", "design", "ease", "placement"],
+      "key_claims": [
+        {"text": "Fast-acting — dramatic decrease in days", "cat": "effectiveness"},
+        {"text": "45 days per lure, 180-day supply", "cat": "value"},
+        {"text": "Apple-shaped discreet design", "cat": "design"},
+        {"text": "Built-in monitoring windows", "cat": "ease"},
+        {"text": "Non-staining lure", "cat": "design"},
+        {"text": "Target breeding areas", "cat": "placement"}
+      ],
+      "image_classifications": {
+        "MAIN": "hero",
+        "PT01": "lifestyle",
+        "PT02": "infographic",
+        "PT03": "infographic",
+        "PT04": "lifestyle",
+        "PT05": "comparison",
+        "PT06": "detail",
+        "PT07": "package",
+        "PT08": "infographic"
+      }
+    },
+    "B0BX4GQF68": {
+      "brand": "Terro",
+      "short_title": "Terro Fruit Fly Trap (6 Pack)",
+      "price": 18.39,
+      "bsr": 36,
+      "rating": 4.1,
+      "reviews": 24094,
+      "aplus": true,
+      "video": true,
+      "main_keyword": "fruit fly trap indoor",
+      "title_structure": {
+        "brand": "Terro",
+        "product_type": "Fruit Fly Traps for Indoors",
+        "pack_size": "6 Pack",
+        "key_benefit": "270 Days of Lure Supply",
+        "use_case": null,
+        "differentiator": null
+      },
+      "hero_message": "Same Terro formula, bigger value — 6-pack with 270 days of protection",
+      "claim_themes": ["effectiveness", "value", "design", "ease", "placement"],
+      "key_claims": [
+        {"text": "Fast-acting elimination", "cat": "effectiveness"},
+        {"text": "270-day lure supply", "cat": "value"},
+        {"text": "Apple-shaped discreet design", "cat": "design"},
+        {"text": "Built-in monitoring windows", "cat": "ease"},
+        {"text": "Target breeding areas", "cat": "placement"}
+      ],
+      "image_classifications": {
+        "MAIN": "hero",
+        "PT01": "lifestyle",
+        "PT02": "infographic",
+        "PT03": "infographic",
+        "PT05": "value",
+        "PT06": "lifestyle",
+        "PT07": "package",
+        "PT08": "infographic"
+      }
+    },
+    "B07VYPGHFW": {
+      "brand": "Aunt Fannie's",
+      "short_title": "Aunt Fannie's FlyPunch (2 Pack)",
+      "price": 14.99,
+      "bsr": 828,
+      "rating": 4.5,
+      "reviews": 25096,
+      "aplus": true,
+      "video": false,
+      "main_keyword": "fruit fly trap kitchen",
+      "title_structure": {
+        "brand": "Aunt Fannie's",
+        "product_type": "FlyPunch Fruit Fly Trap",
+        "pack_size": "Pack of 2",
+        "key_benefit": "Plant Based Ingredients, Safe Near Food",
+        "use_case": "Indoor and Kitchen Use",
+        "differentiator": "Ready to Use, 30 Days per Bottle"
+      },
+      "hero_message": "Plant-based, kitchen-safe fruit fly trap — just open and set, 30-day protection per bottle",
+      "claim_themes": ["effectiveness", "safety", "ease", "value", "placement"],
+      "key_claims": [
+        {"text": "Plant-based ingredients", "cat": "safety"},
+        {"text": "Safe around food & pets", "cat": "safety"},
+        {"text": "Ready to use — just open flip top", "cat": "ease"},
+        {"text": "Powerful natural attractant", "cat": "effectiveness"},
+        {"text": "30-day lure per bottle", "cat": "value"},
+        {"text": "Multi-use: kitchen, garden, compost", "cat": "placement"}
+      ],
+      "image_classifications": {
+        "MAIN": "hero",
+        "PT02": "infographic",
+        "PT03": "lifestyle",
+        "PT04": "comparison",
+        "PT05": "infographic",
+        "PT06": "lifestyle",
+        "PT07": "package"
+      }
+    },
+    "B0DGWQV8GK": {
+      "brand": "HOT SHOT",
+      "short_title": "Hot Shot Flying Insect Trap (6 Count)",
+      "price": 14.16,
+      "bsr": 4047,
+      "rating": 2.4,
+      "reviews": 1942,
+      "aplus": true,
+      "video": false,
+      "main_keyword": "flying insect trap",
+      "title_structure": {
+        "brand": "Hot Shot",
+        "product_type": "Flying Insect Trap",
+        "pack_size": "6 Count",
+        "key_benefit": "24/7 Continuous Attraction",
+        "use_case": "House and Fruit Flies",
+        "differentiator": "Discreet, Hassle-Free, No Plug-in"
+      },
+      "hero_message": "Discreet, hassle-free trap for house flies AND fruit flies — 24/7 continuous action, no electricity needed",
+      "claim_themes": ["effectiveness", "design", "ease", "technology"],
+      "key_claims": [
+        {"text": "Traps house flies AND fruit flies", "cat": "effectiveness"},
+        {"text": "24/7 continuous action", "cat": "technology"},
+        {"text": "Discreet & compact — blends with decor", "cat": "design"},
+        {"text": "Fast acting — works immediately", "cat": "effectiveness"},
+        {"text": "No plug-in or electricity needed", "cat": "ease"},
+        {"text": "Hassle-free, no mess", "cat": "ease"}
+      ],
+      "image_classifications": {
+        "MAIN": "hero",
+        "PT01": "lifestyle",
+        "PT02": "infographic",
+        "PT03": "comparison",
+        "PT04": "lifestyle",
+        "PT05": "detail",
+        "PT06": "infographic",
+        "PT07": "package",
+        "PT08": "scale"
+      }
+    },
+    "B0D5DJ7V4P": {
+      "brand": "Super Ninja",
+      "short_title": "Super Ninja Fruit Fly Trap (4 Pack)",
+      "price": 13.99,
+      "bsr": 464,
+      "rating": 4.5,
+      "reviews": 13584,
+      "aplus": true,
+      "video": true,
+      "main_keyword": "fruit fly trap indoor",
+      "title_structure": {
+        "brand": "Super Ninja",
+        "product_type": "Fruit Fly Traps for Indoors",
+        "pack_size": "4 Pack",
+        "key_benefit": "Highly Effective, Up to 3 Weeks",
+        "use_case": "Home & Kitchen",
+        "differentiator": "Kid & Pet Friendly"
+      },
+      "hero_message": "Highly effective natural fruit fly trap — results in 24 hours, 3 weeks per bottle, safe for kids & pets",
+      "claim_themes": ["effectiveness", "safety", "value", "placement", "technology"],
+      "key_claims": [
+        {"text": "Results in 24 hours", "cat": "effectiveness"},
+        {"text": "Natural liquid bait — mimics decaying fruit", "cat": "technology"},
+        {"text": "3 weeks per bottle", "cat": "value"},
+        {"text": "Safe for kids & pets", "cat": "safety"},
+        {"text": "Sustainable / recyclable materials", "cat": "design"},
+        {"text": "No harsh chemicals", "cat": "safety"}
+      ],
+      "image_classifications": {
+        "MAIN": "hero",
+        "PT01": "lifestyle",
+        "PT02": "infographic",
+        "PT03": "comparison",
+        "PT04": "infographic",
+        "PT05": "scale",
+        "PT06": "lifestyle",
+        "PT07": "package"
+      }
+    }
+  },
+  "benchmark": {
+    "dimensions": [
+      {
+        "label": "Title structure",
+        "leader_pattern": "Brand + Product Type + Pack Size + Duration Supply + Use Case keywords. Terro packs title with SKU code + multiple use-case locations.",
+        "recommendation": "Add specific use-case keywords (kitchen, countertop, home), include lure duration in title, add SKU code for branded search."
+      },
+      {
+        "label": "Main keyword focus",
+        "leader_pattern": "Terro: 'fruit fly trap indoor'; Aunt Fannie's: 'fruit fly trap kitchen'; Super Ninja: 'fruit fly trap indoor'",
+        "recommendation": "Target both 'fruit fly trap' and 'fruit fly trap indoor kitchen' for maximum coverage."
+      },
+      {
+        "label": "Key claims",
+        "leader_pattern": "All leaders claim fast-acting + long-lasting. Terro differentiates on design (apple shape). Aunt Fannie's on safety (plant-based). Super Ninja on speed (24h results).",
+        "recommendation": "Need a unique speed or efficacy proof point. Quantifiable claims (24h, 45 days) outperform vague 'effective' messaging."
+      },
+      {
+        "label": "Hero message",
+        "leader_pattern": "Leaders lead with a single memorable differentiator: Terro = apple design + 180d supply, Aunt Fannie's = plant-based safety, Super Ninja = 24h results.",
+        "recommendation": "Pick ONE hero differentiator and make it the first thing buyers see. Avoid generic 'effective and safe' messaging."
+      },
+      {
+        "label": "Image strategy",
+        "leader_pattern": "Top sellers use 8-9 image slots. All have: hero, lifestyle, infographic, comparison. Terro and HOT SHOT use all 9 slots (MAIN + PT01-PT08).",
+        "recommendation": "Fill all 9 image slots. Must-haves: comparison image (vs. DIY/alternatives), infographic (how mechanism works), lifestyle (kitchen counter)."
+      },
+      {
+        "label": "Content assets",
+        "leader_pattern": "All 5 have A+ Content. Terro and Super Ninja have listing video. Only Aunt Fannie's and HOT SHOT lack video.",
+        "recommendation": "A+ Content is table stakes. Video significantly boosts conversion — prioritize a 30-60s product demo video."
+      }
+    ],
+    "gaps": [
+      {"area": "Safety messaging", "gap": "HOT SHOT doesn't mention safety/non-toxic at all — major gap given competitor emphasis", "who": "HOT SHOT", "priority": "high"},
+      {"area": "Value proposition", "gap": "Aunt Fannie's only offers 30 days per bottle vs. Terro's 45 days — weak longevity claim", "who": "Aunt Fannie's", "priority": "medium"},
+      {"area": "Image slots", "gap": "Aunt Fannie's uses only 7 slots (missing PT01) vs. 9 for Terro/HOT SHOT", "who": "Aunt Fannie's", "priority": "medium"},
+      {"area": "Video", "gap": "Aunt Fannie's and HOT SHOT have no listing video", "who": "Aunt Fannie's, HOT SHOT", "priority": "medium"},
+      {"area": "Speed claims", "gap": "Only Super Ninja claims specific timeframe (24h). Others say 'few days' — weaker proof point", "who": "Terro, Aunt Fannie's, HOT SHOT", "priority": "low"},
+      {"area": "Sustainability", "gap": "Only Super Ninja mentions eco/recyclable — potential differentiator in this market", "who": "Super Ninja only", "priority": "low"}
+    ]
+  }
+}

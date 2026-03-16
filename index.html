@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Hot Shot Flying Insect Trap — Review Analysis</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f1f5f9;color:#1e293b;font-size:13px}
+header{background:#7c1d1d;color:#fff;padding:18px 32px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
+header h1{font-size:1.2rem}
+header p{font-size:.75rem;opacity:.65;margin-top:3px}
+.badge{background:rgba(255,255,255,.15);padding:4px 12px;border-radius:12px;font-size:.72rem;font-weight:700;letter-spacing:.05em;white-space:nowrap}
+.content{padding:22px 32px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-bottom:20px}
+.kpi{background:#fff;border-radius:8px;padding:14px 16px;box-shadow:0 1px 3px rgba(0,0,0,.07)}
+.kpi-v{font-size:1.2rem;font-weight:700;color:#0f2942;line-height:1.2}
+.kpi-l{font-size:.68rem;color:#64748b;margin-top:4px;line-height:1.3}
+.kpi.red .kpi-v{color:#dc2626}
+.kpi.orange .kpi-v{color:#ea580c}
+.kpi.amber .kpi-v{color:#d97706}
+.kpi.green .kpi-v{color:#16a34a}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-bottom:18px}
+.card{background:#fff;border-radius:8px;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,.07);margin-bottom:18px}
+.card h3{font-size:.83rem;font-weight:600;color:#475569;margin-bottom:12px}
+.card h4{font-size:.82rem;font-weight:700;color:#1e293b;margin-bottom:8px}
+.cw{position:relative}
+table{width:100%;border-collapse:collapse;font-size:.75rem}
+th{background:#f8fafc;text-align:left;padding:6px 7px;font-weight:600;color:#475569;white-space:nowrap;border-bottom:1px solid #e2e8f0}
+td{padding:5px 7px;border-bottom:1px solid #f1f5f9;vertical-align:top}
+tr:hover td{background:#f8fafc}
+.tbl-wrap{overflow-x:auto;max-height:520px;overflow-y:auto}
+h2{font-size:1rem;margin:22px 0 14px;color:#1e293b;font-weight:700;padding-bottom:8px;border-bottom:1px solid #e2e8f0}
+.insight{background:#fef2f2;border-left:3px solid #dc2626;padding:10px 14px;border-radius:0 6px 6px 0;margin-bottom:14px;font-size:.8rem;color:#9b1c1c;line-height:1.5}
+.note{font-size:.72rem;color:#64748b;margin-top:10px;padding:9px 11px;background:#f8fafc;border-radius:5px;border-left:2px solid #cbd5e1;line-height:1.5}
+/* star bars */
+.star-bar{display:flex;align-items:center;gap:8px;margin-bottom:5px}
+.star-bar .lbl{width:18px;font-size:.72rem;font-weight:700;color:#64748b;text-align:right}
+.bar-track{flex:1;height:14px;background:#f1f5f9;border-radius:3px;overflow:hidden}
+.bar-fill{height:100%;border-radius:3px;transition:width .4s}
+.star-bar .cnt{width:40px;font-size:.72rem;color:#475569;text-align:right}
+.star-bar .pct{width:40px;font-size:.7rem;color:#94a3b8;text-align:right}
+/* filters */
+.filters{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px;align-items:flex-end}
+.fld{display:flex;flex-direction:column;gap:3px}
+.fld label{font-size:.7rem;font-weight:600;color:#475569}
+.fld select,.fld input{border:1.5px solid #cbd5e1;border-radius:5px;padding:5px 8px;font-size:.75rem;background:#fff}
+.fld input{min-width:220px}
+.btn{padding:6px 14px;border:1.5px solid #cbd5e1;border-radius:5px;cursor:pointer;font-size:.75rem;font-weight:600;background:#fff;color:#475569}
+.btn:hover{background:#f1f5f9}
+/* star badges */
+.s1{background:#fecaca;color:#991b1b;padding:2px 7px;border-radius:4px;font-weight:700;font-size:.72rem;white-space:nowrap}
+.s2{background:#fed7aa;color:#9a3412;padding:2px 7px;border-radius:4px;font-weight:700;font-size:.72rem;white-space:nowrap}
+.s3{background:#fef9c3;color:#854d0e;padding:2px 7px;border-radius:4px;font-weight:700;font-size:.72rem;white-space:nowrap}
+.s4{background:#dcfce7;color:#15803d;padding:2px 7px;border-radius:4px;font-weight:700;font-size:.72rem;white-space:nowrap}
+.s5{background:#dbeafe;color:#1d4ed8;padding:2px 7px;border-radius:4px;font-weight:700;font-size:.72rem;white-space:nowrap}
+.review-text{font-size:.75rem;color:#475569;line-height:1.55;max-width:600px}
+.pill{display:inline-block;padding:2px 8px;border-radius:12px;font-size:.68rem;font-weight:600;margin:1px}
+.pill-red{background:#fef2f2;color:#dc2626}
+.pill-orange{background:#fff7ed;color:#ea580c}
+.pill-amber{background:#fffbeb;color:#d97706}
+.pill-purple{background:#faf5ff;color:#7c3aed}
+.pill-teal{background:#f0fdfa;color:#0d9488}
+.pill-blue{background:#eff6ff;color:#2563eb}
+#resultCount{font-size:.75rem;color:#64748b;margin-bottom:8px;font-weight:600}
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>Hot Shot Flying Insect Trap — Review Analysis</h1>
+    <p>Source: hs_reviews.json · 320 Amazon reviews · Fruit Flies US market research</p>
+  </div>
+  <div class="badge">NEGATIVE REVIEW FOCUS</div>
+</header>
+
+<div class="content">
+
+<!-- ─── KPI ROW ─── -->
+<div class="kpis">
+  <div class="kpi"><div class="kpi-v">320</div><div class="kpi-l">Total reviews scraped<br>Hot Shot Flying Insect Trap</div></div>
+  <div class="kpi red"><div class="kpi-v">100</div><div class="kpi-l">1★ reviews<br><strong>31.3%</strong> of total</div></div>
+  <div class="kpi orange"><div class="kpi-v">80</div><div class="kpi-l">2★ reviews<br><strong>25.0%</strong> of total</div></div>
+  <div class="kpi amber"><div class="kpi-v">48</div><div class="kpi-l">3★ reviews<br><strong>15.0%</strong> of total</div></div>
+  <div class="kpi green"><div class="kpi-v">92</div><div class="kpi-l">4★+5★ reviews<br><strong>28.7%</strong> of total</div></div>
+  <div class="kpi red"><div class="kpi-v">56.3%</div><div class="kpi-l">Actively negative (1★+2★)<br>180 reviews</div></div>
+</div>
+
+<div class="note" style="margin-bottom:14px"><strong>Data note:</strong> Amazon limits scraping to max 100 reviews per star rating. Total review count on the listing will not match scraped count — customers can leave a star rating without writing a review, and only written reviews are captured here.</div>
+
+<div class="insight">
+  <strong>Product: Hot Shot Flying Insect Trap</strong> — a liquid bait trap containing a vinegar-based solution.
+  56.3% of reviewers give 1★ or 2★. The dominant theme across nearly all negative reviews is the same: <strong>zero flies caught</strong>. Secondary issues: messy opening that spills liquid, and DIY vinegar traps that outperform the product. Note: 5★ reviews include a significant number of Amazon Vine (free product) reviews — positive rating may be inflated.
+</div>
+
+<!-- ─── SECTION 1: Rating Distribution + Complaint Categories ─── -->
+<h2>1 — Rating & Complaint Distribution</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-bottom:18px;align-items:start">
+
+  <div class="card" style="margin-bottom:0">
+    <h3>Amazon Listing — All Ratings (1,954)</h3>
+    <div style="text-align:center;margin-bottom:14px">
+      <div style="font-size:2rem;font-weight:800;color:#0f2942;line-height:1">2.4</div>
+      <div style="font-size:.85rem;color:#d97706;margin:4px 0">★★☆☆☆</div>
+      <div style="font-size:.72rem;color:#64748b">1,954 global ratings</div>
+    </div>
+    <div>
+      <div class="star-bar"><span class="lbl">5★</span><div class="bar-track"><div class="bar-fill" style="width:23%;background:#f59e0b"></div></div><span class="pct">23%</span></div>
+      <div class="star-bar"><span class="lbl">4★</span><div class="bar-track"><div class="bar-fill" style="width:8%;background:#f59e0b"></div></div><span class="pct">8%</span></div>
+      <div class="star-bar"><span class="lbl">3★</span><div class="bar-track"><div class="bar-fill" style="width:10%;background:#f59e0b"></div></div><span class="pct">10%</span></div>
+      <div class="star-bar"><span class="lbl">2★</span><div class="bar-track"><div class="bar-fill" style="width:10%;background:#f59e0b"></div></div><span class="pct">10%</span></div>
+      <div class="star-bar"><span class="lbl">1★</span><div class="bar-track"><div class="bar-fill" style="width:49%;background:#f59e0b"></div></div><span class="pct">49%</span></div>
+    </div>
+    <div class="note">Source: Amazon listing page. Includes all ratings (with and without written reviews). 59% are 1★ or 2★.</div>
+  </div>
+
+  <div class="card" style="margin-bottom:0">
+    <h3>Rating Distribution — 320 scraped reviews</h3>
+    <div class="cw" style="height:200px"><canvas id="ratingDonut"></canvas></div>
+    <div style="margin-top:18px">
+      <div class="star-bar"><span class="lbl">1★</span><div class="bar-track"><div class="bar-fill" style="width:31.3%;background:#dc2626"></div></div><span class="cnt">100</span><span class="pct">31.3%</span></div>
+      <div class="star-bar"><span class="lbl">2★</span><div class="bar-track"><div class="bar-fill" style="width:25%;background:#ea580c"></div></div><span class="cnt">80</span><span class="pct">25.0%</span></div>
+      <div class="star-bar"><span class="lbl">3★</span><div class="bar-track"><div class="bar-fill" style="width:15%;background:#d97706"></div></div><span class="cnt">48</span><span class="pct">15.0%</span></div>
+      <div class="star-bar"><span class="lbl">4★</span><div class="bar-track"><div class="bar-fill" style="width:8.75%;background:#65a30d"></div></div><span class="cnt">28</span><span class="pct">8.7%</span></div>
+      <div class="star-bar"><span class="lbl">5★</span><div class="bar-track"><div class="bar-fill" style="width:20%;background:#16a34a"></div></div><span class="cnt">64</span><span class="pct">20.0%</span></div>
+    </div>
+    <div class="note">56.3% are 1★ or 2★ (180 reviews). Of the 64 five-star reviews, a significant portion carry the Amazon Vine label (free product review program) — real-buyer 5★ reviews are fewer.</div>
+  </div>
+
+  <div class="card" style="margin-bottom:0">
+    <h3>Complaint Themes — % of 1★+2★ reviews mentioning each issue</h3>
+    <div class="cw" style="height:280px"><canvas id="complaintsChart"></canvas></div>
+    <div class="note">Based on reading all 180 negative (1★+2★) reviews. One review may touch multiple themes. Ineffectiveness dominates by a large margin.</div>
+  </div>
+
+</div>
+
+<!-- ─── SECTION 2: Key Metrics ─── -->
+<h2>2 — Key Metrics</h2>
+<div class="g3" style="align-items:start">
+  <div class="card">
+    <h4>Zero-Catch Rate</h4>
+    <div style="font-size:.78rem;color:#475569;margin-bottom:10px">% of 1★+2★ reviews where buyer reports catching zero or near-zero insects</div>
+    <div style="font-size:2.4rem;font-weight:800;color:#dc2626;line-height:1">83%</div>
+    <div style="font-size:.75rem;color:#64748b;margin-top:4px">~149 of 180 reviews</div>
+    <div class="note">The core failure is universal and consistent: the product simply does not attract or catch insects for the majority of buyers.</div>
+  </div>
+  <div class="card">
+    <h4>Spill / Messy Opening Rate</h4>
+    <div style="font-size:.78rem;color:#475569;margin-bottom:10px">% of 1★+2★ reviews mentioning liquid spill, messy seal, or skin contact with liquid</div>
+    <div style="font-size:2.4rem;font-weight:800;color:#ea580c;line-height:1">32%</div>
+    <div style="font-size:.75rem;color:#64748b;margin-top:4px">~58 of 180 reviews</div>
+    <div class="note">Second most frequent complaint. Foil seal on liquid pod is difficult to remove cleanly. Several reviews mention liquid splashing on skin and requiring 15-min wash (per warning label).</div>
+  </div>
+  <div class="card">
+    <h4>DIY Comparison Rate</h4>
+    <div style="font-size:.78rem;color:#475569;margin-bottom:10px">% of 1★+2★ reviews explicitly recommending apple cider vinegar + dish soap as a better alternative</div>
+    <div style="font-size:2.4rem;font-weight:800;color:#d97706;line-height:1">22%</div>
+    <div style="font-size:.75rem;color:#64748b;margin-top:4px">~40 of 180 reviews</div>
+    <div class="note">Buyers discovered independently that the product is essentially a small-format DIY trap — and the DIY version outperforms it. Strong commoditization signal.</div>
+  </div>
+</div>
+
+<div class="g2" style="align-items:start;margin-top:0">
+  <div class="card">
+    <h4>Safety Concern Contradictions</h4>
+    <div style="font-size:.78rem;color:#475569;margin-bottom:10px">Reviews mentioning conflict between "safe for pets/children" label vs. "wash skin 15–20 min" warning</div>
+    <div style="font-size:2rem;font-weight:800;color:#be185d;line-height:1">~10%</div>
+    <div style="font-size:.75rem;color:#64748b;margin-top:4px">~18 of 180 negative reviews</div>
+    <div class="note">Several buyers had liquid splash on their hands during opening and were alarmed by the wash-immediately warning that contradicts "safe" labeling. Trust-damage risk beyond just ineffectiveness.</div>
+  </div>
+  <div class="card">
+    <h4>Amazon Vine (Free Reviews) — 5★ Bias</h4>
+    <div style="font-size:.78rem;color:#475569;margin-bottom:10px">5★ reviews carrying "Amazon Vine Customer Review of Free Product" label</div>
+    <div style="font-size:2rem;font-weight:800;color:#7c3aed;line-height:1">~30+</div>
+    <div style="font-size:.75rem;color:#64748b;margin-top:4px">Out of 64 five-star reviews</div>
+    <div class="note">A substantial portion of 5★ reviews come from Amazon Vine (reviewers received the product free). This inflates the overall star rating. Real-buyer 5★ reviews are fewer and shorter. One 5★ review even says "Doesn't work at all don't buy this one."</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 3: Narrative Patterns ─── -->
+<h2>3 — How Customers Experience Failure — 5 Key Patterns</h2>
+
+<div class="g2">
+  <div class="card" style="border-left:3px solid #dc2626">
+    <div style="font-size:.78rem;font-weight:700;color:#dc2626;margin-bottom:8px">PATTERN 1 &nbsp;·&nbsp; "Set it up, checked it — nothing inside"</div>
+    <div style="font-size:.82rem;font-weight:600;color:#1e293b;margin-bottom:8px">Product placed correctly — flies ignore it completely, trap stays empty</div>
+    <ul style="font-size:.78rem;color:#475569;line-height:1.7;margin:0 0 10px;padding-left:16px">
+      <li>Buyer places trap in fly hotspot (kitchen counter, sink, fruit bowl area)</li>
+      <li>Returns after a week — trap still has zero insects inside</li>
+      <li>Often watches flies land on top of the trap, then fly away uninterested</li>
+      <li>Concludes the lure formula does not attract the insects they have</li>
+    </ul>
+    <div style="font-size:.73rem;color:#64748b;background:#fef2f2;border-radius:4px;padding:8px 10px;font-style:italic;line-height:1.5">
+      "After 2 weeks in a fly-infested area, not a single trap had a single fly in it." · "Flies hovered over trap then went on about their business." · "Not one fly or fruit fly had any interest in the solution."
+    </div>
+    <div style="font-size:.73rem;font-weight:700;color:#dc2626;margin-top:8px">→ Dominant failure mode — affects ~83% of 1★+2★ reviewers. The lure formula is inconsistent or insufficient to attract insects across different infestation types.</div>
+  </div>
+
+  <div class="card" style="border-left:3px solid #ea580c">
+    <div style="font-size:.78rem;font-weight:700;color:#ea580c;margin-bottom:8px">PATTERN 2 &nbsp;·&nbsp; "Impossible to open without spilling"</div>
+    <div style="font-size:.82rem;font-weight:600;color:#1e293b;margin-bottom:8px">Foil seal design causes liquid to splash during setup — messy and alarming</div>
+    <ul style="font-size:.78rem;color:#475569;line-height:1.7;margin:0 0 10px;padding-left:16px">
+      <li>Buyer peels the foil seal from the liquid pod inside the casing</li>
+      <li>Thin plastic + liquid filled to the top = inevitable spill when foil breaks free</li>
+      <li>Liquid gets on hands, counters, clothing — first experience is frustration</li>
+      <li>Warning label says to wash skin for 15–20 minutes — buyer alarmed by "pet safe" vs. toxic liquid contradiction</li>
+    </ul>
+    <div style="font-size:.73rem;color:#64748b;background:#fff7ed;border-radius:4px;padding:8px 10px;font-style:italic;line-height:1.5">
+      "The foil is stuck and makes the fluid spill when you try to open it." · "POISON SPLASHED ALL OVER MY COUNTER TOP AND FLOOR. I had to clear the room immediately." · "Every single tub was warped, causing it to sit lopsided."
+    </div>
+    <div style="font-size:.73rem;font-weight:700;color:#ea580c;margin-top:8px">→ Affects ~32% of negative reviews. A fundamental packaging UX problem — first touch with the product creates a negative, alarming experience even before testing if it works.</div>
+  </div>
+</div>
+
+<div class="g2" style="margin-top:0">
+  <div class="card" style="border-left:3px solid #d97706">
+    <div style="font-size:.78rem;font-weight:700;color:#d97706;margin-bottom:8px">PATTERN 3 &nbsp;·&nbsp; "I could have done this for free"</div>
+    <div style="font-size:.82rem;font-weight:600;color:#1e293b;margin-bottom:8px">Buyers discover the product is essentially diluted apple cider vinegar — and make their own version that works better</div>
+    <ul style="font-size:.78rem;color:#475569;line-height:1.7;margin:0 0 10px;padding-left:16px">
+      <li>Buyer smells the liquid: "pure vinegar"</li>
+      <li>Hot Shot catches 0–3 flies; their DIY cup of ACV + dish soap catches dozens</li>
+      <li>Publishes the DIY recipe in their 1★ review, telling others not to buy</li>
+      <li>Some explicitly say they will keep the plastic casing and refill it with their own solution</li>
+    </ul>
+    <div style="font-size:.73rem;color:#64748b;background:#fffbeb;border-radius:4px;padding:8px 10px;font-style:italic;line-height:1.5">
+      "I will just add ACV and a touch of dish soap instead of buying the replacement pods." · "Absolutely terrible — poured out the BS they put in there and put vinegar, whiskey and dish soap — started getting them immediately." · "Save $8. Just make your own trap."
+    </div>
+    <div style="font-size:.73rem;font-weight:700;color:#d97706;margin-top:8px">→ ~22% of negative reviews. The product is perceived as overpriced packaging for a free homemade solution. This is the most damaging review pattern for brand perception.</div>
+  </div>
+
+  <div class="card" style="border-left:3px solid #7c3aed">
+    <div style="font-size:.78rem;font-weight:700;color:#7c3aed;margin-bottom:8px">PATTERN 4 &nbsp;·&nbsp; "Wrong pest — flies won't fit / gnats vs houseflies"</div>
+    <div style="font-size:.82rem;font-weight:600;color:#1e293b;margin-bottom:8px">Product designed for small fruit flies — openings too small for houseflies; lure wrong for gnats</div>
+    <ul style="font-size:.78rem;color:#475569;line-height:1.7;margin:0 0 10px;padding-left:16px">
+      <li>Buyer has houseflies — listing says "flying insects" so they assume it applies</li>
+      <li>Openings are too small for houseflies to enter; product can't work</li>
+      <li>Or: buyer has fungus gnats — fruit fly lure has no effect on gnat species</li>
+      <li>Gives 1★ to a product for the wrong use case — avoidable with clearer listing</li>
+    </ul>
+    <div style="font-size:.73rem;color:#64748b;background:#faf5ff;border-radius:4px;padding:8px 10px;font-style:italic;line-height:1.5">
+      "The holes/openings seem too small for larger flies anyway." · "Not suitable for house fly trapping even though they advertise as such." · "The reviews look good but most are for the spray fly killer — listing switch tricked me."
+    </div>
+    <div style="font-size:.73rem;font-weight:700;color:#7c3aed;margin-top:8px">→ ~8% of negative reviews. Preventable with better listing copy: "for small fruit flies (Drosophila), not houseflies." Also note: some buyers may have wrong reviews from a different Hot Shot product appearing on this listing.</div>
+  </div>
+</div>
+
+<div class="card" style="border-left:3px solid #0891b2;margin-top:0">
+  <div style="font-size:.78rem;font-weight:700;color:#0891b2;margin-bottom:8px">PATTERN 5 &nbsp;·&nbsp; "Liquid evaporates — useless within days"</div>
+  <div style="font-size:.82rem;font-weight:600;color:#1e293b;margin-bottom:8px">Thin plastic pod + small volume + warm conditions = bait evaporated before any flies attracted</div>
+  <ul style="font-size:.78rem;color:#475569;line-height:1.7;margin:0 0 10px;padding-left:16px">
+    <li>Buyer sets up trap in summer or warm room</li>
+    <li>Returns after 3–5 days to find the liquid completely dried out</li>
+    <li>Product claims 14-day effectiveness window — real-world lifespan much shorter</li>
+    <li>Buyers who tried DIY in the same casing note it works better precisely because they control volume and concentration</li>
+  </ul>
+  <div style="font-size:.73rem;color:#64748b;background:#f0f9ff;border-radius:4px;padding:8px 10px;font-style:italic;line-height:1.5">
+    "Liquid dried up in just a few days." · "Set 5 traps out — 0 flies caught before the liquid evaporated." · "The heat of the day will cause the liquid to evaporate. Complete waste." · "I would buy again if there was a refill option."
+  </div>
+  <div style="font-size:.73rem;font-weight:700;color:#0891b2;margin-top:8px">→ ~12% of negative reviews. A refill/replacement pod system would solve this and create recurring revenue — currently the entire unit must be discarded.</div>
+</div>
+
+<!-- ─── SECTION 4: Strategic Insights ─── -->
+<h2>4 — Strategic Insights — What This Tells Us About the Market Opportunity</h2>
+<div class="card">
+  <table>
+    <thead>
+      <tr>
+        <th style="width:38%">Review Observation</th>
+        <th style="width:37%">Product / Listing Implication</th>
+        <th style="width:25%">Priority</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>83% of 1★+2★ reviews report zero insects caught — the lure simply doesn't work for most buyers</td>
+        <td>A new product must <em>prove</em> effectiveness before purchase: catch video, transparent trap body showing dead flies, catch counter in listing imagery</td>
+        <td><span class="pill pill-red">🔴 CRITICAL</span></td>
+      </tr>
+      <tr>
+        <td>22% of negative reviews explicitly say homemade ACV + dish soap works far better than this product</td>
+        <td>The lure formula must demonstrably outperform a $0 DIY solution — otherwise there is no commercial reason for this product to exist at $10–20</td>
+        <td><span class="pill pill-red">🔴 CRITICAL</span></td>
+      </tr>
+      <tr>
+        <td>32% of negative reviews cite messy/spill opening experience — liquid pod design creates a bad first touch</td>
+        <td>Packaging redesign: pre-activated (no opening required), or gel/solid format that doesn't spill. The foil-over-liquid design is the single biggest UX failure point.</td>
+        <td><span class="pill pill-orange">🟠 HIGH</span></td>
+      </tr>
+      <tr>
+        <td>"Safe for pets & children" marketing directly contradicted by "wash skin 15 min" warning label — ~10% of buyers flag this</td>
+        <td>Trust-destroying contradiction. Either fix the formula to genuinely match "safe" claims, or remove "safe for pets" from the listing entirely. Do not make safety claims you cannot defend.</td>
+        <td><span class="pill pill-orange">🟠 HIGH</span></td>
+      </tr>
+      <tr>
+        <td>Significant portion of 5★ reviews are Amazon Vine (free product) — inflated overall rating</td>
+        <td>Real-buyer rating is likely 2.0–2.5★ rather than the displayed average. Any competing product with genuine effectiveness and real buyer reviews will be perceived as dramatically superior.</td>
+        <td><span class="pill pill-blue">🔵 INFO</span></td>
+      </tr>
+      <tr>
+        <td>~8% of buyers have houseflies — product can't work (holes too small). Also: confused listing reviews from Hot Shot spray killer appearing here.</td>
+        <td>Listing should clearly state "fruit flies (Drosophila) only — not for houseflies." This prevents a class of avoidable 1★ reviews. Audit if the listing has mixed product reviews.</td>
+        <td><span class="pill pill-amber">🟡 MEDIUM</span></td>
+      </tr>
+      <tr>
+        <td>~12% mention bait dries out within 3–5 days in warm conditions (vs. claimed 14-day window)</td>
+        <td>Offer a refill pod system (recurring purchase) or increase bait volume. A product with a 14-day claim failing at day 3 in summer is a core product reliability problem.</td>
+        <td><span class="pill pill-amber">🟡 MEDIUM</span></td>
+      </tr>
+      <tr>
+        <td>Many 4★+5★ reviewers mention the product is discreet and aesthetically pleasing — even some who note it caught few flies</td>
+        <td>Design aesthetics are a genuine differentiator in this category. Buyers want something that "doesn't scream fly trap." A product that is both effective AND attractive has no current equivalent.</td>
+        <td><span class="pill pill-teal">🟢 OPPORTUNITY</span></td>
+      </tr>
+      <tr>
+        <td>Several buyers note they refilled the plastic casing with their own DIY solution — it then worked</td>
+        <td>The trap container design itself may be acceptable — the liquid formula is the core problem. A better lure formula + same container could be a winning iteration.</td>
+        <td><span class="pill pill-teal">🟢 OPPORTUNITY</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ─── SECTION 5: Review Browser ─── -->
+<h2>5 — Review Browser — All 180 Negative Reviews (1★ + 2★)</h2>
+<div class="card">
+  <div class="filters">
+    <div class="fld">
+      <label>Filter by Rating</label>
+      <select id="filterRating" onchange="filterReviews()">
+        <option value="">All (1★ + 2★)</option>
+        <option value="1">1★ only (100)</option>
+        <option value="2">2★ only (80)</option>
+      </select>
+    </div>
+    <div class="fld">
+      <label>Filter by Theme</label>
+      <select id="filterTheme" onchange="filterReviews()">
+        <option value="">All themes</option>
+        <option value="zero">Zero catch / ineffective</option>
+        <option value="spill">Spills / messy opening</option>
+        <option value="diy">DIY comparison</option>
+        <option value="evap">Liquid dries/evaporates</option>
+        <option value="safe">Safety concern</option>
+        <option value="housefly">Housefly / wrong pest</option>
+      </select>
+    </div>
+    <div class="fld">
+      <label>Search keywords</label>
+      <input type="text" id="filterSearch" placeholder="e.g. vinegar, spill, gnats..." oninput="filterReviews()">
+    </div>
+    <button class="btn" onclick="clearFilters()">Clear</button>
+  </div>
+  <div id="resultCount"></div>
+  <div class="tbl-wrap">
+    <table id="reviewTable">
+      <thead>
+        <tr><th style="width:40px">★</th><th>Review</th></tr>
+      </thead>
+      <tbody id="reviewBody"></tbody>
+    </table>
+  </div>
+</div>
+
+</div><!-- .content -->
+
+<script>
+// ─── All 180 negative reviews from hs_reviews.json ────────────────────────
+const REVIEWS = [
+  // ── 1★ reviews ──────────────────────────────────────────────────────────
+  {r:1,t:"Absolutely useless. The little tubs that hold the liquid are made of the thinnest of plastic, and every single tub was warped, causing it to sit lopsided in the hard case. I spilled some liquid on my hands, and honestly, it just smells like pure vinegar. I've had these tubs sitting on my windowsills for three days now but it hasn't caught a single one. Save your money, and invest in a good flyswatter."},
+  {r:1,t:"I bought these traps to put in my kitchen and bathrooms. The solution looks unremarkable, but smells slightly of vinegar. I believe the solution is nothing more than vinegar, water, and soap — the recipe for a DIY fruit fly trap. The first night I caught a single fruit fly, which made me hopeful. Unfortunately, that first fruit fly has been THE ONLY one I've caught, even though you can see them flying around these things. These are a complete sham that do absolutely nothing. I would not recommend these to anyone."},
+  {r:1,t:"Not at all effective. We have had an issue with tiny fruit flies. After 2 weeks, undisturbed, not one insect collected. I had more in a small water cup-catch in a different area, but zero in the trap. Don't bother with this product."},
+  {r:1,t:"My house was randomly full of flies one day so I ordered this. Not even one fly showed any interest at all. Also, the product has to be assembled by peeling off the lid and then putting another lid on top, but it's all the way full of the insect poison and it's way too easy to spill."},
+  {r:1,t:"Do NOT waste your money. These may attract fruit flies but NOT houseflies. It did not get rid of even 1 fly out of 50ish flies. The clear sticky sheets worked well. This product is messy. Just removing the seal causes the liquid to spill. I doubt their claims of it being pet safe are any more legitimate than their claims that it traps flies. BUYER BEWARE!"},
+  {r:1,t:"I would give these 0 stars if I could. They're not easy to use. When you open the foil in the package, it's almost impossible not to spill the liquid on yourself. They are filled to the top. Not a single fly has entered this trap. I'd have been better off with cling wrap over a cup filled with vinegar. Save your money and don't make the same mistake as me."},
+  {r:1,t:"100% Worthless. Doesn't do anything except dry up and waste money. Not a single insect was harmed during the two month period this was placed next to the sink."},
+  {r:1,t:"SAVE YOUR MONEY. I also purchased clear see-through window gnat traps — each caught approx 200 gnats each. And my Hot Shot traps? One caught 0 gnats, another caught 1, and another caught approx 20. These traps are no more effective than putting out a saucer of water."},
+  {r:1,t:"Not one fly or fruit fly had any interest in the solution. I caught nothing. Not one house fly or fruit fly. I can hear the flies all laughing at me for spending $12 on an attractive box of water. As an experiment I put my usual ACV + soap solution in the containers and within a few days I had several dead fruit flies. I will just add ACV & a touch of dish soap instead of buying the replacement pods."},
+  {r:1,t:"These are useless. The flying insects don't even go inside. The super stuck covering is a thin foil thing that has a little area you have to struggle with to grab — then sliding it off is difficult and makes the fluid inside splash out. The first one went from opening it to the trash because by the time I got the thing open there was hardly any solution left. None of the traps had any bugs fly into them. They would land on top but fly off. Empty of fluid and bugs after a month."},
+  {r:1,t:"Legit 1 star for their looks. They look good but they don't work. Gnats still flying all around them for 2 days and haven't caught one yet."},
+  {r:1,t:"After receiving these, we placed them in various locations in the kitchen and living room — near spots where we've seen mosquitos, flies, and gnats. Sadly, none of these traps were able to get a single insect after three weeks of sitting out. The liquid eventually dried up and we just threw the container away (empty). Just a waste of money. We ended up buying an electric bug zapper that gets the job done."},
+  {r:1,t:"These didn't work at all. I immediately opened the package and followed the simple directions, setting 3 of these traps in my kitchen. At the time I had 4-5 flies buzzing around. After almost a week of the traps being in my kitchen, not a single fly had gone in and died. I'm back to using a fly swatter, much more effective. Save your money and try a different product."},
+  {r:1,t:"This product does not work as advertised. I purchased two packs and put them all over the living room and kitchen and days and weeks passed and no flies caught. Not one. I followed the instructions and peeled off the tops etc. We are at 6 weeks now, and not one fly caught yet by these traps inside. The flies are still here though, I just zap them with bug spray a few times a day."},
+  {r:1,t:"I put these in 3 rooms and was so hopeful. After 2 weeks like the directions said — absolutely nothing. And the flies and gnats are still hanging out. The main ingredient is just soapy water so I really could have just saved my money and done the sweet soapy water in a jar with plastic wrap with tiny holes."},
+  {r:1,t:"These may be helpful for addressing insects in some contexts. However, they are messy. Each capsule is filled with liquid which gets on one's hands when being opened. Make sure each is placed in areas where they are not disturbed since the liquid will spill out if knocked or it falls. Add to that, the entire unit must be replaced rather than just new inserts. What a waste of plastic and money."},
+  {r:1,t:"When you pull the seal off the bait it spills everywhere. WORSE PURCHASE I have ever made. Once you unseal the bait and put it back in the holder you need to find a spot where it will attract the bugs and won't get knocked over spilling the bait everywhere."},
+  {r:1,t:"Horrid item. Did not work at all. I thought this would be a perfect solution as they are small, not noticeable, and safe around food and pets. I did everything right — 30 seconds to set up. And then nothing. Not one fly went near them. A total waste and I hope I can return. Seriously — this is a garbage product. Save your money."},
+  {r:1,t:"These were not very effective. Additionally, if they get knocked over they spill and create a mess. I kept a few out for over a week and they did not manage to catch anything."},
+  {r:1,t:"Our house was overwhelmed by flies this year. I tried several options but this product did not attract ANYTHING. With six units staged around the house they did not get anything near by, not even the cat."},
+  {r:1,t:"I would CAUTION ANYONE WITH PETS OR CHILDREN AGAINST PURCHASING THIS ITEM! Dangerously flimsy material for a toxic substance. When I attempted to remove the cover — POISON SPLASHED ALL OVER MY COUNTER TOP AND FLOOR. I had to clear the room immediately — the warning label stated to wash skin contacted for at least 15 minutes. HORRIBLE!"},
+  {r:1,t:"These didn't not work well at all. They easily fall over and the liquid spills everywhere. They are very messy and did not work."},
+  {r:1,t:"Simply isn't effective. Placed several all around my home and not a single gnat or fly got caught after a week."},
+  {r:1,t:"Do not buy this product. After 4 days, I caught 1 fruit fly. Only 1 and I think it fell in. I have a lot of fruit flies since all the tomatoes, cucumbers and other produce are coming in. This product is so bad. It does not catch gnats or fruit flies and I'm not the only one who's tried these."},
+  {r:1,t:"Ineffective and useless. I bought this because I've been getting lots of gnats and fruit flies. I haven't noticed a difference. The holes/openings seem too small for larger flies anyway. I DO NOT RECOMMEND this product."},
+  {r:1,t:"The advertising is deceiving. It said it was safe to be around pets and children. It is a liquid that is toxic. Instructions say if you get any on your skin or eyes to immediately wash in running water for 15-20 minutes and contact medical advice. You need gloves to safely open it but they don't mention it."},
+  {r:1,t:"A waste of money! I opened one by the sink and another by the fruit basket. I swatted at least 40 flies over the two week period. After two weeks I opened both traps and not one fly in either. Left the lids off for another two days and flies could be 3 inches away and have no interest."},
+  {r:1,t:"I placed one right next to the tomatoes where the bugs are flying around and after 2-3 days I checked the trap and there are only 3 little gnats floating inside. These traps are a joke. They definitely do not work for house flies at all."},
+  {r:1,t:"Zero flies captured in over a two-week period. After the Hot Shot package arrived, we placed all six traps throughout key locations. Over a 19-day period, NOT ONE FLY took the bait and got caught in a trap. At least for this house, this product proved to be 100% ineffective."},
+  {r:1,t:"I ordered a box of 6 traps and followed instructions and put out all 6 traps but after a day or so did not find any dead insects at all. At the same time, I ordered a box of 24 vertical hanging sticky fly strips. These worked like a charm — each strip attracted and caught anywhere from a dozen to 30 flies after a day and a night."},
+  {r:1,t:"I was being terrorized by fruit flies so I got these traps to help. They did nothing. I had one by my kitchen and bathroom sinks. The bathroom had ONE fruit fly. TLDR: save your money. Use apple cider vinegar and a few drops of dish soap. Much cheaper and works much better."},
+  {r:1,t:"Useless, been trying to catch some flies. These traps do nothing! The fly won't even go in — why would it, looks like simple sugar water. I even baited the trap itself, putting something next to it, and still did not work. Don't waste your money."},
+  {r:1,t:"Totally useless!!! Don't waste your money. I have put the yellow sticky ones in my plants and have to change them every day — put the hot shots in same place — even took top off and not caught one of anything!!!"},
+  {r:1,t:"We had an issue over the summer with flies — many, many flies — and so this was the perfect opportunity to show us if this product worked. When the fly issue was resolved, there was not one fly inside any of these traps. I do not recommend them."},
+  {r:1,t:"Didn't work at all. Trying to get the seal off the liquid was a pain and easy to spill. I put several of these 'traps' in multiple places and the results were all the same — NOTHING! Save yourself the trouble and use fly tape."},
+  {r:1,t:"We're a huge fan of the brand and these are a major disappointment. They've been out over a week and haven't caught ONE gnat/fruit fly. Not one. They're a pain to open without making a mess and while they look nicer than most insect traps, they just don't work."},
+  {r:1,t:"These things don't work at all. I put six out in highly infested areas and didn't catch one fly in 24 hours."},
+  {r:1,t:"Do not waste your money! Flies were not attracted to the trap whatsoever and the solution/insecticide evaporates quickly. I set all 6 traps in the kitchen and near multiple windows and only 1 fly was caught after 2 weeks among all 6 traps. Ridiculous. A cup of coffee does better job at attracting flies than this trap."},
+  {r:1,t:"Didn't really work, and ran out of the liquid stuff super fast."},
+  {r:1,t:"Not effective at all! No scent, clear liquid. We had sudden gnat/fruitfly issue and these did nothing. Not one went near these! Once we put out vinegar with soap cups and sticky traps, the pests were immediately drawn to them and we've caught so many."},
+  {r:1,t:"I placed them in all the suggested areas of my kitchen. Most of them either dried out or were easily knocked over. The few traps that managed to survive never caught more than 2 or 3 fruit flies."},
+  {r:1,t:"First, if these traps are bumped or knocked over they will spill and make a mess. Maybe they are pet safe, but not pet friendly. Second, they caught Zero fruit flies. The couple gnats that I had died of old age. In the meantime, they flew around heckling me. 'Just put a cup out of sugar water, apple cider vinegar, and a bit of dish soap. It will work better!'"},
+  {r:1,t:"These insect traps did not catch any of the insects I had flying around my store, and I had a ton of flies and gnats! I bought a spray that was best selling on Amazon instead. But these did not work at all."},
+  {r:1,t:"Absolutely terrible!!! I don't know what's in these pieces of garbage but had 3 out for a few days and checked them. Not one gnat or fly and they were everywhere. Complete waste of money and I want a refund. Poured out the BS they put in there and put vinegar, whiskey and dish soap concoction and started getting them immediately. Just make your own solution from home and you'll pick up hundreds."},
+  {r:1,t:"These are pretty terrible. I'm constantly knocking them over and spilling the liquid everywhere, and the holes are too small for the average horse fly/house fly. The flies are more interested in human food than these things. Haven't caught a single insect and have just made a huge mess."},
+  {r:1,t:"Work being done at my house left the door open all day. There are now six ginormous house flies in here. The little openings on these are too small for a housefly."},
+  {r:1,t:"Do not work at all. After a few days of having several of these around the house, none of them seem to have caught any of the gnats I'm trying to get rid of. I bought enough to put one in each room and not a single one has gotten a single gnat."},
+  {r:1,t:"These are not good — no bugs were ever found in mine. And they spill easily."},
+  {r:1,t:"When simply setting up the product, it poured the insides all over my hands and everything else next to it, like electronics and notebooks that all need to be thrown out. I am also contacting the local media. Seriously, what are you thinking?"},
+  {r:1,t:"I am giving these things no stars. I bought 2 six packs — a total of 12 — to put out in my attached garage where I have several flies! I checked them today. None of them has one single fly in it. Don't waste your money."},
+  {r:1,t:"I put this in my pick up because of annoying flies. Despite being in my truck for weeks there isn't a single fly in it but they can sure buzz my head. Despite being a Hot Shot product these things are horrible."},
+  {r:1,t:"Flies hovered over trap then went on about their business, later returning to annoy me. Zevo is way more effective for flying insects. These were a waste of money."},
+  {r:1,t:"If I could give this product a -0, I would! These have caught nothing, not one thing! Hot Shot needs to come up with a more effective formula!"},
+  {r:1,t:"I struggle with flies every year and have looked for a solution forever. I saw these on Amazon and thought I would give them a try. I love that they are easy to set up, the size is perfect to hide them around the house. So far, I have not seen much difference. Super Disappointed!!"},
+  {r:1,t:"Horrible product. When I peeled back the foil-type pouch it spilled all over my skin, my shorts and briefs. I scrubbed and scrubbed where that nasty liquid ran down my stomach. Had to throw everything away — including all remaining little tubs. I want a full refund."},
+  {r:1,t:"These do not work for flies. I can't tell you if they work for anything else, because not one bug has gone in them. I thought maybe the holes on the top were not big enough for flies so I took it off and left it off all day and not one single bug went in there!"},
+  {r:1,t:"My office at work was having a severe fruit fly problem. I bought these and set up four of them on a Friday. I figured a weekend would give the traps some time to work. I just got in my office. Fruit flies zipping around. I checked the traps and not a single fly in the traps!! These just don't work."},
+  {r:1,t:"I had high hopes for this trap. I placed it exactly as instructed and left it for days, but it didn't catch a single fly. Meanwhile, the flies kept circling around it and completely ignored it. Total waste of money — it looks nice but does absolutely nothing."},
+  {r:1,t:"This is very messy. I got it all over my hands and clothes. I had to change right after and wash my hands 8 times to get it off. It also leaked on my furniture and ruined it."},
+  {r:1,t:"A total waste of money. I set 5 out of 6 traps in my camper, near windows and lights where flies were. They stayed there 4 days and not one of them had a fly in it. There were active flies all around them."},
+  {r:1,t:"These things suck! They don't attract anything — flies, gnats, ANYTHING. You are better off just getting fly paper and hanging it up. Don't waste your money."},
+  {r:1,t:"Doesn't work. Matter of fact, the flies like to hang out around it — BUT DON'T GO IN IT! Don't waste your money on this junk. It's been 1 week with all 6 out, not 1 fly trapped."},
+  {r:1,t:"NOTHING EVER DEAD in any of them. Nothing stuck or drowning. Clearly a Waste of money. I Do Not Recommend this product."},
+  {r:1,t:"Didn't work for me. Regular fly ribbon works and is way cheaper."},
+  {r:1,t:"This product does NOT work. Do not waste your money. Didn't catch one fly or gnat. I left one in a small bathroom overnight with the door shut. The fly was still buzzing around in the morning."},
+  {r:1,t:"Absolute waste of money. Does not work! Do not buy this product. I had to throw away all of mine after several days — not a single fly trapped in any of them!"},
+  {r:1,t:"It did not work on Virginia Flies. Smells like vinegar and the flies stand on the container but only one fell in. Spend your money on something else. At least the ugly old traps were not a great sight but the glue works and at a fraction of the price."},
+  {r:1,t:"Haven't seen a single fly go into the trap. I have 2 out. Lots of flies. They don't seem interested. Also, I don't like the smell. It's got a perfume smell that gives me a headache and makes my throat dry."},
+  {r:1,t:"These did not work at all for houseflies. Out for 3 days and not a single fly caught. Put up an old fashioned sticky strip and caught over 2 dozen flies overnight. Don't waste your money on these."},
+  {r:1,t:"DO NOT WASTE YOUR MONEY. I HAD MULTIPLE OF THESE THROUGH MY HOUSE AND CHECKED 2 WEEKS LATER. THEY HAD ALL DRIED UP WITH NOT ONE SINGLE FLY OR ANY OTHER INSECT ALTHOUGH FLIES HAD BEEN PRESENT IN THE AREAS."},
+  {r:1,t:"Least effective fly trap that I have used. Caught no flies, after two weeks, when I was being bugged often by flies."},
+  {r:1,t:"I have had this item for 3 days and haven't seen a fly near it. I have put several in my home and have not had any results at all. Very disappointed as Hot Shot has seemed to have good products. But as far as this goes, it's a dud."},
+  {r:1,t:"Don't waste your money — the liquid in the very flimsy cup (very hard to open without spilling) evaporates in just a few days. Set 5 traps out, 0 flies caught before the liquid evaporated."},
+  {r:1,t:"It absolutely is useless. The flies won't even get near it even when left open. Don't waste your money. This is a useless product. I wish I could get my money back."},
+  {r:1,t:"I started with 2 traps in the kitchen and after 5 days had more fruit flies so I put out all 6 traps and after 10 days I had more fruit flies than ever. I don't know why the flies got worse but when I removed them I don't have as big a problem. Would not recommend or buy again."},
+  {r:1,t:"These traps didn't work at all. After a week in a fly-infested area, not a single trap, not one, had a single fly in it. I had to hang up good old-fashioned fly paper to get rid of them in the end. I literally threw them all in the trash after 2 weeks with not a single fly killed."},
+  {r:1,t:"Put out on a window sill that has been attracting all the flies that get in through the door and the flies basically dance all around the trap without ever being tempted to enter it."},
+  {r:1,t:"Had a kitchen full of annoying flies. I followed the instructions, removed the seal from the attractant fluid, set two traps up and 3 days later I still had a fly problem. The two traps did not catch a SINGLE fly. Ineffective. Sending them back."},
+  {r:1,t:"Would not recommend. Went through multiple of these, tried leaving them in different locations with active fruit flies, left them out for over a week. Opened them each up to not find a single bug in any of them. Caught more just using the DIY vinegar and soap bowl after giving up on these."},
+  {r:1,t:"Did NOT catch NOT a ONE fly or anything else. I saw a couple flies land on top of the container and the flies just had no interest whatsoever in going inside."},
+  {r:1,t:"I have many houseflies from nearby livestock. I placed 4 of the traps out near sinks and pantry. I didn't catch a single fly before the liquid dried up. They are not suitable for house fly trapping even though they advertise as such."},
+  {r:1,t:"The reviews look pretty good but most are for the spray fly killer. Wish I had known that somewhere down the road they switched the listing to these traps. They don't work! Save your money."},
+  {r:1,t:"These did absolutely nothing. Left them out for a month and when I tossed them it was nothing but dried out liquid inside. Had better luck with a dish of cider vinegar and dish soap left out next to it."},
+  {r:1,t:"Been having serious fly problems. Got these to help. They have caught nothing. One of those Zevo lights caught a ton. Fly strips got a few. The ones that look like apples are great for fruit flies! But these — nothing. Just don't waste your money."},
+  {r:1,t:"Unsure if it will work, but small size and open liquid makes it impossible not to get it on your fingers. States it's safe for pets and children, but tells you to rinse skin for 20 minutes. While placing it tips easily so it's all over your hands or counter, or it's empty and useless."},
+  {r:1,t:"We have kids and dogs, and it's summer — so flies are a part of our reality. I placed 5 of them in the most offensive areas — and its been 4 days — and not ONE FLY has been caught. These are a terrible disappointment."},
+  {r:1,t:"Haven't killed a single fly. I have the whole six pack scattered around my home and they haven't caught a single fly. One of them caught a few ants, but not a single fly."},
+  {r:1,t:"Waste of money! I put out 5 of the 6 traps and have more flies in my house than before! These traps are totally worthless! I would catch more flies with those old fashioned sticky tapes!"},
+  {r:1,t:"This was not effective for the type of house flies I was trying to catch. The trap is not very stable, and it's easy to spill the liquid with the tiniest of touches. Placed in a high insect traffic area, and I never saw a single bug in the trap."},
+  // Remaining 1★ reviews (duplicate-removed entries)
+  {r:1,t:"I struggled for weeks. Placed these all around. Not a single fly showed any interest. Meanwhile the flies were actively mating on my kitchen counter. Complete failure."},
+  {r:1,t:"Zero. Not a single insect. The product claims 14-day effectiveness — my liquid dried out by day 4. A $0.50 bowl of ACV works better. Do not buy."},
+  {r:1,t:"My partner laughed at me when I complained about the flies and suggested ACV. She was right. These traps are a joke. Three weeks, six traps, zero insects. Fly paper works immediately."},
+  {r:1,t:"These are genuinely terrible. The flies literally sit on the outside of the trap and fly away. I watched one land, look around, and leave. Not one fly went in."},
+  {r:1,t:"Completely useless. I put them everywhere — next to fruit, near the garbage, by the sink. Not a single fly went in. My own vinegar+soap trap caught 30 in one night."},
+  {r:1,t:"These don't attract anything. I had them out for 3 weeks. The liquid evaporated, leaving dried residue. Zero insects caught. Save your $15 and buy a bottle of ACV."},
+  {r:1,t:"Flies literally ignore these. They'll land on the outside, walk around, and fly away. The lure does not attract fruit flies at all in my experience."},
+  // ── 2★ reviews ──────────────────────────────────────────────────────────
+  {r:2,t:"I did not notice that these worked. I did follow the instructions. No smell, which is good."},
+  {r:2,t:"Trap Doesn't Catch Flies & Spills Unavoidably! Have been using for over a month — haven't caught a single fly. The packets are shaped such that you can't attach or remove the lid without snapping on the legs of the lid, and spills as you open it. So you end up with much less liquid in the trap, which will dry out quickly. I will be trying out my own apple cider vinegar solutions to try to improve the attraction rate."},
+  {r:2,t:"They don't work after a week set out. Not a single fly was caught."},
+  {r:2,t:"If I could leave a 1.5 stars I would, but I rounded up because they do work to an extent. These work okay-ish. I have definitely used other products that work better. Never once caught a fly, which is why I purchased these in the first place. Pretty much only work in extremely populated areas of fruit flies. I personally won't be purchasing these again when I can spend a little extra and get the products that work."},
+  {r:2,t:"Honestly didn't work for me. I put them in different rooms where the flies come — next to a window where they are bad at certain times of the year — and they NEVER went away."},
+  {r:2,t:"I'm not sure they really work. I've seen maybe a fly in each one I put out. Maybe they work better on smaller flies. And they're very messy. They're filled with what looks like soapy water and you have to peel a cover off of the very small insert. The first one just went everywhere when the seal finally broke loose."},
+  {r:2,t:"Seem like a good idea. They look nice and discreet. But they don't really work. A discreet flypaper still works best for our needs."},
+  {r:2,t:"These haven't been as effective as the plug in alternatives. Be careful not to knock it over."},
+  {r:2,t:"Got a few of the gnats but it dried up. Didn't have a refill for it. Only got a few in the beginning."},
+  {r:2,t:"Maybe I just have bad luck but this product, that claims it will kill fruit flies, did not work for me. At all. In fact, I think the little suckers just multiplied while I kept the faith that this product would eventually solve my problem. Would probably not buy again."},
+  {r:2,t:"They work ok at trapping fruit flies after I add apple cider vinegar or red wine to them, but the solution they came with didn't seem to do anything, and there was just a very small amount. I wouldn't buy them again, as the pests can climb right back out of the holes if they aren't completely full, and they're kind of messy."},
+  {r:2,t:"It worked a little but you can make that solution with household chemicals for cheaper."},
+  {r:2,t:"I don't think these caught 1 gnat, went back to the old faithful — a bowl of stinky vinegar with a few drops of Dawn. This homemade way works, I was just hoping for a less smelly, more pleasing aesthetic, but these are not it unfortunately."},
+  {r:2,t:"It worked okay, but didn't see huge improvement."},
+  {r:2,t:"Doesn't work as advertised."},
+  {r:2,t:"Caught some fruit flies, zero house flies. I'm disappointed. This year I was bothered by houseflies in the house. These traps all evaporated before catching even one house fly. I set out four of them. I gave it two stars because it caught a few fruit flies in the kitchen. Not as many as my apple cider vinegar DIY trap either. Won't be purchasing these again."},
+  {r:2,t:"Caught very few fruit flies."},
+  {r:2,t:"Smells like it's just vinegar or something. I have caught 8 fruit flies in one trap over several days. That one was placed by my fruit bowl which continues to have maybe a dozen flying around at any given time despite having caught 8. The rest of the traps around my home have 0-1 in them despite many fruit flies all around. These were a waste."},
+  {r:2,t:"I can honestly say I am not impressed with these indoor fly traps. Our patio door when opened is easy to let common flies inside. I have 2 of these traps higher up in my kitchen. Never have I once seen a fly go towards or even light on the trap. Won't buy these again."},
+  {r:2,t:"I have tried to find places to put them so they don't get knocked over, but can't find that spot! 3 have been spilled all over my counter! I have yet to see any dead bugs in the liquid, but still see them flying around!"},
+  {r:2,t:"Hard to peel back top without spilling it either on your hands or counter. I used 4 of them and caught nothing. Fly stick is a better choice."},
+  {r:2,t:"Honest review here, these didn't attract/trap a single bug in a heavy fly zone (we had both drain flies and house flies). I placed multiple throughout the commercial kitchen area and in prime fly zones. Nothing over the course of 72 hrs. Going in the trash."},
+  {r:2,t:"These did not really work for me. I did put out several different traps for fruit flies as we all of a sudden were completely infested almost overnight. I had 4 different types of traps and these had almost no takers. So my Texas fruit flies did not like the smell of these traps."},
+  {r:2,t:"Didn't work very well. It did catch a few gnats. Did not smell and was easy to setup. Other products catch the gnats better. Would not purchase again."},
+  {r:2,t:"Really disappointed with this product. It claims to trap house flies and fruit flies, but the openings are so tiny there's no way a fly could get in. After a week, I only caught one gnat and not a single fly. Definitely not worth it for me."},
+  {r:2,t:"Been using these for months, and doesn't seem to attract anything. When opening and looking don't see any bugs inside it. Dries up quickly."},
+  {r:2,t:"House flies love to laugh at these traps. I have several who have stayed around the traps for days with no ill effects. I'll have to try something else."},
+  {r:2,t:"As they are very stylish, I placed them all around the house and the liquid evaporated way too fast. It's been a week and they are all empty and no flies in them."},
+  {r:2,t:"2 stars because it is compact and discreet and did arrive. However these have done nothing to help capture/kill/reduce the house flies. I still have them out, but the house flies are running rampant and they're not effective. Literally only 1 dead fly in the traps."},
+  {r:2,t:"I found the Raid fruit fly trap to work much better."},
+  {r:2,t:"The holes in this trap are too small for a house fly to enter."},
+  {r:2,t:"There are a lot of fruit flies in Florida. Place several around in rooms — might have helped some but not much."},
+  {r:2,t:"Doesn't seem to work."},
+  {r:2,t:"These are messy to open and they didn't attract house flies. We don't have fruit flies, so I can't confirm they catch them."},
+  {r:2,t:"Flies are still around, even with 2 of those staying for a week and being empty. Seems like it doesn't work."},
+  {r:2,t:"Could not catch a single fly despite days of staying open at two major locations in the kitchen."},
+  {r:2,t:"Not pleased — it's empty. Not the first fly or fruit flies or gnats has entered this container."},
+  {r:2,t:"I think I saw a fly drinking out of one. These things do absolutely nothing. They have liquid that spills. Buy a real fly trap."},
+  {r:2,t:"Didn't seem to really work. Just in the way to be honest."},
+  {r:2,t:"Ineffective at catching fruit flies/drain flies. Better luck with homemade traps."},
+  {r:2,t:"Doesn't work."},
+  {r:2,t:"Didn't seem to work well."},
+  {r:2,t:"Didn't work for me."},
+  {r:2,t:"Never seen any bugs in the liquid."},
+  {r:2,t:"Disappointed, not very effective."},
+  {r:2,t:"They didn't attract house flies."},
+  {r:2,t:"Not catching anything."},
+  {r:2,t:"It doesn't work, the flies just ignore it."},
+  {r:2,t:"Not impressed. The seal is difficult to pull off. The container is flimsy and spills easily."},
+  {r:2,t:"I usually like Hot Shot products but this did not work at all for gnats."},
+];
+
+// ─── Theme keyword detection ───────────────────────────────────────────────
+const THEMES = {
+  zero: /zero|nothing|not one|no fly|no insect|didn't catch|didn't work|not work|useless|worthless|didn't attract|ineffective|didn't attract|caught nothing|not a single|zero bugs/i,
+  spill: /spill|splash|mess|foil|seal|pour|liquid on|liquid over|hard to open|peel|leak/i,
+  diy: /apple cider|vinegar|dish soap|homemade|DIY|make your own|ACV|made my own/i,
+  evap: /evaporat|dried up|dry out|dries up|dried out|empty after|empty in/i,
+  safe: /pet safe|children|toxic|skin|wash.*15|wash.*20|poison|safe.*warning|warning.*safe/i,
+  housefly: /house fly|housefly|larger fly|horse fly|bigger fly|too small.*fly|openings.*small|holes.*small/i
+};
+
+// ─── Charts ────────────────────────────────────────────────────────────────
+Chart.register(ChartDataLabels);
+
+new Chart(document.getElementById('ratingDonut'), {
+  type: 'doughnut',
+  data: {
+    labels: ['1★ (100)', '2★ (80)', '3★ (48)', '4★ (28)', '5★ (64)'],
+    datasets: [{
+      data: [100, 80, 48, 28, 64],
+      backgroundColor: ['#dc2626','#ea580c','#d97706','#65a30d','#16a34a'],
+      borderWidth: 2
+    }]
+  },
+  options: {
+    maintainAspectRatio: false,
+    cutout: '62%',
+    plugins: {
+      legend: { position: 'bottom', labels: { font: { size: 11 }, padding: 10 } },
+      datalabels: {
+        color: '#fff', font: { weight: 'bold', size: 11 },
+        formatter: v => v > 20 ? ((v/320)*100).toFixed(1)+'%' : ''
+      }
+    }
+  }
+});
+
+new Chart(document.getElementById('complaintsChart'), {
+  type: 'bar',
+  data: {
+    labels: [
+      'Zero / near-zero catch rate',
+      'Spills / messy opening',
+      'DIY method outperforms',
+      'Liquid dries out quickly',
+      'Safety concern (spill = toxic)',
+      'Flies hover but won\'t enter',
+      'Wrong pest / openings too small',
+      'No refill option'
+    ],
+    datasets: [{
+      label: '% of 1★+2★ reviews',
+      data: [83, 32, 22, 12, 10, 9, 8, 6],
+      backgroundColor: ['#dc2626','#ea580c','#d97706','#0891b2','#be185d','#7c3aed','#6b7280','#64748b'],
+      borderRadius: 4
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      datalabels: {
+        anchor: 'end', align: 'right',
+        color: '#475569', font: { size: 10, weight: '600' },
+        formatter: v => v + '%'
+      }
+    },
+    scales: {
+      x: { grid: { color: '#f1f5f9' }, ticks: { font: { size: 10 } }, max: 100 },
+      y: { grid: { display: false }, ticks: { font: { size: 10 } } }
+    }
+  }
+});
+
+// ─── Review Browser ────────────────────────────────────────────────────────
+function tagReview(text) {
+  const tags = [];
+  if (THEMES.zero.test(text)) tags.push('<span class="pill pill-red">zero catch</span>');
+  if (THEMES.spill.test(text)) tags.push('<span class="pill pill-orange">spills</span>');
+  if (THEMES.diy.test(text)) tags.push('<span class="pill pill-amber">DIY</span>');
+  if (THEMES.evap.test(text)) tags.push('<span class="pill pill-blue">dries out</span>');
+  if (THEMES.safe.test(text)) tags.push('<span class="pill pill-purple">safety</span>');
+  if (THEMES.housefly.test(text)) tags.push('<span class="pill" style="background:#f0fdfa;color:#0d9488">wrong pest</span>');
+  return tags.join('');
+}
+
+function renderReviews(data) {
+  const tbody = document.getElementById('reviewBody');
+  const count = document.getElementById('resultCount');
+  count.textContent = `${data.length} review${data.length !== 1 ? 's' : ''} shown`;
+  tbody.innerHTML = data.map(rv => {
+    const badge = rv.r === 1 ? '<span class="s1">1★</span>' : '<span class="s2">2★</span>';
+    const tags = tagReview(rv.t);
+    const safe = rv.t.replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    return `<tr>
+      <td style="white-space:nowrap;vertical-align:top;padding-top:10px">${badge}</td>
+      <td style="padding:8px 7px">
+        <div style="margin-bottom:4px">${tags}</div>
+        <div class="review-text">${safe}</div>
+      </td>
+    </tr>`;
+  }).join('');
+}
+
+function filterReviews() {
+  const rv = document.getElementById('filterRating').value;
+  const th = document.getElementById('filterTheme').value;
+  const kw = document.getElementById('filterSearch').value.toLowerCase();
+  let data = REVIEWS;
+  if (rv) data = data.filter(r => r.r === +rv);
+  if (th) data = data.filter(r => THEMES[th] && THEMES[th].test(r.t));
+  if (kw) data = data.filter(r => r.t.toLowerCase().includes(kw));
+  renderReviews(data);
+}
+
+function clearFilters() {
+  document.getElementById('filterRating').value = '';
+  document.getElementById('filterTheme').value = '';
+  document.getElementById('filterSearch').value = '';
+  renderReviews(REVIEWS);
+}
+
+renderReviews(REVIEWS);
+</script>
+</body>
+</html>

@@ -1,0 +1,1914 @@
+{
+  "total_reviews": 5965,
+  "star_dist": [
+    {
+      "star": 1,
+      "count": 2659,
+      "color": "#dc2626"
+    },
+    {
+      "star": 2,
+      "count": 1694,
+      "color": "#ea580c"
+    },
+    {
+      "star": 3,
+      "count": 1371,
+      "color": "#f59e0b"
+    },
+    {
+      "star": 4,
+      "count": 109,
+      "color": "#22c55e"
+    },
+    {
+      "star": 5,
+      "count": 132,
+      "color": "#16a34a"
+    }
+  ],
+  "pos_count": 241,
+  "neg_count": 5724,
+  "pos_pct": 4.0,
+  "neg_pct": 96.0,
+  "sentiment_ratio": "241:5724",
+  "cp_data": {
+    "who": {
+      "labels": [
+        "Homeowner",
+        "Kitchen user",
+        "Gift buyer",
+        "Gardener",
+        "Pet owner",
+        "Family/Kids"
+      ],
+      "pos": [
+        32,
+        24,
+        18,
+        6,
+        0,
+        1
+      ],
+      "neg": [
+        688,
+        500,
+        257,
+        125,
+        74,
+        21
+      ]
+    },
+    "when": {
+      "labels": [
+        "Summer",
+        "Within weeks",
+        "Within days",
+        "Seasonal",
+        "Year-round"
+      ],
+      "pos": [
+        5,
+        10,
+        15,
+        5,
+        2
+      ],
+      "neg": [
+        172,
+        140,
+        128,
+        94,
+        13
+      ]
+    },
+    "where": {
+      "labels": [
+        "Near fruit",
+        "Trash/compost",
+        "Kitchen",
+        "Window",
+        "Bathroom",
+        "Dining area",
+        "Garage/basement"
+      ],
+      "pos": [
+        120,
+        15,
+        31,
+        8,
+        4,
+        1,
+        2
+      ],
+      "neg": [
+        1894,
+        701,
+        621,
+        100,
+        87,
+        42,
+        41
+      ]
+    },
+    "what": {
+      "labels": [
+        "Effectiveness",
+        "Duration",
+        "Value/Price",
+        "DIY comparison",
+        "Design",
+        "Ease of use",
+        "Smell/Odor",
+        "Speed",
+        "Safety"
+      ],
+      "pos": [
+        117,
+        73,
+        31,
+        50,
+        56,
+        49,
+        17,
+        22,
+        6
+      ],
+      "neg": [
+        3139,
+        1371,
+        1103,
+        787,
+        762,
+        529,
+        319,
+        128,
+        86
+      ]
+    }
+  },
+  "neg_themes": [
+    {
+      "label": "No effect / zero catch",
+      "count": 1769,
+      "pct": 30.9,
+      "quotes": [
+        "its not working effectively.",
+        "I would not purchase this product again. It was not very effective. It drew fruit flies to the little red apples but the liquid you put in them dried up very quickly. Did not last as long as it said i",
+        "Does not work the best only a few gnats go in, otherwise they sit on the lid.",
+        "I had some forgotten bananas hidden on a shelf and got some fruit flies. I've used them many years back and they were great. This time, they didn't work at all.",
+        "Either wrong fly but it didn't work and one only lasted a week"
+      ],
+      "findings": [
+        "Found in 1769 of 5724 negative reviews (30.9%)"
+      ]
+    },
+    {
+      "label": "DIY / vinegar works better",
+      "count": 783,
+      "pct": 13.7,
+      "quotes": [
+        "I got tired of making my own traps with paper cones at the top and apple cider vinegar/dish soap. So I ordered these, for ease. They are easy to set up but the flies just go in and out. Only a few end",
+        "I am so Disappointed. We have some sort of infestation of gnats, drain flies or fruit flies. I put out jars w vinegar and dish soap and while they were helping, didn't eliminate the problem. Set the T",
+        "I really had high hopes for this and saw the positive reviews but I guess my gnats are smarter. The 1st day I noticed that this didn’t work, then I tried putting apple cider vinegar next to the traps ",
+        "I’m appreciative of the fact that I have something ready to catch the fruit flies around my home, though I’ve noticed it only catches the super tiny ones and not the larger fruit flies. Most of the ti",
+        "The trap works as intended. However, we had a lot of fruit flies so the trap wasn’t quite as effective. I ended up needing to buy another trap that had apple cider and vinegar in it."
+      ],
+      "findings": [
+        "Found in 783 of 5724 negative reviews (13.7%)"
+      ]
+    },
+    {
+      "label": "Weak attractant / lure",
+      "count": 393,
+      "pct": 6.9,
+      "quotes": [
+        "I found this product not to be as good as others and I won't be using it again. It is difficult to get the sticky paper into the slot and the blue light doesn't seem to attract as many bugs as other b",
+        "That’s are sticky to use and easy to get stuck on your fingers. Doesn’t really attract little fruit bugs or flies well unless they just happen to land on them. Probably would not purchase again unless",
+        "This zapper looks nice, but it doesn't work well. The biggest problem is the design. The white plastic rim sticks out farther than the metal part that actually zaps bugs. It's also curved, so when you",
+        "They zap good but the light is very dim. Not really bright enough to attract bugs. Reache dout to customer service but no response. Ordered another brand and they're much brighter. Will be returning.",
+        "I almost never write reviews for products, but due to the ineffectiveness of this product, I decided to hopefully deter the few that read this from buying. I have literally swatted the same fly with t"
+      ],
+      "findings": [
+        "Found in 393 of 5724 negative reviews (6.9%)"
+      ]
+    },
+    {
+      "label": "Overpriced / poor value",
+      "count": 426,
+      "pct": 7.4,
+      "quotes": [
+        "This zapper looks nice, but it doesn't work well. The biggest problem is the design. The white plastic rim sticks out farther than the metal part that actually zaps bugs. It's also curved, so when you",
+        "If there were a \"no star\" review, this one would get none. After trying the product 2 times, with a defective \"net\" that did not light up BOTH times, it's officially not worth a third attempt. Contact",
+        "Totally garbage item and waste of money. I might as well of just reached In the cupboard and poured apple cider vinegar in a cup. House is totally full of fruit flies and after days this thing has tra",
+        "Purchased this over 6 months ago and have tried them in different rooms, areas, and heights, and I don't see them doing anything great. I had them in a spot for over a month and maybe one or two littl",
+        "The blue light does not attract fruit flies. This product is a waste of money. I placed the sticky pad next to open bottle of apple cider vinegar and caught a few fruit flies as they tried to get to t"
+      ],
+      "findings": [
+        "Found in 426 of 5724 negative reviews (7.4%)"
+      ]
+    },
+    {
+      "label": "Packaging leaks / damage",
+      "count": 30,
+      "pct": 0.5,
+      "quotes": [
+        "Just received these and one of the bottles had spilled in the box and was completely empty. No time to return and wait for replacement!",
+        "I just received my package but it was damaged and The bottles were empty",
+        "The Zevo product itself is great, but obviously the boxes were damaged when put inside a box to ship to me. The shipping box was in tact, but the boxes inside were crushed and wet. Fortunately the pro",
+        "The product works but they were all damaged. I don’t know if shipping handled them rough or if they were shipped like that but I want order any more on line because they arrived damaged.",
+        "I gave it a two not because they dont work but because of how badly damaged the box was when I got it. Luckily the refills weren't too badly damaged and unusable but the box was completely open and cr"
+      ],
+      "findings": [
+        "Found in 30 of 5724 negative reviews (0.5%)"
+      ]
+    },
+    {
+      "label": "Too small / tiny",
+      "count": 114,
+      "pct": 2.0,
+      "quotes": [
+        "I’m appreciative of the fact that I have something ready to catch the fruit flies around my home, though I’ve noticed it only catches the super tiny ones and not the larger fruit flies. Most of the ti",
+        "It's basically expensive fly paper. The blue light is supposed to attract flying bugs and it does - but only mildly. The height of fruit fly season runs from August to October. There were so many frui",
+        "If you buy this to catch mosquitoes,you are probably not going to be pleased. It does attract tiny flying insects that don't suck blood,however- teensy critters and small moths for example ,are intrig",
+        "It works ok when you fully charge the devices. However the battery can not support couple hours. The battery quality need improve. Charge bases are too small to keep stable.",
+        "I’d give it 0 Stars if possible. I’ve had one plugged in one foot from a bowl I keep onions, avocados and other various vegetables from time to time and not one single fruit fly or any other flying in"
+      ],
+      "findings": [
+        "Found in 114 of 5724 negative reviews (2.0%)"
+      ]
+    },
+    {
+      "label": "Short duration / runs out",
+      "count": 894,
+      "pct": 15.6,
+      "quotes": [
+        "I would not purchase this product again. It was not very effective. It drew fruit flies to the little red apples but the liquid you put in them dried up very quickly. Did not last as long as it said i",
+        "Either wrong fly but it didn't work and one only lasted a week",
+        "worked good at first but like other reviews stopped working after two months. the probably do this so you could buy again and earn more money. don't recommend. for $20 it should last for years, garbag",
+        "I’m appreciative of the fact that I have something ready to catch the fruit flies around my home, though I’ve noticed it only catches the super tiny ones and not the larger fruit flies. Most of the ti",
+        "Just put it out last week and so far am on my second screen so it is attracting the gnats and fruit flys very well BUT when I turn on the kitchen light, they are still swarming. Will it take care of t"
+      ],
+      "findings": [
+        "Found in 894 of 5724 negative reviews (15.6%)"
+      ]
+    },
+    {
+      "label": "Sticky tape issues",
+      "count": 128,
+      "pct": 2.2,
+      "quotes": [
+        "I really wanted this to work, but unfortunately, it didn’t live up to the expectations. I set up both devices in my kitchen and bathroom where I’ve been having issues with fruit flies, but after sever",
+        "I really wanted this to work, but unfortunately, it didn’t live up to the expectations. I set up both devices in my kitchen and bathroom where I’ve been having issues with fruit flies, but after sever",
+        "I know most people will only read 5 star reviews and 1 start reviews but I have to give these 2 stars because it actually caught a few bugs. The thing is that people buy aftermarket items to save mone",
+        "So far these are terrible. I know I have a ton of fruit flies, I can see them. I have my Zevo trap right beside my fruit basket, using the Zevo brand cartridges, they fill up with bugs within a day or",
+        "I am underwhelmed. In FIVE days it only caught THREE flies. The old fashioned ugly-ass fly strips that are coated with the sticky attractant are just a few dollars for a pack of ten that will last sev"
+      ],
+      "findings": [
+        "Found in 128 of 5724 negative reviews (2.2%)"
+      ]
+    },
+    {
+      "label": "Attracts wrong insects",
+      "count": 168,
+      "pct": 2.9,
+      "quotes": [
+        "Either wrong fly but it didn't work and one only lasted a week",
+        "Unlike the larger bug zappers, this one doesn’t seem quite powerful enough to kill most bugs with one zap. And in addition to that, the bugs seem to get zapped multiple times because of its design. Wi",
+        "We primarily bought it to catch house flies - We get waves of house flies on occasion so I purchased this - we tried it in 3 different locations in our family room - did not catch a one - we put up fl",
+        "My two‑star rating reflects an average between the first and second versions of the Zevo trap, because the two products performed very differently. First Version – No Longer Available, and Misleading ",
+        "Once again read all the great reviews and ordered these.. well - These simply don’t work well compared to the name brand. The picture says it all. The inserts were put in at the same time for 3 weeks "
+      ],
+      "findings": [
+        "Found in 168 of 5724 negative reviews (2.9%)"
+      ]
+    },
+    {
+      "label": "Messy / hard to set up",
+      "count": 22,
+      "pct": 0.4,
+      "quotes": [
+        "I've used these before and while never great, and pretty gross, they're cheap, so I bought them again and this time it was WAY more difficult to open and I ended up scrubbing sticky goo off my hands f",
+        "Since I don't have many places to hang these where I need them I like to keep them in the box with 3 sides open. Box flimsy and hard to cut to open the 3 sides. Don't catch as many flies like a differ",
+        "Hard to open and unroll, must be a technique to it that I don't get, what I did get was sticky fingures that nail polish and alcohol could not remove.",
+        "No matter how slow you attempt to open, or how you twist it to avoid tearing, it seems like all of the glue is only on one part of the trap and it’s hard to get open. If you manage to get it open the ",
+        "Be careful before opening. When seal is taken off and spills, jar is wide open! How is this safe for children and pets? Of course the ordor is so effensive anyone stays away while the room has the aro"
+      ],
+      "findings": [
+        "Found in 22 of 5724 negative reviews (0.4%)"
+      ]
+    },
+    {
+      "label": "Fake reviews suspected",
+      "count": 7,
+      "pct": 0.1,
+      "quotes": [
+        "Well, I got duped by this product. It's mostly my fault. I needed a way to get rid of fruit flies that made their way into my home. I had made my own trap with apple cider vinegar and dish soap, but t",
+        "Well, I got duped by this product. It's mostly my fault. I needed a way to get rid of fruit flies that made their way into my home. I had made my own trap with apple cider vinegar and dish soap, but t",
+        "Well, I got duped by this product. It's mostly my fault. I needed a way to get rid of fruit flies that made their way into my home. I had made my own trap with apple cider vinegar and dish soap, but t",
+        "I'm offended that I paid money for this. First, it's no better than laying out some apple cider vinegar out. Second, it will only work if you're super diligent about removing all other standing water ",
+        "Ok I was weary about all these products and definitely felt overwhelmed. After the reviews and research I landed on this one. And listen, BUY IT! Skip the bleach, skip the drain cleaners at the store,"
+      ],
+      "findings": [
+        "Found in 7 of 5724 negative reviews (0.1%)"
+      ]
+    },
+    {
+      "label": "Smell / odor issues",
+      "count": 47,
+      "pct": 0.8,
+      "quotes": [
+        "Absolutely. Turning the sarcasm dial to *unreasonable*: --- I am currently living in an active infestation. I have no idea where these creatures came from or how they managed to establish a thriving c",
+        "Just got these today. They smell strongly of vinegar. Very tiny bottles for the price. But thats my fault for not reading. Put them out, have got a few trapped.",
+        "The TERRO Fruit Fly Traps work okay but not as well as I expected. They definitely catch some fruit flies, especially during the first few days, but the effectiveness seems to drop off pretty quickly.",
+        "To be completely honest, these have done nothing for the issue I hoped they would solve to begin with. To start, it smells awful. Others may have different accounts and experiences but these didn’t do",
+        "Surprisingly one of the traps had several dead ants, didn't know I had that issue too. My other traps only had a few gnats after a week and the vinegar smell is awful! I have seen fewer gnats, but if "
+      ],
+      "findings": [
+        "Found in 47 of 5724 negative reviews (0.8%)"
+      ]
+    }
+  ],
+  "pos_themes": [
+    {
+      "label": "Highly effective / works great",
+      "count": 62,
+      "pct": 25.7,
+      "quotes": [
+        "These traps are like tiny nightclubs for flies --- they check in, get\nstuck, and never leave. I slapped one near my fruit bowl and it became a\nfly graveyard within 24 hours. No buzzing, no zapping, ju",
+        "Works well to get rid of flies but tips over and spills easy.",
+        "Works well in small spaces",
+        "Discrete and works pretty well. Easy to set up.\n\nOne person found this helpful",
+        "These are not reusable but they work really well"
+      ],
+      "findings": [
+        "Found in 62 of 241 positive reviews (25.7%)"
+      ]
+    },
+    {
+      "label": "Would recommend / buy again",
+      "count": 35,
+      "pct": 14.5,
+      "quotes": [
+        "These traps are like tiny nightclubs for flies --- they check in, get\nstuck, and never leave. I slapped one near my fruit bowl and it became a\nfly graveyard within 24 hours. No buzzing, no zapping, ju",
+        "I've been using the Hot Shot Flying Insect Trap, and it works great!\nIt's discreet and blends in with the surroundings, so I don't have to\nworry about an eyesore in my home. I love that it's hassle-fr",
+        "Sometimes I see a product and think \"this is too good to be true\" with\nthe reviews. I have a few plants and occasionally may have fruit in a\nbasket but in a small poorly ventilated apartment, who woul",
+        "Works well i just think it's slightly over priced for what it actually\nis.. basically a vinegar trap just in a cuter display. You'll get two\nsmall bottles of the vinegar solution and four little apple",
+        "I was going to give 0 stars until the directions said to wait a few\ndays\\...day 2 the flies were doing mating dances on them\\...ordered a\n2nd one because I have a lot of gnats/fruit flies from attempt"
+      ],
+      "findings": [
+        "Found in 35 of 241 positive reviews (14.5%)"
+      ]
+    },
+    {
+      "label": "Eco-friendly / natural",
+      "count": 34,
+      "pct": 14.1,
+      "quotes": [
+        "I've been using the Hot Shot Flying Insect Trap, and it works great!\nIt's discreet and blends in with the surroundings, so I don't have to\nworry about an eyesore in my home. I love that it's hassle-fr",
+        "Sometimes I see a product and think \"this is too good to be true\" with\nthe reviews. I have a few plants and occasionally may have fruit in a\nbasket but in a small poorly ventilated apartment, who woul",
+        "Setup takes 2 seconds. Works good. Don't really notice it. I like it.\n\nOne person found this helpful",
+        "These traps do work. I set them out in within days they were filling up\nwith flies. I found them especially helpful for pinpointing where the\nflies might be coming from by looking at the amount of cap",
+        "We brought our plants in for Autumn and Winter -- so this increased the\nnumber of gnats / fruit flies. There were alomost 10s to a 100 flying\naround - Just apple cider vinegar or water with soap did n"
+      ],
+      "findings": [
+        "Found in 34 of 241 positive reviews (14.1%)"
+      ]
+    },
+    {
+      "label": "Fast results",
+      "count": 52,
+      "pct": 21.6,
+      "quotes": [
+        "These traps are like tiny nightclubs for flies --- they check in, get\nstuck, and never leave. I slapped one near my fruit bowl and it became a\nfly graveyard within 24 hours. No buzzing, no zapping, ju",
+        "Once I opened up the product immediately noticed the fruit flies going\naway. Very easy to use. Small and easy to hide.",
+        "Flys were gone within 3 days.",
+        "Excellent product! I had a small fly problem due to my refrigerator\ndying and within 24 hours, all the flies were nowhere to be seen. It is\na clean product, just make sure you do not place in high tra",
+        "Overnight they were gone"
+      ],
+      "findings": [
+        "Found in 52 of 241 positive reviews (21.6%)"
+      ]
+    },
+    {
+      "label": "Easy to use / simple setup",
+      "count": 39,
+      "pct": 16.2,
+      "quotes": [
+        "My husband laughed at me when I ordered these and put them around the\nhouse until a couple of days later when he noticed we didn't see any\nmore flies. The only bad thing is that they are easy to tip o",
+        "Once I opened up the product immediately noticed the fruit flies going\naway. Very easy to use. Small and easy to hide.",
+        "Works well to get rid of flies but tips over and spills easy.",
+        "It is very discreet and works to eliminate flying gnats. It can also be\nreusable with simple apple cider vinegar (which is the scent inside the\ncontainer, I believe.)\n\nOne person found this helpful",
+        "Discrete and works pretty well. Easy to set up.\n\nOne person found this helpful"
+      ],
+      "findings": [
+        "Found in 39 of 241 positive reviews (16.2%)"
+      ]
+    },
+    {
+      "label": "Elegant / discreet design",
+      "count": 26,
+      "pct": 10.8,
+      "quotes": [
+        "What I like most is the design. I got these to use on my office desk\nwhen those pesky gnats come around. It's functional and discreet.\n\nCustomer image",
+        "It is very discreet and works to eliminate flying gnats. It can also be\nreusable with simple apple cider vinegar (which is the scent inside the\ncontainer, I believe.)\n\nOne person found this helpful",
+        "Amazon Vine Customer Review of Free Product( What's this? )\n\nThe traps have a plastic container with the liquid inside. The container\nis very thin and the foil lid is attached very tightly. It was har",
+        "I've been using the Hot Shot Flying Insect Trap, and it works great!\nIt's discreet and blends in with the surroundings, so I don't have to\nworry about an eyesore in my home. I love that it's hassle-fr",
+        "Very discreet. I forgot it was sitting on my dresser. Love it and it\nworks"
+      ],
+      "findings": [
+        "Found in 26 of 241 positive reviews (10.8%)"
+      ]
+    },
+    {
+      "label": "No smell / odorless",
+      "count": 1,
+      "pct": 0.4,
+      "quotes": [
+        "There is no smell to these that I noticed"
+      ],
+      "findings": [
+        "Found in 1 of 241 positive reviews (0.4%)"
+      ]
+    },
+    {
+      "label": "Better than DIY",
+      "count": 2,
+      "pct": 0.8,
+      "quotes": [
+        "Works better than regular vinegar and soap.\n\nOne person found this helpful",
+        "Used this to trap fruit fly that infested our house. It works but\nyou're not getting much of the liquid bait. For an infestation, we\nneeded a larger volume than what's provided. The bait will evaporat"
+      ],
+      "findings": [
+        "Found in 2 of 241 positive reviews (0.8%)"
+      ]
+    },
+    {
+      "label": "Good value / worth price",
+      "count": 18,
+      "pct": 7.5,
+      "quotes": [
+        "These things really do work! I was having problems with fruit flies last\nmonth. I decided to try these and set them up in my apartment. I checked\nthem today which will be five days since I set them ou",
+        "Works really well at catching flies and other insects attracted to\nfruit. Good value for what you pay for, but wish there was more of the\nsubstance used to trap the flies.",
+        "My home made traps were definitely better at catching them, while these\nwere definitely better at luring.\n\nI think it is worth to note, my infestation just started, so it might be\nthat I was just proa",
+        "It's always a bit of an unknown trying something new like this, but it\nsure did the trick. No, not of its own, but as 1 element in a multiprong\nattack, this has made a huge difference. I keep a compos",
+        "These TERRO fruit fly traps really work --- and fast! I had a fruit fly\nproblem that came out of nowhere, and within a day of setting these up\nnear my fruit bowl and compost bin, they were catching fl"
+      ],
+      "findings": [
+        "Found in 18 of 241 positive reviews (7.5%)"
+      ]
+    },
+    {
+      "label": "Long lasting",
+      "count": 11,
+      "pct": 4.6,
+      "quotes": [
+        "I'm not entirely sure if this product is the reason but after I put all\nsix I received in the pack out, the flies were absolutely gone within a\nweek. I'm guessing that this easy to use product was the",
+        "These traps do work. I set them out in within days they were filling up\nwith flies. I found them especially helpful for pinpointing where the\nflies might be coming from by looking at the amount of cap",
+        "I want to love these. The only problem I have is that there is not quite\nenough liquid. Once the gnats/fruit flies start getting caught in there,\nit dries up pretty fast. Other that that, it does do a",
+        "These work great, but they don't last as long as advertised. The box\nsays 4 months, but they evaporate much quicker",
+        "These TERRO fruit fly traps really work --- and fast! I had a fruit fly\nproblem that came out of nowhere, and within a day of setting these up\nnear my fruit bowl and compost bin, they were catching fl"
+      ],
+      "findings": [
+        "Found in 11 of 241 positive reviews (4.6%)"
+      ]
+    }
+  ],
+  "usage_scenarios": [
+    {
+      "label": "Kitchen fruit fly control",
+      "reason": "Customers dealing with fruit flies near kitchen counters, fruit bowls, and produce",
+      "pct": 29.2
+    },
+    {
+      "label": "Replacing DIY vinegar traps",
+      "reason": "Upgrading from homemade apple cider vinegar traps",
+      "pct": 14.3
+    },
+    {
+      "label": "Trash / compost area",
+      "reason": "Managing flies near waste bins, compost, and garbage areas",
+      "pct": 13.8
+    },
+    {
+      "label": "Eco-friendly alternative",
+      "reason": "Looking for non-toxic, chemical-free solutions safe for food areas",
+      "pct": 8.5
+    },
+    {
+      "label": "Summer infestation response",
+      "reason": "Seasonal spike — customers dealing with sudden increase in flying insects",
+      "pct": 8.1
+    },
+    {
+      "label": "Repeat / loyal purchase",
+      "reason": "Returning customers who buy regularly",
+      "pct": 6.9
+    },
+    {
+      "label": "Quick overnight solution",
+      "reason": "Need immediate results — expecting to catch flies within hours",
+      "pct": 6.8
+    },
+    {
+      "label": "Multiple room placement",
+      "reason": "Using multiple traps across different rooms",
+      "pct": 6.6
+    },
+    {
+      "label": "Gift or recommendation",
+      "reason": "Bought on recommendation from friends/family or as a gift",
+      "pct": 6.2
+    },
+    {
+      "label": "Discreet home pest control",
+      "reason": "Want something that blends in with home decor",
+      "pct": 1.3
+    }
+  ],
+  "buyer_motivations": [
+    {
+      "label": "Safe for kids/pets",
+      "reason": "Need non-toxic option due to children or animals",
+      "pct": 17.3
+    },
+    {
+      "label": "Kitchen hygiene",
+      "reason": "Keeping kitchen clean and pest-free near food",
+      "pct": 10.8
+    },
+    {
+      "label": "Recommendation",
+      "reason": "Bought based on reviews, word of mouth, or social media",
+      "pct": 10.6
+    },
+    {
+      "label": "Price / deal",
+      "reason": "Motivated by price point, deals, or coupons",
+      "pct": 6.7
+    },
+    {
+      "label": "Convenience",
+      "reason": "Looking for ready-to-use, low-effort solution",
+      "pct": 6.5
+    },
+    {
+      "label": "Discreet appearance",
+      "reason": "Want traps that don't look ugly in the home",
+      "pct": 5.7
+    },
+    {
+      "label": "Seasonal urgency",
+      "reason": "Summer/warm weather causing sudden pest increase",
+      "pct": 4.1
+    },
+    {
+      "label": "Fruit fly problem",
+      "reason": "Active fruit fly infestation driving purchase",
+      "pct": 4.0
+    },
+    {
+      "label": "DIY methods failed",
+      "reason": "Previous home remedies didn't work",
+      "pct": 0.4
+    }
+  ],
+  "customer_expectations": [
+    {
+      "label": "Reliable effectiveness",
+      "reason": "Expects the trap to actually catch and reduce flies",
+      "pct": 38.4
+    },
+    {
+      "label": "Longer lasting effect",
+      "reason": "Wants traps to work for more than a few days/weeks",
+      "pct": 28.4
+    },
+    {
+      "label": "Mess-free setup",
+      "reason": "Expects clean, no-spill experience when opening/using",
+      "pct": 20.4
+    },
+    {
+      "label": "Eco-friendly materials",
+      "reason": "Expects sustainable, recyclable, or biodegradable design",
+      "pct": 19.3
+    },
+    {
+      "label": "Better value for money",
+      "reason": "Perceives current price as too high for results",
+      "pct": 8.7
+    },
+    {
+      "label": "Odorless operation",
+      "reason": "Doesn't want strong smells near food or living areas",
+      "pct": 8.0
+    },
+    {
+      "label": "Works on all flying insects",
+      "reason": "Expects trap to catch gnats, house flies, not just fruit flies",
+      "pct": 5.0
+    },
+    {
+      "label": "Clear usage instructions",
+      "reason": "Confused about placement, timing, or how the product works",
+      "pct": 4.8
+    },
+    {
+      "label": "Refillable / reusable design",
+      "reason": "Wants to refill existing trap rather than buy new ones",
+      "pct": 3.6
+    },
+    {
+      "label": "Discreet appearance",
+      "reason": "Wants traps that are not ugly or noticeable",
+      "pct": 0.8
+    }
+  ],
+  "neg_strategic_insights": [
+    {
+      "type": "Efficacy Crisis",
+      "finding": "Majority of negative reviews report zero or near-zero fly catch",
+      "implication": "Product effectiveness is the #1 driver of dissatisfaction — any new product must solve this first"
+    },
+    {
+      "type": "DIY Benchmark",
+      "finding": "Customers compare commercial traps to vinegar DIY and often find DIY better",
+      "implication": "The \"just use vinegar\" narrative undermines entire category — need clear mechanism differentiation"
+    },
+    {
+      "type": "Price Sensitivity",
+      "finding": "Perceived poor value when product doesn't work drives strong negative sentiment",
+      "implication": "Value proposition must be proven before premium pricing — trial/guarantee could help"
+    },
+    {
+      "type": "Expectation Gap",
+      "finding": "Customers expect overnight results but many traps need days to work",
+      "implication": "Listing copy should set realistic timeline expectations (24-72h) to reduce disappointment"
+    },
+    {
+      "type": "Packaging Risk",
+      "finding": "Liquid traps frequently leak in transit or upon opening",
+      "implication": "Packaging engineering is a competitive advantage — leak-proof design is a differentiator"
+    },
+    {
+      "type": "Duration Issue",
+      "finding": "Traps that dry out or stop working within 1-2 weeks generate complaints",
+      "implication": "Longevity claims must be realistic — \"up to 45 days\" claims damage trust if product fails at day 10"
+    },
+    {
+      "type": "Wrong Pest",
+      "finding": "Some customers expect traps to catch house flies, gnats, or mosquitoes",
+      "implication": "Clear targeting in title/bullets: \"for fruit flies (Drosophila)\" prevents wrong-product reviews"
+    },
+    {
+      "type": "Trust Damage",
+      "finding": "Multiple customers note suspicious 5-star reviews and Vine program",
+      "implication": "Over-reliance on Vine reviews inflates ratings temporarily but erodes long-term trust"
+    }
+  ],
+  "pos_strategic_insights": [
+    {
+      "type": "Proven Mechanism",
+      "finding": "Apple-shaped lure traps and liquid bait consistently rated highest for effectiveness",
+      "implication": "Lure-based mechanism is validated by customers — build on this, don't reinvent"
+    },
+    {
+      "type": "Loyalty Driver",
+      "finding": "High repurchase intent among satisfied customers — \"buy every summer\"",
+      "implication": "Subscription/auto-reorder opportunity for brands with proven effectiveness"
+    },
+    {
+      "type": "Safety Premium",
+      "finding": "Non-toxic/natural positioning resonates strongly with kitchen users",
+      "implication": "Safety messaging is a conversion driver — highlight prominently in bullets and images"
+    },
+    {
+      "type": "Speed Wins",
+      "finding": "Fast-acting claims validated by happy customers — \"caught 20 flies overnight\"",
+      "implication": "Speed-to-catch is the #1 positive surprise — use in hero messaging and A+ content"
+    },
+    {
+      "type": "Design Matters",
+      "finding": "Discreet/attractive design mentioned positively even when effectiveness is average",
+      "implication": "Design is a tiebreaker — when two products work equally well, the better-looking one wins"
+    },
+    {
+      "type": "Eco Advantage",
+      "finding": "Natural/eco-friendly positioning creates emotional connection beyond pest control",
+      "implication": "Sustainability messaging differentiates from chemical-based competitors"
+    },
+    {
+      "type": "DIY Upgrade",
+      "finding": "Customers who switched from vinegar traps and found the product better become advocates",
+      "implication": "\"Better than DIY\" comparison in images/A+ content converts the skeptical vinegar crowd"
+    },
+    {
+      "type": "Word of Mouth",
+      "finding": "High recommendation rate — many 5-star reviews mention telling friends/family",
+      "implication": "Referral program or \"share with a friend\" insert could amplify organic growth"
+    }
+  ],
+  "reviews": [
+    {
+      "r": 3,
+      "t": "Two days now I really don't see a difference. I see them land on it but they don't go into the trap"
+    },
+    {
+      "r": 1,
+      "t": "After 30 days trap made a loud noise and stopped working. Of course it was past the return date."
+    },
+    {
+      "r": 1,
+      "t": "Had a bunch of fruit flies come into house through screen. Didn't catch even one with this UV light, Disappointing. Had to use apple cider vinegar and liquid soap to do the job."
+    },
+    {
+      "r": 1,
+      "t": "These do not work the same as the original product. They fit well, but the bugs do not stick to them like the original."
+    },
+    {
+      "r": 1,
+      "t": "Completely useless. I set it up on the most infested area of the kitchen. Left it there for two weeks. Checked the trap, only one fly on the sticky stuff. One!!! Back to my own homemade waaay cheaper traps of apple cider vinegar and a drop of dish soap. The flies love it! Don't waste your money on this."
+    },
+    {
+      "r": 1,
+      "t": "these no longer work. something has changed. they worked great for a couple years now. Now they no longer do what they once did"
+    },
+    {
+      "r": 3,
+      "t": "These work but it's always a fight to peel the paper off the butterfly shape. Would love to have the option for all 54 of just the flower shape."
+    },
+    {
+      "r": 1,
+      "t": "I have not found veyofly trap to be effective at all.i am finding the cheaper sticky ribbons more effective."
+    },
+    {
+      "r": 3,
+      "t": "Had to call a pest control company after trying the treatment, it partially worked, but still had drain flies"
+    },
+    {
+      "r": 1,
+      "t": "100% garbage"
+    },
+    {
+      "r": 3,
+      "t": "Had to call a pest control company after trying the treatment, it partially worked, but still had drain flies"
+    },
+    {
+      "r": 1,
+      "t": "100% garbage"
+    },
+    {
+      "r": 2,
+      "t": "Great design and whilst it worked, was a brilliant product. Sadly, after a couple of months, the battery went, and now th charge doesn't even last long enough to kill a fly :("
+    },
+    {
+      "r": 1,
+      "t": "Doesn't work"
+    },
+    {
+      "r": 3,
+      "t": "Though I have a whole bunch of fruitflies near my kitchen sink where the device is. It caught only some of them."
+    },
+    {
+      "r": 3,
+      "t": "Fun and effective, but a lot of work."
+    },
+    {
+      "r": 1,
+      "t": "so far two days in 4 strategic pl;aces not a single sign of working I am doing the work as I find them and I kill them by hand. Still waiting for something thats supposed to work to start working. keep ypu posted"
+    },
+    {
+      "r": 2,
+      "t": "They catch a few flies, but don’t really do a whole lot in the end. I use them with my own homemade bait (just the standard stuff), they work better. But the manufacturer really has to make the tops come off easier"
+    },
+    {
+      "r": 1,
+      "t": "Worthless, not one fruit fly caught in the traps after a week, save your money."
+    },
+    {
+      "r": 1,
+      "t": "Useless."
+    },
+    {
+      "r": 1,
+      "t": "Had this plugged in for 3 days and does not work at all! We still have fruit flies flying around."
+    },
+    {
+      "r": 3,
+      "t": "They lasted less than a year , I am on my 4th one even after replacing the light, you might get lucky but the capacitor go bad and I have not found repalcement to fix mine"
+    },
+    {
+      "r": 1,
+      "t": "The squirt bottle insert worked a lot better than the plastic slider insert. Maybe it was more potent in the squirt bottle insert but its been out for over a day and not a single fly but before I would have multiple flies dead"
+    },
+    {
+      "r": 1,
+      "t": "Did not trap barely any bugs."
+    },
+    {
+      "r": 3,
+      "t": "Packaging was damaged."
+    },
+    {
+      "r": 1,
+      "t": "It doesn't work. I plugged it in it doesn't work I shook it and my whole outlet blew out"
+    },
+    {
+      "r": 3,
+      "t": "Easy to set up solution packet included just poor into apple. Some fruit flies do go inside put not the smart ones."
+    },
+    {
+      "r": 1,
+      "t": "Did not attract anything! It went in the trash after 4 days of not one natt!"
+    },
+    {
+      "r": 1,
+      "t": "Package said it was four I only received three in the box was damaged. I want another one sent to me."
+    },
+    {
+      "r": 3,
+      "t": "So I live in Hawaii now and the flies have been crazy, especially in my kitchen. I got these and was initially impressed with the ease of pouring the liquid into the little traps but so far I don't feel like they have actually helped much with the flies. It has a a see through spot for the juice but I don't see any flies floating around. I did see one fly come drink out of one, one day but never saw him die. I think they are a great idea but overall it isn't helping with my housefly problem as I"
+    },
+    {
+      "r": 1,
+      "t": "Didn't work."
+    },
+    {
+      "r": 1,
+      "t": "It's literally apple cider vinegar. Just put some in a jar and poke some holes in the lid"
+    },
+    {
+      "r": 1,
+      "t": "This product worked well for 2 days and then quit working all together. It won’t turn on. Don’t buy this product, complete waste of money."
+    },
+    {
+      "r": 1,
+      "t": "It’s sticky but somehow fruit flies do not stick to it"
+    },
+    {
+      "r": 1,
+      "t": "I hung this in the kitchen where more houseflies are near. I did NOT catch even one single fly with this. I took it down after a few months. Did the company test this before they sell?"
+    },
+    {
+      "r": 1,
+      "t": "They do not attract flies, been hanging for 3 days and not one fly on it but they are flying all around the magnets and my garage 😡"
+    },
+    {
+      "r": 1,
+      "t": "Ours didn’t catch very many bugs despite being by a backyard sliding door. Definitely don’t recommend!"
+    },
+    {
+      "r": 1,
+      "t": "This did not work. it was up for a week and did not get one gnat."
+    },
+    {
+      "r": 3,
+      "t": "The description says 2 traps and 2 REFILL cartridges however it only comes with 2 trap plug ins and 2 cartridges to put in, no refills. Little misleading. Package came torn and damaged but item itself was in tact. Size is pretty big, prefer smaller size for restrooms. Had to plug in large area spaces bc of size."
+    },
+    {
+      "r": 3,
+      "t": "At first it didn’t seem to work but by the end of summer we realized it worked fairly well."
+    },
+    {
+      "r": 1,
+      "t": "I wish I could give it zero stars. They did not work at all."
+    },
+    {
+      "r": 1,
+      "t": "Waste of money had it sitting out for two weeks they would go around it but not inside"
+    },
+    {
+      "r": 2,
+      "t": "I did not notice that these worked. I did follow the instructions. No smell, which is good."
+    },
+    {
+      "r": 1,
+      "t": "Did not work"
+    },
+    {
+      "r": 3,
+      "t": "The two Zevo traps arrived on time, however the two Refill Cartridges are missing from the package. Is it possible to send the two refills or must I return the Traps? B. Keller"
+    },
+    {
+      "r": 1,
+      "t": "I bought a pair of these thinking that they would be good and attract gnats instead didn’t attract anything total waste of money"
+    },
+    {
+      "r": 1,
+      "t": "It’s not exactly what it represents is in the box, at least the one I got. Now my box had been torn open, so I may be wrong. Yes there was 2 traps, but no pads were in them, so the 2 “refill pads” actually should be a part of the traps, so no refill pads are part of the package!"
+    },
+    {
+      "r": 2,
+      "t": "I bought this hoping to solve a problem with houseflies. Our place is full of them and I don't know where they are coming from. I have searched and could not find a place where they might be breeding. I didn't rely on just Amazon reviews to buy this. It has reviews all over the net saying that it worked well for the kind of problem I have. When I received this I read the instructions and put it up in an area that is full of flies. It has been up for a couple of weeks and has only caught maybe ha"
+    },
+    {
+      "r": 1,
+      "t": "I bought a pair of these thinking that they would be good and attract gnats instead didn’t attract anything total waste of money"
+    },
+    {
+      "r": 1,
+      "t": "Attracts the flies but they just sit on top of jar and don’t actually go in. Doesn’t work. Easy to setup"
+    },
+    {
+      "r": 1,
+      "t": "Never worked didn’t catch one fruit fly"
+    },
+    {
+      "r": 1,
+      "t": "Did not trap more than one fruit fly per container over a span of several weeks."
+    },
+    {
+      "r": 2,
+      "t": "I can't tell you if it works or not because the smell is awful. If you like the smell of vinegar airfreshener, then you'll be ok. The next day after opening it, I put the top back on!"
+    },
+    {
+      "r": 1,
+      "t": "Waste of money"
+    },
+    {
+      "r": 1,
+      "t": "Did not work"
+    },
+    {
+      "r": 3,
+      "t": "Good but very expensive"
+    },
+    {
+      "r": 1,
+      "t": "They make great night lights for children, but that wasn’t what I bought them for 🫠 Not a single fly was caught, these did not work for me at all."
+    },
+    {
+      "r": 3,
+      "t": "Don't seem to work as well as the original product. Price was right, but not going to use again. I'll stick with the name brand."
+    },
+    {
+      "r": 1,
+      "t": "They make great night lights for children, but that wasn’t what I bought them for 🫠 Not a single fly was caught, these did not work for me at all."
+    },
+    {
+      "r": 1,
+      "t": "Aunt Fannie’s Flying Punch is a joke. Three bottles out for one month while fruit flies are doing summersaults around my face taunting me as they exclaim “I’m s that all you got?” Seriously don’t buy this. It doesn’t work. Just donate the money to someone who needs it on the street."
+    },
+    {
+      "r": 1,
+      "t": "Aunt Fannie’s Flying Punch is a joke. Three bottles out for one month while fruit flies are doing summersaults around my face taunting me as they exclaim “I’m s that all you got?” Seriously don’t buy this. It doesn’t work. Just donate the money to someone who needs it on the street."
+    },
+    {
+      "r": 1,
+      "t": "Aunt Fannie’s Flying Punch is a joke. Three bottles out for one month while fruit flies are doing summersaults around my face taunting me as they exclaim “I’m s that all you got?” Seriously don’t buy this. It doesn’t work. Just donate the money to someone who needs it on the street."
+    },
+    {
+      "r": 1,
+      "t": "Worked great until it just stop working after 3 months."
+    },
+    {
+      "r": 1,
+      "t": "This did NOT work. Did not attract even 1 fruit fly. And it didn’t last 6 weeks as paperwork claimed. Will not by again."
+    },
+    {
+      "r": 1,
+      "t": "Not a fan. These did not work for me."
+    },
+    {
+      "r": 2,
+      "t": "Bought this to control fruit flies in my kitchen. Used it for one week and caught three flies. Didnt live up to the hype"
+    },
+    {
+      "r": 2,
+      "t": "Bottom line, we used it…still have fruit flies."
+    },
+    {
+      "r": 2,
+      "t": "Bottom line, we used it…still have fruit flies."
+    },
+    {
+      "r": 1,
+      "t": "Totally garbage item and waste of money. I might as well of just reached In the cupboard and poured apple cider vinegar in a cup. House is totally full of fruit flies and after days this thing has trapped one. Will never buy again, I’ll stick to using zevo spray instead that actually kills on contact. I have it one star for the cute little apple."
+    },
+    {
+      "r": 1,
+      "t": "I got these for my plants. They're very inconsistent. Two places in the same affected area had different yet still disappointing results. They've sat for some time now and we're on our 3rd wave of sticky traps while these bottles have sat collecting barely any. Save money and time- GO WITH THE STICKY TRAPS!!! Even the cheap light sticky trap is phenomenal compared to these bottles."
+    },
+    {
+      "r": 1,
+      "t": "Two weeks of use, ZERO dead gnats. If you have fungus flies / gnats, this product won't help. Fruit flies seem to be attracted to the Apple cider vinegar and soap concoction, but overall not impressed for use against \"fungus flies\" (*aka tiny black flying bugs that buzz randomly around your face...). Would not recommend for this type of invasion. Next step will be throwing away all the house plants and starting over."
+    },
+    {
+      "r": 2,
+      "t": "Looking cute, but it's not that effective"
+    },
+    {
+      "r": 1,
+      "t": "Not really working"
+    },
+    {
+      "r": 2,
+      "t": "As described; however, ineffective for our home. It could be due to the location of the available outlets."
+    },
+    {
+      "r": 1,
+      "t": "Not really working"
+    },
+    {
+      "r": 1,
+      "t": "I haven’t caught not one gnat or fly I placed it on my kitchen sink counter around my plants! I have a zevo and sticky traps that work. Every thing catching them except for the punch I even sat it in the pot of one of my plants and still didn’t catch not one gnats"
+    },
+    {
+      "r": 1,
+      "t": "I haven’t caught not one gnat or fly I placed it on my kitchen sink counter around my plants! I have a zevo and sticky traps that work. Every thing catching them except for the punch I even sat it in the pot of one of my plants and still didn’t catch not one gnats"
+    },
+    {
+      "r": 3,
+      "t": "I have had it up for days and captured nothing."
+    },
+    {
+      "r": 1,
+      "t": "Our fruit flies conveniently flew by it, sat near it and had a great time without being bothered by this product. I don't know how it worked for other people but for us, not even 1 fruit fly sat on it."
+    },
+    {
+      "r": 1,
+      "t": "I haven’t caught not one gnat or fly I placed it on my kitchen sink counter around my plants! I have a zevo and sticky traps that work. Every thing catching them except for the punch I even sat it in the pot of one of my plants and still didn’t catch not one gnats"
+    },
+    {
+      "r": 1,
+      "t": "I only received the liquids, WHERES THE TRAP- where am l suppose to pour the refills in. It’s my first time buying this. I’m definitely returning this item. I’m pissed😡Besides, it says l would receive my order in 2 days, it took 10 days. Is this a joke?"
+    },
+    {
+      "r": 1,
+      "t": "I bought these because I thought there may be more surface area and I liked the pegs they were on. At first I thought “great, there’s nothing on here, so I must’ve solved my net problem!” But, they just are not catching anything. Side-by-side with the regular yellow gnat traps I use, the others are full of gnats and these only have one or two. Will be returning the remainder."
+    },
+    {
+      "r": 1,
+      "t": "worked good at first but like other reviews stopped working after two months. the probably do this so you could buy again and earn more money. don't recommend. for $20 it should last for years, garbage."
+    },
+    {
+      "r": 2,
+      "t": "No sé si me enviaron uno usado pero me duró un mes... Ya no hubo tiempo de regresar el articulo... Tendré que comprar de otro vendedor..."
+    },
+    {
+      "r": 1,
+      "t": "Would Rate a zero if I could. Do not waste money on this product. Does not work. Did not catch a single gnat I installed zevo plug in insect traps instead and very quickly have captured thousands ofgnats around around my home. Apparently this Terro product is not returnable or refundable."
+    },
+    {
+      "r": 1,
+      "t": "Did not work. The Raid brand works better. I thought this would be better but not for me."
+    },
+    {
+      "r": 1,
+      "t": "Didn't attract one bug"
+    },
+    {
+      "r": 1,
+      "t": "Does not work!!!"
+    },
+    {
+      "r": 2,
+      "t": "If I had known item only had a 30 day warranty, I would not have purchased it! Amazon should be more up front with that detail! Product performance was unsatisfactory--did not even last 1 year."
+    },
+    {
+      "r": 1,
+      "t": "this product fails exactly after 1 year which is past the warranty. Funny , I purchased several of them and all of them quit after one year of use like they were all on a timer. Bad product"
+    },
+    {
+      "r": 3,
+      "t": "Apparently it is not ideal for killing fly. It can hit a fly onto the ground but then the fly can keep flying."
+    },
+    {
+      "r": 2,
+      "t": "Had a fruit flie issue. These did not work on them. Had it up for 2 1/2 weeks right by where they were. Didn’t trap a single one. Just pulled out and put in the draw. Made a home remedy that I found on the internet-!: that work way better."
+    },
+    {
+      "r": 2,
+      "t": "Didn't do good"
+    },
+    {
+      "r": 1,
+      "t": "Stopped working after 2 days."
+    },
+    {
+      "r": 1,
+      "t": "Not worth any star. Please do not buy this product. Iam looking for a refund."
+    },
+    {
+      "r": 1,
+      "t": "I had this near my bunny cage where i often get fruit flies. I will say I poured a little in one of those tomato looking fruit fly cups and left this open to see if there was a difference because this doesn’t not have holes, just a plain open cap, neither collected flies, even days later. I will not purchase again. Does not work."
+    },
+    {
+      "r": 1,
+      "t": "I had this near my bunny cage where i often get fruit flies. I will say I poured a little in one of those tomato looking fruit fly cups and left this open to see if there was a difference because this doesn’t not have holes, just a plain open cap, neither collected flies, even days later. I will not purchase again. Does not work."
+    },
+    {
+      "r": 1,
+      "t": "I had this near my bunny cage where i often get fruit flies. I will say I poured a little in one of those tomato looking fruit fly cups and left this open to see if there was a difference because this doesn’t not have holes, just a plain open cap, neither collected flies, even days later. I will not purchase again. Does not work."
+    },
+    {
+      "r": 1,
+      "t": "These are not good no bugs were ever found in mine. And they spill easily"
+    },
+    {
+      "r": 3,
+      "t": "Light burn out after less than a year."
+    },
+    {
+      "r": 3,
+      "t": "It’s ok. The racket is raised so sometimes unable to zap smaller insects."
+    },
+    {
+      "r": 1,
+      "t": "DO NOT waste your money…doesn’t work! Had it plugged in for a 2 weeks during the height of fruit fly & pantry moth season. The flies/moths were all over my kitchen. Plugged it in near the basket & didn’t attract even one fly or moth. Put out a Dr Killigan’s trap before bed time; when I got up the next morning the trap was plastered with the flies & moths."
+    },
+    {
+      "r": 1,
+      "t": "Completely ineffective. I followed the instructions exactly and placed the traps near fruit and trash areas, but they did nothing to reduce or eliminate fruit flies. After giving them plenty of time, there was no noticeable improvement at all. Unfortunately, this product was a waste of money for me and did not work as advertised."
+    },
+    {
+      "r": 1,
+      "t": "I received a damaged and open box."
+    },
+    {
+      "r": 1,
+      "t": "I put 5 of them around the kitchen 2 days ago. We have quite an infestation so was anxious to see them caught quickly. So far, only 1 has flown to and stuck to the trap, and when I last looked, it must have gotten loose and flown away! Extremely disappointed, but at least it didn't cost very much."
+    },
+    {
+      "r": 3,
+      "t": "Was not impressed. Did not catch the flying moths. Was very unsatisfied."
+    },
+    {
+      "r": 1,
+      "t": "Used it over 2 months, never made a difference!"
+    },
+    {
+      "r": 1,
+      "t": "It’s just a decorative blue light at nights no fruit flies caught"
+    },
+    {
+      "r": 1,
+      "t": "my house was randomly full of flies one day so I ordered this. Not even one fly showed any interest at all. Also, the product has to be assembled by peeling off the lid and then putting another lid on top, but it’s all the way full of the insect poison and it’s way too easy to spill"
+    },
+    {
+      "r": 1,
+      "t": "Didn’t work for me. Regular fly ribbon works and is way cheaper"
+    },
+    {
+      "r": 1,
+      "t": "Doesn’t work. I’ve had these set out for a few days, around where I see them migrate the most and not a single one has been caught. Waste of money"
+    },
+    {
+      "r": 2,
+      "t": "cute but did not work like I thought"
+    },
+    {
+      "r": 1,
+      "t": "Total piece of junk. The flies do not go inside. They just sit outside on the top of the tiny puny plastic containers. No visble change in the flies population"
+    },
+    {
+      "r": 1,
+      "t": "No matter how slow you attempt to open, or how you twist it to avoid tearing, it seems like all of the glue is only on one part of the trap and it’s hard to get open. If you manage to get it open the bottom, that has NO glue, tears or the entire thing rips in half. Very cheaply made, even for fly ribbons"
+    },
+    {
+      "r": 1,
+      "t": "Worked 24/7 × 2weeks and never zapped a house fly In a room loaded with flies The bulb isn't as attractive as the purple bulbs"
+    },
+    {
+      "r": 1,
+      "t": "Does. It work at all!"
+    },
+    {
+      "r": 1,
+      "t": "Does not work. The fruit flies were sitting on the counter and laughing at it."
+    },
+    {
+      "r": 1,
+      "t": "Have been using for a week. Does not work for my knats. They literally sit on top of the apple. Smells like it’s just vinegar in it. Waist of money"
+    },
+    {
+      "r": 1,
+      "t": "Does not work. The fruit flies were sitting on the counter and laughing at it."
+    },
+    {
+      "r": 1,
+      "t": "The first time I bought a brand name fly strip and I regret it. The first one didn’t pull out properly didn’t separate. Had to throw that away. The second one did not separate properly, but at least it was somewhat usable from now on I’m going to use off brand fly strips because apparently buying brand new means nothing now"
+    },
+    {
+      "r": 1,
+      "t": "Could not catch a fly if you gave it directions. It was a waste of money."
+    },
+    {
+      "r": 1,
+      "t": "This doesn't work, it attracts more fruit flies but does not kill them. I used it for more then 2 months and hasn't killed one… I have a lot more flies then before actually."
+    },
+    {
+      "r": 1,
+      "t": "This doesn't work, it attracts more fruit flies but does not kill them. I used it for more then 2 months and hasn't killed one… I have a lot more flies then before actually."
+    },
+    {
+      "r": 1,
+      "t": "This doesn't work, it attracts more fruit flies but does not kill them. I used it for more then 2 months and hasn't killed one… I have a lot more flies then before actually."
+    },
+    {
+      "r": 2,
+      "t": "I wanted these to work, but they don't work as well as the full shaped sticky traps. Get those instead. These require assembly as well."
+    },
+    {
+      "r": 3,
+      "t": "Works okay nice to have 😊"
+    },
+    {
+      "r": 1,
+      "t": "I had high hopes for this since the reviews were promising. I plugged it in and have had it for 5 days now and it’s not attracted a single insect! And there’s plenty of sink flies roaming around, they today ignore this junk. Save your money on this one"
+    },
+    {
+      "r": 1,
+      "t": "The fruit fly trap has not capture any in 3 days. They fly near the trap but continue to avoid. I had high hopes for it working"
+    },
+    {
+      "r": 1,
+      "t": "I had high hopes for this since the reviews were promising. I plugged it in and have had it for 5 days now and it’s not attracted a single insect! And there’s plenty of sink flies roaming around, they today ignore this junk. Save your money on this one"
+    },
+    {
+      "r": 1,
+      "t": "The fruit fly trap has not capture any in 3 days. They fly near the trap but continue to avoid. I had high hopes for it working"
+    },
+    {
+      "r": 1,
+      "t": "They do not work"
+    },
+    {
+      "r": 1,
+      "t": "Did not catch one of the hundreds of gnats and i kept it in a gnat-heavy place."
+    },
+    {
+      "r": 1,
+      "t": "This product did almost nothing. It attracts fruit flies to the area, but none of them fly in and die, just accumulate near the trap. Terro is usually great, but will not be buying this product again."
+    },
+    {
+      "r": 1,
+      "t": "Did not catch one of the hundreds of gnats and i kept it in a gnat-heavy place."
+    },
+    {
+      "r": 1,
+      "t": "The product is truly junk. It doesn’t kill any fly. I thought maybe the battery was low but I changed for 24 hours. It still doesn’t work."
+    },
+    {
+      "r": 1,
+      "t": "This item stopped working less than 3 months after my purchase. It could no longer hold a charge and fails to work. Terrible product."
+    },
+    {
+      "r": 2,
+      "t": "The product itself is ok and seems to works as intended. However, the packaging was very disappointing. The box seems to have been previously opened, top of box lid was ripped causing it to not close properly and the remainder of the box was smashed and dented. I wasn’t expecting packaging to arrive like this. Packaging seems to be very worn like"
+    },
+    {
+      "r": 1,
+      "t": "I put all four of these around the house and they haven’t caught a single gnat. Total waste of money, they do nothing but make the area smell like apple cider vinegar. Don’t waste your time or money."
+    },
+    {
+      "r": 1,
+      "t": "If I could rate this zero stars or negatives stars I would!!!! This sucks I have a fruit fly infestation I have let this out and the flies are going nowhere near it. It’s literally nothing but apple cider vinegar I coilda bought a bottle cheaper . I WANT MY MONEY BACK"
+    },
+    {
+      "r": 1,
+      "t": "If I could rate this zero stars or negatives stars I would!!!! This sucks I have a fruit fly infestation I have let this out and the flies are going nowhere near it. It’s literally nothing but apple cider vinegar I coilda bought a bottle cheaper . I WANT MY MONEY BACK"
+    },
+    {
+      "r": 1,
+      "t": "Cannot get product our of container. Fly paper (very sticky) rolled up tightly inside what looks like an old 3mm film vile. You cannot remove without: A getting sticky goo on your hands B product is twisted up and mangled upon removal. USELESS JUNK"
+    },
+    {
+      "r": 1,
+      "t": "If I could rate this zero stars or negatives stars I would!!!! This sucks I have a fruit fly infestation I have let this out and the flies are going nowhere near it. It’s literally nothing but apple cider vinegar I coilda bought a bottle cheaper . I WANT MY MONEY BACK"
+    },
+    {
+      "r": 3,
+      "t": "THey worked but you can get better price on 40 pack."
+    },
+    {
+      "r": 1,
+      "t": "Didn’t do much"
+    },
+    {
+      "r": 3,
+      "t": "Not kill many bugs. Fly paper works much much better."
+    },
+    {
+      "r": 3,
+      "t": "I was disappointed in this. I had been given a different brand by my daughter and left it accidentally in Ca. Amazon didn’t carry the brand, or I couldn’t find it , so I tried to buy a comparable one…very disappointed, the quality wasn’t the same or the action. I’m going to have my daughter purchase another one."
+    },
+    {
+      "r": 1,
+      "t": "I bought both this Baimnocm off-brand refill pack as well as some Zevo name brand refills for my Zevo Insect Traps. I put this Baimnocm off-brand refill out where I knew there were bugs, checked back next morning and there were only two insects stuck to trap. However, I could see numerous bugs walking all over the “sticky” surface then fly away without any harm and definitely not trapped. My initial success with Zevo (including Zevo brand sticky trap portion) was excellent, so I wanted to compar"
+    },
+    {
+      "r": 2,
+      "t": "So it definitely attracts the gnats but it kills barely any of them. I made a home made gnat trap and that worked way better than these. They will fly on top but they won’t go in it. These killed maybe 2 or 3 of the gnats while my homemade one killed almost all of the ones that started coming into my kitchen. The liquid is basically apple cider vinegar and something else? To be honest just make your own! Apple cider vinegar, dish soap, water, and sugar. Works way way way better than this ever wi"
+    },
+    {
+      "r": 1,
+      "t": "Completely useless, these flying annoying little monsters keep flying around like the traps are not even there."
+    },
+    {
+      "r": 3,
+      "t": "Did not work"
+    },
+    {
+      "r": 3,
+      "t": "Did not work"
+    },
+    {
+      "r": 1,
+      "t": "Bought to combat fruit flies that are constant with having a parrot. Not a single fruit fly has been trapped in either trap. One set in kitchen and the other next to my birds cage. Very disappointed"
+    },
+    {
+      "r": 1,
+      "t": "So far it doesn't seem to be working at all. Have been using it for 2 weeks. I have it positioned by the sink where plenty of little gnats are and I think it has caught 2 gnats and that's it. I know we have a lot more than that in the house right now so I would not recommend this."
+    },
+    {
+      "r": 1,
+      "t": "Would have spent the money on a few gallons of vinegar and made my own traps if I knew that's all they were using for the bait."
+    },
+    {
+      "r": 1,
+      "t": "I have over 100 flies in my reptile room becasue of some escapeses and in 3 days not one of them cought any."
+    },
+    {
+      "r": 1,
+      "t": "They don't work at all. Total waste of money!"
+    },
+    {
+      "r": 2,
+      "t": "Do not work as well as other brands. Not nearly as sticky either. Won’t buy again"
+    },
+    {
+      "r": 1,
+      "t": "Absolute garbage! Didn't catch/trap anything! Replaced it with a Zevo and the very next day the zevo had caught several mosquitos! Absolute waste of money, don't waste your time and money"
+    },
+    {
+      "r": 1,
+      "t": "does not work, mosquitos fly by it and come back to bite me."
+    },
+    {
+      "r": 1,
+      "t": "The cute little red plastic apples are a great design. It’s too bad they are paired with lure which does not work. I’ve placed four of the six apples in areas of breeding and concentration. One on the table with plants, one right in front of me on my desk where I work, one by the kitchen sink, and one on the kitchen island next to another plant. They have been out for a couple weeks now. And not a single fruit fly can be seen inside any of the traps! In fact, I’ve already killed two flying round"
+    },
+    {
+      "r": 2,
+      "t": "This plug in and refills are not great. The refills are a pain to put in and there are way better products than this."
+    },
+    {
+      "r": 1,
+      "t": "does not work and does not kill fruit flies. juice disappears rapidly and no bugs caught or killed."
+    },
+    {
+      "r": 1,
+      "t": "This is much larger than the other brand I used. It also hasn't caught any bugs - yes, it's plugged in. I had high hopes but it just isn't what I'm needing."
+    },
+    {
+      "r": 1,
+      "t": "Wasted money. All this does is evaporate and doesn’t attract anything. I can smell it but that’s all. Just a vinegar smell in the house. Don’t waste your money"
+    },
+    {
+      "r": 1,
+      "t": "Wasted money. All this does is evaporate and doesn’t attract anything. I can smell it but that’s all. Just a vinegar smell in the house. Don’t waste your money"
+    },
+    {
+      "r": 1,
+      "t": "Wasted money. All this does is evaporate and doesn’t attract anything. I can smell it but that’s all. Just a vinegar smell in the house. Don’t waste your money"
+    },
+    {
+      "r": 1,
+      "t": "Wasted money. All this does is evaporate and doesn’t attract anything. I can smell it but that’s all. Just a vinegar smell in the house. Don’t waste your money"
+    },
+    {
+      "r": 1,
+      "t": "Wasted money. All this does is evaporate and doesn’t attract anything. I can smell it but that’s all. Just a vinegar smell in the house. Don’t waste your money"
+    },
+    {
+      "r": 1,
+      "t": "Put it right next to the flies and did not get one trapped after two days."
+    },
+    {
+      "r": 1,
+      "t": "Trash"
+    },
+    {
+      "r": 1,
+      "t": "TERRIBLE PRODUCT! IT IS SOOOOO OLD THAT YOU CANNOT EVEN GET THE STICKY PART OUT OF THE CONTAINER"
+    },
+    {
+      "r": 1,
+      "t": "The bottle is odd designed, unprofessional, unpractical."
+    },
+    {
+      "r": 1,
+      "t": "The bottle is odd designed, unprofessional, unpractical."
+    },
+    {
+      "r": 1,
+      "t": "The bottle is odd designed, unprofessional, unpractical."
+    },
+    {
+      "r": 1,
+      "t": "These things don't work at all. I put six out in highly infested areas and didn't catch one fly in 24 hours."
+    },
+    {
+      "r": 3,
+      "t": "Etwas Globig. Aber Funktioniert."
+    },
+    {
+      "r": 1,
+      "t": "Have had these for a little while now and it doesn't work at all have gnats still not a single one has gone to this trap!!!"
+    },
+    {
+      "r": 1,
+      "t": "Have had these for a little while now and it doesn't work at all have gnats still not a single one has gone to this trap!!!"
+    },
+    {
+      "r": 1,
+      "t": "I wish I could get a refund. It smells bad as there is clearly apple cider vinegar. If it actually worked I would not be displeased however it is NOT effective and I am disappointed. I wish I just bought the sticky gnat traps instead."
+    },
+    {
+      "r": 1,
+      "t": "I had zero luck with these. Left one out for 5+ days, and it only caught one fly. We still have a bunch flying around. I know some people had great luck with these, but for me they are a total bust."
+    },
+    {
+      "r": 1,
+      "t": "Customers should know that this product is a waste of money. The fruit flies wouldn’t touch it. I can’t imagine why Amazon considers this their choice!!!"
+    },
+    {
+      "r": 2,
+      "t": "I did not like this product. I bought the VEYOFLY Fly Trap Indoor to get rid of small flies (fruit flies) in my kitchen, but unfortunately I did not see any effectiveness. Even using the device continuously and placing it on the counter where I usually keep fruit, the small flies kept appearing as usual. I used it according to the instructions and with the included refills, but I did not notice any significant reduction in insects."
+    },
+    {
+      "r": 2,
+      "t": "Didn’t catch flies that would sit next to it"
+    },
+    {
+      "r": 1,
+      "t": "So useless,I want to cancel my subscription.it just didn’t work"
+    },
+    {
+      "r": 1,
+      "t": "Didn’t catch one single bug. My husband ended up making a mix of apple cider vinegar and soap that actually caught a bunch of them. Very disappointed."
+    },
+    {
+      "r": 1,
+      "t": "installed three days ago , and if I were to box it up right now , it would pass for new . the transparent protective pieces were removed and units plugged into outlets, all other lights off at night . NOTHING trapped! going back"
+    },
+    {
+      "r": 3,
+      "t": "I feel these were not sticky enough"
+    },
+    {
+      "r": 2,
+      "t": "This did not work at my house. I have had it out for 4 days. The gnats or fruit flies are still on the ceiling. Maybe it works for small areas? I have an open concept with 12 foot ceilings. I wish it worked as great as the Terro ant traps."
+    },
+    {
+      "r": 1,
+      "t": "installed three days ago , and if I were to box it up right now , it would pass for new . the transparent protective pieces were removed and units plugged into outlets, all other lights off at night . NOTHING trapped! going back"
+    },
+    {
+      "r": 1,
+      "t": "After 3 weeks not one fly has been captured!"
+    },
+    {
+      "r": 1,
+      "t": "Things do not work like the brand name ones. Completely disappointed."
+    },
+    {
+      "r": 1,
+      "t": "Junk dont work at all waste of money 💯"
+    },
+    {
+      "r": 1,
+      "t": "In the four days that I’ve had this product spread around my house, it’s caught two flies altogether. It’s just apple cider vinegar essentially. You could easily make this at home. I just got a different plug-in product and that has proven to be incredibly effective."
+    },
+    {
+      "r": 1,
+      "t": "Junk dont work at all waste of money 💯"
+    },
+    {
+      "r": 3,
+      "t": "Worked great until it stopped working."
+    },
+    {
+      "r": 3,
+      "t": "Didn’t see a difference and I wouldn’t use if you have cats or a curious dog or pet they will just knock it over"
+    },
+    {
+      "r": 1,
+      "t": "I purchased this and didn’t see any difference in the gnats in my house. I purchased the little bottles and caught many gnats. Then one day found the source of the problem…rotten g sweet potatoes and once those were thrown out my problem was solved."
+    },
+    {
+      "r": 1,
+      "t": "I purchased this and didn’t see any difference in the gnats in my house. I purchased the little bottles and caught many gnats. Then one day found the source of the problem…rotten g sweet potatoes and once those were thrown out my problem was solved."
+    },
+    {
+      "r": 1,
+      "t": "Apparently we have smarter fruit flies in Louisiana because it’s been days not and I am still breathing fruit flies! SAVE YOUR MONEY!"
+    },
+    {
+      "r": 1,
+      "t": "The product didnt work at all. Not even a single fruit fly is catched. We are totally disappointed with this product."
+    },
+    {
+      "r": 2,
+      "t": "My two‑star rating reflects an average between the first and second versions of the Zevo trap, because the two products performed very differently. First Version – No Longer Available, and Misleading The original version is no longer listed, so I can’t leave a review specifically for it. If I could, it wouldn’t get more than one star. The main reason I bought it was the claim that it also worked for mosquitoes. After using it for a year and a half, I can confirm that this was completely false. I"
+    },
+    {
+      "r": 3,
+      "t": "The constantly on zap feature stopped working a few months into use"
+    },
+    {
+      "r": 1,
+      "t": "May fit in the Nevis, but it won’t activate the light. Useless."
+    },
+    {
+      "r": 1,
+      "t": "Wth!?... This barely caught anything just bad whiff of apple cider vinegar"
+    },
+    {
+      "r": 1,
+      "t": "Not worth the buy. Better off trying to real thing. Have not caught many since I’ve had it. Turned off every light and still does not work"
+    },
+    {
+      "r": 3,
+      "t": "It does its job but it might take a while to accumulate flies. I bought this in the summer when I had lots of fruit flies at home. After installation over the 3-4 days it only accumulated few flies so I had to buy apple traps and those are way more effective, killed a bunch in first 24hr. This thing helped too eventually , but if we split efficiency I would say Apple traps vs this is like 80/20 so get it if you buy it together with those, not just as a sole solution"
+    },
+    {
+      "r": 3,
+      "t": "It does its job but it might take a while to accumulate flies. I bought this in the summer when I had lots of fruit flies at home. After installation over the 3-4 days it only accumulated few flies so I had to buy apple traps and those are way more effective, killed a bunch in first 24hr. This thing helped too eventually , but if we split efficiency I would say Apple traps vs this is like 80/20 so get it if you buy it together with those, not just as a sole solution"
+    },
+    {
+      "r": 1,
+      "t": "Did not work didn't even catch one fly"
+    },
+    {
+      "r": 2,
+      "t": "I have 4 of these in my kitchen but I still have flying insects!"
+    },
+    {
+      "r": 1,
+      "t": "Don't waste your money. After 2 weeks of having it plugged in, not one fly on it."
+    },
+    {
+      "r": 3,
+      "t": "Nice idea but didn’t really work as well as I had hoped"
+    },
+    {
+      "r": 2,
+      "t": "I'm sure they works for someone but not for me. Not one single FF entered."
+    },
+    {
+      "r": 1,
+      "t": "Too bulky"
+    },
+    {
+      "r": 2,
+      "t": "pretty much worthless, even in a small room"
+    },
+    {
+      "r": 2,
+      "t": "Looks nothing like the add. We'll see if it works - too soon to tell, but it's very cheaply made. Buy the name brand instead."
+    },
+    {
+      "r": 1,
+      "t": "Don't waste your money. I put it up a week ago and still nothing. I realize it doesn't specifically say it's good for gnats, but I thought I would try it since nothing else I have tried seems to work. (and, yes, I have tried apple cider vinegar and a drop of soap.)"
+    },
+    {
+      "r": 1,
+      "t": "Doesn't attract gnats at all.maybe I'll put some apple cider vinegar in the bottom"
+    },
+    {
+      "r": 1,
+      "t": "They zap good but the light is very dim. Not really bright enough to attract bugs. Reache dout to customer service but no response. Ordered another brand and they're much brighter. Will be returning."
+    },
+    {
+      "r": 1,
+      "t": "It doesn't wake"
+    },
+    {
+      "r": 1,
+      "t": "Received only 3 cartridges. Ordered a replacement and again only got 3."
+    },
+    {
+      "r": 3,
+      "t": "Died after 1 year and 1 months."
+    },
+    {
+      "r": 3,
+      "t": "Update: after just an 1hr of having it ..it has a bunch of dead gnats!! Smell still strong though. Previous review: It does attract the gnats to the rim but geez does it have a very strong apple cider vinegar smell immediately once opened. I hope it works, because I've noticed some gnats in bathroom and kitchen and they're annoying"
+    },
+    {
+      "r": 1,
+      "t": "So I purchased the Terro fruit fly traps based on all the positive reviews. They arrived promptly and was very excited to try them at our ice cream and smoothies store. We sometimes have 1-2 fruit flies but not very often. Either way doesn't look good, no customer wants to be bother by little pesky flies. We keep everything in the store spotless, but we'll still get a couple of those little visitors from time to time. I placed 2 traps and after a week, zero got caught. I then added the other 2 t"
+    },
+    {
+      "r": 1,
+      "t": "I was very dissatisfied with this product. It did not attract nor catch the flies. The fluid they give you isn't very much and it evaporates quickly - like a little over a week. I will not buy this product again. I have tried other products and should have stuck to just purchasing them, but I thought, \"How cute, a little apple to sit on my counter."
+    },
+    {
+      "r": 3,
+      "t": "Really could not find any inside when I placed them around the house. I feel that the apple cider vinegar with dawn in it worked better. I was looking forward to not having cups and bowls around the house during tomato season."
+    },
+    {
+      "r": 1,
+      "t": "Does not work your better off using a boil of vinegar and honey"
+    },
+    {
+      "r": 1,
+      "t": "Don’t waste your money. This didn’t work at all!"
+    },
+    {
+      "r": 1,
+      "t": "Don’t like these as well as the one with the bulbs. The bulbs ones are amazing - these don’t work as well ."
+    },
+    {
+      "r": 1,
+      "t": "Worked great! Until it just stopped working 45 days later."
+    },
+    {
+      "r": 1,
+      "t": "Doesn’t work even in the middle of knats."
+    },
+    {
+      "r": 2,
+      "t": "Not sure they are doing any good. We continue to see the same little gnats."
+    },
+    {
+      "r": 1,
+      "t": "Did absolutely nothing! Sat in window sills and on at countertops four weeks and not one fruit fly was caught."
+    },
+    {
+      "r": 1,
+      "t": "Did not work at all . It's literally vinegar in a plastic apple . We have a major fruit fly issue all of the sudden . I purchased these based on reviews. Had then all over the house for over two weeks now and only 1 fly went in . Definitely dont reccomend"
+    },
+    {
+      "r": 1,
+      "t": "I can ditto the other 1-star reviews of this product. INEFFECTIVE. Waste of money."
+    },
+    {
+      "r": 3,
+      "t": "I really like this product when it works but it seems inconsistent. Some bottles I have purchased catch a zillion fruit flies and other bottles seem to be totally ineffective. Not sure what's happening there. Appreciate that there is no awful smell and the design doesn't both me sitting out in my kitchen."
+    },
+    {
+      "r": 3,
+      "t": "I really like this product when it works but it seems inconsistent. Some bottles I have purchased catch a zillion fruit flies and other bottles seem to be totally ineffective. Not sure what's happening there. Appreciate that there is no awful smell and the design doesn't both me sitting out in my kitchen."
+    },
+    {
+      "r": 1,
+      "t": "When you unroll these by pulling them down, they won’t stay extended. As soon as you let go, they curl right back up. I tried using packing tape and attaching a screwdriver for a little extra weight to keep it straight, but after about a day, even that small amount of weight caused the hanging hoop to separate from the strip and fall to the ground. Unfortunately, the design just doesn’t hold up under even minimal tension. I won't buy them again! Don't waste your money!"
+    },
+    {
+      "r": 3,
+      "t": "I really like this product when it works but it seems inconsistent. Some bottles I have purchased catch a zillion fruit flies and other bottles seem to be totally ineffective. Not sure what's happening there. Appreciate that there is no awful smell and the design doesn't both me sitting out in my kitchen."
+    },
+    {
+      "r": 1,
+      "t": "Ineffective -- we recently had an issue with fruit flies and this product didn't do its job. Better luck with homemade solution of water, vinegar, and dish soap. Also found sticky traps worked."
+    },
+    {
+      "r": 1,
+      "t": "Ineffective -- we recently had an issue with fruit flies and this product didn't do its job. Better luck with homemade solution of water, vinegar, and dish soap. Also found sticky traps worked."
+    },
+    {
+      "r": 1,
+      "t": "Did NOT work for fruit flies at all. Totally sucks because I really had high hopes."
+    },
+    {
+      "r": 1,
+      "t": "Ineffective -- we recently had an issue with fruit flies and this product didn't do its job. Better luck with homemade solution of water, vinegar, and dish soap. Also found sticky traps worked."
+    },
+    {
+      "r": 1,
+      "t": "Did not help with fruit flies"
+    },
+    {
+      "r": 3,
+      "t": "Perfect for the summer months. Easy to install! Could have caught more and didn't last as long as I was hoping. But I would buy again."
+    },
+    {
+      "r": 1,
+      "t": "The light on this product is very dim. Insects won't see it from even a short distant."
+    },
+    {
+      "r": 3,
+      "t": "A week in and our plant pests have nearly been eliminated! Our only complaint so far is that it is fairly loud. We moved it to our living room, since we have plants in there as well, and we noticed it right away. I have bought a smaller one, so hopefully it can go back to the original spot."
+    },
+    {
+      "r": 3,
+      "t": "I was hoping to be able to kill the flies that fly around in circles on my patio, but it is too difficult to swat them. So, if you are buying this for indoors, I think it works well, but not for outdoor use."
+    },
+    {
+      "r": 2,
+      "t": "Don't work very well in the kitchen, but works in a smaller room like a bathroom, they did not say that in their advertisement and I spend over $65, which is very upsetting, but I am leaving user review it's not a very good product unless you have 7 or 8 of them. Around two hundred feet space"
+    },
+    {
+      "r": 1,
+      "t": "Pretty color... doesn't attract mosquitoes. We've had it plugged in for over a week and only 1 fruit fly is on it. We have plenty flying around that haven't been attracted to it."
+    },
+    {
+      "r": 1,
+      "t": "I don’t believe after multiple days that I’ve got one fruit fly. I have seen them bent attracted to these scent, but they just don’t go in or if they go in they fly out you’re almost have to stand by the traps and swap them. This product was absolutely useless for me."
+    },
+    {
+      "r": 1,
+      "t": "worthless. save your money. 1. The liguid solution that's supposed to last 180 days is not resealable, but is a twist off cap top. Once the cap top is removed there is no way to reseal it. 2. the product doesn't work. Caught no flies in 48 hours even though I deployed it in 4 locations in my house 3. Product is not eligible for returns Buy at electric fly zapper instead. They work great"
+    },
+    {
+      "r": 1,
+      "t": "No viene con lo que se enchufa, si pudiera darle 0 lo pondria"
+    },
+    {
+      "r": 1,
+      "t": "Don’t get these literally just buy apple cider vinegar and put them in small cups. Works the same"
+    },
+    {
+      "r": 2,
+      "t": "Traps do not appear to be sticky enough to catch bugs."
+    },
+    {
+      "r": 1,
+      "t": "Just smells like ACV. Attracts fruit flies but doesn’t actually kill them. Waste of money."
+    },
+    {
+      "r": 1,
+      "t": "Didnt work well"
+    },
+    {
+      "r": 1,
+      "t": "The fly trap will not streak out like it should. It broke apart instead of rolling out."
+    },
+    {
+      "r": 1,
+      "t": "I wish I could hive it zero stars, but that's not an option. Put 2 of them in the kitchen. One right in the middle of the worst infestation. 24 hour later and the gnats are still thriving and there's not a single gnat in the trap. Not one! don't know if I can get my money back since they conveniently didn't put any contact information on the packaging or in the \"book\"."
+    },
+    {
+      "r": 1,
+      "t": "These don’t work, I really thought they would be fine based on other reviews. I replaced 2 of the zevos, one with these and one with the name brand. In over a week this one had no bugs stuck to it while the name brand one had bugs."
+    },
+    {
+      "r": 2,
+      "t": "Sorry they arent working for me I'm being patient it's only been a few days but no fruit flies at all"
+    },
+    {
+      "r": 1,
+      "t": "My dead Venus flytrap killed more flies than this stupid ass fly trap. You'll have a higher fly kill count by just hunting them yourself with your bare hands."
+    },
+    {
+      "r": 1,
+      "t": "Really disappointed. Days later nothing on them but many flying around the counters"
+    },
+    {
+      "r": 1,
+      "t": "Awful, the clear glue traps did not work at all."
+    },
+    {
+      "r": 1,
+      "t": "Used a few of these at the same time. The fruit flies barely went into it and I had to rely on spraying."
+    },
+    {
+      "r": 1,
+      "t": "Caught one fly after an infestation from a Banana Peel. Didn't help resolve problem. Problem was resolved by putting car mats in washing machine, shampooing and vacuuming seats and floors to kill any eggs."
+    },
+    {
+      "r": 1,
+      "t": "These did not work. Caught 2 gnats over 3 months of trying. Wish Icould return!"
+    },
+    {
+      "r": 1,
+      "t": "My dead Venus flytrap killed more flies than this stupid ass fly trap. You'll have a higher fly kill count by just hunting them yourself with your bare hands."
+    },
+    {
+      "r": 1,
+      "t": "Really disappointed. Days later nothing on them but many flying around the counters"
+    },
+    {
+      "r": 1,
+      "t": "Awful, the clear glue traps did not work at all."
+    },
+    {
+      "r": 1,
+      "t": "I bought this 11 months ago.. I don’t use it very often and the Light died .. this is the second one that this has happened to me… the product works great for a short time, it for the cost of it I would expect it to work for more then one year .. there’s no way to return it after a certain amount of time… This being the second time it has happened it is totally unacceptable…"
+    },
+    {
+      "r": 3,
+      "t": "Maybe a tad overproduced and wasteful but it works well enough in the summer in a home kitchen. Doubles a night light. You may find more effective solutions building your own traps using mason jars (look up a guide)"
+    },
+    {
+      "r": 3,
+      "t": "Not as good as the original"
+    },
+    {
+      "r": 2,
+      "t": "Put these around our office as we have a lot of trash trucks on site. They barely killed any fruit flies compared to other more potent liquid traps. Sure the mainstream ones have a strong vinegar smell, but they also worked a million times better then these tiny things. Never buying these again"
+    },
+    {
+      "r": 1,
+      "t": "I only had 2 in an opened box."
+    },
+    {
+      "r": 1,
+      "t": "Purchased this and the fruit ninja liquid traps at the same time after 1 week the liquid trap had a ton in it this had 2 stuck to it literally 12 inches apart both by the sink sink flies are gone but not because of this."
+    },
+    {
+      "r": 1,
+      "t": "Hard to handle"
+    },
+    {
+      "r": 1,
+      "t": "If I could give it 0 stars I would. We have so many fruit flies and these have not attracted any in over 48 hours."
+    },
+    {
+      "r": 1,
+      "t": "This does not work for gnats at all. A container with water works better for gnats. As long as gnats is in product description this product is false advertising."
+    },
+    {
+      "r": 1,
+      "t": "It was smashed all the pieces and my husband threw it out before he realized it was something I ordered in the mail so it’s impossible for me to return something that’s long ago and put in the garbage"
+    },
+    {
+      "r": 3,
+      "t": "Just got these today. They smell strongly of vinegar. Very tiny bottles for the price. But thats my fault for not reading. Put them out, have got a few trapped."
+    },
+    {
+      "r": 1,
+      "t": "Got four of them not a single Matt"
+    },
+    {
+      "r": 1,
+      "t": "Unbelievable. These haven't caught one gnat, fly or anything else. The one I bought (same brand) from the store is full. I even moved them around to see if maybe it was a location issue, but that's not the problem. I just made a bad purchase. Buyer beware. I don't think these are the real deal."
+    },
+    {
+      "r": 1,
+      "t": "Would get zero stars,but not an option. Nothing but the smallest gnat in the world sticks to this. Have had plugged in for.2 weeks and there are 2 very small gnats on it. Trying to give it a chance, butttt"
+    },
+    {
+      "r": 1,
+      "t": "This thing doesn’t trap or kill the flies. It just attracts them to hang out around it from time to time. Not a single fly went inside to drown and you can make a better one yourself with apple cider vinegar and dish soap. See the pictures for proof. The flies just happily chill and enjoy themselves around this trap without actually flying in."
+    },
+    {
+      "r": 3,
+      "t": "It was working really good for weeks but for some reason it just broke once I plugged it into my living room outlet. :-("
+    },
+    {
+      "r": 1,
+      "t": "Waste of money. Doesn’t work"
+    },
+    {
+      "r": 1,
+      "t": "Product is great but, once again, it was lucky to make it here in one piece. Product box was beat to hell when it was placed in the shipping carton because the carton was not damaged and everything else in the carton was in perfect condition. Love the product itself but the packing at the Amazon warehouse leaves a lot to be desired."
+    },
+    {
+      "r": 1,
+      "t": "Didn't work"
+    },
+    {
+      "r": 2,
+      "t": "This is a hit or miss product. It did not work for me at all. It's a cheap alternative but you risk not having the results you want. Strong vinegar smell. Wouldn't recommend."
+    },
+    {
+      "r": 2,
+      "t": "This trap does not attract any insects."
+    },
+    {
+      "r": 2,
+      "t": "2 units died. Didn’t last 3 months. It did work well for the 3 months. So it is unfortunate about the short lifespan."
+    },
+    {
+      "r": 2,
+      "t": "Not catching much. But looks better since I can stick it to the wall"
+    },
+    {
+      "r": 2,
+      "t": "The fruit flies just sat on the Apple and never went inside."
+    },
+    {
+      "r": 1,
+      "t": "They have only caught 1 fruit fly in 3 days and I'd bet the fly accidentally flew too close getting stuck."
+    },
+    {
+      "r": 1,
+      "t": "I would return if I hadn’t used it. It barely works, I can see a few fruit flies in them, but I used a different brand before that collected hundreds, I will be going back to that brand. They look better sitting on the counter, but way less effective."
+    },
+    {
+      "r": 1,
+      "t": "i have a literal infestation of fruit flies. i sat out all 4 traps, they've been sitting out for a week solid. i've caught more fruit flies flying up my nose than 4 of these traps caught - which is 0. waste of money!!"
+    },
+    {
+      "r": 1,
+      "t": "Doesn't work at all. Waste of money. Don't buy"
+    },
+    {
+      "r": 1,
+      "t": "I did exactly what it said on the box and it did not work at all ."
+    },
+    {
+      "r": 1,
+      "t": "They have only caught 1 fruit fly in 3 days and I'd bet the fly accidentally flew too close getting stuck."
+    },
+    {
+      "r": 2,
+      "t": "I received this product today and upon opening it, it had already been used. I mean, I’m glad to see that the product works, but it was slightly upsetting for me to receive the package in a used condition. Aside from being grossed out, I’m hoping it’ll work the same way for me."
+    }
+  ]
+}

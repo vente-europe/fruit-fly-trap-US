@@ -1,0 +1,818 @@
+{
+  "fetched": "2026-03-15",
+  "marketplace": "US (ATVPDKIKX0DER)",
+  "products": {
+    "B01MRHXM0I": {
+      "asin": "B01MRHXM0I",
+      "title": "TERRO Fruit Fly Traps for Indoors (4 Pack) + 180 Days of Lure Supply - T2503SR - Lure and Kill Indoor Fruit Flies Near Fruit, Trash Cans, Countertops - Ready to Use Trap - 180 Day Supply",
+      "brand": "Terro",
+      "browse_classification": "Traps",
+      "images": [
+        {
+          "variant": "MAIN",
+          "url": "https://m.media-amazon.com/images/I/416HqxAo6GL.jpg",
+          "width": 500,
+          "height": 500
+        },
+        {
+          "variant": "MAIN",
+          "url": "https://m.media-amazon.com/images/I/416HqxAo6GL._SL75_.jpg",
+          "width": 75,
+          "height": 75
+        },
+        {
+          "variant": "MAIN",
+          "url": "https://m.media-amazon.com/images/I/81F5uQH3fyL.jpg",
+          "width": 2560,
+          "height": 2560
+        },
+        {
+          "variant": "PT01",
+          "url": "https://m.media-amazon.com/images/I/41LZFgLQGAL.jpg",
+          "width": 500,
+          "height": 500
+        },
+        {
+          "variant": "PT01",
+          "url": "https://m.media-amazon.com/images/I/41LZFgLQGAL._SL75_.jpg",
+          "width": 75,
+          "height": 75
+        },
+        {
+          "variant": "PT01",
+          "url": "https://m.media-amazon.com/images/I/71Ku2vmSERL.jpg",
+          "width": 2560,
+          "height": 2560
+        },
+        {
+          "variant": "PT02",
+          "url": "https://m.media-amazon.com/images/I/510jA11krgL.jpg",
+          "width": 500,
+          "height": 500
+        },
+        {
+          "variant": "PT02",
+          "url": "https://m.media-amazon.com/images/I/510jA11krgL._SL75_.jpg",
+          "width": 75,
+          "height": 75
+        },
+        {
+          "variant": "PT02",
+          "url": "https://m.media-amazon.com/images/I/815HBWFAS2L.jpg",
+          "width": 2560,
+          "height": 2560
+        },
+        {
+          "variant": "PT03",
+          "url": "https://m.media-amazon.com/images/I/41C25AunN6L.jpg",
+          "width": 500,
+          "height": 500
+        },
+        {
+          "variant": "PT03",
+          "url": "https://m.media-amazon.com/images/I/41C25AunN6L._SL75_.jpg",
+          "width": 75,
+          "height": 75
+        },
+        {
+          "variant": "PT03",
+          "url": "https://m.media-amazon.com/images/I/811ehm146SL.jpg",
+          "width": 2560,
+          "height": 2560
+        },
+        {
+          "variant": "PT04",
+          "url": "https://m.media-amazon.com/images/I/41lWG8ZNc3L.jpg",
+          "width": 500,
+          "height": 500
+        },
+        {
+          "variant": "PT04",
+          "url": "https://m.media-amazon.com/images/I/41lWG8ZNc3L._SL75_.jpg",
+          "width": 75,
+          "height": 75
+        },
+        {
+          "variant": "PT04",
+          "url": "https://m.media-amazon.com/images/I/71qclCIN1fL.jpg",
+          "width": 2560,
+          "height": 2560
+        },
+        {
+          "variant": "PT05",
+          "url": "https://m.media-amazon.com/images/I/51pN+Wkpg1L.jpg",
+          "width": 500,
+          "height": 500
+        },
+        {
+          "variant": "PT05",
+          "url": "https://m.media-amazon.com/images/I/51pN+Wkpg1L._SL75_.jpg",
+          "width": 75,
+          "height": 75
+        },
+        {
+          "variant": "PT05",
+          "url": "https://m.media-amazon.com/images/I/81m198E65CL.jpg",
+          "width": 2560,
+          "height": 2560
+        },
+        {
+          "variant": "PT06",
+          "url": "https://m.media-amazon.com/images/I/51+52AYXuiL.jpg",
+          "width": 500,
+          "height": 500
+        },
+        {
+          "variant": "PT06",
+          "url": "https://m.media-amazon.com/images/I/51+52AYXuiL._SL75_.jpg",
+          "width": 75,
+          "height": 75
+        },
+        {
+          "variant": "PT06",
+          "url": "https://m.media-amazon.com/images/I/81SHCz5VbGL.jpg",
+          "width": 2560,
+          "height": 2560
+        },
+        {
+          "variant": "PT07",
+          "url": "https://m.media-amazon.com/images/I/41zMLT8xyWL.jpg",
+          "width": 500,
+          "height": 500
+        },
+        {
+          "variant": "PT07",
+          "url": "https://m.media-amazon.com/images/I/41zMLT8xyWL._SL75_.jpg",
+          "width": 75,
+          "height": 75
+        },
+        {
+          "variant": "PT07",
+          "url": "https://m.media-amazon.com/images/I/71qqyo3D99L.jpg",
+          "width": 2560,
+          "height": 2560
+        },
+        {
+          "variant": "PT08",
+          "url": "https://m.media-amazon.com/images/I/51MBzAD+zPL.jpg",
+          "width": 500,
+          "height": 500
+        },
+        {
+          "variant": "PT08",
+          "url": "https://m.media-amazon.com/images/I/51MBzAD+zPL._SL75_.jpg",
+          "width": 75,
+          "height": 75
+        },
+        {
+          "variant": "PT08",
+          "url": "https://m.media-amazon.com/images/I/81uSCMbV0UL.jpg",
+          "width": 2560,
+          "height": 2560
+        }
+      ],
+      "bullet_points": [
+        "FAST-ACTING ELIMINATION: Notice a dramatic decrease in fruit flies within a few days with these indoor fly traps for your home, containing a fast-acting anti fruit fly trap lure",
+        "LONG-LASTING PROTECTION: Each ready-to-use, non-staining TERRO fruit fly lure offers up to 45 days of effective trapping, making it a great indoor fruit fly killer. Comes with 180 days worth of lure supply",
+        "DISCREET AND ATTRACTIVE DESIGN: The apple-shaped anti fruit fly trap design of this indoor fly trap blends in with the fruits these pests love, keeping unsightly fruit fly populations down without attracting attention",
+        "EASY MONITORING: This fruit fly catcher features built-in windows to allow for at-a-glance monitoring of the lure levels and catches",
+        "TARGET BREEDING AREAS: These indoor fruit fly traps are most effective when placed near fruit bowls, trash cans, and counters to control fruit fly breeding locations"
+      ],
+      "product_type": "PEST_CONTROL_DEVICE"
+    },
+    "B0BX4GQF68": {
+      "asin": "B0BX4GQF68",
+      "title": "Terro Fruit Fly Traps for Indoors (6 Pack) + 270 Days of Lure Supply",
+      "brand": "Terro",
+      "browse_classification": "Traps",
+      "images": [
+        {
+          "variant": "MAIN",
+          "url": "https://m.media-amazon.com/images/I/81iUZKBoLNL.jpg",
+          "width": 2560,
+          "height": 2560
+        },
+        {
+          "variant": "MAIN",
+          "url": "https://m.media-amazon.com/images/I/41QzXzD3a2L.jpg",
+          "width": 500,
+          "height": 500
+        },
+        {
+          "variant": "MAIN",
+          "url": "https://m.media-amazon.com/images/I/41QzXzD3a2L._SL75_.jpg",
+          "width": 75,
+          "height": 75
+        },
+        {
+          "variant": "PT01",
+          "url": "https://m.media-amazon.com/images/I/71Hyz2d6HhL.jpg",
+          "width": 2560,
+          "height": 2560
+        },
+        {
+          "variant": "PT01",
+          "url": "https://m.media-amazon.com/images/I/41BqdyvXdYL.jpg",
+          "width": 500,
+          "height": 500
+        },
+        {
+          "variant": "PT01",
+          "url": "https://m.media-amazon.com/images/I/41BqdyvXdYL._SL75_.jpg",
+          "width": 75,
+          "height": 75
+        },
+        {
+          "variant": "PT02",
+          "url": "https://m.media-amazon.com/images/I/71Ku2vmSERL.jpg",
+          "width": 2560,
+          "height": 2560
+        },
+        {
+          "variant": "PT02",
+          "url": "https://m.media-amazon.com/images/I/41LZFgLQGAL.jpg",
+          "width": 500,
+          "height": 500
+        },
+        {
+          "variant": "PT02",
+          "url": "https://m.media-amazon.com/images/I/41LZFgLQGAL._SL75_.jpg",
+          "width": 75,
+          "height": 75
+        },
+        {
+          "variant": "PT03",
+          "url": "https://m.media-amazon.com/images/I/815HBWFAS2L.jpg",
+          "width": 2560,
+          "height": 2560
+        },
+        {
+          "variant": "PT03",
+          "url": "https://m.media-amazon.com/images/I/510jA11krgL.jpg",
+          "width": 500,
+          "height": 500
+        },
+        {
+          "variant": "PT03",
+          "url": "https://m.media-amazon.com/images/I/510jA11krgL._SL75_.jpg",
+          "width": 75,
+          "height": 75
+        },
+        {
+          "variant": "PT05",
+          "url": "https://m.media-amazon.com/images/I/51trwA3mO-L.jpg",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "variant": "PT05",
+          "url": "https://m.media-amazon.com/images/I/51trwA3mO-L._SL75_.jpg",
+          "width": 75,
+          "height": 75
+        },
+        {
+          "variant": "PT06",
+          "url": "https://m.media-amazon.com/images/I/81m198E65CL.jpg",
+          "width": 2560,
+          "height": 2560
+        },
+        {
+          "variant": "PT06",
+          "url": "https://m.media-amazon.com/images/I/51pN+Wkpg1L.jpg",
+          "width": 500,
+          "height": 500
+        },
+        {
+          "variant": "PT06",
+          "url": "https://m.media-amazon.com/images/I/51pN+Wkpg1L._SL75_.jpg",
+          "width": 75,
+          "height": 75
+        },
+        {
+          "variant": "PT07",
+          "url": "https://m.media-amazon.com/images/I/81SHCz5VbGL.jpg",
+          "width": 2560,
+          "height": 2560
+        },
+        {
+          "variant": "PT07",
+          "url": "https://m.media-amazon.com/images/I/51+52AYXuiL.jpg",
+          "width": 500,
+          "height": 500
+        },
+        {
+          "variant": "PT07",
+          "url": "https://m.media-amazon.com/images/I/51+52AYXuiL._SL75_.jpg",
+          "width": 75,
+          "height": 75
+        },
+        {
+          "variant": "PT08",
+          "url": "https://m.media-amazon.com/images/I/71qqyo3D99L.jpg",
+          "width": 2560,
+          "height": 2560
+        },
+        {
+          "variant": "PT08",
+          "url": "https://m.media-amazon.com/images/I/41zMLT8xyWL.jpg",
+          "width": 500,
+          "height": 500
+        },
+        {
+          "variant": "PT08",
+          "url": "https://m.media-amazon.com/images/I/41zMLT8xyWL._SL75_.jpg",
+          "width": 75,
+          "height": 75
+        }
+      ],
+      "bullet_points": [
+        "FAST-ACTING ELIMINATION: Notice a dramatic decrease in fruit flies within a few days with these indoor fly traps for your home, made with a fast-acting anti fruit fly trap lure inside",
+        "LONG-LASTING PROTECTION: Each ready-to-use, non-staining Terro fruit fly lure offers up to 45 days of effective trapping, making it a great indoor fruit fly killer. Comes with 270 days worth of lure supply",
+        "DISCREET AND ATTRACTIVE DESIGN: The apple-shaped anti fruit fly trap design of this indoor fly trap blends in with the fruits these pests love, keeping unsightly fruit fly populations down",
+        "EASY MONITORING: Built-in windows in this fruit fly catcher allow for simple monitoring of the lure levels and catches of these fly traps.",
+        "TARGET BREEDING AREAS: These indoor fruit fly catchers are most effective when placed near fruit bowls, trash cans, and counters to control fruit fly breeding locations"
+      ],
+      "product_type": "PEST_CONTROL_DEVICE"
+    },
+    "B07VYPGHFW": {
+      "asin": "B07VYPGHFW",
+      "title": "Aunt Fannie's FlyPunch Fruit Fly Trap for Indoor and Kitchen Use, Ready to Use, Made with Plant Based Ingredients, Safe Near Food, Each Bottle Lasts Up to 30 Days, Pack of 2",
+      "brand": "Aunt Fannie's",
+      "browse_classification": "Baits & Lures",
+      "images": [
+        {
+          "variant": "MAIN",
+          "url": "https://m.media-amazon.com/images/I/91aYrXmLrDL.jpg",
+          "width": 2000,
+          "height": 2000
+        },
+        {
+          "variant": "MAIN",
+          "url": "https://m.media-amazon.com/images/I/51qPY621IBL.jpg",
+          "width": 500,
+          "height": 500
+        },
+        {
+          "variant": "MAIN",
+          "url": "https://m.media-amazon.com/images/I/51qPY621IBL._SL75_.jpg",
+          "width": 75,
+          "height": 75
+        },
+        {
+          "variant": "PT02",
+          "url": "https://m.media-amazon.com/images/I/81QDIULmnxL.jpg",
+          "width": 2000,
+          "height": 2000
+        },
+        {
+          "variant": "PT02",
+          "url": "https://m.media-amazon.com/images/I/519PW5hnAyL.jpg",
+          "width": 500,
+          "height": 500
+        },
+        {
+          "variant": "PT02",
+          "url": "https://m.media-amazon.com/images/I/519PW5hnAyL._SL75_.jpg",
+          "width": 75,
+          "height": 75
+        },
+        {
+          "variant": "PT03",
+          "url": "https://m.media-amazon.com/images/I/91BR5PV0-5L.jpg",
+          "width": 2000,
+          "height": 2000
+        },
+        {
+          "variant": "PT03",
+          "url": "https://m.media-amazon.com/images/I/51yRbaRNLlL.jpg",
+          "width": 500,
+          "height": 500
+        },
+        {
+          "variant": "PT03",
+          "url": "https://m.media-amazon.com/images/I/51yRbaRNLlL._SL75_.jpg",
+          "width": 75,
+          "height": 75
+        },
+        {
+          "variant": "PT04",
+          "url": "https://m.media-amazon.com/images/I/71mMje+a5SL.jpg",
+          "width": 2000,
+          "height": 2000
+        },
+        {
+          "variant": "PT04",
+          "url": "https://m.media-amazon.com/images/I/51ATni6ZXXL.jpg",
+          "width": 500,
+          "height": 500
+        },
+        {
+          "variant": "PT04",
+          "url": "https://m.media-amazon.com/images/I/51ATni6ZXXL._SL75_.jpg",
+          "width": 75,
+          "height": 75
+        },
+        {
+          "variant": "PT05",
+          "url": "https://m.media-amazon.com/images/I/81b3dWT7DzL.jpg",
+          "width": 2000,
+          "height": 2000
+        },
+        {
+          "variant": "PT05",
+          "url": "https://m.media-amazon.com/images/I/51M2OLZkpfL.jpg",
+          "width": 500,
+          "height": 500
+        },
+        {
+          "variant": "PT05",
+          "url": "https://m.media-amazon.com/images/I/51M2OLZkpfL._SL75_.jpg",
+          "width": 75,
+          "height": 75
+        },
+        {
+          "variant": "PT06",
+          "url": "https://m.media-amazon.com/images/I/81gyqINbA5L.jpg",
+          "width": 2000,
+          "height": 2000
+        },
+        {
+          "variant": "PT06",
+          "url": "https://m.media-amazon.com/images/I/51P1PIMEKgL.jpg",
+          "width": 500,
+          "height": 500
+        },
+        {
+          "variant": "PT06",
+          "url": "https://m.media-amazon.com/images/I/51P1PIMEKgL._SL75_.jpg",
+          "width": 75,
+          "height": 75
+        },
+        {
+          "variant": "PT07",
+          "url": "https://m.media-amazon.com/images/I/71VVXCRBJCL.jpg",
+          "width": 2560,
+          "height": 2560
+        },
+        {
+          "variant": "PT07",
+          "url": "https://m.media-amazon.com/images/I/41b69+zN28L.jpg",
+          "width": 500,
+          "height": 500
+        },
+        {
+          "variant": "PT07",
+          "url": "https://m.media-amazon.com/images/I/41b69+zN28L._SL75_.jpg",
+          "width": 75,
+          "height": 75
+        }
+      ],
+      "bullet_points": [
+        "Ready to Use: Just open the flip top and set where fruit flies are seen or feared to quickly tackle the fruit fly population within a few days",
+        "Multi-use: Our FlyPunch! fruit fly trap is perfect for use in kitchens and is a must have for gardeners, farmer's market & CSA lovers, home brewers, and compost pails",
+        "Safe and Effective: FlyPunch! Fruit Fly Trap is safe to use around food and pets when used as directed and is free from harsh chemicals",
+        "Long Lasting: Lures fruit flies for up to 30 days. Change as needed",
+        "Powerful Attractant: Attracts and traps fruit flies fast using safe, plant-based ingredients"
+      ],
+      "product_type": "PEST_CONTROL_DEVICE"
+    },
+    "B0DGWQV8GK": {
+      "asin": "B0DGWQV8GK",
+      "title": "Hot Shot Flying Insect Trap, Discreet, Hassle-Free Trap Attracts, Captures House and Fruit Flies, 24/7 Continuous Attraction, No Plug-in Or Electricity Needed, 6 Count",
+      "brand": "HOT SHOT",
+      "browse_classification": "Traps",
+      "images": [
+        {
+          "variant": "MAIN",
+          "url": "https://m.media-amazon.com/images/I/71RAhcOIbLL.jpg",
+          "width": 2560,
+          "height": 2560
+        },
+        {
+          "variant": "MAIN",
+          "url": "https://m.media-amazon.com/images/I/41g054nHtoL.jpg",
+          "width": 500,
+          "height": 500
+        },
+        {
+          "variant": "MAIN",
+          "url": "https://m.media-amazon.com/images/I/41g054nHtoL._SL75_.jpg",
+          "width": 75,
+          "height": 75
+        },
+        {
+          "variant": "PT01",
+          "url": "https://m.media-amazon.com/images/I/712KTeJE6yL.jpg",
+          "width": 2560,
+          "height": 2560
+        },
+        {
+          "variant": "PT01",
+          "url": "https://m.media-amazon.com/images/I/41cnjAkkHML.jpg",
+          "width": 500,
+          "height": 500
+        },
+        {
+          "variant": "PT01",
+          "url": "https://m.media-amazon.com/images/I/41cnjAkkHML._SL75_.jpg",
+          "width": 75,
+          "height": 75
+        },
+        {
+          "variant": "PT02",
+          "url": "https://m.media-amazon.com/images/I/71exFMbVH3L.jpg",
+          "width": 2560,
+          "height": 2560
+        },
+        {
+          "variant": "PT02",
+          "url": "https://m.media-amazon.com/images/I/41A152f2ygL.jpg",
+          "width": 500,
+          "height": 500
+        },
+        {
+          "variant": "PT02",
+          "url": "https://m.media-amazon.com/images/I/41A152f2ygL._SL75_.jpg",
+          "width": 75,
+          "height": 75
+        },
+        {
+          "variant": "PT03",
+          "url": "https://m.media-amazon.com/images/I/81bdLeBa0IL.jpg",
+          "width": 2560,
+          "height": 2560
+        },
+        {
+          "variant": "PT03",
+          "url": "https://m.media-amazon.com/images/I/51OZQ9j4qML.jpg",
+          "width": 500,
+          "height": 500
+        },
+        {
+          "variant": "PT03",
+          "url": "https://m.media-amazon.com/images/I/51OZQ9j4qML._SL75_.jpg",
+          "width": 75,
+          "height": 75
+        },
+        {
+          "variant": "PT04",
+          "url": "https://m.media-amazon.com/images/I/71z1ghA22NL.jpg",
+          "width": 2560,
+          "height": 2560
+        },
+        {
+          "variant": "PT04",
+          "url": "https://m.media-amazon.com/images/I/41Ns1jrtMML.jpg",
+          "width": 500,
+          "height": 500
+        },
+        {
+          "variant": "PT04",
+          "url": "https://m.media-amazon.com/images/I/41Ns1jrtMML._SL75_.jpg",
+          "width": 75,
+          "height": 75
+        },
+        {
+          "variant": "PT05",
+          "url": "https://m.media-amazon.com/images/I/81Uz7KBSCHL.jpg",
+          "width": 2560,
+          "height": 2560
+        },
+        {
+          "variant": "PT05",
+          "url": "https://m.media-amazon.com/images/I/41Vkufz0+4L.jpg",
+          "width": 500,
+          "height": 500
+        },
+        {
+          "variant": "PT05",
+          "url": "https://m.media-amazon.com/images/I/41Vkufz0+4L._SL75_.jpg",
+          "width": 75,
+          "height": 75
+        },
+        {
+          "variant": "PT06",
+          "url": "https://m.media-amazon.com/images/I/71fUKvon42L.jpg",
+          "width": 2560,
+          "height": 2560
+        },
+        {
+          "variant": "PT06",
+          "url": "https://m.media-amazon.com/images/I/41xC04PBZsL.jpg",
+          "width": 500,
+          "height": 500
+        },
+        {
+          "variant": "PT06",
+          "url": "https://m.media-amazon.com/images/I/41xC04PBZsL._SL75_.jpg",
+          "width": 75,
+          "height": 75
+        },
+        {
+          "variant": "PT07",
+          "url": "https://m.media-amazon.com/images/I/81QrlvH+gQL.jpg",
+          "width": 2560,
+          "height": 2560
+        },
+        {
+          "variant": "PT07",
+          "url": "https://m.media-amazon.com/images/I/51y3tnjU6gL.jpg",
+          "width": 500,
+          "height": 500
+        },
+        {
+          "variant": "PT07",
+          "url": "https://m.media-amazon.com/images/I/51y3tnjU6gL._SL75_.jpg",
+          "width": 75,
+          "height": 75
+        },
+        {
+          "variant": "PT08",
+          "url": "https://m.media-amazon.com/images/I/81CQLf+JuGL.jpg",
+          "width": 2560,
+          "height": 2560
+        },
+        {
+          "variant": "PT08",
+          "url": "https://m.media-amazon.com/images/I/51UiZFlYCpL.jpg",
+          "width": 500,
+          "height": 500
+        },
+        {
+          "variant": "PT08",
+          "url": "https://m.media-amazon.com/images/I/51UiZFlYCpL._SL75_.jpg",
+          "width": 75,
+          "height": 75
+        }
+      ],
+      "bullet_points": [
+        "TRAPS HOUSE FLIES & FRUIT FLIES: This innovative trap attracts and captures house flies and fruit flies.",
+        "24/7 CONTINUOUS ACTION: Dramatically decreases the number of flying insects around your home.",
+        "DISCREET & COMPACT: The non-noticeable trap seamlessly blends in with home decor; on windowsills (for house flies) or near fruit or where fruit flies are observed (for fruit flies) are the recommended placements for the traps.",
+        "FAST ACTING: This flying insect trap starts working immediately and provides fast, continuous action.",
+        "READY TO USE: With the hassle-free trap, there’s no mess and no plug-in or electricity required."
+      ],
+      "product_type": "INSECT_REPELLENT"
+    },
+    "B0D5DJ7V4P": {
+      "asin": "B0D5DJ7V4P",
+      "title": "Super Ninja Fruit Fly Traps for Indoors - 4 Pack, Highly Effective Fruit Fly Catcher for Indoor Use for Home & Kitchen, Up to 3 Weeks of Performance per Bottle, Kid & Pet Friendly",
+      "brand": "Super Ninja",
+      "browse_classification": "Traps",
+      "images": [
+        {
+          "variant": "MAIN",
+          "url": "https://m.media-amazon.com/images/I/91X1v6AO0wL.jpg",
+          "width": 2560,
+          "height": 2560
+        },
+        {
+          "variant": "MAIN",
+          "url": "https://m.media-amazon.com/images/I/51NNw-+urxL.jpg",
+          "width": 500,
+          "height": 500
+        },
+        {
+          "variant": "MAIN",
+          "url": "https://m.media-amazon.com/images/I/51NNw-+urxL._SL75_.jpg",
+          "width": 75,
+          "height": 75
+        },
+        {
+          "variant": "PT01",
+          "url": "https://m.media-amazon.com/images/I/91m1WyiTCNL.jpg",
+          "width": 2560,
+          "height": 2560
+        },
+        {
+          "variant": "PT01",
+          "url": "https://m.media-amazon.com/images/I/519az3zcgWL.jpg",
+          "width": 500,
+          "height": 500
+        },
+        {
+          "variant": "PT01",
+          "url": "https://m.media-amazon.com/images/I/519az3zcgWL._SL75_.jpg",
+          "width": 75,
+          "height": 75
+        },
+        {
+          "variant": "PT02",
+          "url": "https://m.media-amazon.com/images/I/81KVSLyJkZL.jpg",
+          "width": 2560,
+          "height": 2560
+        },
+        {
+          "variant": "PT02",
+          "url": "https://m.media-amazon.com/images/I/512DmEdVesL.jpg",
+          "width": 500,
+          "height": 500
+        },
+        {
+          "variant": "PT02",
+          "url": "https://m.media-amazon.com/images/I/512DmEdVesL._SL75_.jpg",
+          "width": 75,
+          "height": 75
+        },
+        {
+          "variant": "PT03",
+          "url": "https://m.media-amazon.com/images/I/815k2au06bL.jpg",
+          "width": 2560,
+          "height": 2560
+        },
+        {
+          "variant": "PT03",
+          "url": "https://m.media-amazon.com/images/I/51eNOcLPc7L.jpg",
+          "width": 500,
+          "height": 500
+        },
+        {
+          "variant": "PT03",
+          "url": "https://m.media-amazon.com/images/I/51eNOcLPc7L._SL75_.jpg",
+          "width": 75,
+          "height": 75
+        },
+        {
+          "variant": "PT04",
+          "url": "https://m.media-amazon.com/images/I/81Ea-gBM1cL.jpg",
+          "width": 2560,
+          "height": 2560
+        },
+        {
+          "variant": "PT04",
+          "url": "https://m.media-amazon.com/images/I/51YhsA7LY2L.jpg",
+          "width": 500,
+          "height": 500
+        },
+        {
+          "variant": "PT04",
+          "url": "https://m.media-amazon.com/images/I/51YhsA7LY2L._SL75_.jpg",
+          "width": 75,
+          "height": 75
+        },
+        {
+          "variant": "PT05",
+          "url": "https://m.media-amazon.com/images/I/718yLCCkOHL.jpg",
+          "width": 1500,
+          "height": 1500
+        },
+        {
+          "variant": "PT05",
+          "url": "https://m.media-amazon.com/images/I/51SQu4I6l-L.jpg",
+          "width": 500,
+          "height": 500
+        },
+        {
+          "variant": "PT05",
+          "url": "https://m.media-amazon.com/images/I/51SQu4I6l-L._SL75_.jpg",
+          "width": 75,
+          "height": 75
+        },
+        {
+          "variant": "PT06",
+          "url": "https://m.media-amazon.com/images/I/81hFiI8bu9L.jpg",
+          "width": 2560,
+          "height": 2560
+        },
+        {
+          "variant": "PT06",
+          "url": "https://m.media-amazon.com/images/I/51Dt6QCktDL.jpg",
+          "width": 500,
+          "height": 500
+        },
+        {
+          "variant": "PT06",
+          "url": "https://m.media-amazon.com/images/I/51Dt6QCktDL._SL75_.jpg",
+          "width": 75,
+          "height": 75
+        },
+        {
+          "variant": "PT07",
+          "url": "https://m.media-amazon.com/images/I/81HucU5WXcL.jpg",
+          "width": 2560,
+          "height": 2560
+        },
+        {
+          "variant": "PT07",
+          "url": "https://m.media-amazon.com/images/I/51DpZUEb9VL.jpg",
+          "width": 500,
+          "height": 500
+        },
+        {
+          "variant": "PT07",
+          "url": "https://m.media-amazon.com/images/I/51DpZUEb9VL._SL75_.jpg",
+          "width": 75,
+          "height": 75
+        }
+      ],
+      "bullet_points": [
+        "Highly Effective & Reliable Fruit Fly Catcher: This fruit fly trap is expertly engineered to stop fruit flies where they hover most—kitchen counters, trash bins, and near fruit. See results in just 24 hours!",
+        "Natural Attractant That Works: Our fruit fly traps use a natural liquid bait that mimics decaying fruit to lure flies fast. No harsh smells or chemicals—just clean, safe, and powerful fruit fly control for any space in your home.",
+        "Extended Protection - Up to 3 weeks: Enjoy long-lasting protection with our fruit fly trap. Each bottle offers up to 3 weeks of continuous coverage—just place it in high-traffic areas and let this powerful trap do the work.",
+        "Safe Around Kids & Pets: Made with natural, non-toxic ingredients, this fruit fly catcher for indoor use is safe to use around kids and pets. No need to stress about dangerous chemicals in your home—our fruit fly killer is a safe, effective, and family-friendly way to deal with annoying flies.",
+        "Sustainable Trap Design: This is more than just an effective fruit fly trap—it’s a planet-friendly solution. The liquid bait is crafted from natural ingredients, and the bottle and packaging are made with recyclable materials, so you can keep your home free from flies while keeping waste to a minimum."
+      ],
+      "product_type": "PEST_CONTROL_DEVICE"
+    }
+  }
+}
