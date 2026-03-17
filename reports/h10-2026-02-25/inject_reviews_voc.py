@@ -449,8 +449,13 @@ vocRenderReviews(VOC_REVIEWS);
 with open(HTML_FILE, 'r', encoding='utf-8') as f:
     html = f.read()
 
-# 1. CSS
-html = html.replace('</style>', VOC_CSS + '</style>', 1)
+# 0. Remove existing tv panel + VOC JS if present (idempotent re-injection)
+html = re.sub(r'<div id="tv" class="panel">.*?(?=<!-- ═══════════════════════════════════════ TAB C)', '', html, flags=re.DOTALL)
+html = re.sub(r'// ── Tab V — Reviews VOC.*?(?=// ── Tab C — Listing Communication)', '', html, flags=re.DOTALL)
+
+# 1. CSS (only inject if not already present)
+if '.cs-neg-zone' not in html:
+    html = html.replace('</style>', VOC_CSS + '</style>', 1)
 print('✓ CSS injected')
 
 # 2. Panel — insert before Tab C panel
