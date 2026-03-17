@@ -3797,15 +3797,33 @@ function segInit() {
 
   // ── KPI blocks ──────────────────────────────────────────────────────────
   const SEG_BRANDS = {
-    'Lure': ['Terro', "Aunt Fannie's", 'Raid', 'Super Ninja'],
-    'Sticky Traps': ['Trappify', 'Faicuk', 'Safer', 'TERRO'],
-    'Passive Attractor': ['FlyFix', 'SEWANTA', 'Protecker'],
-    'Electric': ['Zevo', 'Safer', 'Ortho', 'FVOAI']
+    'Lure': [
+      {n:'Terro',url:'https://www.amazon.com/dp/B0BX4GQF68'},
+      {n:"Aunt Fannie's",url:'https://www.amazon.com/dp/B00WMZMHPW'},
+      {n:'Raid',url:'https://www.amazon.com/dp/B0D5DJW9BY'},
+      {n:'Super Ninja',url:'https://www.amazon.com/dp/B0D5DJW9BY'}
+    ],
+    'Sticky Traps': [
+      {n:'Trappify'},{n:'Faicuk'},{n:'Safer'},{n:'TERRO'}
+    ],
+    'Passive Attractor': [
+      {n:'FlyFix'},{n:'SEWANTA'},{n:'Protecker'}
+    ],
+    'Electric': [
+      {n:'Zevo',url:'https://www.amazon.com/dp/B0C3PDTYYX?psc=1'},
+      {n:'Safer',url:'https://www.amazon.com/dp/B0CQ8RSTDW?psc=1'},
+      {n:'Ortho',url:'https://www.amazon.com/dp/B0FQ8HRFC1?psc=1'},
+      {n:'FVOAI',url:'https://www.amazon.com/dp/B0CSJZMRC8?psc=1'}
+    ]
   };
   document.getElementById('seg_kpi_section').innerHTML = segs.map(s => {
     const k = SD.kpis[s], c = SEG_COLORS[s];
     const brands = SEG_BRANDS[s] || [];
-    const brandsHtml = brands.length ? `<div style="font-size:.68rem;color:#94a3b8;margin-top:8px;border-top:1px solid #f1f5f9;padding-top:6px"><span style="font-weight:600;color:#64748b">Top brands:</span> ${brands.join(' · ')}</div>` : '';
+    const brandLinks = brands.map(b => b.url
+      ? `<a href="${b.url}" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;border-bottom:1px dotted #93c5fd">${b.n}</a>`
+      : b.n
+    ).join(' · ');
+    const brandsHtml = brands.length ? `<div style="font-size:.68rem;color:#94a3b8;margin-top:8px;border-top:1px solid #f1f5f9;padding-top:6px"><span style="font-weight:600;color:#64748b">Top brands:</span> ${brandLinks}</div>` : '';
     return `<div class="card" style="border-left:4px solid ${c};padding:14px 16px">
       <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:${c};margin-bottom:10px">${s}</div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px">
