@@ -82,14 +82,22 @@ VOC_CSS = """
 """
 
 # ── Build neg themes table ────────────────────────────────────────────────────
+def rufus_badge(t):
+    """Return a Rufus badge if topic is from Rufus, else percentage."""
+    if t.get('source') and 'Rufus' in t.get('source', ''):
+        rank = t.get('rufus_rank', '?')
+        return f'<span style="display:inline-flex;align-items:center;gap:4px;font-size:.68rem;font-weight:700;color:#7c3aed;background:#f5f3ff;border:1px solid #c4b5fd;border-radius:10px;padding:2px 8px">Rufus #{rank}</span>'
+    return f'{t["pct"]:.1f}%'
+
 def build_neg_themes():
     rows = ''
     for i, t in enumerate(D['neg_themes']):
         quotes_html = ''.join(f'<p>"…{esc(q[:180])}…"</p>' for q in t['quotes'][:3])
         findings_html = ''.join(f'<li>{esc(f)}</li>' for f in t['findings'])
+        pct_cell = rufus_badge(t)
         rows += f'''<tr class="nf-row" onclick="toggleNFv(this)">
   <td><span class="nf-arrow">▶</span>{esc(t['label'])}</td>
-  <td style="text-align:right;font-weight:600">{t['pct']:.1f}%</td>
+  <td style="text-align:right;font-weight:600">{pct_cell}</td>
 </tr>
 <tr class="nf-detail"><td colspan="2"><div class="nf-body">
   <ul>{findings_html}</ul>
@@ -103,9 +111,10 @@ def build_pos_themes():
     for i, t in enumerate(D['pos_themes']):
         quotes_html = ''.join(f'<p>"…{esc(q[:180])}…"</p>' for q in t['quotes'][:3])
         findings_html = ''.join(f'<li>{esc(f)}</li>' for f in t['findings'])
+        pct_cell = rufus_badge(t)
         rows += f'''<tr class="pf-row" onclick="togglePFv(this)">
   <td><span class="pf-arrow">▶</span>{esc(t['label'])}</td>
-  <td style="text-align:right;font-weight:600">{t['pct']:.1f}%</td>
+  <td style="text-align:right;font-weight:600">{pct_cell}</td>
 </tr>
 <tr class="pf-detail"><td colspan="2"><div class="pf-body">
   <ul>{findings_html}</ul>

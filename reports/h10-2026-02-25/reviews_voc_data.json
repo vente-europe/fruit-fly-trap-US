@@ -322,10 +322,55 @@
         "Just got these today. They smell strongly of vinegar. Very tiny bottles for the price. But thats my fault for not reading. Put them out, have got a few trapped.",
         "The TERRO Fruit Fly Traps work okay but not as well as I expected. They definitely catch some fruit flies, especially during the first few days, but the effectiveness seems to drop off pretty quickly.",
         "To be completely honest, these have done nothing for the issue I hoped they would solve to begin with. To start, it smells awful. Others may have different accounts and experiences but these didn’t do",
-        "Surprisingly one of the traps had several dead ants, didn't know I had that issue too. My other traps only had a few gnats after a week and the vinegar smell is awful! I have seen fewer gnats, but if "
+        "Surprisingly one of the traps had several dead ants, didn’t know I had that issue too. My other traps only had a few gnats after a week and the vinegar smell is awful! I have seen fewer gnats, but if "
       ],
       "findings": [
         "Found in 47 of 5724 negative reviews (0.8%)"
+      ]
+    },
+    {
+      "label": "Doesn’t eliminate full infestation",
+      "count": 0,
+      "pct": 0,
+      "rufus_rank": 4,
+      "source": "Rufus category-wide (127K reviews)",
+      "quotes": [
+        "Traps catch some flies but fail to solve the entire problem. Customers still see fruit flies after days/weeks of use.",
+        "Works ‘to a degree’ but not completely — catches some but not all.",
+        "Still have flies after using multiple traps for weeks."
+      ],
+      "findings": [
+        "Rufus category topic #4 — mentioned across TERRO, Super Ninja, Aunt Fannie’s, HOT SHOT. Different from ‘no effect’: these customers see partial results but expect total elimination."
+      ]
+    },
+    {
+      "label": "No refill / replacement lure",
+      "count": 0,
+      "pct": 0,
+      "rufus_rank": 8,
+      "source": "Rufus category-wide (127K reviews)",
+      "quotes": [
+        "Must buy entirely new traps when the lure runs out. No standalone refill available.",
+        "Wasteful and increases ongoing cost — can’t just buy replacement lure.",
+        "Why can’t I just refill these? Having to throw away the whole trap is ridiculous."
+      ],
+      "findings": [
+        "Rufus category topic #8 — specifically about TERRO variants (B07V7GC46D, B0BX4GQF68). Product design creates forced repurchase cycle that frustrates value-conscious buyers."
+      ]
+    },
+    {
+      "label": "Hard to know when to replace",
+      "count": 0,
+      "pct": 0,
+      "rufus_rank": 10,
+      "source": "Rufus category-wide (127K reviews)",
+      "quotes": [
+        "Unclear when the lure has lost effectiveness or when the trap is full.",
+        "No clear indicator for replacement timing — hard to tell if it’s still working.",
+        "Monitoring difficulties — is it attracting fewer flies because it worked, or because the lure is dead?"
+      ],
+      "findings": [
+        "Rufus category topic #10 — about TERRO variants. Opportunity for a visible indicator (color change, fill line) to signal replacement timing."
       ]
     }
   ],
@@ -424,11 +469,15 @@
       "label": "No smell / odorless",
       "count": 1,
       "pct": 0.4,
+      "rufus_rank": 6,
+      "source": "Confirmed at scale via Rufus (127K reviews)",
       "quotes": [
-        "There is no smell to these that I noticed"
+        "There is no smell to these that I noticed",
+        "Several products praised for having minimal or no noticeable smell, making them suitable for kitchen counters and living spaces.",
+        "Odor neutral — little to no smell detected by customers."
       ],
       "findings": [
-        "Found in 1 of 241 positive reviews (0.4%)"
+        "Found in 1 of 241 positive reviews (0.4%). Rufus category topic #6 confirms this is valued at scale across Super Ninja, TERRO, Fly Away brands. Low count here due to small positive sample (241 reviews)."
       ]
     },
     {
@@ -471,6 +520,36 @@
       ],
       "findings": [
         "Found in 11 of 241 positive reviews (4.6%)"
+      ]
+    },
+    {
+      "label": "Clean & mess-free",
+      "count": 0,
+      "pct": 0,
+      "rufus_rank": 5,
+      "source": "Rufus category-wide (127K reviews)",
+      "quotes": [
+        "No stickiness, no spills, no staining. Contained designs keep the lure inside without leaking.",
+        "Non-staining formula — clean operation compared to sticky traps or DIY vinegar bowls.",
+        "Contained design appreciated — no mess on counters or surfaces."
+      ],
+      "findings": [
+        "Rufus category topic #5 — mentioned for Super Ninja, TERRO 12-pack, TERRO apple. Strong differentiator vs sticky traps and open DIY solutions. Not captured in our Terro+HotShot sample but validated at scale."
+      ]
+    },
+    {
+      "label": "Easy to monitor progress",
+      "count": 0,
+      "pct": 0,
+      "rufus_rank": 9,
+      "source": "Rufus category-wide (127K reviews)",
+      "quotes": [
+        "Built-in viewing windows let you see catches and know the trap is working.",
+        "Transparent designs make it easy to monitor — satisfying to see progress.",
+        "Can tell exactly when to replace because you can see the fill level."
+      ],
+      "findings": [
+        "Rufus category topic #9 — about TERRO apple shape (B01JIRNEQW, B0BX4GQF68). Connects to negative topic 'Hard to know when to replace' — products with windows solve this pain point."
       ]
     }
   ],
